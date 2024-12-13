@@ -1,0 +1,2 @@
+ipc-socket.adb:359:37: warning: overlay changes scalar storage order [enabled by default]
+ipc-socket.adb:518:37: warning: overlay changes scalar storage order [enabled by default]

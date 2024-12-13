@@ -1,0 +1,4314 @@
+\input texinfo
+@setfilename ironclad.info
+@documentencoding UTF-8
+@settitle Ironclad User's Guide
+
+@copying
+Copyright @copyright{} 2024 streaksu
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A
+copy of the license is included in the section entitled ``GNU Free
+Documentation License''.
+@end quotation
+@end copying
+
+@titlepage
+@title Ironclad User's Guide
+@subtitle Userland interfaces and devices, features, and kernel internals.
+@author streaksu
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+@contents
+
+@ifnottex
+@node Top
+@top Ironclad User's Guide
+
+This manual documents usage of Ironclad, interfaces and devices it exposes to
+userland, and discusses kernel internals, without having to navigate the often
+cryptic and scary Ada code.
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Installation and target support::    Installation and hardware support.
+* Boot-time command-line options::     Command-line options.
+* Scheduling and RTC::                 Scheduling methodology and features.
+* Inter-process communication::        IPC primitives, methods, and quirks.
+* Memory architecture::                Memory architecture of the kernel.
+* Userland state and conditions::      Userland state and conditions.
+* Security and integrity facilities::  Ironclad-specific security facilities.
+* Debugging facilities::               Ironclad-specific debugging facilities.
+* Syscalls::                           Listings and explanation of syscalls.
+* Networking::                         Networking support and details.
+* Filesystem support and interfaces::  VFS details and supported filesystems.
+* Devices and their properties::       Devices exposed by the kernel.
+* GNU Free Documentation License::     Copying and sharing this manual.
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+Installation and target support
+
+* riscv64-limine support::     riscv64-limine installation and support.
+* x86_64-limine support::      x86_64-limine installation and support.
+
+Boot-time command-line options
+
+* Format::                 Description of the format.
+* List::                   List of all the available command line arguments.
+
+Scheduling and RTC
+
+* Ticks and other interruptions::  Thread interruptions to expect.
+* Scheduling basics::              Scheduling model used in Ironclad.
+* Thread clustering management::   Thread cluster management in Ironclad.
+
+Inter-process communication
+
+* Pipes::                      FIFOs (yay!).
+* Futexes::                    Fast-Userspace MuTeXes.
+* PTYs::                       Pseudo-terminal creation and management.
+* Signals::                    Ironclad's signal mechanism.
+* Sockets::                    Sockets in all of its glory and flavours.
+
+Memory architecture
+
+* Physical memory allocation::  How the kernel goes about allocating memory.
+* Virtual memory::              Virtual memory architecture.
+* Memory failures::             Memory failure policies and conditions.
+
+Userland state and conditions
+
+* Program loading::  Format of the loaded programs.
+* Memory layout::    Layout of memory in userland.
+
+Security and integrity facilities
+
+* Users and groups::                UIDs, EUIDs, GIDs, and all the fuzz.
+* Mandatory access control (MAC)::  MAC quickguide and configuration.
+* Resource limits::                 Limits on resources built into MAC.
+* Miscellaneous measures::          Miscelaneous security measures.
+
+Debugging facilities
+
+* Corefile and process dumping::    Format of dumped files, and settings.
+* Program tracing::                 Details on program tracing.
+
+Syscalls
+
+* Table and target quirks:: Syscall table and architectural ABI.
+* Errno::                   Error conditions and their values.
+* exit::                    Exit the callee process.
+* arch_prctl::              Interacting with architectural thread-local data.
+* open::                    Opening file-system entities.
+* close::                   Closing file descriptors.
+* read/write::              Read and write from file descriptors.
+* seek::                    Modify and fetch file offsets.
+* mmap/mprotect/munmap::    Manage memory regions.
+* getpid/getppid::          Get the PIDs of the caller.
+* exec::                    Launching new programs.
+* clone::                   Create new processes and threads.
+* wait::                    Waiting for execution of a child to finish.
+* socket::                  Create sockets.
+* sethostname::             Hostname setting.
+* unlink::                  Queue files for deletion.
+* fstat::                   Fetch file information.
+* chdir::                   Current working directory manipulation.
+* ioctl::                   IO multiplexer.
+* sched_yield::             Relinquish CPU time.
+* delete_tcluster::         Delete thread clusters.
+* pipe::                    Create pipes.
+* rename::                  Rename a file.
+* sysconf::                 Fetch general system parameters and information.
+* spawn::                   clone+exec power incarnate.
+* gettid::                  Get the current thread id.
+* manage_tcluster::         Manage and create thread clusters.
+* fcntl::                   Multiplexed operations for files.
+* exit_thread::             Exit the calling thread.
+* getrandom::               Bypass /dev/random for avoiding DoS attacks.
+* mac_capabilities::        Get and set MAC capabilities.
+* add_mac_permissions::     Configure MAC using filesystem-based filters.
+* set_mac_enforcement::     Set enforcement to follow on MAC violations.
+* mount/umount::            Mount and unmount partitions.
+* readlink::                Read the contents of a symlink.
+* getdents::                Get directory entries.
+* sync::                    Synchronize device caches.
+* mknod::                   Create several kinds of files.
+* truncate::                Truncate the contents of a file to an offset.
+* bind::                    Bind sockets to locations.
+* mkdir::                   Create directories.
+* symlink::                 Create symbolic links.
+* connect::                 Connect a socket.
+* openpty::                 Create pseudoterminals.
+* fsync::                   Synchronize file-specific caches.
+* link::                    Create hard links.
+* ptrace::                  Trace and debug children processes.
+* listen::                  Listen for connections to a socket.
+* accept::                  Accept socket connections.
+* getrlimit/setrlimit::     Get and set resource limits.
+* access::                  Check file access permissions and existance.
+* ppoll::                   I/O event multiplexer.
+* getuid/geteuid::          Get the UID and the effective UID.
+* setuids::                 Set the UID and the effective UID.
+* fchmod::                  Change the mode of a file descriptor.
+* umask::                   Get and set the calling process umask.
+* reboot::                  Machine power management.
+* fchown::                  Change ownership of a file descriptor.
+* pread/pwrite::            Atomic read and write from file descriptors.
+* getsockname::             Get address of a bound socket.
+* getpeername::             Get address of a socket's peer.
+* shutdown::                Disconnect socket from its peer.
+* futex::                   Fast userland mutexes.
+* clock::                   Clock and time operations.
+* clock_nanosleep::         Sleep on a clock.
+* getrusage::               Get resource usage for the process.
+* recvfrom/sendto::         Socket IO support functions.
+* config_netinter::         Configure network interfaces.
+* utimes::                  Modify timestamps for a file.
+* create_tcluster::         Create a thread cluster.
+* switch_tcluster::         Switch thread cluster.
+* sigprogmask::             Fetch and change a process' blocked signal.
+* sigaction::               Fetch and change a signal's action.
+* send_signal::             Send a signal to a process.
+* getprio/setprio::         Get / Set the niceness of some entities.
+* getgid/getegid::          Get the GID and the effective GID.
+* setgids::                 Set the GID and the effective GID.
+* getgroups/setgroups::     Get and set supplementary user groups.
+* ttyname::                 Get the name of a TTY file descriptor.
+* fadvise::                 Advise caching for file access.
+* shmat::                   Attach a shared memory region.
+* shmctl::                  Control a shared memory region.
+* shmdl::                   Delete a shared memory region.
+* shmget::                  Create or get a shared memory region by key.
+* getsockopt/setsockopt::   Get and set options on sockets.
+* gettidid/settidid::       Get and set TID IDs.
+* failure_policy::          Get or set failure policies.
+
+Filesystem support and interfaces
+
+* Extended FileSystem::    EXT-series filesystems (ext2, ext3, ext4).
+* File Allocation Table::  FAT-series filesystems.
+
+Networking
+
+* Layering::             What Ironclad provides in terms of the OSI model.
+* Interface handling::   How interfaces work inside Ironclad.
+* Loopback::             Loopback device use and specification.
+
+Devices and their properties
+
+* Common devices::             Devices common to all architectures and targets.
+* riscv64-limine devices::     Devices specific to riscv64-limine.
+* x86_64-limine devices::      Devices specific to x86_64-limine.
+
+@end detailmenu
+@end menu
+
+@node Installation and target support
+@chapter Installation and target support
+
+This chapter delves on what hardware configurations Ironclad supports and how
+to get Ironclad running on those platforms.
+
+Ironclad hardware support is divided in targets, which are combos of
+an architecture and board that are supported in tandem, along with any
+accompaning hardware, some hardware is supported regardless of the underlying
+target, @ref{Common devices}.
+
+@node riscv64-limine support
+@section riscv64-limine support
+
+Ironclad supports RISC-V64 systems supporting the IMAC, ZICSR, and ZIFENCEI
+extensions using the Limine boot protocol, which as of time of writing
+depends on UEFI support being present, but this might change in the future. The
+machines running Ironclad are required to provide a device tree blob (DTB).
+
+Refer to your limine compliant bootloader for instructions on where to put
+kernel images, configuration formats, and the like.
+
+For supported devices and how they are abstracted, @ref{riscv64-limine devices}
+
+@node x86_64-limine support
+@section x86_64-limine support
+
+x86_64 systems are supported using the limine boot protocol, any
+limine compliant bootloader will be able to boot it just fine.
+
+Refer to your limine compliant bootloader for instructions on where to put
+kernel images, configuration formats, and the like.
+
+For supported devices and how they are abstracted,
+@ref{x86_64-limine devices}.
+
+@node Boot-time command-line options
+@chapter Boot-time command-line options
+
+Ironclad takes, as part of its boot protocol, a series of options and values.
+The parsing of this options is architecture and platform independent, while the
+ability to modify said options and values is entirely up to the platform and
+bootloader.
+
+@node Format
+@section Format
+
+The format is a list of keys with optional arguments as such:
+
+@example shellscript
+key1=value1 key2 key3=value3 key4="value4 value5" ... keyN=(")valueN(")
+@end example
+
+For arguments that need spaces within, like init program arguments and such,
+quotation marks are available for use, nested quotation marks are not allowed
+in any shape or form, due to the primitive parsing available within the kernel.
+
+@node List
+@section List
+
+This are the keys and values the kernel takes, and under which circumstances:
+
+@table @code
+@item root=<device>
+Device to mount as root, if any.
+
+@item rootuuid=<uuid>
+Used instead of @code{root}. It addresses the root device with a UUID instead
+of a device name. This can be used to gain some device-independence, for
+example, for addressing a given partition in a GPT drive regardless the
+containing device.
+
+@item init=<path>
+Path to a program that will be booted by the kernel when finished loading.
+The program will be started with @code{stdin} set to @code{/dev/null}, and
+@code{stdout} and @code{stderr} set to @code{/dev/console}.
+
+@item initargs=<args>
+Arguments to pass to init. If environment variables are what is desired,
+consider the trick of booting in typical UNIX fashion
+@code{/bin/env <vars> <init command>}.
+
+@item noprogaslr
+The offset of loaded programs in virtual memory is randomized when loading if
+possible, this option disables it system-wide at boot time and hardcodes it to
+the lowest available value.
+
+@item nolocaslr
+The same as @code{noprogaslr} but applied to memory locations like stacks
+and memory allocation.
+@end table
+
+@node Scheduling and RTC
+@chapter Scheduling and RTC
+
+Ironclad is built around hard real-time work, this chapter explains how that
+is accomplished along with how scheduling works, predictability of it, and
+other useful related features.
+
+@node Ticks and other interruptions
+@section Ticks and other interruptions
+
+Ironclad will not interrupt a running thread for timers or heartbeats, if
+necessary, at the expense of performance by, for example, using polling instead
+of interrupt-based operation for device drivers.
+
+A thread, however, may be interrupted for task-switching, which is needed for
+scheduling to work. This will not be an issue for most operations, but if the
+user desires absolutely 0 interruptions and/or jitter, one can use
+
+@node Scheduling basics
+@section Scheduling basics
+
+Scheduling in Ironclad is based broadly on
+@url{https://en.wikipedia.org/wiki/ARINC_653, ARINC 653 partitioning} and
+process models. Like the standard specifies, it employs 2 hierarchies of
+schedulable entities, the thread cluster, and the thread (or partition and
+process in ARINC nomenclature respectively).
+
+Each cluster needs to have a percentage of CPU time assigned at creation
+(which can be modified later on), that the scheduler will uphold with
+preemption, effectively promissing that any given cluster will be given, at
+least, the specified execution time. Validy of the cluster configuration is
+checked when adding, deleting, or modifying individual clusters.
+
+Slack time (time not covered percent-wise by any cluster) will be used as seen
+fit, while not breaking scheduler guarantees, in an unspecified way. Thus, it
+shall be treated as @b{UNDEFINED BEHAVIOUR} by system users, and it is the
+responsability of the user to configure the scheduling to keep this into
+account. It is also why the above paragraph mentions "at least", as unspecified
+time can be assigned to other clusters.
+
+Ironclad supports multicore configurations, shuffling cores around clusters,
+while always keeping the assigned slices for each cluster.
+
+@node Thread clustering management
+@section Thread clustering management
+
+Thread clusters are identified by an integer id, not unlike threads or PIDs.
+Clusters rule over a group of threads, regardless of their process of origin,
+and allow specifiying an algorithm and a percentage over all the CPU time.
+
+The algorithm of a cluster affects how threads inside the cluster are
+scheduled. The available algorithms are:
+
+@table @code
+@item SCHED_RR
+A prioritized round robin. One can specify a quantum to use when
+switching threads, while one can specify a priority using standard POSIX
+niceness. @ref{getprio/setprio}.
+
+Priorities affect inter-thread quantum following the formula:
+
+@example
+timeout = quantum - ((quantum / 40) * niceness);
+@end example
+
+@item SCHED_COOP
+Cooperative scheduling, the scheduler will not attempt to preempt unless
+explicitly requested by exiting or yielding.
+@end table
+
+Additionally, by using the @code{SCHED_INTR} flag, a cluster can be configured
+to be interruptible, which makes the kernel able to interrupt a thread and
+queue another during long waits, in order to increase performance and
+responsiveness. This does not affect cluster-wide scheduling guarantees.
+
+At startup, Ironclad will have a single interruptible cluster assigned to 100%
+of execution time, configured to use a flat RR with a reasonable quantum with
+cluster number @code{1}. Software is free to modify it however it sees fit, it
+is just provided in order to have some natural-ish behaviour for running
+software blissfully unaware of the clusters beneath.
+
+Syscalls used for modifying clusters and their settings are
+@code{manage_tcluster} and @code{delete_tcluster}, @code{create_tcluster}, and
+@code{switch_tcluster}.
+
+@node Inter-process communication
+@chapter Inter-process communication
+
+This chapter digs into the forms of IPC Ironclad supports, what they do, and
+how they can help accomplish complex local or remote IPC.
+
+@node Pipes
+@section Pipes
+
+Ironclad features standard POSIX-like pipes, they are created using
+@pxref{pipe}.
+
+The standard size of pipes is 10 architectural pages. This size can be modified
+using the following @code{fcntl} calls.
+
+@example c
+#define F_GETPIPE_SZ 7     // Get the size in bytes.
+#define F_SETPIPE_SZ 8     // Set the size in bytes.
+@end example
+
+@node Futexes
+@section Futexes
+
+Standard Linux-like futexes. @ref{futex}.
+
+@node PTYs
+@section PTYs
+
+Pseudo terminals (PTYs) are available in Ironclad, with a few quirks. They are
+created using @pxref{openpty}.
+
+PTYs, unlike other OSes like Linux, when created, do not populate @code{/dev}.
+They live exclusively as file descriptors, not unlike a pipe. Apart of that
+they behave as you would expect when compared with other UNIX-likes.
+
+@node Signals
+@section Signals
+
+Ironclad implements standard POSIX signals.
+
+@node Sockets
+@section Sockets
+
+Standard sockets. @ref{socket}.
+
+@node Memory architecture
+@chapter Memory architecture
+
+This section delves into details on Ironclad's memory management.
+
+@node Physical memory allocation
+@section Physical memory allocation
+
+Ironclad features two physical memory allocator choices for use, the chosen
+allocator will be used both for kernel and userland allocations, the standard
+and alloconly allocators.
+
+The standard allocator is a general purpose allocator for your average
+everyday allocator needs. Its internally implemented as a bitmap allocator with
+page-sized blocks and a quick cache for small objects, along with some quick
+hardening features, like checksums.
+
+The alloconly option features several optimizations on top of the usual
+allocator in order to save memory and tune operation, for usecases where nor
+userland nor the kernel are wanted to deallocate memory at all.
+
+@node Virtual memory
+@section Virtual memory
+
+The virtual memory architecture of Ironclad is quite simple, given the need
+to avoid things like complex virtual memory management which could influence
+predictability with page-related interrupts, and similar features. For the same
+reason, memory overcommiting is not allowed.
+
+@node Memory failures
+@section Memory failures
+
+Ironclad is capable of answering to out of memory conditions as well as
+hardware memory errors.
+
+For OOM failures, Ironclad will try to free internal storage used for cache and
+retry allocation until it is deemed the situation is not recoverable, in which
+case it will panic. To this end, Ironclad will kill high memory consuming
+processes, this behaviour is configurable in @ref{failure_policy}.
+
+For hardware memory failures, like RAM sticks going bad, handling will depend
+on the underlying architecture. Behaviour is configurable as well under
+@ref{failure_policy}.
+
+@node Userland state and conditions
+@chapter Userland state and conditions
+
+Ironclad places several requirements on loaded userland programs, from the
+format of which, to memory layout.
+
+@node Program loading
+@section Program loading
+
+Loaded programs must be under the ELF64 format, other formats may be supported
+in the future. Loaded programs can be static or relocatable.
+
+@code{ld.so}, or any other linker program detailed on the interpreter segment
+of the ELF executable will be a special case, it is assumed to be relocatable.
+
+@node Memory layout
+@section Memory layout
+
+Loaded programs are loaded at address 0, and they are free to allocate
+themselves at nearby offsets.
+
+@code{ld.so} and entities like stacks, anonymous memory regions, and others,
+will be randomized on load time following
+@uref{https://en.wikipedia.org/wiki/Address_space_layout_randomization, ASLR},
+and must not be relied upon. It is up to @code{ld.so} to optionally place
+additionally loaded libraries at random offsets.
+
+The stack is a fixed @code{128 KiB} in size, and is not executable, by default.
+
+@node Security and integrity facilities
+@chapter Security and integrity facilities
+
+This chapter digs into the various Ironclad-specific security and integrity
+features available for the user.
+
+@node Users and groups
+@section Users and groups
+
+As part of the UNIX-like package, Ironclad supports the traditional UID/EUID
+values per-process for basic access protection, both for files and syscalls.
+
+Unlike most UNIX systems, the @code{setuid} bit is fully ignored and not
+implemented, instead, as part of the mandatory access control facilities
+explained later, @code{MAC_CAP_SETUID} is provided, with similar functionality.
+
+Groups are not supported in any shape or form.
+
+@node Mandatory access control (MAC)
+@section Mandatory access control (MAC)
+
+Mandatory access control (MAC) is one of the main components of Ironclad's
+security. It does not necesarily help with preventing breaches, but, when
+configured correctly, it can help mitigate consequences to a massive degree.
+
+MAC in Ironclad consists on a series of settings inherited from parent process
+to children, these settings come in the form of capabilities and file filters.
+
+Capabilities are a set of coarse permissions that restrict a process on what it
+can and cannot do, only more restrictive capability escalations are allowed,
+they are configured using @ref{mac_capabilities}.
+
+The available capability list is:
+
+@table @code
+@item MAC_CAP_SCHED
+The process will be allowed to change its own scheduling rules, like modifying
+deadlines.
+
+@item MAC_CAP_SPAWN
+The process will be allowed to spawn other processes and threads.
+
+@item MAC_CAP_ENTROPY
+The process will have unrestricted access to the sources of entropy of the
+kernel, this does not cover the UNIX-standard @code{random/urandom}.
+
+@item MAC_CAP_SYS_MEM
+The process will be able to allocate and deallocate both private and shared
+memory regions.
+
+@item MAC_CAP_USE_NET
+The process will be able to use networking.
+
+@item MAC_CAP_SYS_NET
+The process will be able to modify networking, for things like hostname
+changing.
+
+@item MAC_CAP_SYS_MNT
+The process will be able to modify, add, and remove mountpoints.
+
+@item MAC_CAP_SYS_PWR
+The process will be able to modify power settings, along doing things like
+shutdown and reboot.
+
+@item MAC_CAP_PTRACE
+The process will be able to use ptrace on children processes.
+
+@item MAC_CAP_SETUID
+The process will be able to change its effective and global UIDs without
+checks.
+
+@item MAC_CAP_SYS_MAC
+The process will be able to add allowed inodes to the MAC definitions, along
+with modifying hard limits for system resources.
+
+@item MAC_CAP_CLOCK
+The process will be able to access clocks syscalls like @ref{clock} or
+@code{clock_nanosleep}, as well as setting the time of clocks that can do so.
+This is provided as reading clock time can sometimes be used as a way to
+coordinate attacks.
+
+@item MAC_CAP_SIGNALALL
+Processes by default need to share the user with another one to either kill it
+or send a signal. This capability allows to send signals to all processes,
+regardless of the user issuing it.
+
+@item MAC_CAP_SETGID
+The process will be able to change its effective and global UIDs without
+checks.
+
+@item MAC_CAP_IPC
+The process will be able to bypass UID/GID and mode checks when interacting
+with SystemV-style IPC objects, like the ones you can create with @ref{shmget}.
+@end table
+
+File filters consist on permissions given to specific paths and files, that,
+just like capabilities, get inherited from parent to child processes.
+Access to inodes and devices can be granted using @ref{add_mac_permissions}.
+
+The action to take on MAC violations can be set with @ref{set_mac_enforcement}.
+Possible values include denying requests, killing the offending part outright,
+or denying and additionally logging the event.
+
+Once booted, MAC is enabled and gives full access to all capabilities, and
+offers full access to all inodes and devices. It is up to userland to further
+restrict access, and for those settings to trickle down to children processes.
+File access enforcement will kick in only once the first filter is added with
+@ref{add_mac_permissions}.
+
+@node Resource limits
+@section Resource limits
+
+As part of the UNIX-like package, Ironclad supports various resource limits
+that, in the case of Ironclad, are built inside MAC, and are passed down like
+MAC capabilities (@pxref{Mandatory access control (MAC)}).
+@xref{getrlimit/setrlimit}.
+
+Limits mostly act as you would expect them to behave, and they are all
+initialized to the maximum possible value, there are only 2 quirks: For one,
+limits are only deescalatory (like MAC), you can only go down, never up, and,
+since Ironclad does not support dynamically growing stacks, the initial size is
+dictated (for the stacks created by the kernel) with @code{RLIMIT_STACK}. Thus,
+Ironclad does not start that limit with the maximum value, but a smaller valid
+size.
+
+A short description of the available limits and their default values is:
+
+@table @code
+@item RLIMIT_CORE
+Size of corefile dumps, by default 0 (disabling it).
+
+@item RLIMIT_CPU
+Limit of CPU time a process can consume in seconds, by default -1 (max value).
+
+@item RLIMIT_FSIZE
+Limit of individual file size a process can write, by default -1 (max value).
+
+@item RLIMIT_NOFILE
+Limit of files a process can open on top of other system limits, by default
+-1 (max value).
+
+@item RLIMIT_STACK
+Limit of stack size for a process, by default 4 MiB.
+
+@item RLIMIT_AS
+Limit of maximum address size space used by a process, by default
+-1 (max value).
+@end table
+
+@node Miscellaneous measures
+@section Miscellaneous measures
+
+@subsection W^X
+
+Ironclad does not allow mapping memory sections write and execute at the same
+time, this helps mitigate several kinds of memory corruption vulnerabilities
+by making it much harder to transform them into arbitrary code execution.
+
+@node Debugging facilities
+@chapter Debugging facilities
+
+This chapter digs into the various Ironclad-specific debugging features
+available for the user.
+
+@node Corefile and process dumping
+@section Corefile and process dumping
+
+Ironclad implements corefile dumping when a process irreparably crashes, which
+can be controlled and entirely disabled if wanted with the related limits, see
+@ref{Resource limits}.
+
+Corefiles are generated on a path created as:
+
+@example
+/tmp/<faulting PID>.core
+@end example
+
+This path is not configurable, and will only be created and overwritten if the
+file des not exist already.
+
+As seen in @ref{Resource limits}, corefiles are disabled by default, this is
+done since core files can potentially contain private, sensible information
+that could be exploited by an attacker.
+
+The format is a register dump of the process.
+
+@node Program tracing
+@section Program tracing
+
+Ironclad allows tracing children processes for a variety of information, MAC
+willing, see @ref{ptrace}.
+
+@node Syscalls
+@chapter Syscalls
+
+Syscall are the main method for userland to interface with the kernel's
+facilities, this section delves into the mechanism and how it works.
+
+@node Table and target quirks
+@section Table and target quirks
+
+Syscalls in Ironclad have an architecture-dependent ABI, but the table and its
+indexes are always the same, this is done to simplify development. and here is a list of the
+supported architectures and the ABI for each of them. Here is the table:
+
+@enumerate 0
+@item
+@ref{exit}.
+@item
+@ref{arch_prctl}.
+@item
+@ref{open}.
+@item
+@ref{close}.
+@item
+@ref{read/write, read}.
+@item
+@ref{read/write, write}.
+@item
+@ref{seek}.
+@item
+@ref{mmap/mprotect/munmap, mmap}.
+@item
+@ref{mmap/mprotect/munmap, munmap}.
+@item
+@ref{getpid/getppid, getpid}.
+@item
+@ref{getpid/getppid, getppid}.
+@item
+@ref{exec}.
+@item
+@ref{clone}.
+@item
+@ref{wait}.
+@item
+@ref{socket}.
+@item
+@ref{sethostname}.
+@item
+@ref{unlink}.
+@item
+@ref{fstat}.
+@item
+Empty.
+@item
+@ref{chdir}.
+@item
+@ref{ioctl}.
+@item
+@ref{sched_yield}.
+@item
+@ref{delete_tcluster}.
+@item
+@ref{pipe}.
+@item
+@ref{getuid/geteuid, getuid}.
+@item
+@ref{rename}.
+@item
+@ref{sysconf}.
+@item
+@ref{spawn}.
+@item
+@ref{gettid}.
+@item
+@ref{manage_tcluster}.
+@item
+@ref{fcntl}.
+@item
+@ref{exit_thread}.
+@item
+@ref{getrandom}.
+@item
+@ref{mmap/mprotect/munmap, mprotect}.
+@item
+@ref{sync}.
+@item
+@ref{mac_capabilities, set_mac_capabilities}.
+@item
+@ref{mac_capabilities, get_mac_capabilities}.
+@item
+@ref{add_mac_permissions}.
+@item
+@ref{set_mac_enforcement}.
+@item
+@ref{mount/umount, mount}.
+@item
+@ref{mount/umount, umount}.
+@item
+@ref{readlink}.
+@item
+@ref{getdents}.
+@item
+@ref{mknod}.
+@item
+@ref{truncate}.
+@item
+@ref{bind}.
+@item
+@ref{symlink}.
+@item
+@ref{connect}.
+@item
+@ref{openpty}.
+@item
+@ref{fsync}.
+@item
+@ref{link}.
+@item
+@ref{ptrace}.
+@item
+@ref{listen}.
+@item
+@ref{accept}.
+@item
+@ref{getrlimit/setrlimit, getrlimit}.
+@item
+@ref{getrlimit/setrlimit, setrlimit}.
+@item
+@ref{access}.
+@item
+@ref{ppoll}.
+@item
+@ref{getuid/geteuid, geteuid}.
+@item
+@ref{setuids}.
+@item
+@ref{fchmod}.
+@item
+@ref{umask}.
+@item
+@ref{reboot}.
+@item
+@ref{fchown}.
+@item
+@ref{pread/pwrite, pread}.
+@item
+@ref{pread/pwrite, pwrite}.
+@item
+@ref{getsockname}.
+@item
+@ref{getpeername}.
+@item
+@ref{shutdown}.
+@item
+@ref{futex}.
+@item
+@ref{clock}.
+@item
+@ref{clock_nanosleep}.
+@item
+@ref{getrusage}.
+@item
+@ref{recvfrom/sendto, recvfrom}.
+@item
+@ref{recvfrom/sendto, sendto}.
+@item
+@ref{config_netinter}.
+@item
+@ref{utimes}.
+@item
+@ref{create_tcluster}.
+@item
+@ref{switch_tcluster}.
+@item
+@ref{sigprogmask}.
+@item
+@ref{sigaction}.
+@item
+@ref{send_signal}.
+@item
+@ref{getprio/setprio, getprio}.
+@item
+@ref{getprio/setprio, setprio}.
+@item
+@ref{getgid/getegid, getgid}.
+@item
+@ref{getgid/getegid, getegid}.
+@item
+@ref{setgids}.
+@item
+@ref{getgroups/setgroups, getgroups}.
+@item
+@ref{getgroups/setgroups, setgroups}.
+@item
+@ref{ttyname}.
+@item
+@ref{fadvise}.
+@item
+@ref{shmat}.
+@item
+@ref{shmctl}.
+@item
+@ref{shmdl}.
+@item
+@ref{shmget}.
+@item
+@ref{getsockopt/setsockopt, getsockopt}.
+@item
+@ref{getsockopt/setsockopt, setsockopt}.
+@item
+@ref{gettidid/settidid, gettidid}.
+@item
+@ref{gettidid/settidid, settidid}.
+@end enumerate
+
+@subsection riscv64-limine
+
+Syscalls are invoked in Ironclad by using @code{ecall}.
+
+The index of the syscall is passed over @code{a7}, while the return value is
+returned in @code{a0}, errno is returned in @code{a1}, arguments are passed
+over @code{a0} to @code{a6}.
+
+@subsection x86_64-limine
+
+Syscalls are invoked in Ironclad by using @code{syscall}.
+
+The index of the syscall is passed over @code{%rax}, while the return value is
+returned in @code{%rax}, errno is returned on @code{%rdx}, arguments are passed
+over @code{%rdi}, @code{%rsi}, @code{%rdx}, @code{%r12}, @code{%r8},
+@code{%r9}, and @code{%r10}, following the SysV ABI.
+
+@node Errno
+@section Errno
+
+Errno are values returned by the kernel to detail the nature of an error in
+depth. When a syscall does not error out, it returns the value 0 on the errno
+field. Here is a table of all the possible errno and its values and meaning:
+
+@table @code
+@item ERANGE (3)
+The passed value was not big enough.
+
+@item EACCES (1002)
+The passed access for a variable points to bad memory.
+
+@item EAGAIN (1006)
+The requested resource is not available at the moment.
+
+@item EBUSY (1010)
+The requested resource is busy and cannot handle the request.
+
+@item ECHILD (1012)
+The passed value is not a child process.
+
+@item EFAULT (1020)
+The passed value would make the program fault.
+
+@item EFBIG (1021)
+File too large, or an attempt to surpass the limit on file size was issued.
+
+@item EIDRM (1023)
+Invalid identifier.
+
+@item EINVAL (1026)
+The passed value is not valid for the called syscall.
+
+@item EIO (1027)
+The requested operation failed at a device level.
+
+@item ELOOP (1030)
+Too many symlinks were encountered when resolving a requested path.
+
+@item EMFILE (1031)
+Too many files were opened by the process.
+
+@item ENAMETOOLONG (1036)
+The passed value is too big for the syscall.
+
+@item ENOENT (1043)
+No such file or directory.
+
+@item ENOSYS (1051)
+The requested syscall or flag is not implemented.
+
+@item ENOTTY (1058)
+The passed argument is not a TTY.
+
+@item ENOTSUPP (1060)
+The passed argument is valid, but does not implement the operation. Mostly
+used for sockets and other networking elements when dealing with protocols.
+
+@item EPERM (1063)
+Bad permissions.
+
+@item ESPIPE (1069)
+A seek was issued to an invalid device.
+
+@item ESRCH (1070)
+The passed item could not be found after a search.
+
+@item EBADFD (1081)
+The passed FD is in a bad state or invalid.
+
+@end table
+
+@node exit
+@section exit
+
+@example c
+void exit(uint64_t status);
+@end example
+
+This syscall terminates the calling process "immediately".
+Any open file descriptors belonging to the process to be closed, and any
+threads of execution are terminated.
+
+This syscall does not return any value, but it sets errno on failure:
+
+@itemize @bullet
+@item
+@code{EACCES}: MAC disallowed this, rookie mistake.
+@end itemize
+
+@node arch_prctl
+@section arch_prctl
+
+@example c
+int arch_prctl(int code, uint64_t argument);
+@end example
+
+This syscall interacts with architecture-specific thread-local storage. For
+x86_64, these are the available codes:
+
+@table @code
+@item ARCH_SET_FS (1)
+Sets @code{argument} as the current thread's FS.
+
+@item ARCH_GET_FS (2)
+Stores the current thread's FS into the variable pointed to by @code{argument}.
+
+@item ARCH_SET_GS (3)
+Sets @code{argument} as the current thread's FS.
+
+@item ARCH_GET_GS (4)
+Stores the current thread's GS into the variable pointed to by @code{argument}.
+@end table
+
+This syscall returns @code{0} on success, and @code{-1} on failure.
+errno is to be set to the following values on failure:
+
+@itemize @bullet
+@item
+@code{EINVAL}: @code{code} is not valid.
+
+@item
+@code{EFAULT}: @code{argument} is outside the available address space.
+@end itemize
+
+@node open
+@section open
+
+@example c
+int open(int dir_fd, char *path, int path_len, int flags);
+@end example
+
+@code{open} opens the passed file relative to @code{dir_fd}, depending on the
+flags passed. It does not create the file if not existent. By default, the file
+descriptor will remain open accross an @code{exec}.
+
+@code{flags} can be an OR'd field of the following elements:
+
+@table @code
+@item O_RDONLY (0b000001)
+Makes the file able to be read.
+
+@item O_WRONLY (0b000010)
+Makes the file able to be written to.
+
+@item O_APPEND (0b000100)
+Makes the file be opened at the end of the file, instead of the beggining.
+
+@item O_CLOEXEC (0b001000)
+Will make the file close when @code{exec}'d.
+
+@item O_NOFOLLOW (0b0100000000)
+Do not follow symlinks when opening the file.
+
+@item O_NONBLOCK (0b1000000000)
+Make the file not block on read or write operations when possible.
+@end table
+
+The syscall returns the opened file descriptor or @code{-1} on error, and errno
+is set to the following:
+
+@itemize @bullet
+@item
+@code{ENOENT}: The referenced file does not exist.
+
+@item
+@code{EINVAL}: Combination of @code{flags} is not valid.
+
+@item
+@code{EMFILE}: Too many files are already owned by the process.
+
+@item
+@code{EFAULT}: The passed path is outside the available address space.
+@end itemize
+
+@node close
+@section close
+
+@example c
+int close(int fd);
+@end example
+
+@code{close} closes an open file descriptor. Once no open references exist of a
+file descriptor, its resources are freed, and the file deleted if needed.
+
+The syscall returns 0 on success and -1 in failure, and errno is set to:
+
+@itemize @bullet
+@item
+@code{EBADF}: The passed file to @code{close} is not valid.
+@end itemize
+
+@node read/write
+@section read/write
+
+@example c
+ssize_t read(int fd, void *buffer, size_t count);
+ssize_t write(int fd, void *buffer, size_t count);
+@end example
+
+These syscalls attempts to read or write up to passed count from the passed file descriptor.
+
+On files that support seeking, the operation commences at the file offset, and
+the file offset is incremented by the number of bytes read or written. If the
+file offset is at or past the end of file, no bytes are read or written, and
+the operation returns zero.
+
+These syscalls returns the number of bytes operated on, or @code{-1} on
+failure. errno is to be set to:
+
+@itemize @bullet
+@item
+@code{EBADF}: Bad file descriptor.
+
+@item
+@code{EFAULT}: The passed buffer is not accessible.
+
+@item
+@code{EINVAL}: The passed fd is not suitable for the operation.
+
+@item
+@code{EFBIG}: When writing, the issued write would surpass the process
+file size limit.
+
+@item
+@code{EIO}: The requested operation failed at the device level.
+@end itemize
+
+@node seek
+@section seek
+
+@example c
+off_t seek(int fd, off_t offset, int whence);
+@end example
+
+This syscall repositions the file offset of the passed file description to the
+passed offset according to the directive whence as follows:
+
+@itemize @bullet
+@item
+@code{SEEK_SET} (1): Set to the passed offset.
+
+@code{SEEK_CUR} (2): Set to the current offset plus the passed offset.
+
+@code{SEEK_END} (4): Set to the size of the file plus the passed offset.
+@end itemize
+
+This syscall returns the resulting offset, or @code{-1} on failure. errno is to
+be set to:
+
+@itemize @bullet
+@item
+@code{EBADF}: Bad file descriptor.
+
+@item
+@code{EINVAL}: The whence is malformed or the resulting offset would be invalid.
+
+@item
+@code{ESPIPE}: @code{seek} was called on a TTY or a pipe.
+@end itemize
+
+@node mmap/mprotect/munmap
+@section mmap/mprotect/munmap
+
+@example c
+void *mmap(void *hint, size_t length, int protection, int flags, int fd,
+   off_t offset);
+int mprotect(void *addr, size_t len, int prot);
+int munmap(void *address, size_t length);
+@end example
+
+@code{mmap} creates a new mapping in the virtual address space of the calling
+process. An address can be passed, if it is @code{null}, then the kernel gets
+to choose the address, else, it is taken as a hint about where to place the
+mapping. If a section of the mapping overlaps an existing mapping, it will be
+ignored.
+
+@code{fd} may be used to specify a device or inode in the filesystem to back
+the memory region. For devices, the mmap operation has a different meaning
+for each device. For framebuffer devices, for example, one can make framebuffer
+windows this way. For inodes, the contents of the file will be used to
+initialize the requested memory window, starting to read from @code{offset},
+filling with zeros the non-filled part, if any. This kind of filling does not
+advance the reading counter of the passed device or inode.
+
+@code{hint} and @code{length} are required to be aligned to page boundaries
+for the running architecture, else it will fail.
+
+@code{protection} and @code{flags} are a bitfield of the following flags:
+
+@itemize @bullet
+@item
+@code{PROT_READ} (0b00001): Read permissions.
+
+@item
+@code{PROT_WRITE} (0b00010): Write permissions.
+
+@item
+@code{MAP_FIXED} (0b00100): Use hint as a hard requirement.
+
+@item
+@code{MAP_ANON} (0b01000): Mapping is not backed by any file, and @code{fd} is
+ignored.
+
+@item
+@code{MAP_WC} (0b10000): Map using write-combining when possible.
+@end itemize
+
+@code{munmap} will unmap a range for the virtual address space of the calling
+process, this values must be the same as passed and returned by @code{mmap},
+partial unmapping is allowed.
+
+@code{mprotect} allows to change the permission of a range of memory of the
+passed length pointed by @code{addr}, previously mapped by the caller.
+The format of @code{prot} is the same as @code{mmap}.
+
+@code{mmap} returns a pointer to the allocated area, or @code{-1} on failure.
+@code{munmap} and @code{mprotect} both returns @code{0} on success and
+@code{-1} on failure. All the functions set the following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Bad hints or parameters.
+
+@item
+@code{ENOMEM}: The operation could not be completed due to a lack of memory.
+
+@item
+@code{EACCES}: MAC disallowed this.
+@end itemize
+
+@node getpid/getppid
+@section getpid/getppid
+
+@example c
+int getpid();
+int getppid();
+@end example
+
+@code{getpid} returns the process ID (PID) of the calling process.
+@code{getppid} does the same but it returns the one of the parent, which is the
+process that created the callee by a myriad of ways.
+
+This functions are always successful.
+
+@node exec
+@section exec
+
+@example c
+int exec(const char *path, int path_len, char *const argv[], int argv_len, char *const envp[], envp_len);
+@end example
+
+This syscall executes the program passed with the passed argv and evp, closing
+all the threads of the callee process and putting a single one in place for
+the new program. Other process-specific elements like file descriptors are
+untouched.
+
+This syscall only returns in failure with @code{-1} with the following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: One of the passed strings or arrays is not valid.
+
+@item
+@code{ENOENT}: The file passed in path doesnt exist.
+
+@item
+@code{EACCES}: The file couldn't be launched out of a permission error.
+@end itemize
+
+@node clone
+@section clone
+
+@example c
+#define CLONE_PARENT 0b01
+#define CLONE_THREAD 0b10
+
+pid_t clone(void *callback, uint64_t arg, void *stack, int flags, void *tls);
+@end example
+
+This syscall creates a new thread or process depending on @code{flags}.
+@code{flags} can be an OR'd combination of the following flags:
+
+@itemize @bullet
+@item
+@code{CLONE_PARENT} (0b01): The process or thread will be a child of the parent
+of the caller process, instead of the caller process itself.
+
+@code{CLONE_THREAD} (0b10): If set, a thread will be created and added to the
+parent process, if not set, a process will be created instead. The child
+process will only have the callee thread cloned. The other threads, if any,
+are not cloned.
+@end itemize
+
+This syscall returns @code{0} on success for the child, and the children PID or
+TID to the parent, in failure, the parent gets @code{-1} with the following
+errno:
+
+@itemize @bullet
+@item
+@code{EAGAIN}: The system could not create the entity right now, try again
+later.
+
+@item
+@code{EINVAL}: @code{CLONE_PARENT} is specified and the caller process has no
+parent.
+
+@item
+@code{EACCES}: MAC disallowed this.
+@end itemize
+
+@node wait
+@section wait
+
+@example c
+pid_t wait(pid_t pid, int *status, int options);
+@end example
+
+This syscall suspends execution until the passed pid exits, to then store the
+exit code in @code{status}.
+
+@code{wait} allows the option @code{WNOHANG(0b000010)} for non-blocking
+waiting, if the process has not finished yet, @code{0} will be returned.
+
+@code{pid} can be a PID the callee is a parent of, or @code{-1} to wait on all
+the PIDs the callee has as children. @code{0}, which waits on all the children
+of a process group, is not implemented yet.
+
+This syscall returns the PID waited on or @code{-1} on failure, along with the
+following errno:
+
+@itemize @bullet
+@item
+@code{ECHILD}: The passed PID does not exist.
+
+@item
+@code{EINVAL}: The passed options are not correct or the passed PID is @code{0}
+@end itemize
+
+@node socket
+@section socket
+
+@example c
+#define AF_INET   1
+#define AF_INET6  2
+#define AF_UNIX   3
+
+#define SOCK_DGRAM     0b000000000000000001
+#define SOCK_RAW       0b000000000000000010
+#define SOCK_STREAM    0b000000000000000100
+#define SOCK_SEQPACKET 0b000000000000001000
+#define SOCK_NONBLOCK  0b001000000000000000
+#define SOCK_CLOEXEC   0b010000000000000000
+#define SOCK_CLOFORK   0b100000000000000000
+int socket(int domain, int type);
+@end example
+
+This syscall for creating sockets, the passed fields can be used for selecting
+the type of socket to create. The available sockets type are:
+
+@itemize @bullet
+@item
+@code{AF_INET}: Basically IPv4 socket.
+
+The address of a INET domain socket takes the shape of
+
+@example c
+struct sockaddr_in @{
+   uint32_t sin_family;
+   uint16_t sin_port;
+   char     sin_addr[4];
+   uint8_t  pad[8];
+@};
+@end example
+
+@code{type} can be one of @code{SOCK_DGRAM} or @code{SOCK_STREAM}.
+@code{SOCK_DGRAM} will be translated to @code{TCP}, while @code{SOCK_STREAM}
+will be translated to @code{UDP}.
+
+@item
+@code{AF_INET6}: Basically IPv6 socket.
+
+The address of a INET domain socket takes the shape of
+
+@example c
+struct sockaddr_in6 @{
+   uint32_t sin6_family;
+   uint16_t sin6_port;
+   uint32_t sin6_flowinfo;
+   char     sin6_addr[16];
+   uint32_t sin6_scope_id;
+@};
+@end example
+
+@code{type} can be one of @code{SOCK_DGRAM} or @code{SOCK_STREAM}.
+@code{SOCK_DGRAM} will be translated to @code{TCP}, while @code{SOCK_STREAM}
+will be translated to @code{UDP}.
+
+@item
+@code{AF_UNIX}: UNIX domain socket for local communication, this sockets
+can be unnamed or bound to filesystem paths.
+
+The address of a UNIX domain socket takes the shape of
+
+@example c
+struct sockaddr_un @{
+   uint32_t sun_family; // AF_UNIX.
+   char path[];         // Must be null terminated.
+@};
+@end example
+@end itemize
+
+@code{type} can be one of:
+
+@itemize @bullet
+@item
+@code{SOCK_DGRAM}: Unreliable, connection-less, datagram-based interface. When
+used with INET protocols, it will correspond to UDP. When connected, these
+sockets will just cache the address for further reception / sending.
+@item
+@code{SOCK_STREAM}: Reliable, connection-based stream-based interface.
+Connection, accepting, and listening will be necessary for a proper handshake.
+@item
+@code{SOCK_RAW}: Raw communication directly with the domain layer. When using
+these, no TCP or UDP will be done whatsoever, and the user will be free to
+implement their own protocol on top, or none at all and just use the domain
+datagram transport. Not supported for some protocols, like UNIX domain sockets.
+@item
+@code{SOCK_SEQPACKET}: Sequenced-packet socket that is connection-oriented,
+preserves message boundaries, and delivers messages in the order that they were
+sent.
+@end itemize
+
+Any socket type may have @code{type} be OR'ed with @code{SOCK_NONBLOCK} or
+@code{SOCK_CLOEXEC} for setting the created socket nonblock or cloese on exec
+respectively.
+
+The syscall returns the resulting FD or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid combination of flags.
+@item
+@code{EMFILE}: No available file descriptor slots.
+@end itemize
+
+@node sethostname
+@section sethostname
+
+@example c
+int sethostname(const char *buffer, size_t length);
+@end example
+
+This syscall sets the kernel hostname to the passed string. @code{0} is
+returned on success and @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: The passed buffer points to an invalid address.
+
+@item
+@code{EINVAL}: The passed length is bigger than the kernel can handle or 0.
+
+@item
+@code{EACCES}: MAC did not allow this.
+@end itemize
+
+@node unlink
+@section unlink
+
+@example c
+int unlink(int dir_fd, const char *path, int path_len);
+@end example
+
+The syscall queues for deletion the file pointed to by @code{path}. If
+@code{path} points to a directory, it must be empty.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{ENOENT}: @code{delete} points to a file not valid for deletion, if at all.
+@end itemize
+
+@node fstat
+@section fstat
+
+@example c
+struct stat @{
+    dev_t st_dev;
+    ino_t st_ino;
+    mode_t st_mode;
+    nlink_t st_nlink;
+    uid_t st_uid;
+    gid_t st_gid;
+    dev_t st_rdev;
+    off_t st_size;
+    struct timespec st_atim;
+    struct timespec st_mtim;
+    struct timespec st_ctim;
+    blksize_t st_blksize;
+    blkcnt_t st_blocks;
+@};
+
+int fstat(int dir_fd, char *path, int len, struct stat *statbuf,
+   int flags);
+@end example
+
+This syscalls return information about a file, be it an already opened one with
+@code{dir_fd} and @code{AT_EMPTY_PATH} in @code{flags}, or by relatively
+opening, either following or not following symlinks with
+@code{AT_SYMLINK_NOFOLLOW}.
+
+@code{0} is returned on success, @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EBADF}: The passed path or file descriptor is not valid.
+
+@item
+@code{ENOENT}: The file pointed by @code{path} does not exist.
+
+@item
+@code{EFAULT}: The passed address for the path or stat buffer is not valid.
+@end itemize
+
+@node chdir
+@section chdir
+
+@example c
+int chdir(int fd);
+@end example
+
+This syscalls will set the callee's process current working directory to
+the passed FD, which must point to a directory.
+
+The syscall returns @code{0} on success and @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EBADFD}: The passed descriptor is not a valid directory.
+@end itemize
+
+@node ioctl
+@section ioctl
+
+@example c
+int ioctl(int fd, unsigned long request, void *argument);
+@end example
+
+This syscall manipulates the underlying device parameters of special files. It
+allows a device-dependent API for fetching and setting several modes.
+
+Despite not all ioctl calls needing a specific value for their arguments, due
+to current limitations, all arguments must point to valid memory, regardless
+of whether it ends up used or not.
+
+@code{ioctl} returns @code{0} on success and @code{-1} on failure, and sets the
+following errno:
+
+@itemize @bullet
+@item
+@code{ENOTTY}: The passed file does not support the passed ioctl.
+
+@item
+@code{EBADF}: The passed file does not exist for the process.
+
+@item
+@code{EFAULT}: The passed argument is in non-accesible memory
+@end itemize
+
+@node sched_yield
+@section sched_yield
+
+@example c
+int sched_yield(void);
+@end example
+
+This syscall relinquishes execution of the caller thread.
+Its up for the kernel how far in the queue of execution this thread will go.
+
+This syscall returns @code{0} always, as it never fails, this is done for
+compatibility with POSIX instead of having a @code{void} return type.
+
+@node delete_tcluster
+@section delete_tcluster
+
+@example c
+int delete_tcluster(int cluster);
+@end example
+
+This syscall deletes the passed thread cluster, will only succeed if the
+cluster has no associated threads.
+
+The syscall returns @code{0} on success and @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: The passed cluster does not exist or still has threads.
+@end itemize
+
+@node pipe
+@section pipe
+
+@example c
+int pipe(int pipefd[2], int flags);
+@end example
+
+This syscalls creates a pipe with the passed flags and returns the registered
+file descriptors in @code{pipefd}. Index @code{0} is the reader end, @code{1}
+is the writing one.
+
+The only available flag for use is @code{O_NONBLOCK}.
+
+The syscall returns @code{0} on success and @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: @code{pipefd} points to bogus memory.
+@item
+@code{EMFILE}: No available file descriptor slots.
+@end itemize
+
+@node rename
+@section rename
+
+@example c
+#define RENAME_NOREPLACE 1
+int rename(int sourcedirfd, const char *sourcepath, size_t sourcelen,
+       int targetirfd, const char *targetpath, size_t targetlen, int flags);
+@end example
+
+This syscalls renames a file in an atomic operation, it is only available in
+between files in the same mountpoint. If @code{targetpath} exists, it will be
+replaced, @code{RENAME_NOREPLACE} may be passed in @code{flags} for making the
+call fail in said case instead of replacing silently.
+
+The syscall return the new fd on success and @code{-1} on failure. The errno
+codes set on failure are:
+
+@itemize @bullet
+@item
+@code{EFAULT}: One of the passed values is outside addressable memory.
+
+@item
+@code{ENAMETOOLONG}: The passed path is too long.
+
+@item
+@code{EIO}: The operation could not be done out of an internal error.
+@end itemize
+
+@node sysconf
+@section sysconf
+
+@example c
+#define SC_PAGESIZE         1 // Page size of the system.
+#define SC_OPEN_MAX         2 // Maximum amount of files per process.
+#define SC_HOST_NAME_MAX    3 // Maximum length of hostnames.
+#define SC_AVPHYS_PAGES     4 // Number of free physical pages.
+#define SC_PHYS_PAGES       5 // Number of total available pages.
+#define SC_NPROCESSORS_ONLN 6 // Number of processors active and used.
+#define SC_TOTAL_PAGES      7 // Total amount of installed memory pages.
+#define SC_LIST_PROCS       8 // List all processes of the system.
+#define SC_LIST_MOUNTS      9 // List all mountpoints of the system.
+#define SC_UNAME           10 // Fetch basic system information.
+#define SC_CHILD_MAX       11 // Maximum number of children for the user.
+#define SC_LIST_THREADS    12 // List all threads of the system.
+#define SC_LIST_CLUSTERS   13 // List all thread clusters of the system.
+#define SC_LIST_NETINTER   14 // List all network interfaces.
+#define SC_DUMPLOGS        15 // Dump kernel logging to a buffer.
+#define SC_NGROUPS_MAX     16 // Max number of supplementary groups.
+#define SC_SYMLOOP_MAX     17 // Max number of symbolic loops to follow.
+#define SC_LIST_FILELOCKS  18 // List all advisory file locks.
+#define SC_LOADAVG         19 // Dump load averages.
+#define SC_MEMINFO         20 // Dump memory information.
+
+long int sysconf(int request, uintptr_t addr, uintptr_t len);
+@end example
+
+This syscalls fetches the requested information in @code{request} and returns
+it.
+
+Depending on the request, @code{addr} and @code{len} may be used for
+determining the address of a buffer and its length for reporting information
+that doesn't fit on the usual return value. The options where they have meaning
+are:
+
+@itemize @bullet
+@item
+@code{SC_LIST_PROCS}: @code{addr} points to an array of items, and @code{len}
+is the count of bytes reserved in the array. The items have the structure:
+
+@example c
+struct procinfo @{
+    char id[20];
+    uint16_t id_len;
+    uint16_t ppid;
+    uint16_t pid;
+    uint32_t uid;
+    uint32_t flags;
+@} __attribute__((packed));
+@end example
+
+The total number of processes is returned, even if it doesnt fit in the passed
+array.
+
+@item
+@code{SC_LIST_MOUNTS}: @code{addr} points to an array of items, and @code{len}
+is the count of bytes reserved in the array. The items have the structure:
+
+@example c
+struct mountinfo @{
+    uint32_t fs_type;
+    uint32_t flags;
+    char source[20];
+    uint32_t source_len;
+    char location[20];
+    uint32_t location_len;
+@};
+@end example
+
+The total number of mounts is returned, even if it doesnt fit in the passed
+array.
+
+@item
+@code{SC_UNAME}: @code{addr} points to the following structure, and @code{len}
+is the length in bytes of said structure:
+
+@example c
+struct utsname @{
+    char sysname[65];  // Kernel name (e.g., "Ironclad")
+    char nodename[65]; // Hostname of the machine.
+    char release[65];  // Kernel release (e.g., "2.6.28")
+    char version[65];  // Kernel release, again.
+    char machine[65];  // Hardware identifier (e.g., "x86")
+@};
+@end example
+
+In success, the returned value will be @code{0}.
+
+@item
+@code{SC_LIST_THREADS}: @code{addr} points to an array of items, and @code{len}
+is the count of bytes reserved in the array. The items have the structure:
+
+@example c
+struct threadinfo @{
+    uint16_t tid;
+    int16_t  niceness;
+    uint16_t tcid;
+    uint16_t pid;
+@};
+@end example
+
+The total number of threads is returned, even if it doesnt fit in the passed
+array.
+
+@item
+@code{SC_LIST_CLUSTERS}: @code{addr} points to an array of items, and
+@code{len} is the count of bytes reserved in the array. The items have the
+structure:
+
+@example c
+struct tclusterinfo @{
+    uint16_t tcid;
+    uint16_t tflags;
+    uint16_t tquantum;
+@};
+@end example
+
+The total number of thread clusters is returned, even if it doesnt fit in the
+passed array.
+
+@item
+@code{SC_LIST_NETINTER}: @code{addr} points to an array of items, and
+@code{len} is the count of bytes reserved in the array. The items have the
+structure:
+
+@example c
+struct netinterface @{
+    char device[64]; // null terminated.
+    uint64_t flags;
+    uint8_t mac_addr[6];
+    uint8_t ip4_addr[4];
+    uint8_t ip4_subnet[4];
+    uint8_t ip6_addr[16];
+    uint8_t ip6_subnet[16];
+@};
+@end example
+
+@item
+@code{SC_DUMPLOGS}: @code{addr} points to a string to store the buffer, which
+is an array of 80-char long strings. @code{len} is the length of the buffer.
+The total length of the kernel buffer is returned, regardless of whether it
+fits or not.
+
+@item
+@code{SC_LIST_FILELOCKS}: @code{addr} points to an array of items, and
+@code{len} is the count of bytes reserved in the array. The items have the
+structure:
+
+@example c
+struct flock_info @{
+    uint32_t pid;
+    uint32_t mode;
+    uint64_t start;
+    uint64_t length;
+    uint64_t dev_id;
+    uint64_t inode;
+@};
+@end example
+
+@item
+@code{SC_LOADAVG}: @code{addr} points to an array of at least 3 integers, and
+@code{len} is the count of bytes reserved in the array. The array has the
+structure:
+
+@example c
+uint32_t array[3];
+@end example
+
+The values the number of threads in the system run queue averaged over
+various periods of time. The 3 samples correspond to the averages of 1, 5, and
+15 minutes, respectively. It can be used as a measure of relative load. The
+values are to be divided by 100 before being used.
+
+@item
+@code{SC_MEMINFO}: @code{len} is ignored and @code{addr} points to a structure
+as such:
+
+@example c
+struct mem_info @{
+    // All data is in bytes.
+    uint64_t phys_total;     // Total physical memory of the system.
+    uint64_t phys_available; // Non-reserved memory managed by the system.
+    uint64_t phys_free;      // Free memory available to the system.
+    uint64_t shared_usage;   // Amount of shared memory in the system.
+    uint64_t kernel_usage;   // Amount of memory in use by the kernel.
+    uint64_t table_usage;    // Of the kernel, amount in use for page tables.
+    uint64_t poison_usage;   // Memory marked by the hardware as faulty.
+@};
+@end example
+
+@code{0} is returned on success.
+
+@end itemize
+
+The syscall return the requested information on success and @code{-1} on
+failure. If the requested value can also be @code{-1}, errno must be checked.
+
+The errno codes set on failure are:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid request.
+@end itemize
+
+@node spawn
+@section spawn
+
+@example c
+pid_t spawn(const char *path, int path_len, char *const argv[],
+   int argv_len, char *const envp[], int envp_len, uint64_t *caps);
+@end example
+
+This syscall spawns a child process in a way similar to what a
+@code{clone}+@code{exec} could be used for, but more efficiently, given it
+doesn't need to copy the address space just to overwrite it.
+
+File descriptors are copied and treated the same way a @code{fork} followed
+by an @code{exec} call would. That is, @code{FD_CLOEXEC} FDs are closed, and
+@code{FD_CLOFORK} FDs are not carried over.
+
+The argument @code{caps}, if not @code{NULL}, points to a capability set in
+the same format as @ref{mac_capabilities}. This can be useful for deescalating
+capabilities in the same convenient way as a call to @code{mac_capabilities} in
+between @code{clone} and @code{exec} could.
+
+The syscall returns the created PID on success and @code{0} on failure, with
+the errno codes being:
+
+@itemize @bullet
+@item
+@code{EAGAIN}: The system could not create the process right now.
+
+@item
+@code{EFAULT}: One or more of the passed arguments point to invalid memory.
+
+@item
+@code{EACCES}: MAC disallowed this.
+@end itemize
+
+@node gettid
+@section gettid
+
+@example c
+int gettid(void);
+@end example
+
+This syscall returns the current thread id. It never fails.
+
+@node manage_tcluster
+@section manage_tcluster
+
+@example c
+#define SCHED_RR   0b001
+#define SCHED_COOP 0b010
+#define SCHED_INTR 0b100
+
+int manage_tcluster(int cluster, int flags, int quantum, int percentage);
+@end example
+
+This syscall sets settings for the passed cluster.
+
+The syscall returns @code{0} on success and @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EACCES}: MAC did not allow the operation.
+@item
+@code{EINVAL}: One of the passed values was not correct.
+@end itemize
+
+@node fcntl
+@section fcntl
+
+@example c
+#define F_DUPFD         1
+#define F_DUPFD_CLOEXEC 2
+#define F_GETFD         3
+#define F_SETFD         4
+#define F_GETFL         5
+#define F_SETFL         6
+#define F_GETPIPE_SZ    7
+#define F_SETPIPE_SZ    8
+#define F_GETLK         9
+#define F_SETLK         10
+#define F_SETLKW        11
+
+#define FD_CLOEXEC      0b01
+#define FD_CLOFORK      0b10
+
+#define F_RDLCK 1
+#define F_UNLCK 2
+#define F_WRLCK 3
+
+struct flock @{
+   uint16_t l_type;
+   uint16_t l_whence;
+   uint64_t l_start;
+   uint64_t l_len;
+   uint32_t l_pid;
+@}
+
+int fcntl(int fd, int cmd, void *arg);
+@end example
+
+This syscall is a multiplexed syscall that performs the operations described
+below on the open file descriptor @code{fd}. The operation is determined by
+@code{cmd} and may take an optional argument @code{arg}.
+
+The syscall's return value will depend on the requested @code{cmd}, and is
+detailed along the operations below.
+
+The valid operations are:
+
+@itemize @bullet
+@item
+@code{F_DUPFD}: Clones @code{fd} into a the first available file descriptor
+starting by @code{arg}. Returns the resulting FD.
+
+@item
+@code{F_DUPFD_CLOEXEC}: The same as @code{F_DUPFD} but sets the close on exec
+flag for the cloned FD if succesful, in order to save a subsequent call.
+
+@item
+@code{F_GETFD}: The flags used for @code{fd} will be returned. These can be
+@code{FD_CLOEXEC}, which if set, will signal that @code{fd} will be closed
+should an @code{exec} call or similar happen, and @code{FD_CLOFORK}, which
+signals that @code{fd} will not be cloned when calling @code{clone} or similar.
+
+@item
+@code{F_SETFD}: The flags for @code{fd} will be set with @code{arg} using
+the same values returned by @code{F_GETFD}. The syscall will return @code{0}
+on sucess.
+
+@item
+@code{F_GETFL}: Returns as the function result the file access mode
+and status flags.
+
+@item
+@code{F_SETFL}: What @code{F_SETFD} is to @code{F_GETFD} for
+@code{F_GETFL}.
+
+@item
+@code{F_GETPIPE_SZ}: If @code{fd} points to a FIFO or pipe, return
+its size.
+
+@item
+@code{F_SETPIPE_SZ}: If @code{fd} points to a FIFO or pipe, the size will
+be set to the value of @code{arg}. If the operation would cause data loss, it
+will fail.
+
+@item
+@code{F_GETLK}: If @code{fd} points to a filesystem inode, the data passed
+in @code{arg} will be taken as a pointer to a @code{flock} struct, and the
+possibility to add the advisory lock described there will be checked.
+
+POSIX advisory locks are advisory file description-bound marks that may be
+used as a filesystem semaphore. They require processes to check them, and are
+not automatic nor mandatory, thus, advisory.
+
+If the lock could be placed, the passed struct's @code{l_type} will become
+@code{F_UNLCK}, else, the call will fail and the fields used to write the
+information regarding one of the conflicting locks. As all IPC, this data may
+not be true once processed, it is merely informative.
+
+POSIX advisory locks can be used for implementing PID lock files, as to
+make sure only one instance of the same daemon is running.
+
+@item
+@code{F_SETLK}: The same as @code{F_GETLK}, but actually sets the passed lock.
+If it cannot be set, it will return failure with @code{EAGAIN}.
+
+@item
+@code{F_SETLKW}: The same as @code{F_SETLK}, but instead of being non-blocking,
+this call will block until the passed lock can be set.
+@end itemize
+
+On failure, the syscall returns @code{-1}. The returned @code{errno} are:
+
+@itemize @bullet
+@item
+@code{EINVAL}: The passed @code{cmd} is not implemented by the kernel.
+
+@item
+@code{EBADF}: The passed @code{fd} is not open.
+@end itemize
+
+@node exit_thread
+@section exit_thread
+
+@example c
+void exit_thread(void);
+@end example
+
+This syscall terminates the calling thread "immediately".
+Any open file descriptors belonging to the process to be closed, and any
+threads of execution are terminated.
+
+This syscall does not return any value, but it sets errno on failure:
+
+@itemize @bullet
+@item
+@code{EACCES}: MAC disallowed this.
+@end itemize
+
+@node getrandom
+@section getrandom
+
+@example c
+ssize_t getrandom(void *buffer, size_t length);
+@end example
+
+This syscall fills the buffer pointed to @code{buffer} with up to @code{length}
+random bytes. These bytes can be used for cryptographic purposes.
+
+The operation is the same as reading from @code{/dev/random}. It is provided
+instead of just reading from the device as to avoid denial of service attacks
+based on exhausting the file descriptor limit of the system, along with other
+vulnerabilities and inconveniences related to the classic file interface.
+
+The syscall returns the count of read random data or @code{-1} on failure, and
+sets the following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: @code{buffer} points to invalid memory.
+@item
+@code{EACCES}: MAC disallowed this.
+@end itemize
+
+@node mac_capabilities
+@section mac_capabilities
+
+@example c
+#define MAC_CAP_SCHED     0b00000000000001
+#define MAC_CAP_SPAWN     0b00000000000010
+#define MAC_CAP_ENTROPY   0b00000000000100
+#define MAC_CAP_SYS_MEM   0b00000000001000
+#define MAC_CAP_USE_NET   0b00000000010000
+#define MAC_CAP_SYS_NET   0b00000000100000
+#define MAC_CAP_SYS_MNT   0b00000001000000
+#define MAC_CAP_SYS_PWR   0b00000010000000
+#define MAC_CAP_PTRACE    0b00000100000000
+#define MAC_CAP_SETUID    0b00001000000000
+#define MAC_CAP_SYS_MAC   0b00010000000000
+#define MAC_CAP_SIGNALALL 0b00100000000000
+#define MAC_CAP_SETGID    0b01000000000000
+#define MAC_CAP_IPC       0b10000000000000
+unsigned long get_mac_capabilities(void);
+int set_mac_capabilities(unsigned long request);
+@end example
+
+These syscalls allow to fetch and set MAC capabilities on the way described in
+@ref{Mandatory access control (MAC)}.
+
+Both syscalls cannot fail, @code{get_mac_capabilities} always returns the
+capabilities of the callee process and @code{set_mac_capabilities} always
+returns @code{0}, settings will just be ignored if permission to change them
+is not granted.
+
+@node add_mac_permissions
+@section add_mac_permissions
+
+@example c
+#define MAC_PERM_CONTENTS 0b000001
+#define MAC_PERM_READ     0b000010
+#define MAC_PERM_WRITE    0b000100
+#define MAC_PERM_EXEC     0b001000
+#define MAC_PERM_APPEND   0b010000
+#define MAC_PERM_FLOCK    0b100000
+
+int add_mac_permissions(const char *path, int flags);
+@end example
+
+This syscall adds permissions to access an inode or device as described in
+@ref{Mandatory access control (MAC)}.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EPERM}: MAC did not allow this.
+@item
+@code{EFAULT}: The passed pointer does not point to valid memory.
+@item
+@code{EAGAIN}: The system has reached a limit on registered rules.
+@item
+@code{EINVAL}: The passed rule is already covered or conflicts with an existent
+one.
+@end itemize
+
+@node set_mac_enforcement
+@section set_mac_enforcement
+
+@example c
+#define MAC_DENY            0b001
+#define MAC_DENY_AND_SCREAM 0b010
+#define MAC_KILL            0b100
+
+int set_mac_enforcement(unsigned long request);
+@end example
+
+This syscall sets the action to take for enforcement on MAC issues as explained
+in @ref{Mandatory access control (MAC)}.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EACCES}: MAC was locked.
+@end itemize
+
+@node mount/umount
+@section mount/umount
+
+@example c
+#define MNT_FAT   1
+#define MNT_EXT   2
+#define MNT_DEV   3
+#define MS_RDONLY 1
+
+#define MNT_FORCE 1
+
+int mount(const char *source, int source_len, const char *target,
+          int target_len, int fs_type, unsigned long flags);
+int umount(const char *target, int target_len, int flags);
+@end example
+
+These syscalls mount and unmount filesystems. For @code{mount}, @code{source}
+is the source device while @code{target} is where to mount in the
+global virtual filesystem. For @code{umount}, @code{target} is the path to
+unmount.
+
+For @code{mount}, @code{fs_type} can be one of the following values to choose
+the filesystem type to mount, it must be specified, detection is not done.
+
+@itemize @bullet
+@item
+@code{MNT_FAT}: FAT family filesystem.
+@item
+@code{MNT_EXT}: EXT family filesystem.
+@item
+@code{MNT_DEV}: DevFS filesystem, cannot be used.
+@end itemize
+
+@code{flags} may contain @code{MS_RDONLY} to force mounting read-only mounting.
+
+For @code{umount}, @code{flags} allows the following options:
+
+@itemize @bullet
+@item
+@code{MNT_FORCE}: Unmount the filesystem even if busy, can cause data loss.
+@end itemize
+
+These syscalls returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: Incorrect addresses for the string arguments.
+@item
+@code{EACCES}: MAC forbid this operation.
+@item
+@code{EINVAL}: Wrong arguments.
+@item
+@code{EBUSY}: For @code{umount}, the mount is busy, and @code{MNT_FORCE} was
+not passed.
+@end itemize
+
+@node readlink
+@section readlink
+
+@example c
+ssize_t readlink(char *path, int path_len, char *buffer, size_t buffer_len);
+@end example
+
+The syscall reads the redirected path of a symlink.
+
+The syscalls return the read length on success or @code{-1} on failure, with
+the following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: Incorrect addresses for the string arguments.
+@item
+@code{EACCES}: MAC forbid this operation.
+@item
+@code{EINVAL}: The passed file is not a symbolic link.
+@end itemize
+
+@node getdents
+@section getdents
+
+@example c
+#define DT_UNKNOWN 0
+#define DT_FIFO    1
+#define DT_CHR     2
+#define DT_DIR     4
+#define DT_BLK     6
+#define DT_REG     8
+#define DT_LNK    10
+#define DT_SOCK   12
+#define DT_WHT    14
+
+struct dirent @{
+   uint64_t d_ino;
+   uint64_t d_off;
+   uint16_t d_reclen;
+   uint8_t  d_type;     // One of the DT_ values.
+   char     d_name[61]; // Null-terminated.
+@};
+
+ssize_t getdents(int fd, struct dirent *buffer, size_t size);
+@end example
+
+This syscall reads the contents of the passed directory, and advances the
+file position for the directory by the amount of read directory entries.
+Partial reads are supported.
+
+The syscalls return the read length in bytes on success, or @code{0} if no
+contents or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: Incorrect addresses for the arguments.
+@item
+@code{EBADFD}: @code{fd} does not contain a valid file.
+@item
+@code{ENOENT}: @code{fd} is not a directory.
+@item
+@code{EINVAL}: @code{size} is not big enough to fit all the directory entries.
+@end itemize
+
+@node sync
+@section sync
+
+@example c
+int sync(void);
+@end example
+
+The syscall flushes the associated caches of all FSes and the devices that
+contain said FSs, ensuring that all operations are finished, this can be used
+in order to ensure data coherency on power loss or program failure.
+
+The syscall returns @code{0} or @code{-1} on failure, with a corresponding
+errno:
+
+@itemize @bullet
+@item
+@code{EIO}: Device error while flushing.
+@end itemize
+
+@node mknod
+@section mknod
+
+@example c
+int mknod(int dir_fd, const char *path, int path_len, int mode, int dev);
+@end example
+
+This syscall creates files in the passed path and dir. The type is chosen by
+@code{code}, which uses the same format as @code{stat}'s mode field.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@code{EACCES}: Bad memory addresses.
+@item
+@code{EINVAL}: The passed path length is way too big, or the mode is invalid.
+@item
+@code{EIO}: Internal error.
+@end itemize
+
+@node truncate
+@section truncate
+
+@example c
+int truncate(int fd, uint64_t new_size);
+@end example
+
+The syscall truncates the size of @code{fd} on disk to exactly @code{new_size}
+bytes.
+
+If the file was larger, the cropped contents are lost, if it was smaller, the
+new data is zero'd out. No other file data is changed.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EBADF}: The file pointed by @code{fd} is not valid for truncation.
+@item
+@code{EINVAL}: @code{new_size} could not be set.
+@end itemize
+
+@node bind
+@section bind
+
+@example c
+struct sockaddr @{
+   uint32_t sun_family; // AF values of socket().
+   char data[];
+@};
+
+int bind(int sockfd, const struct sockaddr *addr, unsigned int addrlen);
+@end example
+
+This syscall assigns a global address to the passed socket, the meaning and
+nature of the address depends on the passed socket.
+
+The actual structure passed for the @code{addr} argument will depend on
+the address family, @code{sockaddr} is a catch-all placeholder value.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid address, may be already in use.
+@item
+@code{EFAULT}: Bad memory address.
+@item
+@code{EBADFD}: The passed FD is not a socket.
+@end itemize
+
+@node mkdir
+@section mkdir
+
+@example c
+int mkdir(int dir_fd, const char *path, int path_len, int mode);
+@end example
+
+This syscall creates directories in the passed path.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@code{EACCES}: Bad memory addresses.
+@item
+@code{EINVAL}: The passed path length is way too big.
+@item
+@code{EIO}: Internal error.
+@end itemize
+
+@node symlink
+@section symlink
+
+@example c
+int symlink(int dir_fd, const char *path, int path_len,
+            const char *target, int target_len, int mode);
+@end example
+
+This syscall creates symlinks for the passed path and mode.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@code{EACCES}: Bad memory addresses.
+@item
+@code{EINVAL}: The passed path and target lengths are way too big, or the
+passed mode is invalid.
+@item
+@code{EIO}: Internal error.
+@end itemize
+
+@node connect
+@section connect
+
+@example c
+int connect(int sockfd, const struct sockaddr *addr, unsigned int addrlen);
+@end example
+
+This syscall connects the passed socket to the passed global address.
+
+If the passed socket is datagram-based, then @code{addr} is the address to
+which datagrams are sent by default, and the only address from which datagrams
+are received. If the socket is stream-based, the syscall attempts to make a
+connection to the socket that is bound to the address specified by @code{addr}.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid address, may not be bound.
+@item
+@code{EFAULT}: Bad memory address.
+@item
+@code{EBADFD}: The passed FD is not a socket.
+@end itemize
+
+@node openpty
+@section openpty
+
+@example c
+int openty(int ptys[2]);
+@end example
+
+This syscalls creates a pair of pseudoterminals and returns the registered
+file descriptors in @code{ptys}. Index @code{0} is the primary end
+(also known as master), @code{1} is the secondary end (also known as slave).
+
+The syscall returns @code{0} on success and @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EFAULT}: @code{ptys} points to bogus memory.
+@item
+@code{EMFILE}: No available file descriptor slots.
+@end itemize
+
+@node fsync
+@section fsync
+
+@example c
+int fsync(int fd, int flags);
+@end example
+
+The syscall does the same as @code{sync}, just only applied to @code{fd}. If
+the passed file is a device, the device will flush its internal caches.
+
+If the file was just created, one might considering synchronizing the parent
+directory as well, as, depending on the FS and FS driver, parent directory
+entries are stored separately to the file, EXT-series filesystems come to mind.
+
+If @code{flags} is not zero, only the data of the passed descriptor will be
+guaranteed to be flushed, and not modified metadata, this can be used in
+order to minimize disk activity even further.
+
+The syscall returns @code{0} or @code{-1} on failure, with the errno:
+
+@itemize @bullet
+@item
+@code{EBADF}: The passed file is not open.
+@item
+@code{EINVAL}: The passed points to a non-synchronizable entity.
+@item
+@code{EIO}: FS or device error while flushing.
+@end itemize
+
+@node link
+@section link
+
+@example c
+int link(int dir_fd, const char *path, int path_len,
+         const char *target, int target_len);
+@end example
+
+This syscall creates hard links, the paths are not dereferenced in the case
+of being symlinks.
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EACCES}: Bad memory addresses.
+@item
+@code{EINVAL}: The passed path and target lengths are way too big.
+@item
+@code{EIO}: Internal error.
+@end itemize
+
+@node ptrace
+@section ptrace
+
+@example c
+#define PTRACE_SYSCALL_PIPE 1
+
+long ptrace(long request, pid_t pid, void *addr, void *data);
+@end example
+
+This syscall can be used for tracing, debugging, execution control, and info
+reporting of data owned by a child process. The operations is indicated by
+@code{request}, while the PID to act upon is @code{pid}, @code{addr} the
+address in the child process to modify, and @code{data} what to modify with.
+
+@code{request} can be one of:
+
+@itemize @bullet
+@item
+@code{PTRACE_SYSCALL_PIPE (1)}: @code{data} will be taken as an FD in the
+child process, which the kernel will use to report the state on every syscall
+the child process does. The descriptor must be a pipe, no other files are
+supported. Errors writing are silently ignored.
+@end itemize
+
+The syscall returns @code{0} or @code{-1} on failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EACCES}: MAC did not allow this.
+@item
+@code{EPERM}: @code{pid} is not a child or does not exist.
+@item
+@code{EINVAL}: @code{request} is not valid.
+@end itemize
+
+@node listen
+@section listen
+
+@example c
+int listen(int sockfd, int backlog);
+@end example
+
+This syscall marks the passed socket as a passive socket, that is, as a socket
+that will be used to accept incoming connection requests using @code{accept}.
+
+The passed socket must be stream based, as these are the only sockets with a
+true sense of connection.
+
+@code{backlog} is a recommendation as to the maximum length to which the
+queue of pending connections for @code{sockfd} may grow. If a connection
+request arrives when the queue is full, depending on the protocols involved,
+the client may receive an error or the connection may be ignored so that a
+later reattempt at connection succeeds.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid value for backlog.
+@item
+@code{EBADFD}: The passed FD is not a socket.
+@item
+@code{ENOTSUPP}: The passed FD is a socket, but it is not a stream socket.
+@end itemize
+
+@node accept
+@section accept
+
+@example c
+int accept(int sockfd, const struct sockaddr *addr, int *addrlen, int flags);
+@end example
+
+This syscall takes the first connection request of @code{sockfd} and creates
+a new connected socket with the flags in @code{flags} (@code{SOCK_NONBLOCK} and
+@code{SOCK_CLOEXEC}). @code{addr} is used for writing the address of the
+connection request. @code{addrlen} must be the length of the available buffer,
+and it will be written to be the actual length copied.
+
+The syscall returns the added FD on success or @code{-1} on failure, with the
+following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid value for backlog.
+@item
+@code{EBADFD}: The passed FD is not a socket and listening.
+@item
+@code{ENOTSUPP}: The passed FD is a socket, but it is not a stream socket.
+@end itemize
+
+@node getrlimit/setrlimit
+@section getrlimit/setrlimit
+
+@example c
+#define RLIMIT_CORE   1 // Size of core files, 0 for disabling.
+#define RLIMIT_CPU    2 // CPU time limit in seconds.
+#define RLIMIT_FSIZE  4 // Maximum file size in bytes.
+#define RLIMIT_NOFILE 5 // Maximum number of open file descriptors.
+#define RLIMIT_STACK  6 // Maximum stack size in bytes.
+#define RLIMIT_AS     7 // Maximum memory size in bytes.
+
+uint64_t getrlimit(int resource);
+int setrlimit(int resource, uint64_t limit);
+@end example
+
+This syscall fetches and sets current limits for a specified resource, limits
+can only be lowered, are inherited from parent to children, and start
+maxed out.
+
+When a limit is reached, the operation that would reach or exceed it will fail
+like the following:
+
+@itemize @bullet
+@item
+@code{RLIMIT_CORE}: Core files exceeding this size will be truncated, with 0,
+core files are not generated.
+@item
+@code{RLIMIT_CPU}: Once the limit is passed, the process is killed.
+@item
+@code{RLIMIT_FSIZE}: System call growing the file fails with @code{EFBIG}.
+@item
+@code{RLIMIT_NOFILE}: Adding a new file descriptor fails with @code{EMFILE}.
+@item
+@code{RLIMIT_STACK}: The value is used for the size of created stacks, thus
+there is no failure condition.
+@item
+@code{RLIMIT_AS}: @code{mmap} or other virtual memory allocation syscalls will
+fail with @code{ENOMEM}.
+@end itemize
+
+@code{setrlimit} returns @code{0} on success or @code{-1} on failure. For
+@code{getrlimit}, @code{0} is a valid return so checking errno is necessary.
+Both report the following errno:
+
+@itemize @bullet
+@item
+@code{EINVAL}: Invalid value for resource.
+@item
+@code{EPERM}: MAC did not allow the operation.
+@end itemize
+
+@node access
+@section access
+
+@example c
+#define F_OK 0b0001
+#define R_OK 0b0010
+#define W_OK 0b0100
+#define X_OK 0b1000
+
+#define AT_EACCESS 512
+
+int access(int dir_fd, char *path, int len, mode_t mode, int flags);
+@end example
+
+This syscall whether the callee process can access the passed file against
+POSIX file permissions and Ironclad's MAC. What to check for is specified in
+@code{mode} as an ORd list, as such:
+
+@itemize @bullet
+@item
+@code{F_OK}: When passed, only file existance will be checked.
+@item
+@code{R_OK}: When passed, read permissions will be checked.
+@item
+@code{W_OK}: When passed, write permissions will be checked.
+@item
+@code{X_OK}: When passed, execute permissions will be checked.
+@end itemize
+
+Permissions are checked with the real user and group IDs, instead of the
+effective ones, that behaviour can be changed by passing @code{AT_EACCESS} in
+@code{flags}, which can also be used for other common AT flags.
+@code{AT_EMPTY_PATH} is not accepted because that does not make any sense with
+this syscall.
+
+The syscall returns @code{0} on success when the passed mode is checked valid,
+or @code{-1} on check failure, with the following errno:
+
+@itemize @bullet
+@item
+@code{EBADF}: @code{dirfd} is not valid.
+@item
+@code{ENOENT}: The requested file does not exist.
+@item
+@code{EACCES}: The access is not allowed.
+@end itemize
+
+@node ppoll
+@section ppoll
+
+@example c
+#define POLLIN   0b00000001
+#define POLLOUT  0b00000010
+#define POLLPRI  0b00000100
+#define POLLHUP  0b00001000
+#define POLLERR  0b00010000
+#define POLLNVAL 0b01000000
+
+struct pollfd @{
+   uint32_t fd;
+   uint16_t events;
+   uint16_t revents;
+@};
+
+int poll(struct pollfd *fds, nfds_t nfds, struct timespec *timeout,
+   const sigset_t *sigmask);
+@end example
+
+This syscall allows to wait for a series of events to happen to the passed
+FDs, in a manner similar to POSIX's @code{select}.
+
+@code{fds} is an array of @code{nfds} length of @code{pollfd} structures. Each
+structure represents one FD, for which @code{events} is a list of events
+to wait for and @code{revents} is a bitmap written by the kernel to indicate
+which events of the waited ones did happen. If the FD of an structure is
+negative, that is, it has the first bit set, it is ignored, and @code{revents}
+is set to @code{0}.
+
+If passed no FDs to ppoll, that is, with @code{nfds == 0}, @code{ppoll} will
+block for @code{timeout} time. This is used by some software as a means to
+implement @code{sleep} functionality, for those cases, @ref{clock_nanosleep}.
+
+If @code{sigmask} is not @code{NULL}, it will atomatically set the passed
+sigmask for waiting.
+
+Both @code{events} and @code{revents} are bitmaps of the values:
+
+@table @code
+@item POLLIN
+The passed FD has data pending for reading.
+
+@item POLLOUT
+The passed FD will not block when written to.
+
+@item POLLPRI
+The passed FD has prioritary data for processing, this data depends on what is
+polled, some examples are a change of termios information on a PTY, or
+Out-Of-Band (OOB) data for a TCP socket.
+
+@item POLLERR
+Only for @code{revents}, it is set when encountering an error waiting. This bit
+is also set for FDs referring to the write end of a pipe when the read end has
+been closed.
+
+@item POLLHUP
+Only for @code{revents}, it is set in the case of the passed FD having lost
+connection, or the FD being the reader end of a broken pipe.
+
+@item POLLNVAL
+Only for @code{revents}, equivalent of @code{EBADFD}, that is, the passed FD
+is not valid.
+@end table
+
+The call will block until either a file descriptor gets an event, the call is
+interrupted by a signal handler, or the timeout expires.
+
+The syscall returns the number of FDs to have an event happen on success or
+@code{-1} on failure, with the following errno:
+
+@table @code
+@item EFAULT
+The passed pointers are not in addressable memory.
+
+@item EINVAL
+The passed values are not valid.
+@end table
+
+@node getuid/geteuid
+@section getuid/geteuid
+
+@example c
+uid_t getuid(void);
+uid_t geteuid(void);
+@end example
+
+These syscalls fetch the UID and the effective UID of the calling process. They
+never fail.
+
+@node setuids
+@section setuids
+
+@example
+int setuids(uid_t uid, uid_t euid);
+@end example
+
+This syscall sets the UID and effective UID of the calling process. If the
+calling process has the @code{MAC_CAP_SETUID} capability, it will set both
+the EUID and UID, else, it will only try to set EUID to values matching the
+process's UID. If any of them is @code{-1}, it will not be modified.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EPERM
+MAC did not allow this.
+@end table
+
+@node fchmod
+@section fchmod
+
+@example c
+int fchmod(int dir_fd, char *path, int len, mode_t mode, int flags);
+@end example
+
+This syscall sets the mode for the passed arguments in the same way
+@ref{fstat} fetches information for the passed arguments.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed FD or mode is not valid.
+
+@item EACCES
+MAC did not allow this.
+@end table
+
+@node umask
+@section umask
+
+@example c
+mode_t umask(mode_t mask);
+@end example
+
+This syscall sets the umask of the calling process to the passed mask AND'd
+with @code{777} in octal.
+
+The umask is used by the kernel when creating files in the name of the calling
+process. It marks permissions to be turned off from @code{mode} arguments
+passed by the user. The default value is @code{22} in octal, and is inherited
+from parent processes to children.
+
+This syscall never fails, it always returns the old mask before modification.
+
+@node reboot
+@section reboot
+
+@example c
+#define RB_HALT     1
+#define RB_POWEROFF 2
+#define RB_RESTART  3
+#define RB_ERROR_RET 0b1
+
+int reboot(int cmd, int flags);
+@end example
+
+This syscall does the passed action to the system's power management, the
+action is specified with @code{cmd}, it can be one of:
+
+@table @code
+@item RB_HALT
+System activity is terminated and the system will make all needed preparations,
+but power will not be cut off, instead, the user will have to do so, say, with
+the power button. Data syncing is up to the user.
+
+@item RB_POWEROFF
+The same as @code{RB_HALT} but actually cuts power.
+
+@item RB_RESTART
+The same as @code{RB_HALT} but at the end, the system will reboot.
+@end table
+
+If the operation fails internally, for any reason, the kernel will panic, for
+returning an error instead, one can use @code{RB_ERROR_RET} in @code{flags}.
+
+This syscall does not return on success, it will only return in the case of
+invalid value for @code{cmd}, before comitting to an operation, or by using
+@code{RB_ERROR_RET} as previously said. In error, @code{-1} will be returned,
+and errno will be set to:
+
+@table @code
+@item EINVAL
+The passed @code{cmd} is not valid.
+
+@item EACCES
+MAC did not allow this.
+
+@item EIO
+The operation failed internally.
+@end table
+
+@node fchown
+@section fchown
+
+@example c
+int fchown(int dir_fd, char *path, int len, uint32_t user, uint32_t group,
+   int flags);
+@end example
+
+This syscall sets the owner's UID and GID for the passed arguments in the same
+way @ref{fstat} fetches information for the passed arguments.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed FD or the user and group were not valid.
+
+@item EACCES
+MAC did not allow this.
+
+@item EBADF
+The passed file is valid but it was not a physical file in a filesystem.
+@end table
+
+@node pread/pwrite
+@section pread/pwrite
+
+@example c
+ssize_t pread(int fd, void *buffer, size_t count, off_t offset);
+ssize_t pwrite(int fd, void *buffer, size_t count, off_t offset);
+@end example
+
+These syscalls do the same as @code{read} and @code{write} respectively, but
+instead of using the description's saved location for data access, they use the
+passed @code{offset}, and do not update it at the end of the operation.
+@code{fd} must point to a seekable file.
+
+These syscalls are made for use in multithreaded applications, as having more
+than one thread updating file locations for a shared file description can lead
+to sudden catharsis.
+
+These syscalls return the same values and errno as the non-p variants.
+@ref{read/write}.
+
+@node getsockname
+@section getsockname
+
+@example c
+int getsockname(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict addrlen);
+@end example
+
+This syscall fetches the address of an already bound socket.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed FD was a non bound socket.
+
+@item EBADF
+The passed file is valid but it was not a physical file in a filesystem.
+@end table
+
+@node getpeername
+@section getpeername
+
+@example c
+int getpeername(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict addrlen);
+@end example
+
+This syscall fetches the address of a socket's peer.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed FD was a non bound socket.
+
+@item EBADF
+The passed file is valid but it was not a physical file in a filesystem.
+@end table
+
+@node shutdown
+@section shutdown
+
+@example c
+#define SHUT_RD   0b01
+#define SHUT_RDWR 0b10
+#define SHUT_WR   0b11
+
+int shutdown(int sockfd, int how);
+@end example
+
+This syscall stops transmission or reception for a socket from a peer.
+
+@code{how} signals how to stop communication, it can be the following values:
+
+@table @code
+@item SHUT_RD
+Further receiving will not be allowed.
+
+@item SHUT_WR
+Further transmitting will not be allowed.
+
+@item SHUT_RDWR
+Further receiving and transmitting will not be allowed.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed FD was a non bound socket.
+
+@item EBADF
+The passed file is valid but it was not a physical file in a filesystem.
+@end table
+
+@node futex
+@section futex
+
+@example c
+struct futex_item @{
+    uint64_t addr;
+    uint32_t expected;
+    uint32_t flags;
+@};
+
+#define FUTEX_WAIT 1
+#define FUTEX_WAKE 2
+
+int futex(int operation, struct futex_item *futexes, size_t count,
+    struct timespec *time);
+@end example
+
+This syscall helps implement fast userland mutexes (futexes!). It is typically
+used as a blocking construct in the context of shared-memory synchronization.
+
+When using futexes, the majority of the synchronization operations are
+performed in user space by atomically testing for a 32-bit value. User-space is
+to use @code{futex} only when it is likely that the program has to block for a
+longer time until the condition becomes true. Other @code{futex} operations
+can be used to wake any processes or threads waiting for an address.
+
+When executing a futex operation that requests to block a thread, the kernel
+will block only if the futex contents has the value that the call suplied under
+@code{expected}. The loading of the futex's contents and comparison of that
+value are atomic, and will be totally ordered with respect to concurrent
+operations performed by other threads on the same futex contents. Thus, the
+futex contents are used to connect the synchronization in user space with the
+implementation of blocking by the kernel. Analogously to an atomic
+compare-and-exchange operation that potentially changes shared memory, blocking
+via a futex is an atomic compare-and-block operation. When blocked, the kernel
+will calmly wait for waking by @code{FUTEX_WAKE}, waking is not automatic once
+the values are acquired.
+
+Note that no explicit initialization or destruction is necessary to use
+futexes; the kernel maintains a futex only while operations such as
+@code{FUTEX_WAIT} are being performed on particular futex contents.
+
+When compared with other implementations like Linux's, Ironclad's allows for
+waiting and waking several futexes at once, this is done as to ease handling
+several futexes at once.
+
+The available futex operations are:
+
+@table @code
+@item FUTEX_WAIT
+The passed values in futexes will be waited for.
+
+@item FUTEX_WAKE
+The passed values in futexes will be woken up.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EFAULT
+The passed addresses would fault if accessed.
+
+@item EINVAL
+The passed operation is not valid.
+@end table
+
+@node clock
+@section clock
+
+@example c
+#define CLOCK_REALTIME  0
+#define CLOCK_MONOTONIC 1
+#define CLOCK_GETRES    0
+#define CLOCK_GETTIME   1
+#define CLOCK_SETTIME   2
+
+int clock(int operation, int clock_id, struct timespec *time);
+@end example
+
+This syscall fetches or sets epoch dates for each of the supported clocks.
+Clock is passed in @code{clock_id}, with the following values.
+
+@table @code
+@item CLOCK_REALTIME
+Wall-clock, may jump forward and back thanks to time setting.
+
+@item CLOCK_MONOTONIC
+Clock that only moves forward, and is unaffected by NTP or adjustements. It
+starts from an unspecified, target-dependent point in time, usually boot.
+
+Unlike Linux, it is still counted during suspend.
+@end table
+
+@code{operation} specifies what to do, as such:
+
+@table @code
+@item CLOCK_GETRES
+Load the resolution of the passed clock on the contents of @code{time}.
+
+@item CLOCK_GETTIME
+Load the epoch date of the passed clock on the contents of @code{time}.
+
+@item CLOCK_SETTIME
+Set the epoch date of the passed clock to the contents of @code{time}, not
+supported for @code{CLOCK_MONOTONIC}. Underlying hardware will always be
+updated.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EFAULT
+@code{time} points to non accessible memory.
+
+@item EINVAL
+One of the passed values is not valid.
+@end table
+
+@node clock_nanosleep
+@section clock_nanosleep
+
+@example c
+#define TIMER_ABSTIME 1
+
+int clock_nanosleep(int clock_id, int flags, struct timespec *time,
+   struct timespec *remaining);
+@end example
+
+This syscall sleeps the callee thread for the passed time with the requested
+clock. If interrupted by a signal or similar, it returns the remaining time
+that could not be waited.
+
+Unlike what POSIX mandates, this syscall will always need @code{remaining} to
+be a valid structure. @code{clock_id} takes the same value as @ref{clock}.
+
+@code{flags} can be one of the following:
+
+@table @code
+@item TIMER_ABSTIME
+Instead of an increment on top of the current time, @code{time} is taken as an
+absolute time (ideally in the future!).
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EFAULT
+@code{time} or @code{remaining} point to non accessible memory.
+
+@item EINVAL
+One of the passed values is not valid.
+
+@item EPERM
+MAC did not allow this.
+@end table
+
+@node getrusage
+@section getrusage
+
+@example c
+#define RUSAGE_SELF 1
+#define RUSAGE_CHILDREN 2
+
+struct rusage @{
+    struct timeval ru_utime; // user CPU time used.
+    struct timeval ru_stime; // system CPU time used.
+@};
+
+int getusage(int who, struct rusage *usage);
+@end example
+
+This syscall gets the use of several resources by a process.
+
+Unlike what POSIX mandates, this syscall will always need @code{remaining} to
+be a valid structure. @code{clock_id} takes the same value as @ref{clock}.
+
+Due to implementation details, for now, system time does include waiting time,
+but given this syscall's information is merely advisory, it may be changed
+later.
+
+@code{who} establishes who to request the information for, it can be one of:
+
+@table @code
+@item RUSAGE_SELF
+Get information for the callee process.
+
+@item RUSAGE_CHILDREN
+Get information for all of the children processes.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EFAULT
+@code{usage} point to non accessible memory.
+
+@item EINVAL
+@code{who} was not valid.
+@end table
+
+@node recvfrom/sendto
+@section recvfrom/sendto
+
+@example c
+ssize_t recvfrom(int socket_fd, void *restrict buffer, size_t length,
+   int flags, struct sockaddr *address, socklen_t *address_len);
+ssize_t sendto(int socket_fd, void *restrict buffer, size_t length,
+   int flags, struct sockaddr *address, socklen_t address_len);
+@end example
+
+These syscalls compliment @code{read} and @code{write} for socket-based IO.
+They allow specifing or fetching the address of a read or write operation when
+doing them, which can be vital for reading connection-less socket protocols.
+
+Unlike doing @code{connect} on a connection-less socket, the addresses passed
+here will not affect future transactions.
+
+When used for connection-based protocols, or when passed as @code{NULL},
+@code{address} and @code{address_len} will be ignored.
+
+@code{flags} is right now a placeholder for future options.
+
+These syscalls return and fail in the same ways @ref{read/write} would, with
+the addition of only accepting sockets as their passed @code{socket_fd}.
+
+@node config_netinter
+@section config_netinter
+
+@example c
+#define NETINTER_SET_BLOCK      1
+#define NETINTER_SET_STATIC_IP4 2
+#define NETINTER_SET_STATIC_IP6 3
+
+struct addr4_netinter @{
+    uint32_t ip;
+    uint32_t sub;
+@};
+
+struct addr6_netinter @{
+    uint128_t ip;
+    uint128_t sub;
+@};
+
+int config_netinter (int fd, int op, void *arg);
+@end example
+
+This syscall configures networking interfaces by using the device that
+implements the desired interface.
+
+@code{op} dictates what the arguments and action to do are, it can be one of:
+
+@table @code
+@item NETINTER_SET_BLOCK
+@code{arg} will be a pointer to a boolean value, if it evaluates to true, the
+passed interface will be blocked, if it evaluates to false, it will be
+unblocked.
+
+@item NETINTER_SET_STATIC_IP4
+@code{arg} will be a pointer to a @code{addr4_netinter} structure, which
+specifies an address and subnet to set as static addresses.
+
+@item NETINTER_SET_STATIC_IP6
+@code{arg} will be a pointer to a @code{addr6_netinter} structure, which
+specifies an address and subnet to set as static addresses.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EFAULT
+@code{arg} point to non accessible memory.
+
+@item EACCES
+MAC did not allow this.
+
+@item EINVAL
+An argument is not valid.
+@end table
+
+@node utimes
+@section utimes
+
+@example c
+int utimes(int dir, const char *path, struct timespec *times, int flags);
+@end example
+
+This syscall changes the access and modification time of the passed file to the
+2 first values contained in the @code{times} array. All the standard options
+for @code{dir} are accepted and @code{flags} takes @code{AT_EMPTY_PATH} and
+@code{AT_SYMLINK_NOFOLLOW}.
+
+@table @code
+@item EFAULT
+@code{path} or @code{times} point to non accessible memory.
+
+@item EACCES
+MAC did not allow this.
+
+@item EINVAL
+An argument is not valid.
+@end table
+
+@node create_tcluster
+@section create_tcluster
+
+@example c
+int create_tcluster(void);
+@end example
+
+This syscall creates a thread cluster. It returns the new cluster ID or
+@code {-1} on failure, with the following errno:
+
+@table @code
+@item ENOMEM
+A new cluster could not be made.
+
+@item EACCES
+MAC did not allow this.
+@end table
+
+@node switch_tcluster
+@section switch_tcluster
+
+@example c
+int switch_tcluster(int cluster, int tid);
+@end example
+
+This syscall moves the thread identified by @code{tid} to the thread cluster
+identified by @code{cluster}. No checks of parenthood are done.
+
+It returns @code{0} on success and @code{-1} on failure, with the following
+errno:
+
+@table @code
+@item EINVAL
+@code{cluster} is not a valid cluster, or @code{tid} is not a valid tid.
+
+@item EACCES
+MAC did not allow this.
+@end table
+
+@node sigprogmask
+@section sigprogmask
+
+@example c
+#define SIG_BLOCK   1
+#define SIG_UNBLOCK 2
+#define SIG_SETMASK 3
+
+int sigprocmask(int how, sigset_t *set, sigset_t *oldset);
+@end example
+
+This syscall fetches and/or changes the signal mask of the calling
+process. The signal mask is the set of signals whose delivery is currently
+blocked.
+
+If not @code{NULL}, @code{set} can be used for passing a new mask, if not
+@code{NULL}, @code{oldset} can be used for getting the existing mask.
+
+The behaviour of the syscall will depend on the value passed to
+@code{how}, which can be one of:
+
+@table @code
+@item SIG_BLOCK
+The blocked signals will be a union of the current ones and the passed ones.
+
+@item SIG_UNBLOCK
+The blocked signals will be the current ones minus the passed ones.
+
+@item SIG_SETMASK
+The blocked signals will be the passed ones.
+@end table
+
+It returns @code{0} on success and @code{-1} on failure, with the following
+errno:
+
+@table @code
+@item EINVAL
+@code{how} is not valid.
+
+@item EFAULT
+A non-@code{NULL} pointer points to not valid memory.
+@end table
+
+@node sigaction
+@section sigaction
+
+@example c
+int sigaction(int sig, struct sigaction *act, struct sigaction *oldact);
+@end example
+
+This syscall fetches and/or changes the associated actions with the signal
+@code{sig}.
+
+If not @code{NULL}, @code{act} can be used for setting a new action, if not
+@code{NULL}, @code{oldact} can be used for getting the existing action.
+
+It returns @code{0} on success or @code{-1} on failure, with the following
+errno:
+
+@table @code
+@item EINVAL
+@code{sig} is not valid.
+
+@item EFAULT
+A non-@code{NULL} pointer points to not valid memory.
+
+@item EPERM
+The caller does not have the appropiate permissions over @code{pid} to actually
+kill.
+@end table
+
+@node send_signal
+@section send_signal
+
+@example c
+int send_signal(int pid, int signal);
+@end example
+
+This syscall sends the passed signal to the passed PID.
+
+Group sending is not supported, but can easily be implemented in userland with
+process information. @ref{sysconf}.
+
+Only processes sharing the same UID or EUID as the caller's EUID can be
+signaled. The @code{MAC_CAP_SIGNALALL} capability overrides this check.
+
+It returns @code{0} on success and @code{-1} on failure, with the following
+errno:
+
+@table @code
+@item ESRCH
+@code{pid} is not a valid target for sending.
+
+@item EPERM
+The caller does not have permissions to signal @code{pid}.
+
+@item EINVAL
+@code{signal} is not a valid signal.
+@end table
+
+@node getprio/setprio
+@section getprio/setprio
+
+@example c
+#define PRIO_PROCESS 1
+#define PRIO_PGRP 2
+#define PRIO_USER 3
+#define PRIO_THREAD 4
+
+#define PRIO_MIN (-20)
+#define PRIO_MAX 20
+
+int getprio(int which, int who);
+int setprio(int which, int who, int prio);
+@end example
+
+These syscalls get and set niceness values, @code{which} says which entity
+to set the niceness to, while @code{who} the pid or id of the entity, 0 for
+the current caller.
+
+@code{who} can be one of:
+
+@table @code
+@item PRIO_PROCESS
+Get or set the default niceness of a process. When set, this will make new
+threads created by a process be created with this niceness value, and make all
+exiting threads have that niceness, along with making child processes inherit
+the passed niceness.
+
+@item PRIO_PGRP / PRIO_USER
+Unimplemented, for future features.
+
+@item PRIO_THREAD
+Get or set the niceness of the passed thread. Setting this value does not
+affect the process niceness, or what will be reported when getting it, it will
+just be an outliar until niceness is set again, either thread-wide or
+process-wide.
+@end table
+
+@code{getprio} returns the niceness and @code{-1} on failure, while
+@code{setprio} returns @code{0} on success and @code{-1} on failure. Both
+in failure feature the following errno:
+
+@table @code
+@item EINVAL
+A value is not valid.
+@end table
+
+@node getgid/getegid
+@section getgid/getegid
+
+@example c
+gid_t getgid(void);
+gid_t getegid(void);
+@end example
+
+These syscalls fetch the GID and the effective GID of the calling process. They
+never fail.
+
+@node setgids
+@section setgids
+
+@example c
+int setgids(gid_t gid, gid_t egid);
+@end example
+
+This syscall sets the GID and effective GID of the calling process. If the
+calling process has the @code{MAC_CAP_SETGID} capability, it will set both
+the EGID and GID, else, it will only try to set EGID to values matching the
+process's GID. If any of them is @code{-1}, it will not be modified.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EPERM
+MAC did not allow this.
+@end table
+
+@node getgroups/setgroups
+@section getgroups/setgroups
+
+@example c
+int getgroups(size_t size, gid_t list[]);
+int setgroups(size_t size, const gid_t *list);
+@end example
+
+This syscall gets and sets the supplementary user groups of the caller process.
+The stored group IDs, along with the effective GID, will be used to check
+permission for file access. among others permission checks.
+
+@code{getgroups} does not return the effective GID of the caller process on
+the list. POSIX leaves whether the effective GID is included on this list as
+an implementation detail, so portable programs should be ready for that
+scenario.
+
+Init starts with an empty array of supplementary group IDs.
+
+Passing @code{0} and @code{NULL} to @code{setgroups} will empty the
+supplementary group list.
+
+@code{getgroups} returns the number of supplementary groups or @code{-1} on
+failure, @code{setgroups} returns @code{0} on success and @code{-1} on failure,
+both with the following errno:
+
+@table @code
+@item EINVAL
+@code{getgroups} size is less than the number of supplementary group IDs.
+@end table
+
+@node ttyname
+@section ttyname
+
+@example c
+int ttyname(int fd, char *buffer, size_t size);
+@end example
+
+This syscall fetches the name of the filesystem entity backing a TTY and writes
+it to @code{buffer} with a NULL terminator.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+@code{size} is less than needed and/or @code{fd} is not a TTY.
+
+@item EBADF
+@code{fd} is not opened to anything.
+
+@item EFAULT
+@code{buffer} points to invalid memory.
+@end table
+
+@node fadvise
+@section fadvise
+
+@example c
+#define POSIX_FADV_NORMAL     1
+#define POSIX_FADV_SEQUENTIAL 2
+#define POSIX_FADV_NOREUSE    3
+#define POSIX_FADV_DONTNEED   4
+#define POSIX_FADV_WILLNEED   5
+#define POSIX_FADV_RANDOM     6
+
+int fadvise(int fd, off_t offset, off_t len, int advice);
+@end example
+
+This syscall is used for advising the kernel on how access will be done for
+the passed file for the passed range, in order to prepare caches ahead of time
+to optimize system resource use and performance. This can only be used with
+filesystem inodes.
+
+Advising for a file does not make any operation illegal or behave weirdly, they
+are just used in order to cater to the passed information.
+
+Advice is indicated on @code{advice}, and can take the following values:
+
+@table @code
+@item POSIX_FADV_NORMAL
+Indicates that the application has no advice to give about its access pattern
+for the specified data. If no advice is given for an open file, this is the
+default assumption.
+
+@item POSIX_FADV_SEQUENTIAL
+Specifies that the application has no advice to give on its behavior with
+respect to the specified data. It is the default characteristic if no advice is
+given for an open file.
+
+@item POSIX_FADV_NOREUSE
+Specifies that the application expects to access the specified data once and
+then not reuse it thereafter.
+
+@item POSIX_FADV_DONTNEED
+Specifies that the application expects that it will not access the specified
+data in the near future.
+
+@item POSIX_FADV_WILLNEED
+Specifies that the application expects to access the specified data in the near
+future.
+
+@item POSIX_FADV_RANDOM
+Specifies that the application expects to access the specified data in a random
+order.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+@code{advice} is not valid.
+
+@item EBADF
+@code{fd} is not opened to anything.
+
+@item ESPIPE
+The passed file is not a VFS inode.
+@end table
+
+@node shmat
+@section shmat
+
+@example c
+void *shmat(int shmid, const void *shmaddr, int shmflg);
+@end example
+
+This syscall attaches the shared memory segment identified by @code{shmid} to
+the address space of the calling process.
+
+If shmaddr is @code{NULL}, the system chooses a suitable (unused) address at
+which to attach the segment. If it is not @code{NULL}, that address will be
+used for attaching.
+
+If @code{SHM_RDONLY} is specified in shmflg, the segment is attached fo
+reading and the process must have read permission for the segment. Otherwise
+the segment is attached for read and write and the process must have read and
+write permission for the segment. There is no notion of a write-only shared
+memory segment.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EACCES
+The caller does not have enough permissions for attaching.
+
+@item EIDRM
+@code{shmid} points to a removed identifier.
+
+@item EINVAL
+Invalid @code{shmid} or invalid @code{shmaddr}.
+
+@item ENOMEM
+Not enough memory.
+@end table
+
+@node shmctl
+@section shmctl
+
+@example c
+struct ipc_perms @{
+   uint32_t __key;
+   uint32_t uid;
+   uint32_t gid;
+   uint32_t cuid;
+   uint32_t cgid;
+   uint32_t mode;
+   uint32_t __seq;
+@}
+
+struct shmid_ds @{
+   struct ipc_perms shm_perm;
+   uint64_t shm_segsz;
+   uint64_t shm_atime;
+   uint64_t shm_dtime;
+   uint64_t shm_ctime;
+   uint32_t shm_cpid;
+   uint32_t shm_lpid;
+   uint64_t shm_nattch;
+@}
+
+#define IPC_RMID 0
+#define IPC_SET  1
+#define IPC_STAT 2
+
+int shmctl(int shmid, int cmd, struct shmid_ds *buf);
+@end example
+
+This syscall performs the control operation specified by @code{cmd} on the
+shared memory segment whose identifier is given in @code{shmid}.
+
+@code{cmd} can be one of:
+
+@table @code
+@item IPC_RMID
+The passed @code{shmid} is set to be deleted when the attached count of the
+segment goes to @code{0}. Otherwise, it will linger forever. @code{buf} is
+ignored.
+
+@item IPC_SET
+Information passed on the structure pointed to by @code{buf} is used to modify
+the permission fields of the passed segment, namely @code{shm_perm.uid},
+@code{shm_perm.gid}, and @code{shm_perm.mode}.
+
+@item IPC_STAT
+Get the associated information of the passed segment id and write it to the
+structure pointed to by @code{buf}.
+@end table
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+@code{size} is less than needed and/or @code{fd} is not a TTY.
+
+@item EBADF
+@code{fd} is not opened to anything.
+
+@item EFAULT
+@code{buffer} points to invalid memory.
+@end table
+
+@node shmdl
+@section shmdl
+
+@example c
+int shmdt(const void *shmaddr);
+@end example
+
+This syscall detaches the shared memory segment located at @code{shmaddr} from
+the calling process.
+
+The syscall returns @code{0} on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EINVAL
+The passed @code{shmaddr} is not valid.
+@end table
+
+@node shmget
+@section shmget
+
+@example c
+#define IPC_PRIVATE 0
+
+int shmget(key_t key, size_t size, int shmflg);
+@end example
+
+This syscall fetches or creates a shared memory segment associated with
+@code{key}.
+
+If @code{key} is equal to @code{IPC_PRIVATE}, a segment will be created with
+no associated key, and will need to be accessed by other processes only by
+the returned @code{shmid}.
+
+The syscall returns a valid ID on success or @code{-1} on failure, with the
+following errno:
+
+@table @code
+@item EACCES
+MAC did not allow this.
+
+@item EEXISTS
+An attempt to create a public segment with an already registered key happened.
+
+@item ENOENT
+The fetched segment is not present.
+@end table
+
+@node getsockopt/setsockopt
+@section getsockopt/setsockopt
+
+@example c
+#define SOL_SOCKET 1
+
+#define SO_ACCEPTCONN 1
+#define SO_ERROR      5
+#define SO_SNDBUF     13
+#define SO_TYPE       16
+
+int getsockopt(int fd, int level, int name, void *val, socklen_t *len);
+int setsockopt(int fd, int level, int name, void *val, socklen_t len);
+@end example
+
+This syscall gets or sets the option passed on @code{name} for the socket level
+passed on @code{level}, and writes or fetches data from @code{val} with the
+length passed on @code{len}.
+
+Right now, @code{SOL_SOCKET} is the only supported socket level.
+
+@code{name} can be one of:
+
+@table @code
+@item SO_ACCEPTCONN
+@code{val} will point to an @code{uint32_t}. @code{1} will be written there if
+the passed socket is listening, and @code{0} if it is not/cannot listen due to
+protocol. @code{getsockopt} only.
+
+@item SO_ERROR
+@code{val} will point to an @code{uint32_t}. The value will be written with the
+present socket error if any, or @code{0} if none are present. @code{getsockopt}
+only.
+
+@item SO_SNDBUF
+@code{val} will point to an @code{uint32_t}. If getting the value, the current
+send-buffer size will be returned, else, it setting it, the passed size will
+be used for the same buffer.
+
+@item SO_TYPE
+@code{val} will point to an @code{uint32_t}. The type of socket will be
+returned in that variable in the same format as @pxref{socket}.
+@code{getsockopt} only.
+@end table
+
+The syscall returns 0 on success or @code{-1} on failure, with the errno:
+
+@table @code
+@item EBADFD
+@code{fd} was not open, or is not a socket.
+
+@item EACCES
+@code{val} did not point to valid memory.
+
+@item EINVAL
+The passed @code{name} or @code{level} were not valid.
+@end table
+
+@node gettidid/settidid
+@section gettidid/settidid
+
+@example c
+int gettidid(int tid, char *id, size_t size);
+int settidid(int tid, char *id, size_t size);
+@end example
+
+This syscall gets or sets the passed thread's ID. An ID is an array associated
+with a thread for debug purposes. A thread is given no ID at creation, and
+fetching it will fail. The ID is a C-style string.
+
+These syscalls returns 0 on success or @code{-1} on failure, with the errno:
+
+@table @code
+@item EINVAL
+The passed buffers were either too big for setting, or to small for fetching
+the ID, or the passed thread is not valid.
+
+@item EFAULT
+The passed buffers were pointing to invalid memory.
+@end table
+
+@node failure_policy
+@section failure_policy
+
+@example c
+#define MEM_FAIL_PANIC      1
+#define MEM_FAIL_SOFT_KILL  2
+#define MEM_FAIL_HARD_KILL  3
+#define OOM_ALLOW_PROC_KILL 1
+struct fail_modes @{
+    uint64_t mem_policy;
+    uint64_t oom_policy;
+@};
+
+int failure_policy(struct fail_modes *old, struct fail_modes *new);
+@end example
+
+This syscall fetches and customized kernel behaviour on a series of failure
+conditions. @code{old}, if not null, can be used for fetching the values
+used at the time of calling, while @code{new}, if not @code{null}, will be used
+to set new values.
+
+The valid values for @code{mem_policy} are:
+
+@table @code
+@item MEM_FAIL_PANIC
+When set to this value, a hardware memory failure will cause the kernel to
+panic. This is the default.
+
+@item MEM_FAIL_SOFT_KILL
+When set to this value, hardware failures will result in no immediate action,
+when a process steps on the faulty memory, an exception will be raised on
+the spot.
+
+@item MEM_FAIL_HARD_KILL
+When set to this value, hardware failures will result on the processes holding
+the faulty memory to be eagerly terminated.
+@end table
+
+The valid values for @code{oom_policy} are:
+
+@table @code
+@item OOM_ALLOW_PROC_KILL
+When set, this value will make the kernel able to kill processes if deemed
+necessary for the prolonged function of the system, if not set, the kernel
+will not kill user processes at any cost.
+@end table
+
+This syscall returns 0 on success or @code{-1} on failure, with the errno:
+
+@table @code
+@item EINVAL
+When setting new values with @code{new}, the passed values were not valid.
+
+@item EFAULT
+The passed buffers were pointing to invalid memory.
+
+@item EACCES
+When setting new values with @code{new}, the calling process did not have the
+capability @code{MAC_CAP_SYSMAC}.
+@end table
+
+@node Filesystem support and interfaces
+@chapter Filesystem support and interfaces
+
+Support for several filesystems is provided, with filesystem-specific quirks at
+times, and exposes interfaces with @code{ioctl} calls. This section of the
+manual focuses on documenting said quirks, details, and additional features.
+
+@node Extended FileSystem
+@section Extended FileSystem
+
+Ironclad supports EXT-series filesystems read-only and read-write.
+
+While a user may be used to the ext2/3/4 distinction, EXT internally works as
+an independent set of features, with the version numbers specifying a
+widely understood, assumed, and inconsistent set of features.
+
+Ironclad supports the feature list: @code{sparse_super}, @code{large_file},
+@code{filetype}, @code{resize_inode}, @code{dir_index}, @code{ext_attr}.
+
+Those features should translate to ext2 read-write support, and ext3 read-only
+support.
+
+Some @code{ioctl} calls exist for files inside EXT-series FSs, which can help
+manage specialized FS-specific inode flags and permissions, they are:
+
+@example c
+EXT_GETFLAGS = 0x5600
+EXT_SETFLAGS = 0x5601
+
+ioctl(fd, EXT_GETFLAGS, pointer_to_u32); // Get EXT's flags inode field.
+ioctl(fd, EXT_SETFLAGS, pointer_to_u32); // Set EXT's flags inode field.
+@end example
+
+@node File Allocation Table
+@section File Allocation Table
+
+Ironclad's FAT support is really rough. Only read-only FAT32 is supported.
+No special @code{ioctl} calls are provided. Long filenames are not supported.
+
+@node Networking
+@chapter Networking
+
+This chapter gives all the details on how Ironclad handles networking.
+
+@node Layering
+@section Layering
+
+The OSI model, as per the X.200 recommendation, defines 7 layers:
+
+@example
+| No. | Layer Name   | Example technologies                 |
+| +++ | ++++++++++++ | ++++++++++++++++++++++++++++++++++++ |
+| 7   | Application  | WebSocket, HL7                       |
+| 6   | Presentation | Idk I do embedded, weird stuff here  |
+| 5   | Session      | Sockets, Named pipes, NetBIOS (eek!) |
+| 4   | Transport    | TCP, UDP, NBF                        |
+| 3   | Network      | IP, IPSec, ICMP                      |
+| 2   | Data link    | ARP, NDP, MAC                        |
+| 1   | Physical     | Ethernet, WiFi, Bluetooth            |
+@end example
+
+Ironclad aims to provide all the way to the @strong{session} layer, no more!
+(and no less). The main interface for networking used to interface with that
+layer will be the socket. For learning about sockets, @ref{socket}.
+
+@node Interface handling
+@section Interface handling
+
+Ironclad registers one interface per valid device plus one for a loopback
+device. New addresses cannot be added manually, they may only be added and
+removde by the kernel. Some parameters are available for user control though,
+including per-interface configuration and enabling and disabling.
+
+All interfaces but @code{loopback} will be disabled by default, that is, they
+will be setup and ready to go, but will refuse connectivity via kernel block,
+as a security measure to avoid unexpected connectivity. They will need manual
+enabling.
+
+@node Loopback
+@section Loopback
+
+The loopback device is a special, virtual network interface meant to be used
+mainly for diagnostics and troubleshooting, along for enabling connecting to
+servers running on the local machine.
+
+It works fundamentally by returning the packets sent to it (loopback!), in such
+a way that services can talk with themselves. This device implements no
+physical layer of the network stack, packets are passed without that layer.
+
+Loopback will always have the static IP addresses @code{127.0.0.1/8} and
+@code{::1/128}. These addresses can be changed in runtime.
+@ref{config_netinter}.
+
+@node Devices and their properties
+@chapter Devices and their properties
+
+Ironclad exposes a number of physical and virtual devices to userland. All
+of them are exposed under the @code{/dev} location, and support a series of
+standard operations, like being manipulated by the usual file-related
+syscalls like @code{read} or @code{write}, while sporting device-specific
+interfaces in the form of device-specific @code{ioctl} requests.
+
+When quering device-specific information, Ironclad exposes information a bit
+different than other kernels like Linux. Here is a quick list of the most
+notable differences:
+
+@itemize @bullet
+@item
+The @code{BLKGETSIZE}/@code{BLKGETSIZE64} @code{ioctl} calls are not available,
+instead, the block count and block size values of @code{stat} are used.
+@end itemize
+
+All devices in Ironclad have the @code{ioctl} call @code{DEV_UUID} implemented,
+with the signature:
+
+@example c
+#define DEV_UUID 0x9821
+
+ioctl(fd, DEV_UUID, &pointer_to_uuid); -- uuids being uint8_t[16];
+@end example
+
+This call will write the UUID of the device pointed to by @code{fd}, which, if
+all zeros, will mean that the device has no associated UUID.
+
+@node Common devices
+@section Common devices
+
+These are devices exposed in Ironclad regardless of target system when
+present, with standardized interfaces.
+
+@subsection console
+
+@code{/dev/console} wraps architecture-specific debug output channels for use
+with file operations. For x86-based targets, this is COM1, for other targets,
+this may be UART.
+
+If the target implements reading from the debug channels, read will be
+supported as well. If not implemented, the device will be read-only.
+
+The kernel also uses the debug channels for output, so keep in mind the
+contentions that can cause. If you are doing a lot of spaced writes, do not
+be surprised if the kernel pops in the middle! In the other hand, the kernel
+does not read from the debug channels.
+
+@subsection loopback
+
+@code{/dev/loopback} is the network loopback device, explained on
+@ref{Loopback}.
+
+@subsection ramdev
+
+The devices starting by @code{ramdev} are virtual devices representing the
+RAM driver passed by some boot protocols, an FS can be mounted to them, or be
+otherwise used like any other block device. These RAM devices are read/write,
+but they cannot grow in size, so changes are constrained to the area the
+RAM device already has allocated.
+
+@subsection random/urandom/hwrng
+
+The device @code{random} is equivalent to the one featured in other UNIX-like
+kernels, and can be read to get a stream of cryptographically secure
+pseudo-random bytes.
+
+Ironclad has limited sources of entropy, so the quality of this random numbers
+may be limited as well. To mitigate this, one may write to the @code{random}
+device. The written data will be used as additional entropy.
+
+@code{/dev/urandom} does the same as @code{/dev/random}, and is only provided
+for compatibility.
+
+@code{getrandom} is provided as well for avoiding the file interface when
+interfacing with @code{/dev/random}, as that may avoid certain kinds of DoS
+attacks related to opened file limits.
+
+When present, CPU random number generators may be exposed as @code{/dev/hwrng}.
+This device behaves the same as @code{/dev/random} apart from the fact that
+it does not allow writing to it. It is recommended that, unless necessary, you
+use @code{/dev/random} instead. If you are to use @code{hwrng}, be sure you
+trust your hardware to not be backdoored, else, those backdoors might be
+rendered useless by the kernel's own CSPRNG processing.
+
+@subsection null/zero
+
+@code{null} returns @code{EOF} whenever read, and all the write operations are
+discarded.
+
+@code{zero} returns exclusively a stream of zeros when read, and all write
+operations are discarded.
+
+@node riscv64-limine devices
+@section riscv64-limine devices
+
+To be determined.
+
+@node x86_64-limine devices
+@section x86_64-limine devices
+
+@subsection ata
+
+The devices starting by @code{sata} represent several ATA IDE block devices.
+These ATA drives have internal caching at the driver level, so they must be
+@code{sync}'d for data integrity when wanting to ensure data coherency.
+
+No special @code{ioctl} calls are supported.
+
+@subsection fb0
+
+The @code{fb0} device exposes the framebuffer passed as part of the boot
+protocol, when present. The device uses Linux's @url{https://docs.kernel.org/fb/api.html, fbdev} interface.
+
+@subsection i6300esb
+
+@code{i6300esb} is a hardware watchdog featured in a lot of intel hardware, it
+can be reset by using @code{write} and can be configured using
+@code{ioctl} like:
+
+@example c
+WDOG_START     = 1 // Start the count.
+WDOG_STOP      = 2 // Stop the count.
+WDOG_HEARTBEAT = 3 // Reset and set a new heartbeat period in seconds.
+
+ioctl(wdog, WDOG_START, ignored); // Enable 2:1 scaling.
+ioctl(wdog, WDOG_STOP,  ignored); // Enable 1:1 scaling.
+ioctl(wdog, WDOG_HEARTBEAT, pointer_to_uint32_t);
+@end example
+
+There is no default heartbeat count, so be sure to configure it if you do not
+want mayhem. Access to reset and configuration can be restricted by using
+MAC.
+
+While this piece of hardware allows for hooking up interrupts and reboot
+separately when the timer expires, Ironclad right now will only reboot when
+the timer expires.
+
+@subsection lpt
+
+The devices starting by @code{lpt} represent the several character devices
+representing the system's parallel ports. They support write operations, but no
+TTY interface is exposed, they are raw byte streams.
+
+@subsection pcspeaker
+
+@code{pcspeaker} represents the IBM PC speaker, it is interfaced with using
+@code{ioctl}, as such:
+
+@example c
+ioctl(fd, ignored, pointer_to_uint32_t_frequency_in_hz);
+@end example
+
+@subsection ps2keyboard/ps2mouse
+
+The devices @code{ps2keyboard} and @code{ps2mouse} exposes x86's native PS2
+interfaces, @code{ps2keyboard} is a normal character device that returns
+scancodes as they are received. @code{ps2mouse} is a character device that
+returns mouse packets following the structure:
+
+@example c
+struct mouse_data @{
+   int x_variation;
+   int y_variation;
+   int z_variation;
+   bool is_left_click;
+   bool is_right_click;
+   bool is_middle_clock;
+   bool is_4th_click;
+   bool is_5th_click;
+@};
+@end example
+
+@code{ps2mouse} supports a series of @code{ioctl} calls for setting different
+modes and talking directly with the PS2 controller:
+
+@example c
+PS2MOUSE_2_1_SCALING     = 1
+PS2MOUSE_1_1_SCALING     = 2
+PS2MOUSE_SET_RES         = 3
+PS2MOUSE_SET_SAMPLE_RATE = 4
+
+ioctl(mouse, PS2MOUSE_2_1_SCALING, ignored);  // Enable 2:1 scaling.
+ioctl(mouse, PS2MOUSE_1_1_SCALING, ignored);  // Enable 1:1 scaling.
+ioctl(mouse, PS2MOUSE_SET_RES, resolution);   // (0 - 3).
+ioctl(mouse, PS2MOUSE_SET_SAMPLE_RATE, rate); // (0 - 200).
+@end example
+
+Valid resolutions and sample rates are values for the PS2 controller, else
+the call is ignored. For valid values and their meaning refer to
+@uref{https://isdaman.com/alsos/hardware/mouse/ps2interface.htm, this website}.
+
+@subsection sata
+
+The devices starting by @code{sata} represent several SATA AHCI block devices.
+For now only SATA drives are supported, support for ATAPI is not present.
+
+These SATA drives have internal caching at the driver level, so they must be
+@code{sync}'d for data integrity when wanting to ensure data coherency.
+
+@subsection serial
+
+The devices starting by @code{serial} represent the several character devices
+used for each present serial port, they support read/write operations, but no
+TTY interface is exposed, they are raw byte streams.
+
+Baud and other settings can be set by using the @code{termios}, note that
+most of the fields are not implemented as the serial devices are not ttys but
+just byte streams.
+
+The default baud for all ports is set to be @code{115200}.
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+@include fdl.texi
+
+@bye

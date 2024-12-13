@@ -1,0 +1,185 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RV NO_ENUMERATION_MAPS
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.entrypoint%b	arch-entrypoint.adb	a496d5c0 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.cpu%s		arch-cpu.adb		arch-cpu.ali
+W arch.dtb%s		arch-dtb.adb		arch-dtb.ali
+W arch.limine%s		arch-limine.adb		arch-limine.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W devices%s		devices.adb		devices.ali
+W devices.uart%s	devices-uart.adb	devices-uart.ali
+W interfaces%s		interfac.ads		interfac.ali
+W kernel_main%s		kernel_main.adb		kernel_main.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W memory%s		memory.ads		memory.ali
+W memory.physical%s	memory-physical.adb	memory-physical.ali
+
+U arch.entrypoint%s	arch-entrypoint.ads	418a8118 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-cpu.ads		20241115151036 4e264e50 arch.cpu%s
+D arch-dtb.ads		20241115151036 3bdb8188 arch.dtb%s
+D arch-entrypoint.ads	20241115151036 3e52ad86 arch.entrypoint%s
+D arch-entrypoint.adb	20241115151036 1772cf08 arch.entrypoint%b
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-limine.ads	20241115151036 8eb8e49c arch.limine%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D devices-uart.ads	20241115151036 15b33d8b devices.uart%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D kernel_main.ads	20241115151036 fba3ee83 kernel_main%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D memory-physical.ads	20241115151036 f22cd7a2 memory.physical%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [bootstrap_main arch__entrypoint 18 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [init_uart0 devices__uart 23 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [translate_proto arch__limine 36 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [init arch__dtb 21 13 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [hard_panic lib__panic 32 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [put_line lib__messages 41 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [image lib__messages 74 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [init_allocator memory__physical 23 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [init arch__mmu 63 13 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [init_cores arch__cpu 50 14 none]
+G r c none [bootstrap_main arch__entrypoint 18 14 none] [entrypoint kernel_main 25 14 none]
+X 5 arch.ads
+20K9*Arch 52e9 10|17r9 20r5 11|20r6 23r6 25r6 26r6 28r14 41r14 57r14 62r7
+. 67r5
+22E9*Boot_Memory_Type 27e24 11|51r13
+30m7*Start{33|25M9} 11|48r44
+31i7*Length{34|16I12} 11|49r32
+32e7*MemType{22E9} 11|51r39
+34A9*Boot_Memory_Map(29R9)<integer>
+44R9*Boot_Information 51e14 11|30r18
+45a7*Cmdline{string} 11|65r36
+46i7*Cmdline_Len{integer} 11|65r55
+47a7*Memmap{34A9} 11|47r21 56r44 57r34
+48i7*Memmap_Len{integer} 11|47r39 56r62 57r52
+X 8 arch-cpu.ads
+22K14*CPU 58e13 11|26w11 62r12
+50U14*Init_Cores 11|62s16
+X 9 arch-dtb.ads
+20K14*DTB 46e13 11|25w11 41r19
+21V13*Init{boolean} 11|41s23
+X 10 arch-entrypoint.ads
+17K14*Entrypoint 5|20k9 10|20l10 20e20 11|28b19 67l10 67t20
+18U14*Bootstrap_Main 11|29b14 66l8 66t22
+X 11 arch-entrypoint.adb
+30r7 Info=30:50{5|44R9} 47r16 47r34 56r39 56r57 57r29 57r47 65r31 65r50
+31a7 St1{26|55A12} 48m53 50r33
+31a12 St2{26|55A12} 49m41 50r47
+32i7 Stp_Len{natural} 48m58 49m46
+47r11 E=47:11{5|29R9} 48r42 49r30 51r37
+X 13 arch-limine.ads
+20K14*Limine 11|20w11 30r43 38r7 13|293e16
+22r4*Global_Info{5|44R9} 11|30r50
+36U14*Translate_Proto 11|38s14
+X 14 arch-mmu.ads
+22K14*MMU 11|23w11 57r19 14|250e13
+63V13*Init{boolean} 11|57s23
+X 15 devices.ads
+22K9*Devices 11|19r6 35r7 15|279e12
+X 17 devices-uart.ads
+21K17*UART 11|19w14 35r15 17|37e17
+23U14*Init_UART0 11|35s20
+X 18 interfac.ads
+11K9*Interfaces 11|17w6 17r22 18|120e15
+19M9*Unsigned_64 11|48r17 49r17
+X 24 kernel_main.ads
+17K9*Kernel_Main 11|18w6 65r7 24|26e16
+25U14*Entrypoint 11|65s19
+X 25 lib.ads
+19K9*Lib 11|21r6 21r24 24r6 31r18 42r10 46r7 50r10 55r7 58r10 25|35e8
+X 26 lib-messages.ads
+21K13*Messages 11|21w10 21r28 31r22 46r11 50r14 55r11 26|103e17
+41U14*Put_Line 11|46s20 50s23 55s20
+55A12*Translated_String{string}<integer> 11|31r31
+74U14*Image 11|48s10 49s10
+X 27 lib-panic.ads
+21K13*Panic 11|24w10 42r14 58r14 27|39e14
+32U14*Hard_Panic 11|42s20 58s20
+X 29 memory.ads
+19K9*Memory 11|22r6 56r7 29|36e11
+X 30 memory-physical.ads
+20K16*Physical 11|22w13 56r14 30|60e20
+23U14*Init_Allocator 11|56s23
+X 33 system.ads
+25M9*Address
+X 34 s-stoele.ads
+12I9*Storage_Offset<long_integer>
+16I12*Storage_Count{12I9}
+49M9*Integer_Address
+56V13*To_Integer{49M9} 11|48s30
+

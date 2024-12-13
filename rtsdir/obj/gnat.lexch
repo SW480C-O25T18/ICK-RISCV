@@ -1,0 +1,27 @@
+[LIBRARY PATH]
+/home/michael/capstoneProject/ironclad/rtsdir/adalib/libgnat.a
+[OBJECT FILES]
+/home/michael/capstoneProject/ironclad/rtsdir/obj/a-charac.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/a-chlat1.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/a-unccon.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/a-uncdea.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/ada.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/i-c.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/interfac.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/s-atacco.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/s-maccod.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/s-stoele.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/s-unstyp.o
+20241115153943
+/home/michael/capstoneProject/ironclad/rtsdir/obj/system.o
+20241115153943

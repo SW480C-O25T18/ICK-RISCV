@@ -1,0 +1,232 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U networking.interfaces%b  networking-interfaces.adb  968f107b NE OO PK
+W devices%s		devices.adb		devices.ali
+W devices.netinter%s	devices-netinter.ads	devices-netinter.ali
+W networking%s		networking.adb		networking.ali
+Z system%s		system.ads		system.ali
+N A198:7 gnatprove false_positive "cannot prove upper bound for Buffer'Length" "not entirely sure how that happens"
+
+U networking.interfaces%s  networking-interfaces.ads  f675fa2e NE OO PK
+W devices%s		devices.adb		devices.ali
+W networking%s		networking.adb		networking.ali
+W networking.arp%s	networking-arp.adb	networking-arp.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-netinter.ads	20241115151036 a12468cd devices.netinter%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking-arp.ads	20241115151036 eec21925 networking.arp%s
+D networking-interfaces.ads  20241115151036 9c034257 networking.interfaces%s
+D networking-interfaces.adb  20241115151036 aba83ae1 networking.interfaces%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [register_interface networking__interfaces 33 14 none]
+G c Z s b [get_interface_address networking__interfaces 42 14 none]
+G c Z s b [get_interface_address networking__interfaces 47 14 none]
+G c Z s b [block networking__interfaces 56 14 none]
+G c Z s b [get_suitable_interface networking__interfaces 62 14 none]
+G c Z s b [get_suitable_interface networking__interfaces 67 14 none]
+G c Z s b [modify_addresses networking__interfaces 72 14 none]
+G c Z s b [modify_addresses networking__interfaces 79 14 none]
+G c Z s b [list_interfaces networking__interfaces 101 14 none]
+G c Z s s [interface_infoIP networking__interfaces 87 9 none]
+G c Z s s [interface_arrIP networking__interfaces 96 9 none]
+G c Z b b [inner_interfaceIP networking__interfaces 22 9 none]
+G c Z b b [Tinner_arrBIP networking__interfaces 27 4 none]
+G r c none [register_interface networking__interfaces 33 14 none] [seize lib__synchronization 27 14 none]
+G r c none [register_interface networking__interfaces 33 14 none] [io_control devices 224 13 none]
+G r c none [register_interface networking__interfaces 33 14 none] [add_static networking__arp 32 14 none]
+G r c none [register_interface networking__interfaces 33 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_interface_address networking__interfaces 42 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_interface_address networking__interfaces 42 14 none] [lookup networking__arp 53 14 none]
+G r c none [get_interface_address networking__interfaces 42 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_interface_address networking__interfaces 47 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_interface_address networking__interfaces 47 14 none] [lookup networking__arp 57 14 none]
+G r c none [get_interface_address networking__interfaces 47 14 none] [release lib__synchronization 31 14 none]
+G r c none [block networking__interfaces 56 14 none] [seize lib__synchronization 27 14 none]
+G r c none [block networking__interfaces 56 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_suitable_interface networking__interfaces 62 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_suitable_interface networking__interfaces 62 14 none] [lookup networking__arp 53 14 none]
+G r c none [get_suitable_interface networking__interfaces 62 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_suitable_interface networking__interfaces 67 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_suitable_interface networking__interfaces 67 14 none] [lookup networking__arp 57 14 none]
+G r c none [get_suitable_interface networking__interfaces 67 14 none] [release lib__synchronization 31 14 none]
+G r c none [modify_addresses networking__interfaces 72 14 none] [seize lib__synchronization 27 14 none]
+G r c none [modify_addresses networking__interfaces 72 14 none] [modify_static networking__arp 40 14 none]
+G r c none [modify_addresses networking__interfaces 72 14 none] [release lib__synchronization 31 14 none]
+G r c none [modify_addresses networking__interfaces 79 14 none] [seize lib__synchronization 27 14 none]
+G r c none [modify_addresses networking__interfaces 79 14 none] [modify_static networking__arp 46 14 none]
+G r c none [modify_addresses networking__interfaces 79 14 none] [release lib__synchronization 31 14 none]
+G r c none [list_interfaces networking__interfaces 101 14 none] [seize lib__synchronization 27 14 none]
+G r c none [list_interfaces networking__interfaces 101 14 none] [lookup networking__arp 53 14 none]
+G r c none [list_interfaces networking__interfaces 101 14 none] [lookup networking__arp 57 14 none]
+G r c none [list_interfaces networking__interfaces 101 14 none] [release lib__synchronization 31 14 none]
+X 3 devices.ads
+22K9*Devices 279e12 11|17w6 17r19 34r22 43r21 48r21 57r21 64r25 69r25 73r21
+. 80r21 88r21 12|17r6 17r28 31r19 34r22 46r26 58r21 75r21 92r21 111r25 116r21
+. 119r27 136r25 141r21 144r27 160r21 179r21 205r26 215r38
+83I9*Device_Handle<integer> 11|34r30 43r29 48r29 57r29 64r33 69r33 73r29
+. 80r29 88r29 12|23r20 34r30 58r29 75r29 92r29 111r33 136r33 160r29 179r29
+85i4*Error_Handle{83I9} 12|31r27 46r34 116r29 119r35 141r29 144r35 205r34
+. 215r46
+224V13*IO_Control{boolean} 12|49s24
+X 4 devices-netinter.ads
+17K17*NetInter 20e21 12|17w14 17r36
+19N4*NET_GETMAC 12|49r48
+X 5 interfac.ads
+16M9*Unsigned_8
+X 7 lib-synchronization.ads
+22R9*Binary_Semaphore 57e14 12|29r30
+23r4*Unlocked_Semaphore{22R9} 12|29r50
+27U14*Seize 12|44s7 64s7 81s7 98s7 117s7 142s7 167s7 186s7 213s7
+31U14*Release 12|54s7 71s7 88s7 106s7 131s7 156s7 175s7 194s7 237s7
+X 9 networking.ads
+20K9*Networking 55e15 11|18r6 20r9 107r5 12|19r14 239r5
+22A9*MAC_Address(5|16M9)<integer> 11|90r21 12|24r20
+23A9*IPv4_Address(5|16M9)<integer> 11|35r22 36r22 44r25 63r21 74r21 75r21
+. 91r21 92r21 12|35r22 36r22 59r25 61r16 110r21 113r16 114r16 161r21 162r21
+24A9*IPv6_Address(5|16M9)<integer> 11|37r22 38r22 49r25 68r21 81r21 82r21
+. 93r21 94r21 12|37r22 38r22 76r25 78r16 135r21 138r16 139r16 180r21 181r21
+X 10 networking-arp.ads
+17K20*ARP 86e19 11|18w17 45r19 50r19 65r19 70r19 77r19 84r19 102r19 12|50r13
+. 67r13 84r13 120r13 145r13 170r13 189r13 224r16 228r16
+32U14*Add_Static 12|50s17
+40U14*Modify_Static 12|170s17
+46U14*Modify_Static 12|189s17
+53U14*Lookup 12|67s17 120s17 224s20
+57U14*Lookup 12|84s17 145s17 228s20
+X 11 networking-interfaces.ads
+20K20*Interfaces 9|20k9 11|106E4 107l16 107e26 12|19b25 239l16 239t26
+25i4*Max_Interface_Count{natural} 106c4 12|27r34
+33U14*Register_Interface 34>8 35>8 36>8 37>8 38>8 39<8 12|33b14 55l8 55t26
+34i8 Interfaced{3|83I9} 12|34b8 47r27 49r36
+35a8 IPv4{9|23A9} 12|35b8 50r38
+36a8 IPv4_Subnet{9|23A9} 12|36b8 50r44
+37a8 IPv6{9|24A9} 12|37b8 50r57
+38a8 IPv6_Subnet{9|24A9} 12|38b8 50r63
+39b8 Success{boolean} 12|39b8 43m7 49m13
+42U14*Get_Interface_Address 43>8 44<8 12|57b14 72l8 72t29
+43i8 Interfaced{3|83I9} 12|58b8 66r26
+44a8 IP{9|23A9} 12|59b8 63m7 67m34
+47U14*Get_Interface_Address 48>8 49<8 12|74b14 89l8 89t29
+48i8 Interfaced{3|83I9} 12|75b8 83r26
+49a8 IP{9|24A9} 12|76b8 80m7 84m34
+56U14*Block 57>8 58>8 59<8 12|91b14 107l8 107t13
+57i8 Interfaced{3|83I9} 12|92b8 100r26
+58b8 Is_Blocked{boolean} 12|93b8 101r31
+59b8 Success{boolean} 12|94b8 97m7 102m13
+62U14*Get_Suitable_Interface 63>8 64<8 12|109b14 132l8 132t30
+63a8 IP{9|23A9} 12|110b8 122r44
+64i8 Interfaced{3|83I9} 12|111b8 116m7 126m13
+67U14*Get_Suitable_Interface 68>8 69<8 12|134b14 157l8 157t30
+68a8 IP{9|24A9} 12|135b8 147r44
+69i8 Interfaced{3|83I9} 12|136b8 141m7 151m13
+72U14*Modify_Addresses 73>8 74>8 75>8 76<8 12|159b14 176l8 176t24
+73i8 Interfaced{3|83I9} 12|160b8 169r26
+74a8 IP{9|23A9} 12|161b8 170r41
+75a8 IP_Subnet{9|23A9} 12|162b8 170r45
+76b8 Success{boolean} 12|163b8 166m7 171m13
+79U14*Modify_Addresses 80>8 81>8 82>8 83<8 12|178b14 195l8 195t24
+80i8 Interfaced{3|83I9} 12|179b8 188r26
+81a8 IP{9|24A9} 12|180b8 189r41
+82a8 IP_Subnet{9|24A9} 12|181b8 189r45
+83b8 Success{boolean} 12|182b8 185m7 190m13
+87R9*Interface_Info 95e14 96r54
+88i7*Handle{3|83I9} 12|205m11 218m51
+89b7*Is_Blocked{boolean} 12|206m11 220m51
+90a7*MAC{9|22A9} 12|207m11 222m51 225r55 229r55
+91a7*IPv4{9|23A9} 12|208m11 226m55
+92a7*IPv4_Subnet{9|23A9} 12|209m11 227m55
+93a7*IPv6{9|24A9} 12|210m11 230m55
+94a7*IPv6_Subnet{9|24A9} 12|211m11 231m55
+96A9*Interface_Arr(87R9)<integer> 101r44 12|197r44
+101U14*List_Interfaces 101<31 101<59 12|197b14 238l8 238t23
+101a31 Buffer{96A9} 12|197b31 204m7 217r29 218m16 218r24 220m16 220r24 222m16
+. 222r24 225r20 225r28 226m20 226r20 226r28 227m20 227r20 227r28 229r20 229r28
+. 230m20 230r20 230r28 231m20 231r20 231r28
+101i59 Len{natural} 12|197b59 203m7 216m13 216r20
+X 12 networking-interfaces.adb
+22R9 Inner_Interface 26e14 27r58
+23i7*Handle{3|83I9} 46r17 47m17 66r17 83r17 100r17 119r17 126r31 144r17 151r31
+. 169r17 188r17 215r28 219r34
+24a7*MAC{9|22A9} 49m64 50r33 67r29 84r29 120r29 145r29 170r36 189r36 222r73
+25b7*Is_Blocked{boolean} 48m17 101m17 119r60 144r60 221r34
+27A9 Inner_Arr(22R9)<integer> 30r22
+29r4 Interfaces_Lock{7|22R9} 44m14 44r14 54m16 54r16 64m14 64r14 71m16 71r16
+. 81m14 81r14 88m16 88r16 98m14 98r14 106m16 106r16 117m14 117r14 131m16
+. 131r16 142m14 142r14 156m16 156r16 167m14 167r14 175m16 175r16 186m14 186r14
+. 194m16 194r16 213m14 213r14 237m16 237r16
+30a4 Interfaces{27A9} 45m18 45r18 65r18 82r18 99m18 99r18 118r18 143r18 168r18
+. 187r18 214r16 215r13 219r19 221r19 222r58
+45r11 Int=45:18{22R9} 46r13 47r13 48r13 49r60 50r29
+61a7 IP_Sub{9|23A9} 67m38
+65r11 Int=65:18{22R9} 66r13 67r25
+78a7 IP_Sub{9|24A9} 84m38
+82r11 Int=82:18{22R9} 83r13 84r25
+99r11 Int=99:18{22R9} 100r13 101r13
+113a7 IP_Sub{9|23A9} 120m39 121r22 122r19
+114a7 IP2{9|23A9} 120m34 122r54
+118r11 Int=118:18{22R9} 119r13 119r56 120r25 126r27
+121i17 I{integer} 122r27 122r48 122r59
+128L12 End_Iter 123r24
+138a7 IP_Sub{9|24A9} 145m39 146r22 147r19
+139a7 IP2{9|24A9} 145m34 147r54
+143r11 Int=143:18{22R9} 144r13 144r56 145r25 151r27
+146i17 I{integer} 147r27 147r48 147r59
+153L12 End_Iter 148r24
+168r11 Int=168:18{22R9} 169r13 170r32
+187r11 Int=187:18{22R9} 188r13 189r32
+201i7 Curr_Index{natural} 217r16 218r39 220r39 222r39 225r43 226r43 227r43
+. 229r43 230r43 231r43 233m16 233r30
+214i11 I{integer} 215r25 219r31 221r31 222r70
+

@@ -1,0 +1,346 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices%b		devices.adb		ec24ada9 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
+W devices%s		devices.adb		devices.ali
+W devices.console%s	devices-console.adb	devices-console.ali
+W devices.loopback%s	devices-loopback.adb	devices-loopback.ali
+W devices.streams%s	devices-streams.adb	devices-streams.ali
+W lib%s			lib.adb			lib.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+
+U devices%s		devices.ads		e49e7f06 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-hooks.ads	20241115151036 2bd12b55 arch.hooks%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices.adb		20241115151036 49df614b devices%b
+D devices-console.ads	20241115151036 37ce0dbf devices.console%s
+D devices-loopback.ads	20241115151036 39340044 devices.loopback%s
+D devices-streams.ads	20241115151036 bef258ed devices.streams%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [TuuidBIP devices 34 4 none]
+G c Z s b [init devices 92 14 none]
+G c Z s b [register devices 98 14 none]
+G c Z s b [fetch devices 105 13 none]
+G c Z s b [fetch devices 111 13 none]
+G c Z s b [fetch_uuid devices 117 13 none]
+G c Z s b [fetch devices 123 13 none]
+G c Z s b [fetch_name devices 130 14 none]
+G c Z s b [list devices 141 14 none]
+G c Z s s [is_initialized devices 145 13 none]
+G c Z s b [is_block_device devices 150 13 none]
+G c Z s b [get_block_count devices 152 13 none]
+G c Z s b [get_block_size devices 154 13 none]
+G c Z s b [is_read_only devices 156 13 none]
+G c Z s b [get_unique_id devices 161 13 none]
+G c Z s b [from_unique_id devices 165 13 none]
+G c Z s b [synchronize devices 171 13 none]
+G c Z s b [synchronize devices 179 13 none]
+G c Z s b [read devices 193 14 none]
+G c Z s b [write devices 210 14 none]
+G c Z s b [io_control devices 224 13 none]
+G c Z s b [mmap devices 236 13 none]
+G c Z s b [poll devices 249 14 none]
+G c Z s b [to_integer devices 276 13 none]
+G c Z s b [convert_le devices 277 14 none]
+G c Z s b [convert_be devices 278 14 none]
+G c Z s s [operation_dataIP devices 29 9 none]
+G c Z s s [resourceIP devices 39 9 none]
+G c Z s s [device_listIP devices 84 9 none]
+G c Z s s [deviceIP devices 261 9 none]
+G c Z s s [Tdevice_arrBIP devices 267 4 none]
+G c Z s s [uuid_fragmentIP devices 274 9 none]
+G r c none [init devices 92 14 none] [init devices__console 19 14 none]
+G r c none [init devices 92 14 none] [init devices__loopback 19 14 none]
+G r c none [init devices 92 14 none] [init devices__streams 19 14 none]
+G r c none [init devices 92 14 none] [devices_hook arch__hooks 19 13 none]
+G r c none [init devices 92 14 none] [hard_panic lib__panic 32 14 none]
+X 4 arch.ads
+20K9*Arch 52e9 8|20r6 71r21 74r21 238r18 241r18 9|21r6 42r34 304r18 307r18
+X 6 arch-hooks.ads
+17K14*Hooks 33e15 9|21w11 42r39
+19V13*Devices_Hook{boolean} 9|42s45
+X 7 arch-mmu.ads
+22K14*MMU 250e13 8|20w11 71r26 74r26 238r23 241r23 9|304r23 307r23
+26R9*Page_Permissions 32e14 8|74r30 241r27 9|307r27
+43P9*Page_Table_Acc(42R9) 8|71r30 238r27 9|304r27
+X 8 devices.ads
+22K9*Devices 258E9 279l5 279e12 9|17r6 18r6 19r6 23b14 383l5 383t12
+28I12*Operation_Count{natural} 29r38
+29A9*Operation_Data(13|16M9)<integer> 30r38 49r29 56r25 196r26 213r22 9|244r26
+. 268r22
+30P9*Operation_Data_Acc(29A9)
+34A9*UUID(13|16M9)<integer> 36r25 41r21 111r25 123r48 9|87r25 102r18 146r48
+35A12*UUID_String{string}<integer> 117r30 9|101r30
+36a4*Zero_UUID{34A9} 9|89r16 102r26
+39R9*Resource 80e14 98r30 265r20 9|52r30
+40m7*Data{19|25M9} 9|219r45 233r45 236r45 252r58 276r58 296r45 312r45 327r45
+41a7*ID{34A9} 9|92r42 148r42
+42b7*Is_Block{boolean} 9|185r45
+43i7*Block_Size{natural} 9|195r45
+44m7*Block_Count{13|19M9} 9|190r45
+46p7*Read 9|250r41 251r41
+47m11 Key{19|25M9} 9|252r14
+48m11 Offset{13|19M9} 9|253r14
+49a11 Data{29A9} 9|254r14
+50i11 Ret_Count{natural} 9|255r14
+51b11 Success{boolean} 9|256r14
+52b11 Is_Blocking{boolean} 9|257r14
+53p7*Write 9|211r45 274r41 275r41
+54m11 Key{19|25M9} 9|276r14
+55m11 Offset{13|19M9} 9|277r14
+56a11 Data{29A9} 9|278r14
+57i11 Ret_Count{natural} 9|279r14
+58b11 Success{boolean} 9|280r14
+59b11 Is_Blocking{boolean} 9|281r14
+60p7*Sync(boolean) 9|217r41 218r52 234r44 235r52
+60m31 Key{19|25M9}
+61p7*Sync_Range(boolean) 9|231r41 232r52
+62m11 Key{19|25M9}
+63m11 Offset{13|19M9}
+64m11 Count{13|19M9}
+65p7*IO_Control(boolean) 9|294r41 295r48
+66m11 Key{19|25M9}
+67m11 Request{13|19M9}
+68m11 Argument{19|25M9}
+69p7*Mmap(boolean) 9|310r41 311r48
+70m11 Key{19|25M9}
+71p11 Map{7|43P9}
+72m11 Address{18|35M12}
+73m11 Length{13|19M9}
+74r11 Flags{7|26R9}
+75p7*Poll 9|325r41 326r41
+76m11 Handle{19|25M9}
+77b11 Can_Read{boolean}
+78b11 Can_Write{boolean}
+79b11 Is_Error{boolean}
+83I9*Device_Handle<integer> 84r54 85r28 105r42 111r38 117r50 123r26 131r17
+. 150r39 152r39 154r39 156r36 161r37 165r50 171r35 180r17 194r22 211r22 225r19
+. 237r18 250r20 258c9 259r31 267r34 9|75r42 87r38 101r50 103r18 146r26 152r17
+. 183r39 188r39 193r38 198r37 204r50 206r14 209r36 214r35 225r17 242r22 266r22
+. 289r19 303r18 319r20
+84A9*Device_List(83I9)<integer> 141r33 9|161r33
+85i4*Error_Handle{83I9} 134r60 151r59 153r59 155r59 157r59 162r59 172r59
+. 183r59 200r59 217r59 228r59 242r59 254r59 259c4 9|84r14 98r14 114r26 121r26
+. 133r22 165r28 179r43
+88i4*Max_Name_Length{natural} 99r63 106r63 135r36 136r47 260c4 263r33 264r39
+92U14*Init 9|27b14 50l8 50t12
+98U14*Register 98>24 98>40 98<55 9|52b14 73l8 73t16
+98r24 Dev{39R9} 9|52b24 68r57
+98a40 Name{string} 99r48 9|52b40 57r62 66r41 66r57 67r57
+98b55 Success{boolean} 9|52b55 55m7 69m13
+105V13*Fetch{83I9} 105>20 9|75b13 85l8 85t13
+105a20 Name{string} 106r48 9|75b20 79r70
+111V13*Fetch{83I9} 111>20 9|87b13 99l8 99t13 132s19 143s14
+111a20 ID{34A9} 9|87b20 89r10 92r47
+117V13*Fetch_UUID{83I9} 117>25 9|101b13 144l8 144t18
+117a25 ID{35A12} 9|101b25 110r16 113r19 117r24 118r24 119r24 127r53 128r53
+. 129r53 130r53 131r54 138r53 139r53 140r53 141r53 142r54
+123V13*Fetch{34A9} 123>20 9|146b13 149l8 149t13
+123i20 Dev{83I9} 9|146b20 148r28
+130U14*Fetch_Name 131>8 132<8 133<8 9|151b14 159l8 159t18
+131i8 Handle{83I9} 134r50 9|152b8 157r31 158r31
+132a8 Name{string} 135r22 9|153b8 157m7
+133i8 Length{natural} 136r21 136r37 9|154b8 158m7
+141U14*List 141<20 141<46 9|161b14 181l8 181t12
+141a20 Buffer{84A9} 9|161b20 165m7 171r29 172m16 172r24 178r29 179m10 179r18
+141i46 Total{natural} 9|161b46 164m7 168r33 170m13 170r22 178r16
+150V13*Is_Block_Device{boolean} 150>30 9|183b13 186l8 186t23
+150i30 Handle{83I9} 151r49 9|183b30 185r28
+152V13*Get_Block_Count{13|19M9} 152>30 9|188b13 191l8 191t23
+152i30 Handle{83I9} 153r49 9|188b30 190r28
+154V13*Get_Block_Size{natural} 154>30 9|193b13 196l8 196t22
+154i30 Handle{83I9} 155r49 9|193b29 195r28
+156V13*Is_Read_Only{boolean} 156>27 9|209b13 212l8 212t20
+156i27 Handle{83I9} 157r49 9|209b27 211r28
+161V13*Get_Unique_ID{natural} 161>28 9|198b13 202l8 202t21
+161i28 Handle{83I9} 162r49 9|198b28 201r23
+165V13*From_Unique_ID{83I9} 165>29 9|204b13 207l8 207t22
+165i29 ID{natural} 9|204b29 206r29
+171V13*Synchronize{boolean} 171>26 9|214b13 222l8 222t19
+171i26 Handle{83I9} 172r49 9|214b26 217r24 218r35 219r28
+179V13*Synchronize{boolean} 180>8 181>8 182>8 9|224b13 239l8 239t19
+180i8 Handle{83I9} 183r49 9|225b8 231r24 232r35 233r28 234r27 235r35 236r28
+181m8 Offset{13|19M9} 9|226b8 233r51
+182m8 Count{13|19M9} 9|227b8 233r59
+193U14*Read 194>8 195>8 196<8 197<8 198<8 199>8 9|241b14 263l8 263t12
+194i8 Handle{83I9} 200r49 9|242b8 250r24 251r24 252r41
+195m8 Offset{13|19M9} 9|243b8 253r27
+196a8 Data{29A9} 9|244b8 254m27 259m10
+197i8 Ret_Count{natural} 9|245b8 255m27 260m10
+198b8 Success{boolean} 9|246b8 256m27 261m10
+199b8 Is_Blocking{boolean} 9|247b8 257r29
+210U14*Write 211>8 212>8 213>8 214<8 215<8 216>8 9|265b14 286l8 286t13
+211i8 Handle{83I9} 217r49 9|266b8 274r24 275r24 276r41
+212m8 Offset{13|19M9} 9|267b8 277r27
+213a8 Data{29A9} 9|268b8 278r27
+214i8 Ret_Count{natural} 9|269b8 279m27 283m10
+215b8 Success{boolean} 9|270b8 280m27 284m10
+216b8 Is_Blocking{boolean} 9|271b8 281r29
+224V13*IO_Control{boolean} 225>8 226>8 227>8 9|288b13 300l8 300t18
+225i8 Handle{83I9} 228r49 9|289b8 294r24 295r31 296r28
+226m8 Request{13|19M9} 9|290b8 296r51
+227m8 Argument{19|25M9} 9|291b8 296r60
+236V13*Mmap{boolean} 237>8 238>8 239>8 240>8 241>8 9|302b13 316l8 316t12
+237i8 Handle{83I9} 242r49 9|303b8 310r24 311r31 312r28
+238p8 Map{7|43P9} 9|304b8 312r51
+239m8 Address{18|35M12} 9|305b8 312r56
+240m8 Length{13|19M9} 9|306b8 312r65
+241r8 Flags{7|26R9} 9|307b8 312r73
+249U14*Poll 250>8 251<8 252<8 253<8 9|318b14 334l8 334t12
+250i8 Handle{83I9} 254r49 9|319b8 325r24 326r24 327r28
+251b8 Can_Read{boolean} 9|320b8 327m51 330m10
+252b8 Can_Write{boolean} 9|321b8 327m61 331m10
+253b8 Is_Error{boolean} 9|322b8 328m14 332m10
+261R9 Device 266e14 267r66
+262b7*Is_Present{boolean} 9|33m14 57r15 64r34 65m30 78r30 91r33 169r30
+263a7*Name{string} 9|57r37 66m30 79r30 157r39
+264i7*Name_Len{integer} 9|57r50 67m30 79r58 158r39
+265r7*Contents{39R9} 9|68m30 92r33 148r33 185r36 190r36 195r36 211r36 217r32
+. 218r43 219r36 231r32 232r43 233r36 234r35 235r43 236r36 250r32 251r32 252r49
+. 274r32 275r32 276r49 294r32 295r39 296r36 310r32 311r39 312r36 325r32 326r32
+. 327r36
+267A9 Device_Arr(261R9)<83I9> 268r34 9|31r27
+268P9 Device_Arr_Acc(267A9) 270r19
+270p4 Devices_Data{268P9} 272r47 9|31m7 32r18 56r16 63r16 64r17 65r13 66r13
+. 67r13 68r13 77r16 78r13 79r13 79r41 90r19 91r16 92r16 148r14 157r17 158r17
+. 167r16 168r42 169r13 185r14 190r14 195r14 211r14 217r10 218r21 219r14 231r10
+. 232r21 233r14 234r13 235r21 236r14 250r10 251r10 252r27 274r10 275r10 276r27
+. 294r10 295r17 296r14 310r10 311r17 312r14 325r10 326r10 327r14
+274A9 UUID_Fragment(13|16M9)<integer> 277r37 278r37 9|127r19 128r19 129r19
+. 130r19 131r19 138r19 139r19 140r19 141r19 142r19 349r37 367r37
+276V13 To_Integer{13|16M9} 276>25 9|336b13 347l8 347t18 355s17 373s17
+276e25 C{character} 9|336b25 339r10 340r35 341r13 342r35 344r35
+277U14 Convert_LE 277<26 277>52 9|127s7 128s7 129s7 349b14 365l8 365t18
+277a26 Frag{274A9} 9|349b26 353m7 358m13 358r19 360m13 360r19 360r40 360r46
+277a52 Val{string} 9|349b52 354r24 355r29 357r18
+278U14 Convert_BE 278<26 278>52 9|130s7 131s7 138s7 139s7 140s7 141s7 142s7
+. 367b14 382l8 382t18
+278a26 Frag{274A9} 9|367b26 371m7 376m13 376r19 376r40 376r46 379m13 379r19
+278a52 Val{string} 9|367b52 372r16 373r29 375r18
+X 9 devices.adb
+29b7 Success{boolean} 37m21 38r14 39m22 40r14 41m21 42r14
+32r11 Dev=32:11{8|261R9} 33r10
+48L6 Panic_Error 38r32 40r32 43r15
+56r11 E=56:11{8|261R9} 57r13 57r35 57r48
+63i11 I<integer> 64r31 65r27 66r27 67r27 68r27
+77i11 I<integer> 78r27 79r27 79r55 81r20
+90i14 I<integer> 91r30 92r30 94r23
+102a7 Result{8|34A9} 127m34 127r34 128m34 128r34 129m34 129r34 130m34 130r34
+. 131m34 131r34 132r26 138m34 138r34 139m34 139r34 140m34 140r34 141m34 141r34
+. 142m34 142r34 143r21
+103i7 Returned{8|83I9} 132m7 133r10 134r17
+110i11 I{integer} 111r15 113r23 117r28 118r28 119r28
+162i7 Curr_Index{natural} 171r16 172r39 173m16 173r30
+167i11 I<integer> 169r27 172r55
+178i11 I{integer} 179r33
+215b7 Success{boolean} 218m10 221r14
+229b7 Success{boolean} 232m10 235m10 238r14
+337i7 Result{natural} 340m10 342m10 344m10 346r26
+350m7 Res{13|16M9} 355m10 358r40 361r52
+351i7 Idx{natural} 358r32 360r32 360r59 362m13 362r20
+354i11 I{integer} 355r34 357r14
+368m7 Res{13|16M9} 373m10 376r67 379r52
+369i7 Idx{natural} 376r32 376r59 377m13 377r20 379r32
+372i11 I{integer} 373r34 375r14
+X 10 devices-console.ads
+17K17*Console 9|17w14 37r7 10|39e20
+19U14*Init 9|37s15
+X 11 devices-loopback.ads
+17K17*Loopback 9|18w14 39r7 11|52e21
+19U14*Init 9|39s16
+X 12 devices-streams.ads
+17K17*Streams 9|19w14 41r7 12|71e20
+19U14*Init 9|41s15
+X 13 interfac.ads
+11K9*Interfaces 8|18w6 18r22 13|120e15
+16M9*Unsigned_8 8|29r67 34r36 274r54 276r47 9|336r47 346r14 350r13 368r13
+19M9*Unsigned_64 8|44r21 48r25 55r25 63r20 64r20 67r22 73r21 152r61 181r17
+. 182r17 195r22 212r22 226r19 240r18 9|188r61 226r17 227r17 243r22 267r22
+. 290r19 306r18
+21V13*Shift_Left{16M9} 9|361s40 379s40
+X 14 lib.ads
+19K9*Lib 9|20r6 49r7 14|35e8
+X 16 lib-panic.ads
+21K13*Panic 9|20w10 49r11 16|39e14
+32U14*Hard_Panic 9|49s17
+X 18 memory.ads
+19K9*Memory 8|19w6 72r21 239r18 9|305r18 18|36e11
+35M12*Virtual_Address{20|49M9} 8|72r28 239r25 9|305r25
+X 19 system.ads
+11K9*System 8|17w6 40r21 47r25 54r25 60r37 62r20 66r22 68r22 70r21 76r23
+. 227r19 9|291r19 19|73e11
+25M9*Address 8|40r28 47r32 54r32 60r44 62r27 66r29 68r29 70r28 76r30 227r26
+. 9|291r26
+X 20 s-stoele.ads
+49M9*Integer_Address
+

@@ -1,0 +1,97 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.time%b		lib-time.adb		4f0bb3f3 NE OO PK
+W lib%s			lib.adb			lib.ali
+
+U lib.time%s		lib-time.ads		45683868 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+N A29:7 gnatprove false_positive "postcondition might fail" "Impossible with the mod in the body, idk why it doesn't catch it"
+
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-time.ads		20241115151036 30059be5 lib.time%s
+D lib-time.adb		20241115151036 7f0e2816 lib.time%b
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [normalize lib__time 27 14 none]
+G c Z s b [increment lib__time 37 14 none]
+G c Z s b [substract lib__time 48 14 none]
+G c Z s b [is_greater_equal lib__time 63 13 none]
+G c Z s s [is_normalized lib__time 67 13 none]
+X 1 interfac.ads
+11K9*Interfaces 120e15 3|17w6 17r22
+19M9*Unsigned_64 3|27r55 38r40 39r33 49r40 50r33 63r50 67r33 75r33 4|21r55
+. 22r37 24r21 27r21 33r40 34r33 37r21 38r22 47r40 48r33 59r50
+X 2 lib.ads
+19K9*Lib 35e8 3|19r9 77r5 4|17r14 63r5
+X 3 lib-time.ads
+19K13*Time 2|19k9 3|71E4 77l9 77e13 4|17b18 63l9 63t13
+27U14*Normalize 27=25 27=34 4|21b14 30l8 30t17 43s7
+27m25 Seconds{1|19M9} 4|21b25 24r10 25m10 25r21 27m10
+27m34 Nanoseconds{1|19M9} 28r35 4|21b34 22r52 29m7 29r22
+37U14*Increment 38=8 38=18 39>8 39>18 4|32b14 44l8 44t17
+38m8 Seconds1{1|19M9} 4|33b8 37r10 38m10 40m10 40r22 43m18
+38m18 Nanoseconds1{1|19M9} 40r35 4|33b18 42m7 42r23 43m28
+39m8 Seconds2{1|19M9} 4|34b8 37r40 40r33
+39m18 Nanoseconds2{1|19M9} 4|34b18 42r38
+48U14*Substract 49=8 49=18 50>8 50>18 4|46b14 57l8 57t17
+49m8 Seconds1{1|19M9} 54r28 4|47b8 51m7 51r19 53m10 53r22
+49m18 Nanoseconds1{1|19M9} 52r25 54r38 55r35 4|47b18 52r10 54m10 54r41 56m7
+. 56r23
+50m8 Seconds2{1|19M9} 54r52 4|48b8 51r30
+50m18 Nanoseconds2{1|19M9} 53r25 54r62 4|48b18 52r25 56r38
+63V13*Is_Greater_Equal{boolean} 54s10 63>31 63>35 63>40 63>44 4|59b13 62l8
+. 62t24
+63m31 S1{1|19M9} 4|59b31 61r15 61r29
+63m35 NS1{1|19M9} 64r34 4|59b35 61r43
+63m40 S2{1|19M9} 4|59b40 61r20 61r34
+63m44 NS2{1|19M9} 64r58 4|59b44 61r50
+71N4 MSec_Per_Sec 73r48
+72N4 USec_Per_MSec 73r32
+73N4 USec_Per_Sec 76r13 4|22r66 29r38 54r26
+X 4 lib-time.adb
+22m7 Nanosecond_Seconds{1|19M9} 24r40 25r31
+

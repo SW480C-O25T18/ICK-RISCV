@@ -1,0 +1,106 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U cryptography.chacha20%b  cryptography-chacha20.adb  a311b42f NE OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+
+U cryptography.chacha20%s  cryptography-chacha20.ads  d09a2a0b NE OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D cryptography.ads	20241115151036 8132c7fc cryptography%s
+D cryptography-chacha20.ads  20241115151036 a950b883 cryptography.chacha20%s
+D cryptography-chacha20.adb  20241115151036 0a410cac cryptography.chacha20%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [gen_key cryptography__chacha20 35 13 none]
+G c Z s b [quarter_round cryptography__chacha20 39 14 none]
+G c Z s s [TblockBIP cryptography__chacha20 28 4 none]
+G c Z s s [keyIP cryptography__chacha20 29 9 none]
+X 1 cryptography.ads
+17K9*Cryptography 18e17 2|19r9 40r5 3|17r14 65r5
+X 2 cryptography-chacha20.ads
+19K22*Chacha20 1|17k9 2|39E14 40l18 40e26 3|17b27 65l18 65t26
+28A9*Block(4|18M9)<integer> 35r69 3|21r69 27r32 34r11
+29R9*Key 32e15 35r26 3|21r26
+30m7*Value1{4|18M9} 3|30r20
+30m15*Value2{4|18M9} 3|30r38
+30m23*Value3{4|18M9} 3|30r56
+30m31*Value4{4|18M9} 3|30r73
+31m7*Value5{4|18M9} 3|31r20
+31m15*Value6{4|18M9} 3|31r38
+31m23*Value7{4|18M9} 3|31r56
+31m31*Value8{4|18M9} 3|31r73
+35V13*Gen_Key{28A9} 35>22 35>31 35>38 3|21b13 56l8 56t15
+35r22 K{29R9} 3|21b22 30r18 30r36 30r54 30r71 31r18 31r36 31r54 31r71
+35m31 Nonce{4|19M9} 3|21b31 24r49 25r49
+35m38 Block_ID{4|19M9} 3|21b38 22r49 23r49
+39U14 Quarter_Round 39=29 39=32 39=35 39=38 3|39s10 40s10 41s10 42s10 45s10
+. 46s10 47s10 48s10 58b14 64l8 64t21
+39m29 A{4|18M9} 3|58b29 60m7 60r12 60r30 62m7 62r12 62r30
+39m32 B{4|18M9} 3|58b32 60r16 61m19 61r24 61m33 61r51 62r16 63m19 63r24 63m33
+. 63r51
+39m35 C{4|18M9} 3|58b35 61m7 61r12 61r30 63m7 63r12 63r30
+39m38 D{4|18M9} 3|58b38 60m19 60r24 60m33 60r51 61r16 62m19 62r24 62m33 62r51
+. 63r16
+X 3 cryptography-chacha20.adb
+22m7 UB{4|19M9} 32r23
+23m7 LB{4|19M9} 32r41
+24m7 UN{4|19M9} 32r59
+25m7 LN{4|19M9} 32r77
+27a7 Initial_Block{2|28A9} 34r20 53r27
+34a7 B{2|28A9} 39m25 39r25 39m32 39r32 39m39 39r39 39m47 39r47 40m25 40r25
+. 40m32 40r32 40m39 40r39 40m47 40r47 41m25 41r25 41m32 41r32 41m39 41r39
+. 41m47 41r47 42m25 42r25 42m32 42r32 42m39 42r39 42m47 42r47 45m25 45r25
+. 45m32 45r32 45m39 45r39 45m47 45r47 46m25 46r25 46m32 46r32 46m39 46r39
+. 46m47 46r47 47m25 47r25 47m32 47r32 47m39 47r39 47m47 47r47 48m25 48r25
+. 48m32 48r32 48m39 48r39 48m47 48r47 52r16 53m10 53r19 55r14
+37i11 I{integer}
+52i11 I{integer} 53r13 53r22 53r42
+X 4 interfac.ads
+11K9*Interfaces 2|17w6 17r22 4|120e15
+18M9*Unsigned_32 2|28r37 30r40 31r40 39r49 3|32r10 32r28 32r46 32r64 58r49
+19M9*Unsigned_64 2|35r49 3|21r49 22r21 23r21 24r21 25r21
+86V13*Rotate_Left{18M9} 3|60s38 61s38 62s38 63s38
+101V13*Shift_Right{19M9} 3|22s36 23s36 24s36 25s36
+

@@ -1,0 +1,403 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.loader%b	userland-loader.adb	914b2322 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W ada.unchecked_deallocation%s
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W cryptography%s	cryptography.ads	cryptography.ali
+W cryptography.random%s	cryptography-random.adb	cryptography-random.ali
+W devices%s		devices.adb		devices.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W memory%s		memory.ads		memory.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W userland%s		userland.ads		userland.ali
+W userland.elf%s	userland-elf.adb	userland-elf.ali
+W userland.mac%s	userland-mac.adb	userland-mac.ali
+W userland.memory_locations%s  userland-memory_locations.ads  userland-memory_locations.ali
+
+U userland.loader%s	userland-loader.ads	9c0fe15c NE OO PK
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D a-uncdea.ads		20241115151050 f341340f ada.unchecked_deallocation%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D cryptography.ads	20241115151036 8132c7fc cryptography%s
+D cryptography-random.ads  20241115151036 ff611fa6 cryptography.random%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-loader.ads	20241115151036 4d432fbc userland.loader%s
+D userland-loader.adb	20241115151036 01a71cce userland.loader%b
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-memory_locations.ads  20241115151036 d86e3770 userland.memory_locations%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [disable_aslr userland__loader 23 14 none]
+G c Z s b [start_program userland__loader 29 13 none]
+G c Z s b [start_program userland__loader 41 13 none]
+G c Z s b [start_elf userland__loader 50 13 none]
+G c Z s b [start_shebang userland__loader 58 13 none]
+G r c none [start_program userland__loader 29 13 none] [create_process userland__process 181 14 none]
+G r c none [start_program userland__loader 29 13 none] [fork_table arch__mmu 70 13 none]
+G r c none [start_program userland__loader 29 13 none] [set_common_map userland__process 338 14 none]
+G r c none [start_program userland__loader 29 13 none] [read vfs 400 14 none]
+G r c none [start_program userland__loader 29 13 none] [open vfs 593 14 none]
+G r s argument_arr [start_program userland__loader 29 13 none] [argument_arrIP userland 20 9 none]
+G r i none [start_program userland__loader 29 13 none] [alignment lib 19 13 none]
+G r s parsed_elf [start_program userland__loader 29 13 none] [parsed_elfIP userland__elf 38 9 none]
+G r c none [start_program userland__loader 29 13 none] [get_common_map userland__process 344 13 none]
+G r c none [start_program userland__loader 29 13 none] [load_elf userland__elf 48 13 none]
+G r c none [start_program userland__loader 29 13 none] [get_integer cryptography__random 32 14 none]
+G r c none [start_program userland__loader 29 13 none] [close vfs 359 14 none]
+G r c none [start_program userland__loader 29 13 none] [convert scheduler 135 13 none]
+G r c none [start_program userland__loader 29 13 none] [get_limit userland__process 604 13 none]
+G r c none [start_program userland__loader 29 13 none] [convert userland__process 573 13 none]
+G r c none [start_program userland__loader 29 13 none] [create_user_thread scheduler 41 13 none]
+G r c none [start_program userland__loader 29 13 none] [add_thread userland__process 203 14 none]
+G r c none [start_program userland__loader 29 13 none] [delete_thread scheduler 70 14 none]
+G r c none [start_program userland__loader 29 13 none] [add_file userland__process 252 14 none]
+G r c none [start_program userland__loader 29 13 none] [delete_process userland__process 185 14 none]
+G r c none [start_program userland__loader 41 13 none] [read vfs 400 14 none]
+G r c none [start_program userland__loader 41 13 none] [open vfs 593 14 none]
+G r s argument_arr [start_program userland__loader 41 13 none] [argument_arrIP userland 20 9 none]
+G r i none [start_program userland__loader 41 13 none] [alignment lib 19 13 none]
+G r s parsed_elf [start_program userland__loader 41 13 none] [parsed_elfIP userland__elf 38 9 none]
+G r c none [start_program userland__loader 41 13 none] [get_common_map userland__process 344 13 none]
+G r c none [start_program userland__loader 41 13 none] [load_elf userland__elf 48 13 none]
+G r c none [start_program userland__loader 41 13 none] [get_integer cryptography__random 32 14 none]
+G r c none [start_program userland__loader 41 13 none] [close vfs 359 14 none]
+G r c none [start_program userland__loader 41 13 none] [convert scheduler 135 13 none]
+G r c none [start_program userland__loader 41 13 none] [get_limit userland__process 604 13 none]
+G r c none [start_program userland__loader 41 13 none] [convert userland__process 573 13 none]
+G r c none [start_program userland__loader 41 13 none] [create_user_thread scheduler 41 13 none]
+G r c none [start_program userland__loader 41 13 none] [add_thread userland__process 203 14 none]
+G r c none [start_program userland__loader 41 13 none] [delete_thread scheduler 70 14 none]
+G r i none [start_elf userland__loader 50 13 none] [alignment lib 19 13 none]
+G r s parsed_elf [start_elf userland__loader 50 13 none] [parsed_elfIP userland__elf 38 9 none]
+G r c none [start_elf userland__loader 50 13 none] [get_common_map userland__process 344 13 none]
+G r c none [start_elf userland__loader 50 13 none] [load_elf userland__elf 48 13 none]
+G r c none [start_elf userland__loader 50 13 none] [open vfs 593 14 none]
+G r c none [start_elf userland__loader 50 13 none] [get_integer cryptography__random 32 14 none]
+G r c none [start_elf userland__loader 50 13 none] [close vfs 359 14 none]
+G r c none [start_elf userland__loader 50 13 none] [convert scheduler 135 13 none]
+G r c none [start_elf userland__loader 50 13 none] [get_limit userland__process 604 13 none]
+G r c none [start_elf userland__loader 50 13 none] [convert userland__process 573 13 none]
+G r c none [start_elf userland__loader 50 13 none] [create_user_thread scheduler 41 13 none]
+G r c none [start_elf userland__loader 50 13 none] [add_thread userland__process 203 14 none]
+G r c none [start_elf userland__loader 50 13 none] [delete_thread scheduler 70 14 none]
+G r c none [start_shebang userland__loader 58 13 none] [read vfs 400 14 none]
+G r c none [start_shebang userland__loader 58 13 none] [open vfs 593 14 none]
+G r s argument_arr [start_shebang userland__loader 58 13 none] [argument_arrIP userland 20 9 none]
+G r i none [start_shebang userland__loader 58 13 none] [alignment lib 19 13 none]
+G r s parsed_elf [start_shebang userland__loader 58 13 none] [parsed_elfIP userland__elf 38 9 none]
+G r c none [start_shebang userland__loader 58 13 none] [get_common_map userland__process 344 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [load_elf userland__elf 48 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [get_integer cryptography__random 32 14 none]
+G r c none [start_shebang userland__loader 58 13 none] [close vfs 359 14 none]
+G r c none [start_shebang userland__loader 58 13 none] [convert scheduler 135 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [get_limit userland__process 604 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [convert userland__process 573 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [create_user_thread scheduler 41 13 none]
+G r c none [start_shebang userland__loader 58 13 none] [add_thread userland__process 203 14 none]
+G r c none [start_shebang userland__loader 58 13 none] [delete_thread scheduler 70 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 33|17r6 18r6 251r29 298r18 309r18
+X 2 a-charac.ads
+11K13*Characters 12e19 33|17r10 298r22 309r22
+X 3 a-chlat1.ads
+11K24*Latin_1 247e27 33|17w21 298r33 309r33
+23e4*LF{character} 33|298r41 309r41
+X 5 a-uncdea.ads
+14u15*Unchecked_Deallocation 33|18w10 251r33
+X 6 arch.ads
+20K9*Arch 52e9 33|22r6 62r11 62r32 201r49
+X 9 arch-mmu.ads
+22K14*MMU 250e13 33|22w11 62r16 62r37 201r54
+43P9*Page_Table_Acc(42R9)
+49N7*Page_Size 33|201r58
+58p4*Kernel_Table{43P9} 33|62r41
+70V13*Fork_Table{43P9} 33|62s20
+X 10 cryptography.ads
+17K9*Cryptography 18e17 33|28r6 197r13
+X 11 cryptography-random.ads
+19K22*Random 40e24 33|28w19 197r26
+32U14*Get_Integer 33|197s33
+X 12 devices.ads
+22K9*Devices 279e12 33|29w6 257r19 261r19
+29A9*Operation_Data(14|16M9)<integer> 33|257r27 261r27
+X 14 interfac.ads
+11K9*Interfaces 120e15 33|19w6 19r22
+16M9*Unsigned_8
+18M9*Unsigned_32
+19M9*Unsigned_64 33|168r41 172r18 224r28 255r19 276r20 292r23 304r23
+X 19 lib.ads
+19K9*Lib 35e8 33|27r6 168r26
+X 20 lib-alignment.ads
+19k13*Alignment 43e18 33|27w10 168r30
+27V13 Align_Up{14|19M9} 33|201s29[168]
+X 23 memory.ads
+19K9*Memory 36e11 33|23w6 23r18
+35M12*Virtual_Address{27|49M9} 33|171r22
+X 25 scheduler.ads
+25K9*Scheduler 183e14 33|25w6 25r21 217r34 217r51 223r28 233r13
+27I9*TID<integer> 33|217r44
+28I9*TCID<integer>
+29i4*Error_TID{27I9} 33|227r28
+41V13*Create_User_Thread{27I9} 33|217s61
+42m8 Address{23|35M12} 33|218r14
+43a8 Args{30|20A9} 33|219r14
+44a8 Env{30|21A9} 33|220r14
+45p8 Map{9|43P9} 33|221r14
+46r8 Vector{31|31R9} 33|222r14
+47i8 Cluster{28I9} 33|223r14
+48m8 Stack_Size{14|19M9} 33|224r14
+49i8 PID{natural} 33|225r14
+70U14*Delete_Thread 33|233s23
+135V13*Convert{28I9} 33|223s38
+X 26 system.ads
+11K9*System 73e11 33|20w6 21r6 21r35
+25M9*Address
+X 27 s-stoele.ads
+11K16*Storage_Elements 60e28 33|21w13 21r42
+49M9*Integer_Address
+56V13*To_Integer{49M9} 33|207s24 213s24
+X 30 userland.ads
+17K9*Userland 23e13 32|17r6 17r28 20r9 65r5 33|24r6 24r24 26r6 30r6 30r24
+. 32r14 346r5
+19P9*String_Acc(string) 33|251r65 268r20 269r20
+20A9*Argument_Arr(19P9)<integer> 32|33r22 45r22 53r22 62r22 33|44r22 152r22
+. 164r22 247r22
+21A9*Environment_Arr(19P9)<integer> 32|34r22 46r22 54r22 63r22 33|45r22 153r22
+. 165r22 248r22
+X 31 userland-elf.ads
+22K18*ELF 142e17 33|24w15 24r33 170r28 180r21 205r20
+23P9*String_Acc(string)
+38R9*Parsed_ELF 44e14 33|170r32
+39b7*Was_Loaded{boolean} 33|182r25 208r24
+40m7*Entrypoint{26|25M9} 33|207r43 213r47
+41p7*Linker_Path{23P9} 33|186r21 189r35 190r24 190r53 191r45
+42r7*Vector{31R9} 33|222r39
+48V13*Load_ELF{38R9} 33|180s25 205s24
+X 32 userland-loader.ads
+20K18*Loader 30|17k9 32|65l14 65e20 33|32b23 346l14 346t20
+23U14*Disable_ASLR 33|35b14 38l8 38t20
+29V13*Start_Program{36|33I9} 30>8 31>8 32>8 33>8 34>8 35>8 36>8 37>8 33|40b13
+. 146l8 146t21
+30a8 Exec_Path{string} 33|41b8 63r29
+31i8 FS{37|74I9} 33|42b8 63r40
+32m8 Ino{37|28M9} 33|43b8 63r44
+33a8 Arguments{30|20A9} 33|44b8 63r49
+34a8 Environment{30|21A9} 33|45b8 63r60
+35a8 StdIn_Path{string} 33|46b8 101r35
+36a8 StdOut_Path{string} 33|47b8 112r35
+37a8 StdErr_Path{string} 33|48b8 123r35
+41V13*Start_Program{boolean} 42>8 43>8 44>8 45>8 46>8 47>8 33|63s14 148b13
+. 159l8 159t21 325s22 333s22
+42a8 Exec_Path{string} 33|149b8 158r29 326r14 334r14
+43i8 FS{37|74I9} 33|150b8 157r29 158r40 327r14 335r14
+44m8 Ino{37|28M9} 33|151b8 157r33 158r44 328r14 336r14
+45a8 Arguments{30|20A9} 33|152b8 157r38 158r49 329r14 337r14
+46a8 Environment{30|21A9} 33|153b8 157r49 158r60 330r14 338r14
+47i8 Proc{36|33I9} 33|154b8 157r62 158r73 331r14 339r14
+50V13*Start_ELF{boolean} 51>8 52>8 53>8 54>8 55>8 33|157s14 161b13 241l8
+. 241t17
+51i8 FS{37|74I9} 33|162b8 180r35
+52m8 Ino{37|28M9} 33|163b8 180r39
+53a8 Arguments{30|20A9} 33|164b8 219r28
+54a8 Environment{30|21A9} 33|165b8 220r28
+55i8 Proc{36|33I9} 33|166b8 180r68 205r73 221r52 224r52 225r45 231r30
+58V13*Start_Shebang{boolean} 59>8 60>8 61>8 62>8 63>8 64>8 33|158s14 243b13
+. 345l8 345t21
+59a8 Exec_Path{string} 33|244b8 326r29 334r29
+60i8 FS{37|74I9} 33|245b8 271r13 281r16 291r16 303r16
+61m8 Ino{37|28M9} 33|246b8 271r17 281r20 291r20 303r20
+62a8 Arguments{30|20A9} 33|247b8 329r51 337r42
+63a8 Environment{30|21A9} 33|248b8 330r29 338r29
+64i8 Proc{36|33I9} 33|249b8 331r29 339r29
+X 33 userland-loader.adb
+33b4 Do_ASLR{boolean} 37m7 196r13
+50i7 Returned_PID{36|33I9} 56m42 57r10 61r11 64r29 134r25 135r25 136r25 139r17
+. 143r31
+51i7 Discard{natural} 134m52 135m52 136m52
+52e7 Success{37|234E9} 104m25 108r10 115m25 119r10 126m25 130r10
+53b7 Success1{boolean} 134m61 138r10
+53b17 Success2{boolean} 135m61 138r23
+53b27 Success3{boolean} 136m61 138r36
+54p7 User_Stdin{36|57P9} 69m7 102r25 103r25 134r39
+54p19 User_StdOut{36|57P9} 79m7 113r25 114r25 135r39
+54p32 User_StdErr{36|57P9} 89m7 124r25 125r25 136r39
+142L6 Error_Process 66r15
+144L6 Error 58r15
+168K15 Aln[20|19] 201r25
+170r7 Loaded_ELF{31|38R9} 180m7 182r14 186r10 189r24 190r13 190r42 191r34
+. 213r36 222r28
+170r19 LD_ELF{31|38R9} 205m10 207r36 208r17
+171m7 Entrypoint{23|35M12} 207m10 213m10 218r28
+172m7 LD_Slide{14|19M9} 200m17 201m13 201r39 203m13 206r34
+173a7 LD_Path{string} 189m10 191r16
+174i7 LD_FS{37|74I9} 191m70 205r34 211r17
+175m7 LD_Ino{37|28M9} 192m16 205r41 211r24
+176e7 Success{37|234E9} 192m24 193r13
+177b7 Success2{boolean} 231m50 232r17
+217i10 Returned_TID{25|27I9} 227r13 231r36 233r38
+239L6 Error 183r15 194r18 209r18 228r18 234r18
+251U17 Free[5|14] 342s7 343s7
+253i7 Path_Len{natural} 271m45 272r39 276r33 279m7 299m28 299r40 299r60 315r24
+. 321r42
+254i7 Arg_Len{natural} 310m28 310r39 310r57 322r42 324r10
+255m7 Pos{14|19M9} 276m7 276r14 281r25 286m28 286r35 291r25 292m10 292r17
+. 303r25 304m10 304r17
+256a7 Path{string} 258m34 258r34 272r56 299m54 315r13 321r31
+257a7 Path_Data{12|29A9} 271m25 271r25
+259a7 Arg{string} 310m52 322r31
+260e7 Char{character} 262m34 262r34 285r15 296r15 299r73 308r15 310r69
+261a7 Char_Data{12|29A9} 281m30 291m30 303m30
+263i7 Char_Len{natural} 281m41 282r42 291m41 292r36 293r42 303m41 304r36
+. 305r42
+264e7 Success{37|234E9} 271m61 272r10 281m57 282r13 291m57 293r13 303m57
+. 305r13 315m58 317r10
+265b7 Returned{boolean} 325m10 333m10 344r14
+266i7 Banged_FS{37|74I9} 315m35 327r29 335r29
+267m7 Banged_Ino{37|28M9} 315m46 328r29 336r29
+268p7 Path_Acc{30|19P9} 321m7 329r30 337r30 342m13 342r13
+269p7 Arg_Acc{30|19P9} 322m7 329r40 343m13 343r13
+314L6 Return_Shebang 298r52
+X 34 userland-mac.ads
+20K18*MAC 33|30w15 30r33 34|180e17
+58M9*Limit_Value<14|19M9>
+64n8*Stack_Size_Limit{59E9} 33|224r58
+X 35 userland-memory_locations.ads
+17K18*Memory_Locations 33|26w15 181r10 198r17 199r17 203r25 35|30e30
+20N4*Program_Offset 33|181r27
+24N4*LD_Offset_Min 33|198r34 203r42
+25N4*LD_Offset_Max 33|199r34
+X 36 userland-process.ads
+28K18*Process 32|17w15 17r37 33|56r7 60r7 134r7 135r7 136r7 143r7 180r44
+. 205r49 221r28 225r28 231r10 36|677e21
+33I9*PID<integer> 32|37r37 47r22 55r22 64r22 33|48r37 50r22 154r22 166r22
+. 249r22
+34i4*Error_PID{33I9} 33|56r31 57r25 109r17 120r17 131r17 145r14
+54n8*Description_Inode{49E9} 33|71r32 81r32 91r32
+56R9*File_Description 33|69r25 79r26 89r26 36|80e14
+57P9*File_Description_Acc(56R9) 33|54r46
+58e27*Description{49E9} 33|71m11 81m11 91m11
+59i7*Children_Count{natural} 33|70m11 80m11 90m11
+70b13*Inner_Is_Locked{boolean} 33|72m11 82m11 92m11
+71b13*Inner_Is_Blocking{boolean} 33|73m11 83m11 93m11
+72b13*Inner_Ino_Read{boolean} 33|74m11 84m11 94m11
+73b13*Inner_Ino_Write{boolean} 33|75m11 85m11 95m11
+74m13*Inner_Ino_Pos{14|19M9} 33|76m11 86m11 96m11
+75i13*Inner_Ino_FS{37|74I9} 33|77m11 87m11 97m11 102m36 113m37 124m37
+76m13*Inner_Ino{37|28M9} 33|78m11 88m11 98m11 103m36 114m37 125m37
+181U14*Create_Process 33|56s15
+185U14*Delete_Process 33|143s15
+203U14*Add_Thread 33|231s18
+252U14*Add_File 33|134s15 135s15 136s15
+338U14*Set_Common_Map 33|60s15
+344V13*Get_Common_Map{9|43P9} 33|180s52 205s57 221s36
+573V13*Convert{natural} 33|225s36
+604V13*Get_Limit{34|58M9} 33|224s41
+X 37 vfs.ads
+24K9*VFS 32|18w6 18r28 33|52r22 77r32 87r32 97r32 100r7 111r7 122r7 193r24
+. 264r19 272r21 282r24 293r24 305r24 37|674e8
+28M9*File_Inode_Number<14|19M9> 32|32r22 44r22 52r22 61r22 33|43r22 151r22
+. 163r22 175r18 246r22 267r20
+74I9*FS_Handle<integer> 32|31r22 43r22 51r22 60r22 33|42r22 150r22 162r22
+. 174r18 245r22 266r20
+75i4*Error_Handle{74I9} 33|77r36 87r36 97r36
+234E9*FS_Status 33|52r26 176r18 264r23 37|242e16
+235n8*FS_Success{234E9} 33|108r21 119r21 130r21 193r28 272r25 282r28 293r28
+. 305r28 317r21
+359U14*Close 33|211s10
+400U14*Read 33|271s7 281s10 291s10 303s10
+593U14*Open 33|100s11 111s11 122s11 191s10 315s7
+594a8 Path{string} 33|101r11 112r11 123r11
+595i8 Key{74I9} 33|102r11 113r11 124r11
+596m8 Ino{28M9} 33|103r11 114r11 125r11
+597e8 Success{234E9} 33|104r11 115r11 126r11
+598m8 User{14|18M9} 33|105r11 116r11 127r11
+599b8 Want_Read{boolean} 33|106r11 117r11 128r11
+600b8 Want_Write{boolean} 33|107r11 118r11 129r11
+

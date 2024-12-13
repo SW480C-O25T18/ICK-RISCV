@@ -1,0 +1,62 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.netinter%s	devices-netinter.ads	557aa7c4 NE OO PK
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-netinter.ads	20241115151036 a12468cd devices.netinter%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+X 3 devices.ads
+22K9*Devices 279e12 4|17r9 20r5
+X 4 devices-netinter.ads
+17K17*NetInter 3|22k9 4|20l13 20e21
+19N4*NET_GETMAC
+

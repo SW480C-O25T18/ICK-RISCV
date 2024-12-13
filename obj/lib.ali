@@ -1,0 +1,100 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib%b			lib.adb			d725bb73 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U lib%s			lib.ads			4c321936 NE OO PU PK
+W system%s		system.ads		system.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib.adb		20241115151036 104b929b lib%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [c_string_length lib 23 13 none]
+G c Z s b [least_common_multiple lib 27 13 none]
+G c Z s b [greatest_common_divisor lib 32 13 none]
+X 1 ada.ads
+11K9*Ada 12e8 6|17r6 38r27
+X 2 a-charac.ads
+11K13*Characters 12e19 6|17r10 38r31
+X 3 a-chlat1.ads
+11K24*Latin_1 247e27 6|17w21 38r42
+13e4*NUL{character} 6|38r50
+X 5 lib.ads
+19K9*Lib 35l5 35e8 6|20b14 65l5 65t8
+23V13*C_String_Length{natural} 23>30 6|30b13 43l8 43t23
+23m30 Addr{7|25M9} 24r19 6|30b30 36r32
+27V13*Least_Common_Multiple{integer} 27>36 27>42 6|45b13 51l8 51t29
+27i36 Val1{integer} 28r21 28r34 6|45b36 47r10 50r20 50r61
+27i42 Val2{integer} 29r21 29r34 6|45b42 47r22 50r27 50r67
+32V13*Greatest_Common_Divisor{integer} 32>38 32>44 34r20 6|50s36 53b13 64l8
+. 64t31
+32i38 Val1{integer} 33r20 6|53b38 54r22
+32i44 Val2{integer} 33r33 6|53b44 55r22
+X 6 lib.adb
+31i7 Length{natural} 36r55 38r57 39m13 39r23 42r14
+35e13 C{character} 38r23
+54i7 M{integer} 59r15 60m10 63r14
+55i7 N{integer} 58r13 60r15 61m10 61r21
+56i7 T{integer} 59m10 61r15
+X 7 system.ads
+11K9*System 5|17w6 17r18 24r27 6|18r6 18r35 7|73e11
+25M9*Address 5|23r37 6|30r37
+26m4*Null_Address{25M9} 5|24r34
+32V14*"="{boolean} 5|24r24
+X 8 s-stoele.ads
+11K16*Storage_Elements 6|18w13 18r42 8|60e28
+12I9*Storage_Offset<long_integer> 6|36r39
+23V14*"+"{7|25M9} 6|36s37
+

@@ -1,0 +1,84 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.alignment%b	lib-alignment.adb	0634991c NE OO PK GE
+W lib%s			lib.adb			lib.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U lib.alignment%s	lib-alignment.ads	e57d5fee BN NE OO PU PK GE
+W lib%s			lib.adb			lib.ali
+
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [alignment lib 19 13 none]
+X 1 lib.ads
+19K9*Lib 35e8 2|19r9 43r5 3|19r14 41r5
+X 2 lib-alignment.ads
+18M9 T 27r42 27r52 35r44 35r54 40r50 40r60 41r49 3|23r42 23r52 27r14 30r44
+. 30r54 34r14 37r50 37r60
+19k13*Alignment 1|19k9 2|18z9 43l9 43e18 3|19b18 41l9 41t18
+27V13*Align_Up{18M9} 27>23 27>30 29r20 3|23b13 28l8 28t16
+27*23 Value{18M9} 3|23b23 24r61
+27*30 Alignment{18M9} 28r20 28r40 28r55 29r40 3|23b30 25r61
+35V13*Align_Down{18M9} 35>25 35>32 37r20 3|30b13 35l8 35t18
+35*25 Value{18M9} 3|30b25 31r61
+35*32 Alignment{18M9} 36r20 36r40 36r55 37r42 3|30b32 32r61
+40V13*Divide_Round_Up{18M9} 40>30 40>40 42r20 3|37b13 40l8 40t23
+40*30 Dividend{18M9} 41r21 3|37b30 39r15
+40*40 Divisor{18M9} 41r33 41r62 42r47 3|37b40 39r27 39r43
+X 3 lib-alignment.adb
+24m7 Value2{5|49M9} 27r18
+25m7 Align2{5|49M9} 27r27 27r48
+31m7 Value2{5|49M9} 34r17
+32m7 Align2{5|49M9} 34r33
+X 4 system.ads
+11K9*System 3|17r6 17r35 4|73e11
+X 5 s-stoele.ads
+11K16*Storage_Elements 3|17w13 17r42 5|60e28
+49M9*Integer_Address 3|24r25 24r44 25r25 25r44 31r25 31r44 32r25 32r44
+

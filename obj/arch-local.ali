@@ -1,0 +1,127 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.local%b		arch-local.adb		cd96d2d5 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.local%s		arch-local.ads		24ce8638 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.context%s	arch-context.adb	arch-context.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-local.ads	20241115151036 e5953d14 arch.local%s
+D arch-local.adb	20241115151036 2803efc1 arch.local%b
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [reschedule_in arch__local 23 14 none]
+G c Z s b [reschedule_asap arch__local 24 14 none]
+G c Z s b [fetch_tcb arch__local 27 13 none]
+G c Z s b [load_tcb arch__local 28 14 none]
+G c Z s b [set_stacks arch__local 31 14 none]
+G c Z s b [get_current_thread arch__local 36 13 none]
+G c Z s b [get_current_process arch__local 37 13 none]
+G c Z s b [set_current_thread arch__local 38 14 none]
+G c Z s b [set_current_process arch__local 39 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 4|19r6 21r9 40r5 5|17r14 66r5
+X 2 arch-context.ads
+20K14*Context 70e17 4|19w11 32r15 5|39r15
+24M15*Core_Context{9|19M9} 4|32r23 5|39r23
+X 4 arch-local.ads
+21K14*Local 1|20k9 4|40l10 40e15 5|17b19 66l10 66t15
+23U14*Reschedule_In 23>29 5|18b14 21l8 21t21
+23i29 Microseconds{natural} 5|18b29
+24U14*Reschedule_ASAP 5|23b14 26l8 26t23
+27V13*Fetch_TCB{19|25M9} 5|28b13 31l8 31t17
+28U14*Load_TCB 28>24 5|33b14 36l8 36t16
+28m24 TCB{19|25M9} 5|33b24
+31U14*Set_Stacks 32>8 33>8 5|38b14 44l8 44t18
+32m8 Core{2|24M15} 5|39b8
+33m8 Kernel_Stack{19|25M9} 5|40b8
+36V13*Get_Current_Thread{18|27I9} 5|47b13 50l8 50t26
+37V13*Get_Current_Process{25|33I9} 5|52b13 55l8 55t27
+38U14*Set_Current_Thread 38>34 5|57b14 60l8 60t26
+38i34 Thread{18|27I9} 5|57b34
+39U14*Set_Current_Process 39>35 5|62b14 65l8 65t27
+39i35 Proc{25|33I9} 5|62b35
+X 9 interfac.ads
+19M9*Unsigned_64
+X 18 scheduler.ads
+25K9*Scheduler 4|17w6 17r21 36r39 38r43 5|47r39 49r14 57r43 18|183e14
+27I9*TID<integer> 4|36r49 38r53 5|47r49 57r53
+29i4*Error_TID{27I9} 5|49r24
+X 19 system.ads
+11K9*System 4|27r30 28r30 33r23 5|28r30 30r14 33r30 40r23 19|73e11
+25M9*Address 4|27r37 28r37 33r30 5|28r37 33r37 40r30
+26m4*Null_Address{25M9} 5|30r21
+X 22 userland.ads
+17K9*Userland 4|18r6 37r40 39r42 5|52r40 54r14 62r42 22|23e13
+X 25 userland-process.ads
+28K18*Process 4|18w15 37r49 39r51 5|52r49 54r23 62r51 25|677e21
+33I9*PID<integer> 4|37r57 39r59 5|52r57 62r59
+34i4*Error_PID{33I9} 5|54r31
+

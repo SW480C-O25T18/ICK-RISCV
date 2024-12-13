@@ -1,0 +1,190 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.mac%b	userland-mac.adb	370e286c NE OO PK
+W userland%s		userland.ads		userland.ali
+
+U userland.mac%s	userland-mac.ads	62cf5ff2 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W userland%s		userland.ads		userland.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-mac.adb	20241115151036 d8fcd60e userland.mac%b
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [get_enforcement userland__mac 74 13 none]
+G c Z s b [set_enforcement userland__mac 79 14 none]
+G c Z s b [get_capabilities userland__mac 84 13 none]
+G c Z s b [set_capabilities userland__mac 89 14 none]
+G c Z s b [check_permissions userland__mac 98 13 none]
+G c Z s b [add_entity userland__mac 112 14 none]
+G c Z s b [get_limit userland__mac 124 13 none]
+G c Z s b [set_limit userland__mac 133 14 none]
+G c Z s s [capabilitiesIP userland__mac 23 9 none]
+G c Z s s [Tlimit_arrBIP userland__mac 151 4 none]
+G c Z s s [permissionsIP userland__mac 42 9 none]
+G c Z s s [filterIP userland__mac 142 9 none]
+G c Z s s [filter_arrIP userland__mac 150 9 none]
+G c Z s s [contextIP userland__mac 152 9 none]
+G c Z s b [add_filter userland__mac 176 14 none]
+X 4 interfac.ads
+11K9*Interfaces 120e15 11|17w6 17r22
+19M9*Unsigned_64 11|58r28
+X 10 userland.ads
+17K9*Userland 23e13 11|20r9 180r5 12|17r14 128r5
+X 11 userland-mac.ads
+20K18*MAC 10|17k9 11|141E4 180l14 180e17 12|17b23 128l14 128t17
+23R9*Capabilities 39e14 84r53 89r61 154r17 12|31r53 36r61
+24b7*Can_Change_Scheduling{boolean}
+25b7*Can_Spawn_Others{boolean}
+26b7*Can_Access_Entropy{boolean}
+27b7*Can_Modify_Memory{boolean}
+28b7*Can_Use_Networking{boolean}
+29b7*Can_Manage_Networking{boolean}
+30b7*Can_Manage_Mounts{boolean}
+31b7*Can_Manage_Power{boolean}
+32b7*Can_Trace_Children{boolean}
+33b7*Can_Change_UIDs{boolean}
+34b7*Can_Manage_MAC{boolean}
+35b7*Can_Use_Clocks{boolean}
+36b7*Can_Signal_All{boolean}
+37b7*Can_Change_GIDs{boolean}
+38b7*Can_Bypass_IPC_Checks{boolean}
+42R9*Permissions 49e14 101r45 116r17 147r19 12|44r45 68r17
+43b7*Includes_Contents{boolean}
+44b7*Can_Read{boolean}
+45b7*Can_Write{boolean}
+46b7*Can_Execute{boolean}
+47b7*Can_Append_Only{boolean} 12|60m18
+48b7*Can_Lock_Files{boolean}
+52E9*Enforcement 55e13 74r52 79r59 153r17 12|21r52 26r59
+53n8*Deny{52E9} 160r19
+54n8*Deny_And_Scream{52E9}
+55n8*Kill{52E9}
+58M9*Limit_Value<4|19M9> 126r38 136r20 151r51 164r32 165r32 166r32 168r32
+. 12|91r38 100r20
+59E9*Limit_Type 65e26 126r19 135r20 151r30 12|91r19 99r20
+60n8*Core_Size_Limit{59E9} 163r11
+61n8*CPU_Time_Limit{59E9} 164r11
+62n8*File_Size_Limit{59E9} 165r11
+63n8*Opened_File_Limit{59E9} 166r11
+64n8*Stack_Size_Limit{59E9} 167r11
+65n8*Memory_Size_Limit{59E9} 168r11
+68R9*Context 69r31 74r36 79r44 84r37 89r45 99r15 113r24 125r19 134r27 152c9
+. 157e14 159r31 177r24 12|21r36 26r44 31r37 36r45 42r15 65r24 90r19 98r27
+. 113r24
+69r4*Default_Context{68R9} 159c4
+74V13*Get_Enforcement{52E9} 74>30 12|21b13 24l8 24t23
+74r30 Ctx{68R9} 12|21b30 23r14
+79U14*Set_Enforcement 79=31 79>53 12|26b14 29l8 29t23
+79r31 Ctx{68R9} 12|26b31 28m7
+79e53 Act{52E9} 12|26b53 28r21
+84V13*Get_Capabilities{23R9} 84>31 12|31b13 34l8 34t24
+84r31 Ctx{68R9} 12|31b31 33r14
+89U14*Set_Capabilities 89=32 89>54 12|36b14 39l8 39t24
+89r32 Ctx{68R9} 12|36b32 38m7
+89r54 Caps{23R9} 12|36b54 38r19
+98V13*Check_Permissions{42R9} 99>8 100>8 101>8 12|41b13 62l8 62t25
+99r8 Data{68R9} 12|42b8 48r16
+100i8 FS{13|74I9} 12|43b8 51r43
+101m8 Ino{13|28M9} 12|44b8 51r58
+104E9*Addition_Status 104e63 117r21 179r21 12|69r21 115r21
+104n29*Success{104E9} 12|75r26 121r23
+104n38*No_Space{104E9} 12|126r17
+104n48*Is_Conflicting{104E9} 12|77r26
+112U14*Add_Entity 113=8 114>8 115>8 116>8 117<8 12|64b14 87l8 87t18
+113r8 Data{68R9} 12|65b8 72r16 84m21
+114i8 FS{13|74I9} 118r16 12|66b8 73r54 85r35
+115m8 Ino{13|28M9} 12|67b8 73r69 85r39
+116r8 Perms{42R9} 12|68b8 74r16 85r44
+117e8 Status{104E9} 12|69b8 75m16 77m16 86m21
+124V13*Get_Limit{58M9} 125>8 126>8 12|89b13 95l8 95t17
+125r8 Data{68R9} 12|90b8 94r14
+126e8 Resource{59E9} 12|91b8 94r27
+133U14*Set_Limit 134=8 135>8 136>8 137<8 12|97b14 110l8 110t17
+134r8 Data{68R9} 12|98b8 104r19 105m10
+135e8 Resource{59E9} 12|99b8 104r32 105r23
+136m8 Limit{58M9} 12|100b8 104r10 105r36
+137b8 Could_Set{boolean} 12|101b8 106m10 108m10
+141N4 Filter_Path_Length
+142R9 Filter 148e14 150r51 178r17 12|114r17
+143b7*Is_Used{boolean} 170m11 12|49r15 73r15 119r19
+144b7*Is_Device{boolean} 171m11 12|51r22 73r33
+145i7*FS{13|74I9} 172m11 12|51r38 73r49
+146m7*Ino{13|28M9} 173m11 12|51r52 73r63
+147r7*Perms{42R9} 174m11 12|52r25 74r26
+150A9 Filter_Arr(142R9)<integer> 156r17
+151A9 Limit_Arr(58M9)<59E9> 155r17
+153e7*Action{52E9} 160m8 12|23r18 28m11
+154r7*Caps{23R9} 161m8 12|33r18 38m11
+155a7*Limits{151A9} 162m8 12|94r19 104r24 105m15
+156a7*Filters{150A9} 169m8 12|48r21 72r21 118r21
+176U14 Add_Filter 177=8 178>8 179<8 12|83s7 112b14 127l8 127t18
+177r8 Data{68R9} 12|84r11 113b8 118m16 118r16
+178r8 Filt{142R9} 12|85r11 114b8 120r23
+179e8 Status{104E9} 12|86r11 115b8 121m13 126m7
+X 12 userland-mac.adb
+46b7 Has_Elements{boolean} 50m13 57r10
+48r11 E=48:11{11|142R9} 49r13 51r20 51r36 51r50 52r23
+72r11 E=72:11{11|142R9} 73r13 73r31 73r47 73r61 74r24
+118r11 E=118:11{11|142R9} 119r17 120r13
+X 13 vfs.ads
+24K9*VFS 11|18w6 18r22 100r15 101r15 114r17 115r17 118r22 145r19 146r19 172r24
+. 12|43r15 44r15 66r17 67r17 13|674e8
+28M9*File_Inode_Number<4|19M9> 11|101r19 115r21 146r23 12|44r19 67r21
+74I9*FS_Handle<integer> 11|100r19 114r21 145r23 12|43r19 66r21
+75i4*Error_Handle{74I9} 11|118r26 172r28
+

@@ -1,0 +1,89 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch%s		arch.ads		7315e4a7 NE OO PK
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [boot_memory_regionIP arch 29 9 none]
+G c Z s s [boot_memory_mapIP arch 34 9 none]
+G c Z s s [boot_ram_fileIP arch 37 9 none]
+G c Z s s [boot_ram_filesIP arch 41 9 none]
+G c Z s s [boot_informationIP arch 44 9 none]
+X 1 arch.ads
+20K9*Arch 52l5 52e9
+22E9*Boot_Memory_Type 27e24 32r17
+23n8*Memory_Free{22E9}
+24n8*Memory_Reserved{22E9}
+25n8*Memory_Kernel{22E9}
+26n8*Memory_ACPI_Reclaimable{22E9}
+27n8*Memory_ACPI_NVS{22E9}
+29R9*Boot_Memory_Region 33e14 34r56
+30m7*Start{2|25M9}
+31i7*Length{3|16I12}
+32e7*MemType{22E9}
+34A9*Boot_Memory_Map(29R9)<integer> 47r23
+37R9*Boot_RAM_File 40e14 41r55
+38m7*Start{2|25M9}
+39i7*Length{3|16I12}
+41A9*Boot_RAM_Files(37R9)<integer> 49r23
+44R9*Boot_Information 51e14
+45a7*Cmdline{string}
+46i7*Cmdline_Len{integer}
+47a7*Memmap{34A9}
+48i7*Memmap_Len{integer}
+49a7*RAM_Files{41A9}
+50i7*RAM_Files_Len{integer}
+X 2 system.ads
+11K9*System 1|17w6 18r6 18r35 30r17 38r16 2|73e11
+25M9*Address 1|30r24 38r23
+X 3 s-stoele.ads
+11K16*Storage_Elements 1|18w13 18r42 3|60e28
+12I9*Storage_Offset<long_integer>
+16I12*Storage_Count{12I9} 1|31r17 39r16
+

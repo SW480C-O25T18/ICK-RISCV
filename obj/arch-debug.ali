@@ -1,0 +1,98 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.debug%b		arch-debug.adb		8b8a9c51 NE OO PK
+W arch%s		arch.ads		arch.ali
+W devices%s		devices.adb		devices.ali
+W devices.uart%s	devices-uart.adb	devices-uart.ali
+Z system%s		system.ads		system.ali
+
+U arch.debug%s		arch-debug.ads		f201567a NE OO PK
+W arch%s		arch.ads		arch.ali
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-debug.ads	20241115151036 7987b5ed arch.debug%s
+D arch-debug.adb	20241115151036 e7be1437 arch.debug%b
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-uart.ads	20241115151036 15b33d8b devices.uart%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [read arch__debug 28 14 none]
+G c Z s b [print arch__debug 32 14 none]
+G c Z s b [print arch__debug 36 14 none]
+G c Z s b [print arch__debug 40 14 none]
+G r c none [print arch__debug 32 14 none] [write_uart0 devices__uart 26 14 none]
+G r c none [print arch__debug 36 14 none] [write_uart0 devices__uart 29 14 none]
+G r c none [print arch__debug 40 14 none] [write_uart0 devices__uart 29 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|19r9 49r5 3|19r14 40r5
+X 2 arch-debug.ads
+19K14*Debug 1|20k9 2|45E7 49l10 49e15 3|19b19 40l10 40t15
+24b4*Supports_Read{boolean} 45c7
+28U14*Read 28<20 3|20b14 23l8 23t12
+28a20 Message{5|29A9} 3|20b20
+32U14*Print 32>21 3|25b14 28l8 28t13
+32e21 Message{character} 3|25b21 27r33
+36U14*Print 36>21 3|30b14 33l8 33t13
+36a21 Message{string} 3|30b21 32r33
+40U14*Print 40>21 3|35b14 39l8 39t13
+40a21 Message{5|29A9} 3|35b21 36r24 36r64
+X 3 arch-debug.adb
+36a7 S{string} 38r33
+X 5 devices.ads
+22K9*Devices 2|17w6 28r34 40r31 3|17r6 20r34 27r7 32r7 35r31 38r7 5|279e12
+29A9*Operation_Data(7|16M9)<integer> 2|28r42 40r39 3|20r42 35r39
+X 6 devices-uart.ads
+21K17*UART 3|17w14 27r15 32r15 38r15 6|37e17
+26U14*Write_UART0 3|27s20
+29U14*Write_UART0 3|32s20 38s20
+X 7 interfac.ads
+16M9*Unsigned_8
+

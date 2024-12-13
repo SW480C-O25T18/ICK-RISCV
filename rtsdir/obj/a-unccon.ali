@@ -1,0 +1,52 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -gnatg
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ada.unchecked_conversion%s  a-unccon.ads	1de380e5 NE OL PU GE
+W ada%s			ada.ads			ada.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+X 1 ada.ads
+11K9*Ada 12e8 2|14r10 17r27
+X 2 a-unccon.ads
+12+9 Source 14r40
+13+9 Target 14r55
+14v14*Unchecked_Conversion 14>36 17b31
+14*36 S{12+9}
+

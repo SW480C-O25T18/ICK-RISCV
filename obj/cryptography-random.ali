@@ -1,0 +1,206 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U cryptography.random%b	cryptography-random.adb	fd0b9616 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W cryptography%s	cryptography.ads	cryptography.ali
+W cryptography.chacha20%s  cryptography-chacha20.adb  cryptography-chacha20.ali
+W cryptography.md5%s	cryptography-md5.adb	cryptography-md5.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W memory.physical%s	memory-physical.adb	memory-physical.ali
+
+U cryptography.random%s	cryptography-random.ads	86ab8d2e NE OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+W interfaces%s		interfac.ads		interfac.ali
+N A35:4 gnatprove false_positive "postcondition might fail" "Counterexample works, could be a gnatprove bug?"
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D cryptography.ads	20241115151036 8132c7fc cryptography%s
+D cryptography-chacha20.ads  20241115151036 a950b883 cryptography.chacha20%s
+D cryptography-md5.ads	20241115151036 c7dbe3c0 cryptography.md5%s
+D cryptography-random.ads  20241115151036 ff611fa6 cryptography.random%s
+D cryptography-random.adb  20241115151036 d5415301 cryptography.random%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D memory-physical.ads	20241115151036 f22cd7a2 memory.physical%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [fill_data cryptography__random 22 14 none]
+G c Z s b [feed_entropy cryptography__random 25 14 none]
+G c Z s b [get_integer cryptography__random 28 14 none]
+G c Z s b [get_integer cryptography__random 32 14 none]
+G c Z s b [entropy_adjust cryptography__random 39 14 none]
+G c Z s s [crypto_dataIP cryptography__random 21 9 none]
+G r c none [fill_data cryptography__random 22 14 none] [seize lib__synchronization 27 14 none]
+G r c none [fill_data cryptography__random 22 14 none] [digest cryptography__md5 27 13 none]
+G r c none [fill_data cryptography__random 22 14 none] [get_statistics memory__physical 55 14 none]
+G r c none [fill_data cryptography__random 22 14 none] [get_real_time arch__clocks 39 14 none]
+G r c none [fill_data cryptography__random 22 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [fill_data cryptography__random 22 14 none] [gen_key cryptography__chacha20 35 13 none]
+G r c none [fill_data cryptography__random 22 14 none] [release lib__synchronization 31 14 none]
+G r c none [feed_entropy cryptography__random 25 14 none] [seize lib__synchronization 27 14 none]
+G r c none [feed_entropy cryptography__random 25 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_integer cryptography__random 28 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_integer cryptography__random 28 14 none] [digest cryptography__md5 27 13 none]
+G r c none [get_integer cryptography__random 28 14 none] [get_statistics memory__physical 55 14 none]
+G r c none [get_integer cryptography__random 28 14 none] [get_real_time arch__clocks 39 14 none]
+G r c none [get_integer cryptography__random 28 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [get_integer cryptography__random 28 14 none] [gen_key cryptography__chacha20 35 13 none]
+G r c none [get_integer cryptography__random 28 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_integer cryptography__random 32 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_integer cryptography__random 32 14 none] [digest cryptography__md5 27 13 none]
+G r c none [get_integer cryptography__random 32 14 none] [get_statistics memory__physical 55 14 none]
+G r c none [get_integer cryptography__random 32 14 none] [get_real_time arch__clocks 39 14 none]
+G r c none [get_integer cryptography__random 32 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [get_integer cryptography__random 32 14 none] [gen_key cryptography__chacha20 35 13 none]
+G r c none [get_integer cryptography__random 32 14 none] [release lib__synchronization 31 14 none]
+G r c none [entropy_adjust cryptography__random 39 14 none] [digest cryptography__md5 27 13 none]
+G r c none [entropy_adjust cryptography__random 39 14 none] [get_statistics memory__physical 55 14 none]
+G r c none [entropy_adjust cryptography__random 39 14 none] [get_real_time arch__clocks 39 14 none]
+G r c none [entropy_adjust cryptography__random 39 14 none] [get_monotonic_time arch__clocks 31 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 9|17r6 42r31
+X 2 a-unccon.ads
+14v14*Unchecked_Conversion 9|17w10 42r35
+X 3 arch.ads
+20K9*Arch 52e9 9|19r6 57r7 119r7 120r7
+X 4 arch-clocks.ads
+19K14*Clocks 45e16 9|19w11 57r12 119r12 120r12
+31U14*Get_Monotonic_Time 9|57s19 120s19
+39U14*Get_Real_Time 9|119s19
+X 5 cryptography.ads
+17K9*Cryptography 18e17 8|19r9 40r5 9|21r6 22r6 25r14 143r5
+X 6 cryptography-chacha20.ads
+19K22*Chacha20 40e26 9|21w19 42r63 46r21 62r28
+28A9*Block(10|18M9)<integer> 9|46r30
+29R9*Key 32e15 9|42r72
+35V13*Gen_Key{28A9} 9|62s37
+X 7 cryptography-md5.ads
+19K22*MD5 36e21 9|22w19 34r26 38r25 56r25 116r25 116r41
+21A9*MD5_Hash(10|18M9)<integer> 9|38r29 116r29
+22A9*MD5_Block(10|18M9)<10|18M9>
+23A9*MD5_Blocks(22A9)<integer> 9|34r30
+27V13*Digest{21A9} 9|56s29 116s45
+X 8 cryptography-random.ads
+19K22*Random 5|17k9 8|39E14 40l18 40e24 9|25b27 143l18 143t24
+21A9*Crypto_Data(10|16M9)<integer> 22r36 9|36r36 94r14
+22U14*Fill_Data 22<25 9|36b14 84l8 84t17 96s7
+22a25 Data{21A9} 9|36b25 60m20 60r20
+25U14*Feed_Entropy 25>28 9|86b14 91l8 91t20
+25m28 Data{10|18M9} 9|86b28 89r70
+28U14*Get_Integer 28<27 9|93b14 105l8 105t19 109s7
+28m27 Result{10|19M9} 9|93b27 97m7
+32U14*Get_Integer 32>27 32>32 32<51 9|107b14 111l8 111t19
+32m27 Min{10|19M9} 33r27 34r20 9|107b27 110r40 110r48
+32m32 Max{10|19M9} 33r20 33r35 34r48 9|107b32 110r30
+32m51 Result{10|19M9} 34r27 34r38 9|107b51 109m20 110m7 110r18
+39U14 Entropy_Adjust 9|54s7 113b14 142l8 142t22
+X 9 cryptography-random.adb
+33r4 Accumulator_Mutex{13|22R9} 52m14 52r14 83m16 83r16 88m14 88r14 90m16
+. 90r16
+34a4 Entropy_Accumulator{7|23A9} 56r37 89m7 89r38 116r53 125m7
+37R12 Seed 41e18 42r57 44r21
+38a10 Entropy_Hash{7|21A9} 56m9
+39m10 Mono_Sec{10|19M9} 57m41
+40m10 Mono_NSec{10|19M9} 57m53 58r18
+42V16 To_Seed[2|14]{6|29R9} 62s46
+44r7 S{37R12} 56m7 57m39 57r39 57m51 57r51 58r16 62r55
+45m7 Nonce{10|19M9} 58m7 62r59
+46a7 Cha_Block{6|28A9} 47r36 61r21 62m13 63r28 68r44 69r44 70r44 71r44
+47i7 Index{natural} 61r13 63m13 68r55 69r55 70r55 71r55 78m13 78r27
+48i7 Mini_Index{natural} 67r15 76m10 76r24 77r13 79m13
+49m7 Block_Index{10|19M9} 62r66 64m13 64r28
+50m7 Temp{10|18M9} 68m23 69m23 70m23 71m23 74r31
+60m11 Value=60:20{10|16M9} 74r10
+94a7 Data{8|21A9} 96m18 97r42 98r42 99r42 100r42 101r42 102r42 103r42 104r42
+114m7 RSec{10|19M9} 119m34 130r43 131r30
+114m13 RNSec{10|19M9} 119m40 132r43 133r30
+114m20 MSec{10|19M9} 120m39 126r43 127r30
+114m26 MNSec{10|19M9} 120m45 140r30
+114m33 Avail{10|19M9} 122m7 128r43 129r30
+114m40 Free{10|19M9} 123m7 138r43 139r30
+115r7 S{15|47R9} 118m23 122r29 123r29
+116a7 Hashed{7|21A9} 134r17 135r17 136r17 137r17
+X 10 interfac.ads
+11K9*Interfaces 8|17w6 17r22 10|120e15
+16M9*Unsigned_8 8|21r52 9|74r19
+18M9*Unsigned_32 8|25r35 9|50r21 86r35 126r17 127r17 128r17 129r17 130r17
+. 131r17 132r17 133r17 138r17 139r17 140r17
+19M9*Unsigned_64 8|28r40 32r38 32r64 33r42 9|39r25 40r25 45r21 49r21 93r40
+. 97r29 98r29 99r29 100r29 101r29 102r29 103r29 104r29 107r38 107r64 114r47
+. 122r16 123r16
+76V13*Shift_Right{18M9} 9|68s31 69s31 70s31 71s31
+96V13*Shift_Left{19M9} 9|97s17 98s17 99s17 100s17 101s17 102s17 103s17 104s17
+101V13*Shift_Right{19M9} 9|126s30 128s30 130s30 132s30 138s30
+X 12 lib.ads
+19K9*Lib 9|23r6 23r31 12|35e8
+X 13 lib-synchronization.ads
+20K13*Synchronization 9|23w10 23r35 13|66e24
+22R9*Binary_Semaphore 9|33r34 13|57e14
+23r4*Unlocked_Semaphore{22R9} 9|33r54
+27U14*Seize 9|52s7 88s7
+31U14*Release 9|83s7 90s7
+X 14 memory.ads
+19K9*Memory 9|18r6 18r27 20w6 20r18 115r16 14|36e11
+20M9*Size
+X 15 memory-physical.ads
+20K16*Physical 9|18w13 18r34 115r23 15|60e20
+47R9*Statistics 9|115r32 15|51e14
+49m7*Available{14|20M9} 9|122r31
+50m7*Free{14|20M9} 9|123r31
+55U14*Get_Statistics 9|118s7
+

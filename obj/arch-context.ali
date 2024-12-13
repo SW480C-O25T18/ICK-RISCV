@@ -1,0 +1,104 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.context%b	arch-context.adb	06d70fe8 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.context%s	arch-context.ads	e4b57bc2 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.interrupts%s	arch-interrupts.ads	arch-interrupts.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-context.adb	20241115151036 7d28d2b9 arch.context%b
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init_gp_context arch__context 33 14 none]
+G c Z s b [load_gp_context arch__context 39 14 none]
+G c Z s b [save_core_context arch__context 42 14 none]
+G c Z s b [success_fork_result arch__context 46 14 none]
+G c Z s b [init_fp_context arch__context 49 14 none]
+G c Z s b [save_fp_context arch__context 50 14 none]
+G c Z s b [load_fp_context arch__context 51 14 none]
+G c Z s b [destroy_fp_context arch__context 52 14 none]
+G c Z s s [Tfp_contextBIP arch__context 23 7 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|18r6 20r9 22r31 70r5 3|17r14 68r5
+X 2 arch-context.ads
+20K14*Context 1|20k9 2|70l10 70e17 3|17b19 68l10 68t17
+22R15*GP_Context{4|21R9} 34r25 39r37 46r48 3|19r25 29r37 42r48
+23A15*FP_Context(5|16M9)<integer> 49r44 50r47 51r40 52r47 3|47r41 52r44 57r37
+. 63r47
+24M15*Core_Context{5|19M9} 42r43 3|37r43
+33U14*Init_GP_Context 34<8 35>8 36>8 3|18b14 27l8 27t23
+34r8 Ctx{22R15} 3|19b8 26m7
+35m8 Stack{6|25M9} 3|20b8 23r28
+36m8 Start_Addr{6|25M9} 3|21b8 24r28
+39U14*Load_GP_Context 39>31 3|29b14 35l8 35t23
+39r31 Ctx{22R15} 3|29b31 30r28
+42U14*Save_Core_Context 42<33 3|37b14 40l8 40t25
+42m33 Ctx{24M15} 3|37b33 39m7
+46U14*Success_Fork_Result 46=35 3|42b14 45l8 45t27
+46r35 Ctx{22R15} 3|42b35 44m7
+49U14*Init_FP_Context 49<34 3|47b14 50l8 50t23
+49a34 Ctx{23A15} 3|47b31 49m7
+50U14*Save_FP_Context 50=34 3|52b14 55l8 55t23
+50a34 Ctx{23A15} 3|52b31 54m7
+51U14*Load_FP_Context 51>34 3|57b14 61l8 61t23
+51a34 Ctx{23A15} 3|57b31 58r28
+52U14*Destroy_FP_Context 52=34 3|63b14 67l8 67t26
+52a34 Ctx{23A15} 3|63b34 64r28
+X 4 arch-interrupts.ads
+19K14*Interrupts 2|18w11 22r36 4|39e20
+21R9*Frame 2|22r47 4|38e15
+X 5 interfac.ads
+11K9*Interfaces 2|17w6 17r22 5|120e15
+16M9*Unsigned_8 2|23r51
+19M9*Unsigned_64 2|24r31
+X 6 system.ads
+11K9*System 2|35r21 36r21 3|20r21 21r21 6|73e11
+25M9*Address 2|35r28 36r28 3|20r28 21r28
+

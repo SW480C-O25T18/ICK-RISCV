@@ -1,0 +1,156 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.futex%b		ipc-futex.adb		1529e641 NE OO PK IU
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W lib.time%s		lib-time.adb		lib-time.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+
+U ipc.futex%s		ipc-futex.ads		1c7695dc NE OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-futex.ads		20241115151036 e719aab2 ipc.futex%s
+D ipc-futex.adb		20241115151036 c8a21bed ipc.futex%b
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D lib-time.ads		20241115151036 30059be5 lib.time%s
+D memory.ads		20241115151036 335640bf memory%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [wait ipc__futex 39 13 none]
+G c Z s b [wake ipc__futex 46 14 none]
+G c Z s s [elementIP ipc__futex 28 9 none]
+G c Z s s [element_arrIP ipc__futex 32 9 none]
+G c Z b b [futex_innerIP ipc__futex 23 9 none]
+G c Z b b [Tfutex_arrBIP ipc__futex 28 4 none]
+G r c none [wait ipc__futex 39 13 none] [seize lib__synchronization 27 14 none]
+G r c none [wait ipc__futex 39 13 none] [release lib__synchronization 31 14 none]
+G r c none [wait ipc__futex 39 13 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [wait ipc__futex 39 13 none] [increment lib__time 37 14 none]
+G r c none [wait ipc__futex 39 13 none] [is_greater_equal lib__time 63 13 none]
+G r c none [wait ipc__futex 39 13 none] [yield_if_able scheduler 74 14 none]
+G r c none [wake ipc__futex 46 14 none] [seize lib__synchronization 27 14 none]
+G r c none [wake ipc__futex 46 14 none] [release lib__synchronization 31 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 10|19r6 72r7 87r10
+X 2 arch-clocks.ads
+19K14*Clocks 45e16 10|19w11 72r12 87r15
+31U14*Get_Monotonic_Time 10|72s19 87s22
+X 7 interfac.ads
+11K9*Interfaces 120e15 9|17w6 17r22
+18M9*Unsigned_32 9|29r25 30r18 10|24r28 26r21
+19M9*Unsigned_64 9|41r22 42r22 10|35r22 36r22 38r52
+X 8 ipc.ads
+17K9*IPC 18e8 9|19r9 47r5 10|22r14 109r5
+X 9 ipc-futex.ads
+19K13*Futex 8|17k9 9|47l9 47e14 10|22b18 109l9 109t14
+28R9*Element 31e14 32r52
+29p7*Key(7|18M9) 10|43r22 49r44 58r53 102r37
+30m7*Expected{7|18M9} 10|43r42
+32A9*Element_Arr(28R9)<integer> 40r22 46r27 10|34r22 97r27
+39V13*Wait{boolean} 40>8 41>8 42>8 10|33b13 95l8 95t12
+40a8 Keys{32A9} 10|34b8 39r25 42r16 43r13 43r33 49r35 58r44
+41m8 Max_Seconds{7|19M9} 10|35b8 73r50
+42m8 Max_Nanos{7|19M9} 10|36b8 73r63
+46U14*Wake 46>20 10|97b14 108l8 108t12
+46a20 Keys{32A9} 10|97b20 99r16
+X 10 ipc-futex.adb
+23R9 Futex_Inner 27e14 28r41
+24p7*Key(7|18M9) 49r29 56r29 58m29 80m29 102r29
+25b7*Wakey_Wakey{boolean} 59m29 77r26 103m29
+26m7*Waiters{7|18M9} 51m29 51r53 60m29 78m26 78r50 79r29
+28A9 Futex_Arr(23R9)<integer> 31r36
+30r4 Registry_Mutex{12|22R9} 47m37 47r37 65m39 65r39 68m39 68r39 76m37 76r37
+. 82m42 82r42 85m39 85r39 100m37 100r37 106m39 106r39
+31a4 Registry{28A9} 48r19 49r16 51m16 51r40 55r19 56r16 58m16 59m16 60m16
+. 77r13 78m13 78r37 79r16 80m16 101r19 102r16 103m16
+38m7 Curr_Sec{7|19M9} 87m42 89r14
+38m17 Curr_NSec{7|19M9} 87m52 89r24
+38m28 Final_Sec{7|19M9} 72m39 73m27 73r27 89r35
+38m39 Final_NSec{7|19M9} 72m50 73m38 73r38 89r46
+39a7 Idx(natural) 50m16 57m16 75r16
+42i11 I{integer} 43r19 43r39 49r41 50r21 57r21 58r50
+48i14 J{integer} 49r26 50r27 51r26 51r50
+55i14 J{integer} 56r26 57r27 58r26 59r26 60r26
+67L9 End_Of_Iter 52r21 61r21
+75i11 I=75:16{natural} 77r23 78r23 78r47 79r26 80r26
+99r11 K=99:16{9|28R9} 102r35
+101i14 I{integer} 102r26 103r26
+X 11 lib.ads
+19K9*Lib 10|18r6 18r31 20r6 47r10 65r10 68r10 73r7 76r10 82r13 85r10 88r20
+. 100r10 106r10 11|35e8
+X 12 lib-synchronization.ads
+20K13*Synchronization 10|18w10 18r35 47r14 65r14 68r14 76r14 82r17 85r14
+. 100r14 106r14 12|66e24
+22R9*Binary_Semaphore 10|30r29 12|57e14
+23r4*Unlocked_Semaphore{22R9} 10|30r49
+27U14*Seize 10|47s30 76s30 100s30
+31U14*Release 10|65s30 68s30 82s33 85s30 106s30
+X 13 lib-time.ads
+19K13*Time 10|20w10 73r11 88r24 13|77e13
+37U14*Increment 10|73s16
+63V13*Is_Greater_Equal{boolean} 10|88s29
+X 15 scheduler.ads
+25K9*Scheduler 10|17w6 91r10 15|183e14
+74U14*Yield_If_Able 10|91s20
+

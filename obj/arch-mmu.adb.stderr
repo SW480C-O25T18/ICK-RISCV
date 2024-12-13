@@ -1,0 +1,4 @@
+arch-mmu.adb:70:08: warning: formal parameter "Caching" is not referenced [-gnatwf]
+arch-mmu.adb:88:08: warning: formal parameter "Caching" is not referenced [-gnatwf]
+arch-mmu.adb:104:08: warning: formal parameter "Caching" is not referenced [-gnatwf]
+arch-mmu.ads:20:09: warning: unit "Lib.Synchronization" is not referenced [-gnatwu]

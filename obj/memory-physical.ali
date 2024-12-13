@@ -1,0 +1,253 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U memory.physical%b	memory-physical.adb	1e7c9979 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W config%s		config.ads		config.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W userland%s		userland.ads		userland.ali
+W userland.oom_failure%s  userland-oom_failure.adb  userland-oom_failure.ali
+
+U memory.physical%s	memory-physical.ads	14d8c788 NE OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W memory%s		memory.ads		memory.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D config.ads		20241115151036 e56314eb config%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D memory-physical.ads	20241115151036 f22cd7a2 memory.physical%s
+D memory-physical.adb	20241115151036 d87b6a63 memory.physical%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-oom_failure.ads  20241115151036 8ec1521c userland.oom_failure%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init_allocator memory__physical 23 14 none]
+G c Z s b [alloc memory__physical 34 13 none]
+G c Z s b [free memory__physical 40 14 none]
+G c Z s b [get_statistics memory__physical 55 14 none]
+G c Z s b [calculate_signature memory__physical 59 13 none]
+G c Z s s [statisticsIP memory__physical 47 9 none]
+G c Z b b [bitmapIP memory__physical 31 9 none]
+G c Z b b [allocation_headerIP memory__physical 42 9 none]
+G r c none [init_allocator memory__physical 23 14 none] [hard_panic lib__panic 32 14 none]
+G r i none [alloc memory__physical 34 13 none] [alignment lib 19 13 none]
+G r c none [alloc memory__physical 34 13 none] [hard_panic lib__panic 32 14 none]
+G r c none [alloc memory__physical 34 13 none] [seize lib__synchronization 27 14 none]
+G r c none [alloc memory__physical 34 13 none] [put_line lib__messages 41 14 none]
+G r c none [alloc memory__physical 34 13 none] [release lib__synchronization 31 14 none]
+G r c none [alloc memory__physical 34 13 none] [handle_failure userland__oom_failure 29 14 none]
+G r c none [free memory__physical 40 14 none] [seize lib__synchronization 27 14 none]
+G r c none [free memory__physical 40 14 none] [put_line lib__messages 41 14 none]
+G r c none [free memory__physical 40 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_statistics memory__physical 55 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_statistics memory__physical 55 14 none] [release lib__synchronization 31 14 none]
+X 5 arch.ads
+20K9*Arch 52e9 18|17w6 17r16 23r39 19|21r6 28r37 52r39 57r25 73r25 99r28
+23n8*Memory_Free{22E9} 19|57r30 73r30 99r33
+30m7*Start{20|25M9} 19|62r72 75r46 77r34 105r18 109r59
+31i7*Length{21|16I12} 19|58r50 63r60 73r54 76r34 110r47
+32e7*MemType{22E9} 19|57r15 73r15 99r18
+34A9*Boot_Memory_Map(29R9)<integer> 18|23r44 19|52r44
+X 7 arch-mmu.ads
+22K14*MMU 250e13 19|21w11 28r42
+49N7*Page_Size 19|28r46
+X 8 config.ads
+17K9*Config 29e11 19|24w6 144r14 211r13 229r30
+28b4*Support_Alloc_Only{boolean} 19|144r21 211r20 229r37
+X 9 interfac.ads
+11K9*Interfaces 120e15 18|18r6 34r25 40r30 19|17w6 17r22 121r25 134r30 222r30
+16M9*Unsigned_8 19|204r65
+19M9*Unsigned_64 19|31r26 35r36 38r36 70r24 90r18 92r38 106r32 107r32 109r32
+. 110r32 128r28 129r28 190r43 224r22 244r28 247r42
+X 10 i-c.ads
+11K20*C 41e17 18|18w17 34r36 40r41 19|121r36 134r41 222r41
+31M9*size_t 18|34r38 40r43 19|121r38 134r43 222r43
+X 11 lib.ads
+19K9*Lib 35e8 19|18r6 19r6 19r31 20r6 23r6 83r10 122r28 135r10 149r7 176r10
+. 178r10 180r10 182r10 196r7 241r10 250r13 253r10 259r7 264r7
+X 12 lib-alignment.ads
+19k13*Alignment 43e18 19|20w10 122r32
+27V13 Align_Up{17|20M9} 19|142s35[122]
+X 14 lib-messages.ads
+21K13*Messages 103e17 19|23w10 178r14 250r17
+41U14*Put_Line 19|178s23 250s26
+X 15 lib-panic.ads
+21K13*Panic 39e14 19|18w10 83r14 135r14 176r14
+32U14*Hard_Panic 19|83s20 135s20 176s20
+X 16 lib-synchronization.ads
+20K13*Synchronization 66e24 19|19w10 19r35 149r11 180r14 182r14 196r11 241r14
+. 253r14 259r11 264r11
+22R9*Binary_Semaphore 57e14 19|39r31
+23r4*Unlocked_Semaphore{22R9} 19|39r51
+27U14*Seize 19|149s27 182s30 241s30 259s27
+31U14*Release 19|180s30 196s27 253s30 264s27
+X 17 memory.ads
+19K9*Memory 36e11 18|20r9 34r53 48r19 49r19 50r19 60r5 19|27r14 34r50 36r36
+. 122r43 130r28 130r43 131r28 134r17 161r37 266r5
+20M9*Size 18|48r26 49r26 50r26 59r42 59r55 19|34r57 36r43 43r21 44r21 47r42
+. 47r55 58r42 62r25 62r33 63r25 63r33 71r24 73r46 122r50 130r35 130r50 131r35
+. 134r24 161r44
+23N4*Null_Address 19|37r51 82r27
+29N4*Memory_Offset 19|75r55 105r55 202r64 231r28 232r41 244r49
+35M12*Virtual_Address{21|49M9} 18|34r60 19|37r32 121r53 201r25 202r13 223r22
+. 223r41
+X 18 memory-physical.ads
+20K16*Physical 17|19k9 18|59E13 60l12 60e20 19|27b21 266l12 266t20
+23U14*Init_Allocator 23>30 19|52b14 119l8 119t22
+23a30 Memmap{5|34A9} 19|52b30 56r16 62r51 62r59 63r39 63r47 72r16 98r19
+34V13*Alloc{17|35M12} 34>20 19|121b13 220l8 220t13
+34m20 Sz{10|31M9} 19|121b20 130r56
+40U14*Free 40>20 19|222b14 255l8 255t12
+40m20 Address{10|31M9} 19|222b20 223r58
+47R9*Statistics 51e14 55r42 19|257r42
+48m7*Total{17|20M9} 19|261m11
+49m7*Available{17|20M9} 19|262m11
+50m7*Free{17|20M9} 19|263m11
+55U14*Get_Statistics 55<30 19|257b14 265l8 265t22
+55r30 Stats{47R9} 19|257b30 260m7
+59V13 Calculate_Signature{17|20M9} 59>34 19|47b13 50l8 50t27 216s32 243s13
+59m34 Count{17|20M9} 19|47b34 49r14
+X 19 memory-physical.adb
+28N4 Block_Size 70r53 114r53 115r33 142r51 143r36 195r63 202r50 204r50 217r26
+. 237r62 244r66 245r64
+29b4 Block_Free{boolean} 100r31 152r31 247r66
+30b4 Block_Used{boolean} 95r21 102r31 190r67
+31A9 Bitmap(boolean)<9|19M9> 88r24 124r21 225r22
+34m4 Total_Memory{17|20M9} 66m10 70r37 261r24
+34m18 Available_Memory{17|20M9} 65m10 262r24
+34m36 Free_Memory{17|20M9} 58m13 58r28 65r30 78m13 78r32 195m7 195r27 245m13
+. 245r28 263r24
+35m4 Block_Count{9|19M9} 70m7 71r30 88r37 124r34 151r40 225r35
+36m4 Bitmap_Length{17|20M9} 71m7 73r64 76r58 77r57 78r46
+37m4 Bitmap_Address{17|35M12} 75m13 82r10 89r50 105r38 125r47 226r38
+38m4 Bitmap_Last_Used{9|19M9} 151r16 169r10 170m10 194m7
+39r4 Alloc_Mutex{16|22R9} 149m34 149r34 180m39 180r39 182m37 182r37 196m36
+. 196r36 241m37 241r37 253m39 253r39 259m34 259r34 264m36 264r36
+42R9 Allocation_Header 45e14 203r19 239r19
+43m7*Block_Count{17|20M9} 215m17 243r41 245r50 246r34
+44m7*Signature{17|20M9} 216m17 243r63
+53i7 Adjusted_Length{21|16I12} 76m13 107r45
+54m7 Adjusted_Start{20|25M9} 77m13 106r57
+56r11 E=56:16{5|29R9} 57r13 58r48
+62m10 Sta{17|20M9} 66r30
+63m10 Len{17|20M9} 66r36
+72r11 E=72:16{5|29R9} 73r13 73r52 75r44 76r32 77r32
+88a10 Bitmap_Body{31A9} 89m14 89r14 94m22 94r22 114m16
+90m10 Index{9|19M9} 113r19 114r44 115m16 115r25
+91b10 Block_Value{boolean} 100m16 102m16 114r68
+92m10 Block_Start{9|19M9} 106m16 109m16 114r30
+92m23 Block_Length{9|19M9} 107m16 110m16 113r27
+94b14 Item=94:22{boolean} 95r13
+98r14 E=98:19{5|29R9} 99r16 105r16 109r57 110r45
+122K15 Align[12|19] 142r29
+124a7 Bitmap_Body{31A9} 125m11 125r11 152r13 169r30 170r30 190m10
+127b7 Did_OOM_Once{boolean} 175r10 179m10
+128m7 First_Found_Index{9|19M9} 153r16 153r46 155m16 183m10 190r23 194r27
+. 202r30
+129m7 Found_Count{9|19M9} 153r66 156m16 158m16 158r31 161r50 184m10
+130m7 Size{17|20M9} 134r10 136r13 137m10 142m7 142r45 143r29
+131m7 Blocks_To_Allocate{17|20M9} 143m7 145m10 145r32 161r16 189r21 195r42
+. 204r29 215r32 216r53
+150L6 Search_Blocks 171r15 185r15
+151m11 I{9|19M9} 152r26 153r41 155r37
+188L6 Fill_Bitmap 162r21
+189m11 I{17|20M9} 190r56
+201m10 Ret{17|35M12} 203r73 205r49 212r20 217r20
+203r10 Header{42R9} 214m13
+204a10 Data(9|16M9) 207m19 207r19
+207m14 V=207:19{9|16M9} 208r13
+223m7 Real_Address{17|35M12} 229r10 231r13 232m10 232r26 237r47
+224m7 Real_Block{9|19M9} 244m13 247r29
+225a7 Bitmap_Body{31A9} 247m16
+237m10 IAddr{21|49M9} 238r59 244r41
+238m10 SAddr{20|25M9} 239r61
+239r10 Header{42R9} 243r34 243r56 245r43 246r27
+246m17 I{17|20M9} 247r55
+X 20 system.ads
+11K9*System 19|22w6 22r18 54r25 54r43 238r29 20|73e11
+25M9*Address 19|54r32 238r36
+26m4*Null_Address{25M9} 19|54r50
+32V14*"="{boolean} 19|105r24
+X 21 s-stoele.ads
+12I9*Storage_Offset<long_integer>
+16I12*Storage_Count{12I9} 19|53r25 76r43 77r42
+23V14*"+"{20|25M9} 19|77s40
+49M9*Integer_Address 19|237r28
+51V13*To_Address{20|25M9} 19|89s38 105s26 125s35 203s61 205s37 226s26 238s47
+56V13*To_Integer{49M9} 19|62s39 75s32 106s45 109s45
+X 24 userland.ads
+17K9*Userland 19|25r6 181r10 24|23e13
+X 25 userland-oom_failure.ads
+19K18*OOM_Failure 19|25w15 181r19 25|35e25
+29U14*Handle_Failure 19|181s31
+

@@ -1,0 +1,108 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.termios%s	devices-termios.ads	f2f06868 NE OO PK
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [Tspecial_charactersBIP devices__termios 19 4 none]
+G c Z s s [local_modesIP devices__termios 20 9 none]
+G c Z s s [main_dataIP devices__termios 44 9 none]
+G c Z s s [win_sizeIP devices__termios 54 9 none]
+X 3 devices.ads
+22K9*Devices 279e12 4|17r9 81r5
+X 4 devices-termios.ads
+17K17*TermIOs 3|22k9 4|81l13 81e20
+19A9*Special_Characters(5|18M9)<integer> 49r23
+20R9*Local_Modes 31e15 32r8 48r23
+21b7*Echo_Input{boolean} 33r7
+22b7*Do_Erase{boolean} 34r7
+23b7*Do_Kill{boolean} 35r7
+24b7*Echo_Newline{boolean} 36r7
+25b7*Canonical_Mode{boolean} 37r7
+26b7*Do_Implementation{boolean} 38r7
+27b7*Generate_Signals{boolean} 39r7
+28b7*No_Flushing_Signal{boolean} 40r7
+29b7*Send_Stop{boolean} 41r7
+30b7*Print_As_Erased{boolean} 42r7
+44R9*Main_Data 52e15
+45m7*Input_Modes{5|18M9}
+46m7*Output_Modes{5|18M9}
+47m7*Control_Modes{5|18M9}
+48r7*Local_Mode{20R9}
+49a7*Special_Chars{19A9}
+50m7*Input_Baud{5|18M9}
+51m7*Output_Baud{5|18M9}
+54R9*Win_Size 59e14
+55m7*Rows{5|17M9}
+56m7*Columns{5|17M9}
+57m7*X_Pixels{5|17M9}
+58m7*Y_Pixels{5|17M9}
+62N4*TCIFLUSH
+63N4*TCOFLUSH
+64N4*TCIOFLUSH
+67N4*TCOOFF
+68N4*TCOON
+69N4*TCIOFF
+70N4*TCION
+73N4*TCGETS
+74N4*TCSETS
+75N4*TCSETSW
+76N4*TCSETSF
+77N4*TCXONC
+78N4*TCFLSH
+79N4*TIOCGWINSZ
+80N4*TIOCSWINSZ
+X 5 interfac.ads
+17M9*Unsigned_16 4|55r18 56r18 57r18 58r18
+18M9*Unsigned_32 4|19r50 45r23 46r23 47r23 50r23 51r23
+

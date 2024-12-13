@@ -1,0 +1,809 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RV NO_RECURSION
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U vfs%b			vfs.adb			96e1e2f7 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W vfs%s			vfs.adb			vfs.ali
+W vfs.dev%s		vfs-dev.adb		vfs-dev.ali
+W vfs.ext%s		vfs-ext.adb		vfs-ext.ali
+W vfs.fat%s		vfs-fat.adb		vfs-fat.ali
+N A194:7 gnatprove false_positive "range check might fail" "in List? how?"
+
+U vfs%s			vfs.ads			1b23f56c NE OO PK IU
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W devices%s		devices.adb		devices.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-uncdea.ads		20241115151050 f341340f ada.unchecked_deallocation%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D vfs.adb		20241115151036 50a9d4ff vfs%b
+D vfs-dev.ads		20241115151036 f8e32356 vfs.dev%s
+D vfs-ext.ads		20241115151036 f0d56b8d vfs.ext%s
+D vfs-fat.ads		20241115151036 5e8b7c81 vfs.fat%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init vfs 79 14 none]
+G c Z s b [mount vfs 87 14 none]
+G c Z s b [mount vfs 104 14 none]
+G c Z s b [unmount vfs 119 14 none]
+G c Z s b [get_mount vfs 126 14 none]
+G c Z s b [list_all vfs 138 14 none]
+G c Z s b [get_backing_fs vfs 144 13 none]
+G c Z s b [get_backing_fs_data vfs 150 13 none]
+G c Z s b [get_backing_device vfs 156 13 none]
+G c Z s b [get_mount_point vfs 162 14 none]
+G c Z s b [remount vfs 174 14 none]
+G c Z s b [get_block_size vfs 185 14 none]
+G c Z s b [get_fragment_size vfs 192 14 none]
+G c Z s b [get_size vfs 198 14 none]
+G c Z s b [get_inode_count vfs 204 14 none]
+G c Z s b [get_free_blocks vfs 211 14 none]
+G c Z s b [get_free_inodes vfs 221 14 none]
+G c Z s b [get_max_length vfs 230 14 none]
+G c Z s b [open vfs 255 14 none]
+G c Z s b [create_node vfs 276 14 none]
+G c Z s b [create_symbolic_link vfs 294 14 none]
+G c Z s b [create_hard_link vfs 312 14 none]
+G c Z s b [rename vfs 331 14 none]
+G c Z s b [unlink vfs 348 14 none]
+G c Z s b [close vfs 359 14 none]
+G c Z s b [read_entries vfs 369 14 none]
+G c Z s b [read_symbolic_link vfs 384 14 none]
+G c Z s b [read vfs 400 14 none]
+G c Z s b [write vfs 418 14 none]
+G c Z s b [stat vfs 433 14 none]
+G c Z s b [truncate vfs 445 14 none]
+G c Z s b [io_control vfs 458 14 none]
+G c Z s b [mmap vfs 475 14 none]
+G c Z s b [poll vfs 492 14 none]
+G c Z s b [synchronize vfs 503 13 none]
+G c Z s b [synchronize vfs 511 13 none]
+G c Z s b [change_mode vfs 522 14 none]
+G c Z s b [change_owner vfs 535 14 none]
+G c Z s b [check_access vfs 552 14 none]
+G c Z s b [change_access_times vfs 571 14 none]
+G c Z s b [open vfs 593 14 none]
+G c Z s b [synchronize vfs 609 14 none]
+G c Z s b [create_node vfs 618 14 none]
+G c Z s b [is_absolute vfs 629 13 none]
+G c Z s s [apply_umask vfs 635 13 none]
+G c Z s s [is_initialized vfs 639 13 none]
+G c Z s b [can_access_file vfs 667 13 none]
+G c Z s s [file_timestampIP vfs 35 9 none]
+G c Z s s [file_statIP vfs 41 9 none]
+G c Z s s [directory_entityIP vfs 57 9 none]
+G c Z s s [directory_entitiesIP vfs 63 9 none]
+G c Z s s [mountpoint_arrIP vfs 133 9 none]
+G c Z s s [mount_dataIP vfs 648 9 none]
+G c Z s s [Tmount_registryBIP vfs 659 4 none]
+G r c none [mount vfs 87 14 none] [fetch devices 105 13 none]
+G r c none [mount vfs 87 14 none] [read_entries vfs__dev 55 14 none]
+G r c none [mount vfs 87 14 none] [read_entries vfs__ext 99 14 none]
+G r c none [mount vfs 87 14 none] [read_entries vfs__fat 60 14 none]
+G r c none [mount vfs 87 14 none] [stat vfs__dev 81 14 none]
+G r c none [mount vfs 87 14 none] [stat vfs__ext 130 14 none]
+G r c none [mount vfs 87 14 none] [stat vfs__fat 76 14 none]
+G r c none [mount vfs 87 14 none] [read_symbolic_link vfs__ext 107 14 none]
+G r c none [mount vfs 87 14 none] [seize lib__synchronization 27 14 none]
+G r c none [mount vfs 87 14 none] [probe vfs__dev 20 14 none]
+G r c none [mount vfs 87 14 none] [probe vfs__ext 21 14 none]
+G r c none [mount vfs 87 14 none] [probe vfs__fat 18 14 none]
+G r c none [mount vfs 87 14 none] [release lib__synchronization 31 14 none]
+G r c none [mount vfs 104 14 none] [fetch devices 105 13 none]
+G r c none [mount vfs 104 14 none] [read_entries vfs__dev 55 14 none]
+G r c none [mount vfs 104 14 none] [read_entries vfs__ext 99 14 none]
+G r c none [mount vfs 104 14 none] [read_entries vfs__fat 60 14 none]
+G r c none [mount vfs 104 14 none] [stat vfs__dev 81 14 none]
+G r c none [mount vfs 104 14 none] [stat vfs__ext 130 14 none]
+G r c none [mount vfs 104 14 none] [stat vfs__fat 76 14 none]
+G r c none [mount vfs 104 14 none] [read_symbolic_link vfs__ext 107 14 none]
+G r c none [mount vfs 104 14 none] [seize lib__synchronization 27 14 none]
+G r c none [mount vfs 104 14 none] [probe vfs__dev 20 14 none]
+G r c none [mount vfs 104 14 none] [probe vfs__ext 21 14 none]
+G r c none [mount vfs 104 14 none] [probe vfs__fat 18 14 none]
+G r c none [mount vfs 104 14 none] [release lib__synchronization 31 14 none]
+G r c none [unmount vfs 119 14 none] [seize lib__synchronization 27 14 none]
+G r c none [unmount vfs 119 14 none] [unmount vfs__dev 33 14 none]
+G r c none [unmount vfs 119 14 none] [unmount vfs__ext 33 14 none]
+G r c none [unmount vfs 119 14 none] [unmount vfs__fat 30 14 none]
+G r c none [unmount vfs 119 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_mount vfs 126 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_mount vfs 126 14 none] [release lib__synchronization 31 14 none]
+G r c none [list_all vfs 138 14 none] [seize lib__synchronization 27 14 none]
+G r c none [list_all vfs 138 14 none] [release lib__synchronization 31 14 none]
+G r c none [remount vfs 174 14 none] [remount vfs__dev 27 14 none]
+G r c none [remount vfs 174 14 none] [remount vfs__ext 27 14 none]
+G r c none [remount vfs 174 14 none] [remount vfs__fat 24 14 none]
+G r c none [get_block_size vfs 185 14 none] [get_block_size vfs__dev 35 14 none]
+G r c none [get_block_size vfs 185 14 none] [get_block_size vfs__ext 35 14 none]
+G r c none [get_block_size vfs 185 14 none] [get_block_size vfs__fat 32 13 none]
+G r c none [get_fragment_size vfs 192 14 none] [get_fragment_size vfs__dev 37 14 none]
+G r c none [get_fragment_size vfs 192 14 none] [get_fragment_size vfs__ext 37 14 none]
+G r c none [get_fragment_size vfs 192 14 none] [get_fragment_size vfs__fat 34 13 none]
+G r c none [get_size vfs 198 14 none] [get_size vfs__dev 39 14 none]
+G r c none [get_size vfs 198 14 none] [get_size vfs__ext 39 14 none]
+G r c none [get_size vfs 198 14 none] [get_size vfs__fat 36 13 none]
+G r c none [get_inode_count vfs 204 14 none] [get_inode_count vfs__dev 41 14 none]
+G r c none [get_inode_count vfs 204 14 none] [get_inode_count vfs__ext 41 14 none]
+G r c none [get_inode_count vfs 204 14 none] [get_inode_count vfs__fat 38 13 none]
+G r c none [get_free_blocks vfs 211 14 none] [get_free_blocks vfs__dev 43 14 none]
+G r c none [get_free_blocks vfs 211 14 none] [get_free_blocks vfs__ext 43 14 none]
+G r c none [get_free_blocks vfs 211 14 none] [get_free_blocks vfs__fat 40 14 none]
+G r c none [get_free_inodes vfs 221 14 none] [get_free_inodes vfs__dev 48 14 none]
+G r c none [get_free_inodes vfs 221 14 none] [get_free_inodes vfs__ext 48 14 none]
+G r c none [get_free_inodes vfs 221 14 none] [get_free_inodes vfs__fat 45 14 none]
+G r c none [get_max_length vfs 230 14 none] [get_max_length vfs__dev 53 13 none]
+G r c none [get_max_length vfs 230 14 none] [get_max_length vfs__ext 53 13 none]
+G r c none [get_max_length vfs 230 14 none] [get_max_length vfs__fat 50 13 none]
+G r c none [open vfs 255 14 none] [read_entries vfs__dev 55 14 none]
+G r c none [open vfs 255 14 none] [read_entries vfs__ext 99 14 none]
+G r c none [open vfs 255 14 none] [read_entries vfs__fat 60 14 none]
+G r c none [open vfs 255 14 none] [stat vfs__dev 81 14 none]
+G r c none [open vfs 255 14 none] [stat vfs__ext 130 14 none]
+G r c none [open vfs 255 14 none] [stat vfs__fat 76 14 none]
+G r c none [open vfs 255 14 none] [read_symbolic_link vfs__ext 107 14 none]
+G r c none [create_node vfs 276 14 none] [create_node vfs__ext 55 14 none]
+G r c none [create_symbolic_link vfs 294 14 none] [create_symbolic_link vfs__ext 64 14 none]
+G r c none [create_hard_link vfs 312 14 none] [create_hard_link vfs__ext 73 14 none]
+G r c none [rename vfs 331 14 none] [rename vfs__ext 82 14 none]
+G r c none [unlink vfs 348 14 none] [unlink vfs__ext 92 14 none]
+G r c none [close vfs 359 14 none] [close vfs__fat 58 14 none]
+G r c none [read_entries vfs 369 14 none] [read_entries vfs__dev 55 14 none]
+G r c none [read_entries vfs 369 14 none] [read_entries vfs__ext 99 14 none]
+G r c none [read_entries vfs 369 14 none] [read_entries vfs__fat 60 14 none]
+G r c none [read_symbolic_link vfs 384 14 none] [read_symbolic_link vfs__ext 107 14 none]
+G r c none [read vfs 400 14 none] [read vfs__dev 63 14 none]
+G r c none [read vfs 400 14 none] [read vfs__ext 114 14 none]
+G r c none [read vfs 400 14 none] [read vfs__fat 68 14 none]
+G r c none [write vfs 418 14 none] [write vfs__dev 72 14 none]
+G r c none [write vfs 418 14 none] [write vfs__ext 122 14 none]
+G r c none [stat vfs 433 14 none] [stat vfs__dev 81 14 none]
+G r c none [stat vfs 433 14 none] [stat vfs__ext 130 14 none]
+G r c none [stat vfs 433 14 none] [stat vfs__fat 76 14 none]
+G r c none [truncate vfs 445 14 none] [truncate vfs__ext 136 14 none]
+G r c none [io_control vfs 458 14 none] [io_control vfs__dev 87 14 none]
+G r c none [io_control vfs 458 14 none] [io_control vfs__ext 142 14 none]
+G r c none [mmap vfs 475 14 none] [mmap vfs__dev 94 14 none]
+G r c none [poll vfs 492 14 none] [poll vfs__dev 103 14 none]
+G r c none [synchronize vfs 503 13 none] [synchronize vfs__dev 110 13 none]
+G r c none [synchronize vfs 503 13 none] [synchronize vfs__ext 171 13 none]
+G r c none [synchronize vfs 511 13 none] [synchronize vfs__dev 112 13 none]
+G r c none [synchronize vfs 511 13 none] [synchronize vfs__ext 173 13 none]
+G r c none [change_mode vfs 522 14 none] [change_mode vfs__ext 149 14 none]
+G r c none [change_owner vfs 535 14 none] [change_owner vfs__ext 155 14 none]
+G r c none [check_access vfs 552 14 none] [stat vfs__dev 81 14 none]
+G r c none [check_access vfs 552 14 none] [stat vfs__ext 130 14 none]
+G r c none [check_access vfs 552 14 none] [stat vfs__fat 76 14 none]
+G r c none [change_access_times vfs 571 14 none] [change_access_times vfs__ext 162 14 none]
+G r c none [open vfs 593 14 none] [read_entries vfs__dev 55 14 none]
+G r c none [open vfs 593 14 none] [read_entries vfs__ext 99 14 none]
+G r c none [open vfs 593 14 none] [read_entries vfs__fat 60 14 none]
+G r c none [open vfs 593 14 none] [stat vfs__dev 81 14 none]
+G r c none [open vfs 593 14 none] [stat vfs__ext 130 14 none]
+G r c none [open vfs 593 14 none] [stat vfs__fat 76 14 none]
+G r c none [open vfs 593 14 none] [read_symbolic_link vfs__ext 107 14 none]
+G r c none [synchronize vfs 609 14 none] [seize lib__synchronization 27 14 none]
+G r c none [synchronize vfs 609 14 none] [synchronize vfs__dev 110 13 none]
+G r c none [synchronize vfs 609 14 none] [synchronize vfs__ext 171 13 none]
+G r c none [synchronize vfs 609 14 none] [release lib__synchronization 31 14 none]
+G r c none [create_node vfs 618 14 none] [create_node vfs__ext 55 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 13|17r6 346r30 347r30
+X 2 a-uncdea.ads
+14u15*Unchecked_Deallocation 13|17w10 346r34 347r34
+X 3 arch.ads
+20K9*Arch 52e9 12|21r6 478r18 482r18 13|884r18 888r18
+X 4 arch-mmu.ads
+22K14*MMU 250e13 12|21w11 478r23 482r23 13|884r23 888r23
+26R9*Page_Permissions 32e14 12|482r27 13|888r27
+43P9*Page_Table_Acc(42R9) 12|478r27 13|884r27
+X 5 devices.ads
+22K9*Devices 279e12 12|19w6 19r22 93r41 94r19 111r41 112r19 139r19 13|29r26
+. 66r46 78r15 101r41 145r39 155r42 175r39 204r39 1060r39
+29A9*Operation_Data(6|16M9)<integer> 12|404r26 422r22 13|760r26 799r22
+83I9*Device_Handle<integer> 12|156r57 649r21 13|66r29 225r57
+85i4*Error_Handle{83I9} 13|29r34 78r23 101r49 145r47 155r50 175r47 204r47
+. 1060r47
+88i4*Max_Name_Length{natural} 12|93r49 111r49
+105V13*Fetch{83I9} 13|66s54
+X 6 interfac.ads
+11K9*Interfaces 120e15 12|17w6 17r22
+16M9*Unsigned_8
+18M9*Unsigned_32 12|32r25 45r27 46r27 262r21 282r19 299r19 300r19 318r26
+. 338r26 352r19 538r17 539r17 559r22 598r21 623r18 636r19 636r46 668r21 669r21
+. 13|339r21 601r19 619r19 620r19 640r26 661r26 679r19 965r17 966r17 986r22
+. 1035r21 1074r18 1093r21 1094r21
+19M9*Unsigned_64 12|28r34 36r32 37r32 48r27 50r27 58r22 185r58 192r61 198r52
+. 204r60 213r33 214r33 223r33 224r33 230r60 403r22 421r22 448r19 461r18 479r18
+. 481r18 574r29 575r29 576r29 577r29 13|257r58 266r61 275r52 284r60 295r33
+. 296r33 298r12 299r12 310r33 311r33 313r12 314r12 323r60 759r22 798r22 849r19
+. 864r18 885r18 887r18 1013r29 1014r29 1015r29 1016r29
+X 7 lib.ads
+19K9*Lib 35e8 12|20r6 663r27 13|37r23 97r7 137r7 143r7 161r7 173r7 186r7
+. 202r7 212r7 1058r7 1066r7
+X 8 lib-synchronization.ads
+20K13*Synchronization 66e24 12|20w10 663r31 13|37r27 97r11 137r11 143r11
+. 161r11 173r11 186r11 202r11 212r11 1058r11 1066r11
+22R9*Binary_Semaphore 57e14 12|663r47
+23r4*Unlocked_Semaphore{22R9} 13|37r43
+27U14*Seize 13|97s27 143s27 173s27 202s27 1058s27
+31U14*Release 13|137s27 161s27 186s27 212s27 1066s27
+X 9 memory.ads
+19K9*Memory 36e11 12|22w6 480r18 13|886r18
+35M12*Virtual_Address{11|49M9} 12|480r25 13|886r25
+X 10 system.ads
+11K9*System 73e11 12|18w6 18r22 150r58 462r18 651r21 13|31r26 68r20 121r21
+. 220r58 248r23 865r18
+25M9*Address 12|150r65 462r25 651r28 13|68r27 220r65 248r30 865r25
+26m4*Null_Address{25M9} 13|31r33 121r28 154r46
+32V14*"="{boolean} 13|121r18 154r44
+X 11 s-stoele.ads
+49M9*Integer_Address
+X 12 vfs.ads
+24K9*VFS 643E9 674l5 674e8 13|18r6 19r6 20r6 22b14 67r46 171r17 444r10 502r22
+. 552r7 1123l5 1123t8
+28M9*File_Inode_Number<6|19M9> 42r27 257r21 260r25 278r19 296r19 314r26 316r26
+. 333r26 335r26 350r19 359r44 371r20 386r20 402r22 420r22 435r19 447r19 460r18
+. 477r18 494r20 513r20 524r17 537r17 554r22 573r29 596r25 655r21 656r21 13|70r20
+. 71r20 334r21 337r25 351r25 353r25 432r33 597r19 616r19 636r26 638r26 656r26
+. 658r26 677r19 691r44 702r20 739r20 758r22 797r22 831r19 848r19 863r18 883r18
+. 905r20 933r20 949r17 964r17 981r22 1012r29 1033r25
+32M12*File_Mode{6|18M9} 44r27 281r19 525r17 621r18 635r40 635r58 636r8 670r21
+. 13|600r19 950r17 1072r18 1095r21
+35R9*File_Timestamp 38e14 51r27 52r27 53r27
+36m7*Seconds_Since_Epoch{6|19M9}
+37m7*Additional_Nanoseconds{6|19M9}
+39E9*File_Type 40e64 43r27 61r22 280r19 620r18 13|599r19 1071r18
+39n23*File_Regular{39E9}
+39n37*File_Directory{39E9} 13|476r45 495r18
+39n53*File_Symbolic_Link{39E9} 13|453r42 521r18
+40n23*File_Character_Device{39E9}
+40n46*File_Block_Device{39E9}
+41R9*File_Stat 54e14 436r23 13|357r25 832r23 989r18
+42m7*Unique_Identifier{28M9}
+43e7*Type_Of_File{39E9} 13|453r27 476r30 494r26
+44m7*Mode{32M12} 13|514r45 559r36 999r34
+45m7*UID{6|18M9} 13|513r45 558r36 998r34
+46m7*GID{6|18M9}
+47i7*Hard_Link_Count{positive}
+48m7*Byte_Size{6|19M9}
+49i7*IO_Block_Size{natural}
+50m7*IO_Block_Count{6|19M9}
+51r7*Creation_Time{35R9}
+52r7*Modification_Time{35R9}
+53r7*Access_Time{35R9}
+57R9*Directory_Entity 62e14 63r63
+58m7*Inode_Number{6|19M9} 13|432r56
+59a7*Name_Buffer{string} 13|427r23
+60i7*Name_Len{natural} 13|427r45
+61e7*Type_Of_File{39E9}
+63A9*Directory_Entities(57R9)<integer> 64r42 373r24 13|348r11 356r51 704r24
+64P9*Directory_Entities_Acc(63A9) 13|348r31 356r21
+70i4*Max_Symlink_Loop{natural} 644c4
+73E9*FS_Type 73e46 107r23 144r53 650r21 13|50r17 61r23 215r53
+73n23*FS_DEV{73E9} 13|51r19 111r15 149r21 251r15 260r15 269r15 278r15 287r15
+. 302r15 317r15 326r15 694r15 710r15 767r15 806r15 837r15 870r15 894r15 912r15
+. 925r15 938r15
+73n31*FS_EXT{73E9} 13|30r26 113r15 150r21 252r15 261r15 270r15 279r15 288r15
+. 303r15 318r15 327r15 606r15 625r15 645r15 666r15 684r15 695r15 718r15 746r15
+. 776r15 815r15 839r15 854r15 873r15 926r15 940r15 955r15 971r15 1021r15
+73n39*FS_FAT{73E9} 13|116r15 151r21 253r15 262r15 271r15 280r15 289r15 304r15
+. 319r15 328r15 696r15 726r15 784r15 841r15 927r15
+74I9*FS_Handle<integer> 75r34 129r21 133r55 144r35 150r40 156r39 163r17 175r23
+. 185r36 192r39 198r30 204r37 212r29 222r29 230r36 256r21 259r25 277r19 295r19
+. 313r26 332r26 349r19 359r27 370r20 385r20 401r22 419r22 434r19 446r19 459r18
+. 476r18 493r20 503r32 512r20 523r17 536r17 553r22 572r29 595r25 643c9 645r34
+. 654r21 659r38 13|67r33 69r20 167r21 215r35 220r40 225r39 231r17 243r23
+. 257r36 266r39 275r30 284r37 294r29 309r29 323r36 333r21 336r25 350r33 352r33
+. 596r19 615r19 635r26 655r26 676r19 691r27 701r20 738r20 757r22 796r22 830r19
+. 847r19 862r18 882r18 904r20 922r32 932r20 948r17 963r17 980r22 1011r29
+. 1032r25
+75i4*Error_Handle{74I9} 145r45 151r45 157r45 166r45 179r45 186r45 193r45
+. 199r45 205r45 215r45 225r45 231r45 266r45 284r45 302r45 320r45 340r45 354r45
+. 360r45 376r45 390r45 408r45 426r45 438r45 450r45 464r45 484r45 498r45 504r45
+. 515r45 527r45 541r45 561r45 579r45 604r28 645c4 13|34r26 67r50 69r33 171r21
+. 200r27 350r46 400r28 577r20 585r20
+76i4*Path_Buffer_Length{natural} 167r34 646c4 652r40 653r34 13|77r30 237r40
+79U14*Init 13|25b14 38l8 38t12
+87U14*Mount 88>8 89>8 90>8 91>8 92<8 13|40b14 56l8 56t13
+88a8 Device_Name{string} 93r19 13|41b8 48r29
+89a8 Mount_Path{string} 13|42b8 52r26
+90b8 Do_Read_Only{boolean} 13|43b8 52r42
+91b8 Do_Relatime{boolean} 13|44b8 52r56
+92b8 Success{boolean} 13|45b8 52m69 53r23
+104U14*Mount 105>8 106>8 107>8 108>8 109>8 110<8 13|52s13 58b14 138l8 138t13
+105a8 Device_Name{string} 111r19 13|59b8 66r61
+106a8 Mount_Path{string} 13|60b8 76r27 77r10 83r10 85r28 126r29 132r44 132r66
+107e8 FS{73E9} 13|61b8 110r12 124r29
+108b8 Do_Read_Only{boolean} 13|62b8 112r28 114r28 117r28
+109b8 Do_Relatime{boolean} 13|63b8 112r42 114r42
+110b8 Success{boolean} 13|64b8 74m7 93m13 133m10
+119U14*Unmount 119>23 119>38 119<55 13|140b14 162l8 162t15
+119a23 Path{string} 13|140b23 146r68
+119b38 Force{boolean} 13|140b38 154r16
+119b55 Success{boolean} 13|140b55 142m7 156m16
+126U14*Get_Mount 127>8 128<8 129<8 13|164b14 191l8 191t17
+127a8 Path{string} 13|165b8 176r13 178r13 180r13 180r19 180r33
+128i8 Match{natural} 13|166b8 170m7 177r13 183m13 188r10 189m10 189r19
+129i8 Handle{74I9} 13|167b8 171m7 182m13
+133A9*Mountpoint_Arr(74I9)<integer> 138r35 13|193r35
+138U14*List_All 138<24 138<51 13|193b14 213l8 213t16
+138a24 List{133A9} 13|193b24 200m7 205r29 206m16 206r22
+138i51 Total{natural} 13|193b51 199m7 209m13 209r22
+144V13*Get_Backing_FS{73E9} 144>29 13|215b13 218l8 218t22
+144i29 Key{74I9} 145r38 13|215b29 217r22
+150V13*Get_Backing_FS_Data{10|25M9} 150>34 13|220b13 223l8 223t27
+150i34 Key{74I9} 151r38 13|220b34 222r22
+156V13*Get_Backing_Device{5|83I9} 156>33 13|225b13 228l8 228t26
+156i33 Key{74I9} 157r38 13|225b33 227r22
+162U14*Get_Mount_Point 163>8 164<8 165<8 13|230b14 240l8 240t23
+163i8 Key{74I9} 166r38 13|231b8 238r18 239r25
+164a8 Name{string} 167r19 13|232b8 236m7 237m7 237r13 237r27
+165i8 Length{natural} 13|233b8 239m7
+174U14*Remount 175>8 176>8 177>8 178<8 13|242b14 255l8 255t15
+175i8 Key{74I9} 179r38 13|243b8 248r49 250r20
+176b8 Do_Read_Only{boolean} 13|244b8 251r44 252r44 253r44
+177b8 Do_Relatime{boolean} 13|245b8 251r58 252r58 253r58
+178b8 Success{boolean} 13|246b8 251m71 252m71 253m71
+185U14*Get_Block_Size 185>30 185<47 13|257b14 264l8 264t22
+185i30 Key{74I9} 186r38 13|257b30 259r20 260r53 261r53 262r61
+185m47 Size{6|19M9} 13|257b47 260m67 261m67 262m25
+192U14*Get_Fragment_Size 192>33 192<50 13|266b14 273l8 273t25
+192i33 Key{74I9} 193r38 13|266b33 268r20 269r56 270r56 271r64
+192m50 Size{6|19M9} 13|266b50 269m70 270m70 271m25
+198U14*Get_Size 198>24 198<41 13|275b14 282l8 282t16
+198i24 Key{74I9} 199r38 13|275b24 277r20 278r47 279r47 280r55
+198m41 Size{6|19M9} 13|275b41 278m61 279m61 280m25
+204U14*Get_Inode_Count 204>31 204<48 13|284b14 291l8 291t23
+204i31 Key{74I9} 205r38 13|284b31 286r20 287r54 288r54 289r63
+204m48 Count{6|19M9} 13|284b48 287m68 288m68 289m25
+211U14*Get_Free_Blocks 212>8 213<8 214<8 13|293b14 306l8 306t23
+212i8 Key{74I9} 215r38 13|294b8 301r20 302r54 303r54 304r54
+213m8 Free_Blocks{6|19M9} 13|295b8 298m32 298r32
+214m8 Free_Unpriviledged{6|19M9} 13|296b8 299m32 299r32
+221U14*Get_Free_Inodes 222>8 223<8 224<8 13|308b14 321l8 321t23
+222i8 Key{74I9} 225r38 13|309b8 316r20 317r54 318r54 319r54
+223m8 Free_Inodes{6|19M9} 13|310b8 313m32 313r32
+224m8 Free_Unpriviledged{6|19M9} 13|311b8 314m32 314r32
+230U14*Get_Max_Length 230>30 230<47 13|323b14 330l8 330t22
+230i30 Key{74I9} 231r38 13|323b30 325r20 326r63 327r63 328r63
+230m47 Length{6|19M9} 13|323b47 326m25 327m25 328m25
+234E9*FS_Status 242e16 261r25 283r23 301r23 319r30 339r30 353r23 375r24 389r24
+. 407r26 425r26 437r23 449r23 463r22 483r22 503r50 514r36 526r21 540r21 560r26
+. 578r33 597r25 622r22 13|72r20 338r25 602r23 621r23 641r30 662r30 680r23
+. 706r24 742r24 763r26 802r26 833r23 850r23 866r22 889r22 922r50 934r36 951r21
+. 967r21 987r26 1017r33 1034r25 1073r22
+235n8*FS_Success{234E9} 603r34 13|92r21 420r27 421r27 445r24 460r30 503r36
+. 528r30 553r21 571r20 992r20 1004r20
+236n8*FS_Invalid_Value{234E9} 13|579r20
+237n8*FS_Is_Directory{234E9}
+238n8*FS_Not_Supported{234E9} 13|610r23 630r23 650r23 671r23 687r23 752r26
+. 825r26 857r23 877r23 899r23 927r32 943r20 958r23 975r23 1026r23
+239n8*FS_Not_Allowed{234E9} 13|587r20 1006r20
+240n8*FS_RO_Failure{234E9}
+241n8*FS_IO_Failure{234E9} 13|1061r34
+242n8*FS_Loop{234E9}
+255U14*Open 256>8 257>8 258>8 259<8 260<8 261<8 262>8 263>8 264>8 265>8 13|332b14
+. 464s16 532s16 593l8 593t12 1041s7
+256i8 Key{74I9} 266r38 13|333b8 352r46 465r20 533r20 1042r11
+257m8 Relative{28M9} 13|334b8 353r46 466r20 534r20 1043r11
+258a8 Path{string} 13|335b8 363r10 367r23 378r16 378r41 379r16 379r22 383r13
+. 383r37 390r16 390r42 391r16 391r22 398r13 398r19 398r44 401r16 401r22 401r47
+. 428r19 428r25 428r50 452r13 452r38 467r20 535r20 536r31 536r37 536r67 1044r11
+259i8 Final_Key{74I9} 13|336b8 468r20 468m34 537r20 537m34 569m7 577m7 585m7
+. 1045r11
+260m8 Ino{28M9} 13|337b8 469r20 469m34 538r20 538m34 570m7 578m7 586m7 1046r11
+261e8 Success{234E9} 13|338b8 419m30 420r17 421r16 444m56 445r13 459m33 460r19
+. 470r20 470m34 502m68 503r25 527m33 528r19 539r20 539m34 552m53 553r10 571m7
+. 579m7 587m7 1047r11
+262m8 User{6|18M9} 13|339b8 471r20 471r34 512r34 540r20 540r34 557r25 1048r11
+263b8 Want_Read{boolean} 13|340b8 472r20 472r34 541r20 541r34 560r25 1049r11
+264b8 Want_Write{boolean} 13|341b8 473r20 473r34 542r20 542r34 561r25 1050r11
+265b8 Do_Follow{boolean} 13|342b8 453r65 474r20 474r34 543r20 543r34 1051r11
+276U14*Create_Node 277>8 278>8 279>8 280>8 281>8 282>8 283<8 13|595b14 612l8
+. 612t19 1077s7
+277i8 Key{74I9} 284r38 13|596b8 605r20 608r25 1078r11
+278m8 Relative{28M9} 13|597b8 608r39 1079r11
+279a8 Path{string} 13|598b8 608r49 1080r11
+280e8 Typ{39E9} 13|599b8 608r55 1081r11
+281m8 Mode{32M12} 13|600b8 608r60 1082r11
+282m8 User{6|18M9} 13|601b8 608r66 1083r11
+283e8 Status{234E9} 13|602b8 608m72 610m13 1084r11
+294U14*Create_Symbolic_Link 295>8 296>8 297>8 298>8 299>8 300>8 301<8 13|614b14
+. 632l8 632t28
+295i8 Key{74I9} 302r38 13|615b8 624r20 627r25
+296m8 Relative{28M9} 13|616b8 627r39
+297a8 Path{string} 13|617b8 627r49
+298a8 Target{string} 13|618b8 627r55
+299m8 Mode{6|18M9} 13|619b8 627r63
+300m8 User{6|18M9} 13|620b8 627r69
+301e8 Status{234E9} 13|621b8 628m17 630m13
+312U14*Create_Hard_Link 313>8 314>8 315>8 316>8 317>8 318>8 319<8 13|634b14
+. 652l8 652t24
+313i8 Key{74I9} 320r38 13|635b8 644r20 647r25
+314m8 Relative_Path{28M9} 13|636b8 647r39
+315a8 Path{string} 13|637b8 647r54
+316m8 Relative_Target{28M9} 13|638b8 647r60
+317a8 Target{string} 13|639b8 648r17
+318m8 User{6|18M9} 13|640b8 648r25
+319e8 Status{234E9} 13|641b8 648m31 650m13
+331U14*Rename 332>8 333>8 334>8 335>8 336>8 337>8 338>8 339<8 13|654b14 673l8
+. 673t14
+332i8 Key{74I9} 340r38 13|655b8 665r20 668r25
+333m8 Relative_Source{28M9} 13|656b8 668r39
+334a8 Source{string} 13|657b8 668r56
+335m8 Relative_Target{28M9} 13|658b8 668r64
+336a8 Target{string} 13|659b8 669r17
+337b8 Keep{boolean} 13|660b8 669r25
+338m8 User{6|18M9} 13|661b8 669r31
+339e8 Status{234E9} 13|662b8 669m37 671m13
+348U14*Unlink 349>8 350>8 351>8 352>8 353<8 13|675b14 689l8 689t14
+349i8 Key{74I9} 354r38 13|676b8 683r20 685r33
+350m8 Relative{28M9} 13|677b8 685r47
+351a8 Path{string} 13|678b8 685r57
+352m8 User{6|18M9} 13|679b8 685r63
+353e8 Status{234E9} 13|680b8 685m69 687m13
+359U14*Close 359>21 359>38 13|691b14 698l8 698t13
+359i21 Key{74I9} 360r38 13|691b21 693r20 696r44
+359m38 Ino{28M9} 13|691b38 696r58
+369U14*Read_Entries 370>8 371>8 372>8 373<8 374<8 375<8 13|413s13 700b14
+. 735l8 735t20
+370i8 Key{74I9} 376r38 13|414r17 701b8 709r20 712r25 720r25 728r25
+371m8 Ino{28M9} 13|415r17 702b8 713r17 721r17 729r17
+372i8 Offset{natural} 13|416r17 703b8 714r17 722r17 730r17
+373a8 Entities{63A9} 13|417r17 704b8 715m17 723m17 731m17
+374i8 Ret_Count{natural} 13|418r17 705b8 716m17 724m17 732m17
+375e8 Success{234E9} 13|419r17 706b8 717m17 725m17 733m17
+384U14*Read_Symbolic_Link 385>8 386>8 387<8 388<8 389<8 13|454s16 522s16
+. 737b14 754l8 754t26
+385i8 Key{74I9} 390r38 13|455r20 523r20 738b8 745r20 748r25
+386m8 Ino{28M9} 13|456r20 524r20 739b8 748r39
+387a8 Path{string} 13|457r20 525r20 740b8 748m44 750m13
+388i8 Ret_Count{natural} 13|458r20 526r20 741b8 748m50 751m13
+389e8 Success{234E9} 13|459r20 527r20 742b8 748m61 752m13
+400U14*Read 401>8 402>8 403>8 404<8 405<8 406>8 407<8 13|756b14 793l8 793t12
+401i8 Key{74I9} 408r38 13|757b8 766r20 769r25 778r25 786r25
+402m8 Ino{28M9} 13|758b8 770r17 779r17 787r17
+403m8 Offset{6|19M9} 13|759b8 771r17 780r17 788r17
+404a8 Data{5|29A9} 13|760b8 772m17 781m17 789m17
+405i8 Ret_Count{natural} 13|761b8 773m17 782m17 790m17
+406b8 Is_Blocking{boolean} 13|762b8 774r17
+407e8 Success{234E9} 13|763b8 775m17 783m17 791m17
+418U14*Write 419>8 420>8 421>8 422>8 423<8 424>8 425<8 13|795b14 827l8 827t13
+419i8 Key{74I9} 426r38 13|796b8 805r20 808r25 817r25
+420m8 Ino{28M9} 13|797b8 809r17 818r17
+421m8 Offset{6|19M9} 13|798b8 810r17 819r17
+422a8 Data{5|29A9} 13|799b8 811r17 820r17
+423i8 Ret_Count{natural} 13|800b8 812m17 821m17 824m13
+424b8 Is_Blocking{boolean} 13|801b8 813r17
+425e8 Success{234E9} 13|802b8 814m17 822m17 825m13
+433U14*Stat 434>8 435>8 436<8 437<8 13|444s14 502s26 552s11 829b14 844l8
+. 844t12 991s7
+434i8 Key{74I9} 438r38 13|830b8 836r20 838r31 840r31 842r31
+435m8 Ino{28M9} 13|831b8 838r45 840r45 842r45
+436r8 Stat_Val{41R9} 13|832b8 838m50 840m50 842m50
+437e8 Success{234E9} 13|833b8 838m60 840m60 842m60
+445U14*Truncate 446>8 447>8 448>8 449<8 13|846b14 859l8 859t16
+446i8 Key{74I9} 450r38 13|847b8 853r20 855r35
+447m8 Ino{28M9} 13|848b8 855r49
+448m8 New_Size{6|19M9} 13|849b8 855r54
+449e8 Status{234E9} 13|850b8 855m64 857m13
+458U14*IO_Control 459>8 460>8 461>8 462>8 463<8 13|861b14 879l8 879t18
+459i8 Key{74I9} 464r38 13|862b8 869r20 872r25 875r25
+460m8 Ino{28M9} 13|863b8 872r39 875r39
+461m8 Request{6|19M9} 13|864b8 872r44 875r44
+462m8 Arg{10|25M9} 13|865b8 872r53 875r53
+463e8 Status{234E9} 13|866b8 872m58 875m58 877m13
+475U14*Mmap 476>8 477>8 478>8 479>8 480>8 481>8 482>8 483<8 13|881b14 901l8
+. 901t12
+476i8 Key{74I9} 484r38 13|882b8 893r20 896r25
+477m8 Ino{28M9} 13|883b8 896r39
+478p8 Map{4|43P9} 13|884b8 896r44
+479m8 Offset{6|19M9} 13|885b8 891r28
+480m8 Address{9|35M12} 13|886b8 896r49
+481m8 Length{6|19M9} 13|887b8 896r58
+482r8 Flags{4|26R9} 13|888b8 896r66
+483e8 Status{234E9} 13|889b8 897m17 899m13
+492U14*Poll 493>8 494>8 495<8 496<8 497<8 13|903b14 920l8 920t12
+493i8 Key{74I9} 498r38 13|904b8 911r20 914r25
+494m8 Ino{28M9} 13|905b8 914r39
+495b8 Can_Read{boolean} 13|906b8 914m44 916m13
+496b8 Can_Write{boolean} 13|907b8 914m54 917m13
+497b8 Is_Error{boolean} 13|908b8 914m65 918m13
+503V13*Synchronize{234E9} 503>26 13|922b13 929l8 929t19 1061s16
+503i26 Key{74I9} 504r38 13|922b26 924r20 925r57 926r57
+511V13*Synchronize{234E9} 512>8 513>8 514>8 13|931b13 945l8 945t19
+512i8 Key{74I9} 515r38 13|932b8 937r20 939r45 941r45
+513m8 Ino{28M9} 13|933b8 939r59 941r59
+514b8 Data_Only{boolean} 13|934b8 939r64 941r64
+522U14*Change_Mode 523>8 524>8 525>8 526<8 13|947b14 960l8 960t19
+523i8 Key{74I9} 527r38 13|948b8 954r20 956r38
+524m8 Ino{28M9} 13|949b8 956r52
+525m8 Mode{32M12} 13|950b8 956r57
+526e8 Status{234E9} 13|951b8 956m63 958m13
+535U14*Change_Owner 536>8 537>8 538>8 539>8 540<8 13|962b14 977l8 977t20
+536i8 Key{74I9} 541r38 13|963b8 970r20 973r25
+537m8 Ino{28M9} 13|964b8 973r39
+538m8 Owner{6|18M9} 13|965b8 973r44
+539m8 Group{6|18M9} 13|966b8 973r51
+540e8 Status{234E9} 13|967b8 973m58 975m13
+552U14*Check_Access 553>8 554>8 555>8 556>8 557>8 558>8 559>8 560<8 13|979b14
+. 1008l8 1008t20
+553i8 Key{74I9} 561r38 13|980b8 991r13
+554m8 Ino{28M9} 13|981b8 991r18
+555b8 Exists_Only{boolean} 13|982b8 992r39
+556b8 Can_Read{boolean} 13|983b8 1000r25
+557b8 Can_Write{boolean} 13|984b8 1001r25
+558b8 Can_Exec{boolean} 13|985b8 1002r25
+559m8 Real_UID{6|18M9} 13|986b8 997r25
+560e8 Status{234E9} 13|987b8 991m33 992r10 1004m10 1006m10
+571U14*Change_Access_Times 572>8 573>8 574>8 575>8 576>8 577>8 578<8 13|1010b14
+. 1028l8 1028t27
+572i8 Key{74I9} 579r38 13|1011b8 1020r20 1023r25
+573m8 Ino{28M9} 13|1012b8 1023r39
+574m8 Access_Seconds{6|19M9} 13|1013b8 1023r44
+575m8 Access_Nanoseconds{6|19M9} 13|1014b8 1023r60
+576m8 Modify_Seconds{6|19M9} 13|1015b8 1024r17
+577m8 Modify_Nanoseconds{6|19M9} 13|1016b8 1024r33
+578e8 Status{234E9} 13|1017b8 1024m53 1026m13
+593U14*Open 594>8 595<8 596<8 597<8 598>8 599>8 600>8 601>8 13|84s10 1030b14
+. 1052l8 1052t12
+594a8 Path{string} 13|85r14 1031b8 1044r25
+595i8 Key{74I9} 604r21 13|86r14 1032b8 1045m25
+596m8 Ino{28M9} 13|87r14 1033b8 1046m25
+597e8 Success{234E9} 603r24 13|88r14 1034b8 1047m25
+598m8 User{6|18M9} 13|89r14 1035b8 1048r25
+599b8 Want_Read{boolean} 13|90r14 1036b8 1049r25
+600b8 Want_Write{boolean} 13|91r14 1037b8 1050r25
+601b8 Do_Follow{boolean} 13|1038b8 1051r25
+609U14*Synchronize 609<27 13|1054b14 1067l8 1067t19
+609b27 Success{boolean} 13|1054b27 1056m7 1062m16
+618U14*Create_Node 619>8 620>8 621>8 622<8 623>8 13|1069b14 1085l8 1085t19
+619a8 Path{string} 13|1070b8 1080r23
+620e8 Typ{39E9} 13|1071b8 1081r23
+621m8 Mode{32M12} 13|1072b8 1082r23
+622e8 Success{234E9} 13|1073b8 1084m23
+623m8 User{6|18M9} 13|1074b8 1083r23
+629V13*Is_Absolute{boolean} 629>26 13|76s14 367s10 1087b13 1090l8 1090t19
+629a26 Path{string} 13|1087b26 1089r14 1089r40 1089r46
+635V13*Apply_Umask{32M12} 635>26 635>32
+635m26 Mode{32M12} 636r32
+635m32 Umask{32M12} 636r59
+648R9 Mount_Data 657e14 659r65
+649i7*Mounted_Dev{5|83I9} 13|29m11 99r24 101r27 123m14 145r24 155m27 175r24
+. 204r24 227r27 1060r24
+650e7*Mounted_FS{73E9} 13|30m11 124m14 148r29 217r27 250r25 259r25 268r25
+. 277r25 286r25 301r25 316r25 325r25 605r25 624r25 644r25 665r25 683r25 693r25
+. 709r25 745r25 766r25 805r25 836r25 853r25 869r25 893r25 911r25 924r25 937r25
+. 954r25 970r25 1020r25
+651m7*FS_Data{10|25M9} 13|31m11 125m14 149m55 150m55 151m55 154r36 222r27
+. 248r54 260r58 261r58 262r66 269r61 270r61 271r69 278r52 279r52 280r60 287r59
+. 288r59 289r68 302r59 303r59 304r59 317r59 318r59 319r59 326r68 327r68 328r68
+. 608r30 627r30 647r30 668r30 685r38 696r49 712r30 720r30 728r30 748r30 769r30
+. 778r30 786r30 808r30 817r30 838r36 840r36 842r36 855r40 872r30 875r30 896r30
+. 914r30 925r62 926r62 939r50 941r50 956r43 973r30 1023r30
+652i7*Path_Length{integer} 13|32m11 126m14 146r53 176r39 177r32 178r52 179r53
+. 180r57 183r34 239r30
+653a7*Path_Buffer{string} 13|33m11 127m14 132m26 146r24 179r24 238r23
+654i7*Base_Key{74I9} 13|34m11 128m14 479r33 497r33
+655m7*Base_Ino{28M9} 13|35m11 129m14 480r33 498r33
+656m7*Root_Ino{28M9} 13|36m11 130m14 369r35 483r47 501r47 1043r36 1079r34
+659A9 Mount_Registry(648R9)<74I9> 660r38 13|28r21
+660P9 Mount_Registry_Acc(659A9) 662r19
+662p4 Mounts{660P9} 665r47 13|28m7 98r16 99r13 101r16 122r10 132r10 144r16
+. 145r13 146r13 146r42 148r18 149r44 150r44 151r44 154r25 155r16 174r16 175r13
+. 176r28 177r21 178r41 179r13 179r42 180r46 183r23 203r16 204r13 217r14 222r14
+. 227r14 238r10 239r17 248r41 250r12 259r12 260r45 261r45 262r53 268r12 269r48
+. 270r48 271r56 277r12 278r39 279r39 280r47 286r12 287r46 288r46 289r55 301r12
+. 302r46 303r46 304r46 316r12 317r46 318r46 319r46 325r12 326r55 327r55 328r55
+. 369r24 478r25 479r22 480r22 483r36 496r25 497r22 498r22 501r36 605r12 608r17
+. 624r12 627r17 644r12 647r17 665r12 668r17 683r12 685r25 693r12 696r36 709r12
+. 712r17 720r17 728r17 745r12 748r17 766r12 769r17 778r17 786r17 805r12 808r17
+. 817r17 836r12 838r23 840r23 842r23 853r12 855r27 869r12 872r17 875r17 893r12
+. 896r17 911r12 914r17 924r12 925r49 926r49 937r12 939r37 941r37 954r12 956r30
+. 970r12 973r17 1020r12 1023r17 1043r25 1059r16 1060r13 1079r23
+663r4 Mounts_Mutex{8|22R9} 13|37m7 97m34 97r34 137m36 137r36 143m34 143r34
+. 161m36 161r36 173m34 173r34 186m36 186r36 202m34 202r34 212m36 212r36 1058m34
+. 1058r34 1066m36 1066r36
+667V13 Can_Access_File{boolean} 668>8 669>8 670>8 671>8 672>8 673>8 13|511s23
+. 556s14 996s10 1092b13 1122l8 1122t23
+668m8 User{6|18M9} 13|512r20 557r11 997r11 1093b8 1101r10 1105r23
+669m8 File_Owner{6|18M9} 13|513r20 558r11 998r11 1094b8 1105r10
+670m8 Mode{32M12} 13|514r20 559r11 999r11 1095b8 1106r36 1107r36 1108r36
+. 1113r36 1114r36 1115r36
+671b8 Want_Read{boolean} 13|515r20 560r11 1000r11 1096b8 1106r14 1113r14
+672b8 Want_Write{boolean} 13|516r20 561r11 1001r11 1097b8 1107r14 1114r14
+673b8 Want_Exec{boolean} 13|517r20 562r11 1002r11 1098b8 1108r14 1115r14
+X 13 vfs.adb
+48a7 Name=48:29{string} 52r20
+50e11 FS{12|73E9} 51r13 52r38
+66i7 De{5|83I9} 78r10 99r38 112r24 114r24 117r24 123r29
+67i7 Free_I{12|74I9} 102m13 122r18 132r18
+68m7 FS_Data{10|25M9} 112m55 114m55 117m42 121r10 125r29
+69i7 Key{12|74I9} 86m28 128r29
+70m7 Ino{12|28M9} 87m28 129r29
+71m7 Root_Inode{12|28M9} 112m64 115m13 118m13 130r29
+72e7 Succ{12|234E9} 88m28 92r13
+98i11 I<integer> 99r21 101r24 102r23
+109L6 Try_Probe 103r18
+136L6 Cleanup 100r18 107r12
+144i11 I<integer> 145r21 146r21 146r50 148r26 149r52 150r52 151r52 154r33
+. 155r24
+174i11 I<integer> 175r21 176r36 177r29 178r49 179r21 179r50 180r54 182r23
+. 183r31
+197i7 Curr_Index{natural} 205r16 206r35 207m16 207r30
+203i11 I<integer> 204r21 206r50
+248m7 Data{10|25M9} 251r38 252r38 253r38
+298m7 FB=298:32{6|19M9} 302r68 303r68 304r68
+299m7 FU=299:32{6|19M9} 302r72 303r72 304r72
+313m7 FI=313:32{6|19M9} 317r68 318r68 319r68
+314m7 FU=314:32{6|19M9} 317r72 318r72 319r72
+344P12 String_Acc(string) 346r66 360r25
+346U17 Free1[2|14] 567s7 575s7 583s7 591s7
+347U17 Free2[2|14] 568s7 576s7 584s7 592s7
+350i7 Orig_Key{12|74I9} 400r16 403r27 430m19 465r34 533r34
+351m7 Orig_Ino{12|28M9} 404r27 431m19 466r34 534r34
+352i7 Actual_Key{12|74I9} 368m10 403m13 414r30 430r33 444r20 455r33 479r44
+. 482m22 497r44 500m22 502r32 523r33 552r17 569r20
+353m7 Actual_Ino{12|28M9} 369m10 404m13 415r30 431r33 432m19 444r32 456r33
+. 480r44 483m22 498r44 501m22 502r44 524r33 552r29 570r20
+354i7 Path_Idx{natural} 372m7 378r29 379r35 381m13 381r25 383r26 389r23 398r32
+. 401r35 428r38 548m10
+355i7 Path_Last{natural} 389m10 390r29 391r35 393m13 393r26 395m10 395r23
+. 398r57 401r60 428r63 452r26 536r50 548r22
+356p7 Dir_Entries{12|64P9} 417r30 426r24 568m14 568r14 576m14 576r14 584m14
+. 584r14 592m14 592r14
+357r7 Entry_Stat{12|41R9} 444m44 453r16 476r19 494r15 502m56 513r34 514r34
+. 552m41 558r25 559r25
+358i7 Entries_Offset{natural} 410m10 416r30 437m13 437r31
+359i7 Entries_Count{natural} 411m10 418m30 420r42 426r42 437r48
+360p7 Symlink_Path{344P12} 457r33 467r34 525r33 535r34 567m14 567r14 575m14
+. 575r14 583m14 583r14 591m14 591r14
+361i7 Symlink_Len{natural} 458m33 467r53 526m33 535r53
+426r17 Ent=426:17{12|57R9} 427r19 427r41 432r52
+442L6 Found_Entry 399r18 405r18 433r24
+478i20 I<integer> 479r30 480r30 482r36 483r44
+496i20 I<integer> 497r30 498r30 500r36 501r44
+574L6 Invalid_Value_Return 364r15 440r15 446r18 461r24 504r30 529r24 546r21
+. 554r15
+582L6 Not_Allowed_Return 519r24 564r15
+590L6 Cleanup_Only_Return 475r21 544r21
+989r7 Ino_Stat{12|41R9} 991m23 998r25 999r25
+1059i11 I<integer> 1060r21 1061r29
+X 14 vfs-dev.ads
+19K13*Dev 13|18w10 112r13 149r31 251r25 260r25 269r25 278r25 287r25 302r25
+. 317r25 326r35 711r13 768r13 807r13 838r13 871r13 895r13 913r13 925r32 939r20
+. 14|116e12
+20U14*Probe 13|112s17
+27U14*Remount 13|251s29
+33U14*Unmount 13|149s35
+35U14*Get_Block_Size 13|260s29
+37U14*Get_Fragment_Size 13|269s29
+39U14*Get_Size 13|278s29
+41U14*Get_Inode_Count 13|287s29
+43U14*Get_Free_Blocks 13|302s29
+48U14*Get_Free_Inodes 13|317s29
+53V13*Get_Max_Length{6|19M9} 13|326s39
+55U14*Read_Entries 13|711s17
+63U14*Read 13|768s17
+72U14*Write 13|807s17
+81U14*Stat 13|838s17
+87U14*IO_Control 13|871s17
+94U14*Mmap 13|895s17
+103U14*Poll 13|913s17
+110V13*Synchronize{12|234E9} 13|925s36
+112V13*Synchronize{12|234E9} 13|939s24
+X 15 vfs-ext.ads
+20K13*EXT 13|19w10 114r13 150r31 252r25 261r25 270r25 279r25 288r25 303r25
+. 318r25 327r35 607r13 626r13 646r13 667r13 685r13 719r13 747r13 777r13 816r13
+. 840r13 855r13 874r13 926r32 941r20 956r13 972r13 1022r13 15|542e12
+21U14*Probe 13|114s17
+27U14*Remount 13|252s29
+33U14*Unmount 13|150s35
+35U14*Get_Block_Size 13|261s29
+37U14*Get_Fragment_Size 13|270s29
+39U14*Get_Size 13|279s29
+41U14*Get_Inode_Count 13|288s29
+43U14*Get_Free_Blocks 13|303s29
+48U14*Get_Free_Inodes 13|318s29
+53V13*Get_Max_Length{6|19M9} 13|327s39
+55U14*Create_Node 13|607s17
+64U14*Create_Symbolic_Link 13|626s17
+73U14*Create_Hard_Link 13|646s17
+82U14*Rename 13|667s17
+92U14*Unlink 13|685s17
+99U14*Read_Entries 13|719s17
+107U14*Read_Symbolic_Link 13|747s17
+114U14*Read 13|777s17
+122U14*Write 13|816s17
+130U14*Stat 13|840s17
+136U14*Truncate 13|855s17
+142U14*IO_Control 13|874s17
+149U14*Change_Mode 13|956s17
+155U14*Change_Owner 13|972s17
+162U14*Change_Access_Times 13|1022s17
+171V13*Synchronize{12|234E9} 13|926s36
+173V13*Synchronize{12|234E9} 13|941s24
+X 16 vfs-fat.ads
+17K13*FAT 13|20w10 117r13 151r31 253r25 262r33 271r33 280r33 289r34 304r25
+. 319r25 328r35 696r25 727r13 785r13 842r13 16|241e12
+18U14*Probe 13|117s17
+24U14*Remount 13|253s29
+30U14*Unmount 13|151s35
+32V13*Get_Block_Size{6|19M9} 13|262s37
+34V13*Get_Fragment_Size{6|19M9} 13|271s37
+36V13*Get_Size{6|19M9} 13|280s37
+38V13*Get_Inode_Count{6|19M9} 13|289s38
+40U14*Get_Free_Blocks 13|304s29
+45U14*Get_Free_Inodes 13|319s29
+50V13*Get_Max_Length{6|19M9} 13|328s39
+58U14*Close 13|696s29
+60U14*Read_Entries 13|727s17
+68U14*Read 13|785s17
+76U14*Stat 13|842s17
+

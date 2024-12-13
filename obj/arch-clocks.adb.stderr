@@ -1,0 +1,6 @@
+arch-clocks.adb:30:04: warning: variable "RT_Timestamp_Seconds" is never read and never assigned [-gnatwu]
+arch-clocks.adb:31:04: warning: variable "RT_Timestamp_Nanoseconds" is never read and never assigned [-gnatwu]
+arch-clocks.adb:32:04: warning: variable "RT_Stored_Seconds" is never read and never assigned [-gnatwu]
+arch-clocks.adb:33:04: warning: variable "RT_Stored_Nanoseconds" is never read and never assigned [-gnatwu]
+arch-clocks.adb:37:04: warning: named number "MS_Per_Sec" is not referenced [-gnatwu]
+arch-clocks.adb:39:04: warning: variable "Mono_TSC_Freq" is not referenced [-gnatwu]

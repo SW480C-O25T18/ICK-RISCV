@@ -1,0 +1,180 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.messages%b	lib-messages.adb	49b651fd NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W arch%s		arch.ads		arch.ali
+W arch.debug%s		arch-debug.adb		arch-debug.ali
+W lib%s			lib.adb			lib.ali
+
+U lib.messages%s	lib-messages.ads	5c8de5e6 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-debug.ads	20241115151036 7987b5ed arch.debug%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-messages.adb	20241115151036 f522e680 lib.messages%b
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [enable_logging lib__messages 31 14 none]
+G c Z s b [put_line lib__messages 41 14 none]
+G c Z s b [dump_logs lib__messages 50 14 none]
+G c Z s b [image lib__messages 63 14 none]
+G c Z s b [image lib__messages 74 14 none]
+G c Z s s [is_initialized lib__messages 81 13 none]
+G c Z s s [message_bufferIP lib__messages 86 9 none]
+G c Z s b [get_timestamp lib__messages 99 14 none]
+G r c none [enable_logging lib__messages 31 14 none] [seize lib__synchronization 27 14 none]
+G r c none [enable_logging lib__messages 31 14 none] [release lib__synchronization 31 14 none]
+G r c none [put_line lib__messages 41 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [put_line lib__messages 41 14 none] [seize lib__synchronization 27 14 none]
+G r c none [put_line lib__messages 41 14 none] [print arch__debug 36 14 none]
+G r c none [put_line lib__messages 41 14 none] [print arch__debug 32 14 none]
+G r c none [put_line lib__messages 41 14 none] [release lib__synchronization 31 14 none]
+G r c none [dump_logs lib__messages 50 14 none] [seize lib__synchronization 27 14 none]
+G r c none [dump_logs lib__messages 50 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_timestamp lib__messages 99 14 none] [get_monotonic_time arch__clocks 31 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 12|17r6 57r25 58r25
+X 2 a-charac.ads
+11K13*Characters 12e19 12|17r10 57r29 58r29
+X 3 a-chlat1.ads
+11K24*Latin_1 247e27 12|17w21 57r40 58r40
+23e4*LF{character} 12|58r48
+26e4*CR{character} 12|57r48
+X 4 arch.ads
+20K9*Arch 52e9 11|18r6 44r10 100r33 12|18r6 56r7 57r7 58r7 127r7
+X 5 arch-clocks.ads
+19K14*Clocks 45e16 11|18w11 44r15 100r38 12|127r12
+20@23*Monotonic_Clock_State 11|44r22 100r45
+31U14*Get_Monotonic_Time 12|127s19
+X 6 arch-debug.ads
+19K14*Debug 49e15 12|18w11 56r12 57r12 58r12
+32U14*Print 12|57s18 58s18
+36U14*Print 12|56s18
+X 9 interfac.ads
+11K9*Interfaces 120e15 11|17w6 17r22
+18M9*Unsigned_32 11|64r18 12|92r18
+19M9*Unsigned_64 11|75r18 12|98r14 102r18 108r29 109r29 125r19
+X 10 lib.ads
+19K9*Lib 35e8 11|19r6 19r31 21r9 103r5 12|20r14 29r7 32r7 46r7 65r7 71r7
+. 88r7 131r5
+X 11 lib-messages.ads
+21K13*Messages 10|19k9 11|86E9 103l9 103e17 12|20b18 131l9 131t17
+22@22*Message_State 23r22 34r33 45r10 52r34 90r23 92r23 94r23 96r23 12|21r22
+26N4*Max_Line 42r37 86r68 12|37r32 76r42 78r54 83r61 85r23
+31U14*Enable_Logging 12|27b14 33l8 33t22
+37a4*Warning_String{string}
+41U14*Put_Line 41>24 12|35b14 66l8 66t16
+41a24 Message{string} 42r19 12|35b24 44r20 44r44
+50U14*Dump_Logs 50<25 50<46 12|68b14 89l8 89t17
+50a25 Buffer{string} 51r41 12|68b25 73m16 73r16 78r10 78r36 83m10 83r18 83r40
+50i46 Length{natural} 12|68b46 76m7 78r26
+55A12*Translated_String{string}<integer> 65r22 76r22 12|93r22 103r22 123r17
+56I12*Translated_Length{natural} 66r22 77r22 12|94r22 104r22
+63U14*Image 64>8 65<8 66<8 67>8 12|91b14 99l8 99t13
+64m8 Value{9|18M9} 12|92b8 98r27
+65a8 Buffer{55A12} 12|93b8 98m35
+66i8 Length{56I12} 12|94b8 98m43
+67b8 Use_Hex{boolean} 12|95b8 98r51
+74U14*Image 75>8 76<8 77<8 78>8 12|98s7 101b14 120l8 120t13 128s7
+75m8 Value{9|19M9} 12|102b8 108r44
+76a8 Buffer{55A12} 12|103b8 110r44 112m7 113r44 114r44 115m10 119r17
+77i8 Length{56I12} 12|104b8 119m7
+78b8 Use_Hex{boolean} 12|105b8 109r48
+86A9 Message_Buffer(string)<integer> 87r38 93r23 12|30r30
+87P9 Message_Buffer_Acc(86A9) 95r23
+89r4 Messages_Mutex{13|22R9} 12|22r8 29m34 29r34 32m36 32r36 46m34 46r34
+. 65m36 65r36 71m34 71r34 88m36 88r36
+91i4 Curr_Entry{natural} 12|22r24 50r27 53r28 60m7 60r21 61r10 62m10
+93a4 Small_Log_Buffer{86A9} 12|22r36 31r29 31r57 52r22 53m10
+95p4 Log_Ring_Buffer{87P9} 102r47 12|22r54 30m7 31r7 48r10 49r22 50r10 76r17
+. 82r19
+98A12 Timestamp_Str{string}<integer> 99r45 12|122r45
+99U14 Get_Timestamp 99<29 12|40s7 122b14 130l8 130t21
+99a29 Timestamp{98A12} 12|122b29 129m7
+X 12 lib-messages.adb
+36a7 Timestamp{string} 40m22 42r26
+37a7 Final{string} 41m7 42m7 43m7 44m7 50r42 53r43 56r25
+38i7 Last_Idx{natural} 49m10 52m10 61r23
+69i7 Idx{natural} 83r33 83r55 85m10 85r17
+73e11 C=73:16{character} 74r10
+82a11 Line=82:11{string} 84r13
+107a7 Conversion{string} 115r30
+108m7 To_Convert{9|19M9} 113r13 115r51 116m10 116r30
+109m7 Base{9|19M9} 115r66 116r43
+110i7 Current{natural} 113r33 114r33 115r18 117m10 117r30 119r33
+123a7 Stp{11|55A12} 128m19 129r20 129r31
+124i7 Stp_Len{natural} 128m24
+125m7 Sec{9|19M9} 127m39 128r14
+125m12 NSec{9|19M9} 127m44
+X 13 lib-synchronization.ads
+20K13*Synchronization 11|19w10 19r35 12|29r11 32r11 46r11 65r11 71r11 88r11
+. 13|66e24
+22R9*Binary_Semaphore 11|89r31 13|57e14
+23r4*Unlocked_Semaphore{22R9} 11|89r51
+27U14*Seize 12|29s27 46s27 71s27
+31U14*Release 12|32s27 65s27 88s27
+

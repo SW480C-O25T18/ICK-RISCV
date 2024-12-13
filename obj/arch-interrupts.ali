@@ -1,0 +1,79 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.interrupts%s	arch-interrupts.ads	9f4aa693 NE OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [frameIP arch__interrupts 21 9 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|19r9 39r5
+X 2 arch-interrupts.ads
+19K14*Interrupts 1|20k9 2|39l10 39e20
+21R9*Frame 38e15
+22m7*R15{3|18M9}
+23m7*R14{3|18M9}
+24m7*R13{3|18M9}
+25m7*R12{3|18M9}
+26m7*R11{3|18M9}
+27m7*R10{3|18M9}
+28m7*R9{3|18M9}
+29m7*R8{3|18M9}
+30m7*R7{3|18M9}
+31m7*R6{3|18M9}
+32m7*R5{3|18M9}
+33m7*R4{3|18M9}
+34m7*R3{3|18M9}
+35m7*R2{3|18M9}
+36m7*R1{3|18M9}
+37m7*R0{3|18M9}
+X 3 interfac.ads
+11K9*Interfaces 2|17w6 17r22 3|120e15
+18M9*Unsigned_32 2|22r14 23r14 24r14 25r14 26r14 27r14 28r14 29r14 30r14
+. 31r14 32r14 33r14 34r14 35r14 36r14 37r14
+

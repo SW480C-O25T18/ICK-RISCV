@@ -1,0 +1,75 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.hooks%b		arch-hooks.adb		94b1c044 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.hooks%s		arch-hooks.ads		540907cb NE OO PK
+W arch%s		arch.ads		arch.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-hooks.ads	20241115151036 2bd12b55 arch.hooks%s
+D arch-hooks.adb	20241115151036 bf60eb11 arch.hooks%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [devices_hook arch__hooks 19 13 none]
+G c Z s b [prctl_hook arch__hooks 22 13 none]
+G c Z s b [panic_smp_hook arch__hooks 26 14 none]
+G c Z s b [get_active_core_count arch__hooks 29 13 none]
+G c Z s b [register_ram_files arch__hooks 32 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|17r9 33r5 3|17r14 44r5
+X 2 arch-hooks.ads
+17K14*Hooks 1|20k9 2|33l10 33e15 3|17b19 44l10 44t15
+19V13*Devices_Hook{boolean} 3|18b13 21l8 21t20
+22V13*PRCTL_Hook{boolean} 22>25 22>41 3|23b13 28l8 28t18
+22i25 Code{natural} 3|23b25 24r28
+22m41 Arg{4|25M9} 3|23b41 25r28
+26U14*Panic_SMP_Hook 3|30b14 33l8 33t22
+29V13*Get_Active_Core_Count{positive} 3|35b13 38l8 38t29
+32U14*Register_RAM_Files 3|40b14 43l8 43t26
+X 4 system.ads
+11K9*System 2|22r47 3|23r47 4|73e11
+25M9*Address 2|22r54 3|23r54
+
