@@ -1,0 +1,4892 @@
+This is ironclad.info, produced by makeinfo version 6.8 from
+ironclad.texi.
+
+Copyright © 2024 streaksu
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, no Front-Cover Texts, and
+     no Back-Cover Texts.  A copy of the license is included in the
+     section entitled “GNU Free Documentation License”.
+
+
+File: ironclad.info,  Node: Top,  Next: Installation and target support,  Up: (dir)
+
+Ironclad User’s Guide
+*********************
+
+This manual documents usage of Ironclad, interfaces and devices it
+exposes to userland, and discusses kernel internals, without having to
+navigate the often cryptic and scary Ada code.
+
+   Copyright © 2024 streaksu
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, no Front-Cover Texts, and
+     no Back-Cover Texts.  A copy of the license is included in the
+     section entitled “GNU Free Documentation License”.
+
+* Menu:
+
+* Installation and target support::    Installation and hardware support.
+* Boot-time command-line options::     Command-line options.
+* Scheduling and RTC::                 Scheduling methodology and features.
+* Inter-process communication::        IPC primitives, methods, and quirks.
+* Memory architecture::                Memory architecture of the kernel.
+* Userland state and conditions::      Userland state and conditions.
+* Security and integrity facilities::  Ironclad-specific security facilities.
+* Debugging facilities::               Ironclad-specific debugging facilities.
+* Syscalls::                           Listings and explanation of syscalls.
+* Networking::                         Networking support and details.
+* Filesystem support and interfaces::  VFS details and supported filesystems.
+* Devices and their properties::       Devices exposed by the kernel.
+* GNU Free Documentation License::     Copying and sharing this manual.
+
+— The Detailed Node Listing —
+
+Installation and target support
+
+* riscv64-limine support::     riscv64-limine installation and support.
+* x86_64-limine support::      x86_64-limine installation and support.
+
+Boot-time command-line options
+
+* Format::                 Description of the format.
+* List::                   List of all the available command line arguments.
+
+Scheduling and RTC
+
+* Ticks and other interruptions::  Thread interruptions to expect.
+* Scheduling basics::              Scheduling model used in Ironclad.
+* Thread clustering management::   Thread cluster management in Ironclad.
+
+Inter-process communication
+
+* Pipes::                      FIFOs (yay!).
+* Futexes::                    Fast-Userspace MuTeXes.
+* PTYs::                       Pseudo-terminal creation and management.
+* Signals::                    Ironclad’s signal mechanism.
+* Sockets::                    Sockets in all of its glory and flavours.
+
+Memory architecture
+
+* Physical memory allocation::  How the kernel goes about allocating memory.
+* Virtual memory::              Virtual memory architecture.
+* Memory failures::             Memory failure policies and conditions.
+
+Userland state and conditions
+
+* Program loading::  Format of the loaded programs.
+* Memory layout::    Layout of memory in userland.
+
+Security and integrity facilities
+
+* Users and groups::                UIDs, EUIDs, GIDs, and all the fuzz.
+* Mandatory access control (MAC)::  MAC quickguide and configuration.
+* Resource limits::                 Limits on resources built into MAC.
+* Miscellaneous measures::          Miscelaneous security measures.
+
+Debugging facilities
+
+* Corefile and process dumping::    Format of dumped files, and settings.
+* Program tracing::                 Details on program tracing.
+
+Syscalls
+
+* Table and target quirks:: Syscall table and architectural ABI.
+* Errno::                   Error conditions and their values.
+* exit::                    Exit the callee process.
+* arch_prctl::              Interacting with architectural thread-local data.
+* open::                    Opening file-system entities.
+* close::                   Closing file descriptors.
+* read/write::              Read and write from file descriptors.
+* seek::                    Modify and fetch file offsets.
+* mmap/mprotect/munmap::    Manage memory regions.
+* getpid/getppid::          Get the PIDs of the caller.
+* exec::                    Launching new programs.
+* clone::                   Create new processes and threads.
+* wait::                    Waiting for execution of a child to finish.
+* socket::                  Create sockets.
+* sethostname::             Hostname setting.
+* unlink::                  Queue files for deletion.
+* fstat::                   Fetch file information.
+* chdir::                   Current working directory manipulation.
+* ioctl::                   IO multiplexer.
+* sched_yield::             Relinquish CPU time.
+* delete_tcluster::         Delete thread clusters.
+* pipe::                    Create pipes.
+* rename::                  Rename a file.
+* sysconf::                 Fetch general system parameters and information.
+* spawn::                   clone+exec power incarnate.
+* gettid::                  Get the current thread id.
+* manage_tcluster::         Manage and create thread clusters.
+* fcntl::                   Multiplexed operations for files.
+* exit_thread::             Exit the calling thread.
+* getrandom::               Bypass /dev/random for avoiding DoS attacks.
+* mac_capabilities::        Get and set MAC capabilities.
+* add_mac_permissions::     Configure MAC using filesystem-based filters.
+* set_mac_enforcement::     Set enforcement to follow on MAC violations.
+* mount/umount::            Mount and unmount partitions.
+* readlink::                Read the contents of a symlink.
+* getdents::                Get directory entries.
+* sync::                    Synchronize device caches.
+* mknod::                   Create several kinds of files.
+* truncate::                Truncate the contents of a file to an offset.
+* bind::                    Bind sockets to locations.
+* mkdir::                   Create directories.
+* symlink::                 Create symbolic links.
+* connect::                 Connect a socket.
+* openpty::                 Create pseudoterminals.
+* fsync::                   Synchronize file-specific caches.
+* link::                    Create hard links.
+* ptrace::                  Trace and debug children processes.
+* listen::                  Listen for connections to a socket.
+* accept::                  Accept socket connections.
+* getrlimit/setrlimit::     Get and set resource limits.
+* access::                  Check file access permissions and existance.
+* ppoll::                   I/O event multiplexer.
+* getuid/geteuid::          Get the UID and the effective UID.
+* setuids::                 Set the UID and the effective UID.
+* fchmod::                  Change the mode of a file descriptor.
+* umask::                   Get and set the calling process umask.
+* reboot::                  Machine power management.
+* fchown::                  Change ownership of a file descriptor.
+* pread/pwrite::            Atomic read and write from file descriptors.
+* getsockname::             Get address of a bound socket.
+* getpeername::             Get address of a socket’s peer.
+* shutdown::                Disconnect socket from its peer.
+* futex::                   Fast userland mutexes.
+* clock::                   Clock and time operations.
+* clock_nanosleep::         Sleep on a clock.
+* getrusage::               Get resource usage for the process.
+* recvfrom/sendto::         Socket IO support functions.
+* config_netinter::         Configure network interfaces.
+* utimes::                  Modify timestamps for a file.
+* create_tcluster::         Create a thread cluster.
+* switch_tcluster::         Switch thread cluster.
+* sigprogmask::             Fetch and change a process’ blocked signal.
+* sigaction::               Fetch and change a signal’s action.
+* send_signal::             Send a signal to a process.
+* getprio/setprio::         Get / Set the niceness of some entities.
+* getgid/getegid::          Get the GID and the effective GID.
+* setgids::                 Set the GID and the effective GID.
+* getgroups/setgroups::     Get and set supplementary user groups.
+* ttyname::                 Get the name of a TTY file descriptor.
+* fadvise::                 Advise caching for file access.
+* shmat::                   Attach a shared memory region.
+* shmctl::                  Control a shared memory region.
+* shmdl::                   Delete a shared memory region.
+* shmget::                  Create or get a shared memory region by key.
+* getsockopt/setsockopt::   Get and set options on sockets.
+* gettidid/settidid::       Get and set TID IDs.
+* failure_policy::          Get or set failure policies.
+
+Filesystem support and interfaces
+
+* Extended FileSystem::    EXT-series filesystems (ext2, ext3, ext4).
+* File Allocation Table::  FAT-series filesystems.
+
+Networking
+
+* Layering::             What Ironclad provides in terms of the OSI model.
+* Interface handling::   How interfaces work inside Ironclad.
+* Loopback::             Loopback device use and specification.
+
+Devices and their properties
+
+* Common devices::             Devices common to all architectures and targets.
+* riscv64-limine devices::     Devices specific to riscv64-limine.
+* x86_64-limine devices::      Devices specific to x86_64-limine.
+
+
+
+File: ironclad.info,  Node: Installation and target support,  Next: Boot-time command-line options,  Prev: Top,  Up: Top
+
+1 Installation and target support
+*********************************
+
+This chapter delves on what hardware configurations Ironclad supports
+and how to get Ironclad running on those platforms.
+
+   Ironclad hardware support is divided in targets, which are combos of
+an architecture and board that are supported in tandem, along with any
+accompaning hardware, some hardware is supported regardless of the
+underlying target, *note Common devices::.
+
+* Menu:
+
+* riscv64-limine support::
+* x86_64-limine support::
+
+
+File: ironclad.info,  Node: riscv64-limine support,  Next: x86_64-limine support,  Up: Installation and target support
+
+1.1 riscv64-limine support
+==========================
+
+Ironclad supports RISC-V64 systems supporting the IMAC, ZICSR, and
+ZIFENCEI extensions using the Limine boot protocol, which as of time of
+writing depends on UEFI support being present, but this might change in
+the future.  The machines running Ironclad are required to provide a
+device tree blob (DTB).
+
+   Refer to your limine compliant bootloader for instructions on where
+to put kernel images, configuration formats, and the like.
+
+   For supported devices and how they are abstracted, *note
+riscv64-limine devices::
+
+
+File: ironclad.info,  Node: x86_64-limine support,  Prev: riscv64-limine support,  Up: Installation and target support
+
+1.2 x86_64-limine support
+=========================
+
+x86_64 systems are supported using the limine boot protocol, any limine
+compliant bootloader will be able to boot it just fine.
+
+   Refer to your limine compliant bootloader for instructions on where
+to put kernel images, configuration formats, and the like.
+
+   For supported devices and how they are abstracted, *note
+x86_64-limine devices::.
+
+
+File: ironclad.info,  Node: Boot-time command-line options,  Next: Scheduling and RTC,  Prev: Installation and target support,  Up: Top
+
+2 Boot-time command-line options
+********************************
+
+Ironclad takes, as part of its boot protocol, a series of options and
+values.  The parsing of this options is architecture and platform
+independent, while the ability to modify said options and values is
+entirely up to the platform and bootloader.
+
+* Menu:
+
+* Format::
+* List::
+
+
+File: ironclad.info,  Node: Format,  Next: List,  Up: Boot-time command-line options
+
+2.1 Format
+==========
+
+The format is a list of keys with optional arguments as such:
+
+     key1=value1 key2 key3=value3 key4="value4 value5" ... keyN=(")valueN(")
+
+   For arguments that need spaces within, like init program arguments
+and such, quotation marks are available for use, nested quotation marks
+are not allowed in any shape or form, due to the primitive parsing
+available within the kernel.
+
+
+File: ironclad.info,  Node: List,  Prev: Format,  Up: Boot-time command-line options
+
+2.2 List
+========
+
+This are the keys and values the kernel takes, and under which
+circumstances:
+
+‘root=<device>’
+     Device to mount as root, if any.
+
+‘rootuuid=<uuid>’
+     Used instead of ‘root’.  It addresses the root device with a UUID
+     instead of a device name.  This can be used to gain some
+     device-independence, for example, for addressing a given partition
+     in a GPT drive regardless the containing device.
+
+‘init=<path>’
+     Path to a program that will be booted by the kernel when finished
+     loading.  The program will be started with ‘stdin’ set to
+     ‘/dev/null’, and ‘stdout’ and ‘stderr’ set to ‘/dev/console’.
+
+‘initargs=<args>’
+     Arguments to pass to init.  If environment variables are what is
+     desired, consider the trick of booting in typical UNIX fashion
+     ‘/bin/env <vars> <init command>’.
+
+‘noprogaslr’
+     The offset of loaded programs in virtual memory is randomized when
+     loading if possible, this option disables it system-wide at boot
+     time and hardcodes it to the lowest available value.
+
+‘nolocaslr’
+     The same as ‘noprogaslr’ but applied to memory locations like
+     stacks and memory allocation.
+
+
+File: ironclad.info,  Node: Scheduling and RTC,  Next: Inter-process communication,  Prev: Boot-time command-line options,  Up: Top
+
+3 Scheduling and RTC
+********************
+
+Ironclad is built around hard real-time work, this chapter explains how
+that is accomplished along with how scheduling works, predictability of
+it, and other useful related features.
+
+* Menu:
+
+* Ticks and other interruptions::
+* Scheduling basics::
+* Thread clustering management::
+
+
+File: ironclad.info,  Node: Ticks and other interruptions,  Next: Scheduling basics,  Up: Scheduling and RTC
+
+3.1 Ticks and other interruptions
+=================================
+
+Ironclad will not interrupt a running thread for timers or heartbeats,
+if necessary, at the expense of performance by, for example, using
+polling instead of interrupt-based operation for device drivers.
+
+   A thread, however, may be interrupted for task-switching, which is
+needed for scheduling to work.  This will not be an issue for most
+operations, but if the user desires absolutely 0 interruptions and/or
+jitter, one can use
+
+
+File: ironclad.info,  Node: Scheduling basics,  Next: Thread clustering management,  Prev: Ticks and other interruptions,  Up: Scheduling and RTC
+
+3.2 Scheduling basics
+=====================
+
+Scheduling in Ironclad is based broadly on ARINC 653 partitioning
+(https://en.wikipedia.org/wiki/ARINC_653) and process models.  Like the
+standard specifies, it employs 2 hierarchies of schedulable entities,
+the thread cluster, and the thread (or partition and process in ARINC
+nomenclature respectively).
+
+   Each cluster needs to have a percentage of CPU time assigned at
+creation (which can be modified later on), that the scheduler will
+uphold with preemption, effectively promissing that any given cluster
+will be given, at least, the specified execution time.  Validy of the
+cluster configuration is checked when adding, deleting, or modifying
+individual clusters.
+
+   Slack time (time not covered percent-wise by any cluster) will be
+used as seen fit, while not breaking scheduler guarantees, in an
+unspecified way.  Thus, it shall be treated as UNDEFINED BEHAVIOUR by
+system users, and it is the responsability of the user to configure the
+scheduling to keep this into account.  It is also why the above
+paragraph mentions "at least", as unspecified time can be assigned to
+other clusters.
+
+   Ironclad supports multicore configurations, shuffling cores around
+clusters, while always keeping the assigned slices for each cluster.
+
+
+File: ironclad.info,  Node: Thread clustering management,  Prev: Scheduling basics,  Up: Scheduling and RTC
+
+3.3 Thread clustering management
+================================
+
+Thread clusters are identified by an integer id, not unlike threads or
+PIDs.  Clusters rule over a group of threads, regardless of their
+process of origin, and allow specifiying an algorithm and a percentage
+over all the CPU time.
+
+   The algorithm of a cluster affects how threads inside the cluster are
+scheduled.  The available algorithms are:
+
+‘SCHED_RR’
+     A prioritized round robin.  One can specify a quantum to use when
+     switching threads, while one can specify a priority using standard
+     POSIX niceness.  *note getprio/setprio::.
+
+     Priorities affect inter-thread quantum following the formula:
+
+          timeout = quantum - ((quantum / 40) * niceness);
+
+‘SCHED_COOP’
+     Cooperative scheduling, the scheduler will not attempt to preempt
+     unless explicitly requested by exiting or yielding.
+
+   Additionally, by using the ‘SCHED_INTR’ flag, a cluster can be
+configured to be interruptible, which makes the kernel able to interrupt
+a thread and queue another during long waits, in order to increase
+performance and responsiveness.  This does not affect cluster-wide
+scheduling guarantees.
+
+   At startup, Ironclad will have a single interruptible cluster
+assigned to 100% of execution time, configured to use a flat RR with a
+reasonable quantum with cluster number ‘1’.  Software is free to modify
+it however it sees fit, it is just provided in order to have some
+natural-ish behaviour for running software blissfully unaware of the
+clusters beneath.
+
+   Syscalls used for modifying clusters and their settings are
+‘manage_tcluster’ and ‘delete_tcluster’, ‘create_tcluster’, and
+‘switch_tcluster’.
+
+
+File: ironclad.info,  Node: Inter-process communication,  Next: Memory architecture,  Prev: Scheduling and RTC,  Up: Top
+
+4 Inter-process communication
+*****************************
+
+This chapter digs into the forms of IPC Ironclad supports, what they do,
+and how they can help accomplish complex local or remote IPC.
+
+* Menu:
+
+* Pipes::
+* Futexes::
+* PTYs::
+* Signals::
+* Sockets::
+
+
+File: ironclad.info,  Node: Pipes,  Next: Futexes,  Up: Inter-process communication
+
+4.1 Pipes
+=========
+
+Ironclad features standard POSIX-like pipes, they are created using
+*note pipe::.
+
+   The standard size of pipes is 10 architectural pages.  This size can
+be modified using the following ‘fcntl’ calls.
+
+     #define F_GETPIPE_SZ 7     // Get the size in bytes.
+     #define F_SETPIPE_SZ 8     // Set the size in bytes.
+
+
+File: ironclad.info,  Node: Futexes,  Next: PTYs,  Prev: Pipes,  Up: Inter-process communication
+
+4.2 Futexes
+===========
+
+Standard Linux-like futexes.  *note futex::.
+
+
+File: ironclad.info,  Node: PTYs,  Next: Signals,  Prev: Futexes,  Up: Inter-process communication
+
+4.3 PTYs
+========
+
+Pseudo terminals (PTYs) are available in Ironclad, with a few quirks.
+They are created using *note openpty::.
+
+   PTYs, unlike other OSes like Linux, when created, do not populate
+‘/dev’.  They live exclusively as file descriptors, not unlike a pipe.
+Apart of that they behave as you would expect when compared with other
+UNIX-likes.
+
+
+File: ironclad.info,  Node: Signals,  Next: Sockets,  Prev: PTYs,  Up: Inter-process communication
+
+4.4 Signals
+===========
+
+Ironclad implements standard POSIX signals.
+
+
+File: ironclad.info,  Node: Sockets,  Prev: Signals,  Up: Inter-process communication
+
+4.5 Sockets
+===========
+
+Standard sockets.  *note socket::.
+
+
+File: ironclad.info,  Node: Memory architecture,  Next: Userland state and conditions,  Prev: Inter-process communication,  Up: Top
+
+5 Memory architecture
+*********************
+
+This section delves into details on Ironclad’s memory management.
+
+* Menu:
+
+* Physical memory allocation::
+* Virtual memory::
+* Memory failures::
+
+
+File: ironclad.info,  Node: Physical memory allocation,  Next: Virtual memory,  Up: Memory architecture
+
+5.1 Physical memory allocation
+==============================
+
+Ironclad features two physical memory allocator choices for use, the
+chosen allocator will be used both for kernel and userland allocations,
+the standard and alloconly allocators.
+
+   The standard allocator is a general purpose allocator for your
+average everyday allocator needs.  Its internally implemented as a
+bitmap allocator with page-sized blocks and a quick cache for small
+objects, along with some quick hardening features, like checksums.
+
+   The alloconly option features several optimizations on top of the
+usual allocator in order to save memory and tune operation, for usecases
+where nor userland nor the kernel are wanted to deallocate memory at
+all.
+
+
+File: ironclad.info,  Node: Virtual memory,  Next: Memory failures,  Prev: Physical memory allocation,  Up: Memory architecture
+
+5.2 Virtual memory
+==================
+
+The virtual memory architecture of Ironclad is quite simple, given the
+need to avoid things like complex virtual memory management which could
+influence predictability with page-related interrupts, and similar
+features.  For the same reason, memory overcommiting is not allowed.
+
+
+File: ironclad.info,  Node: Memory failures,  Prev: Virtual memory,  Up: Memory architecture
+
+5.3 Memory failures
+===================
+
+Ironclad is capable of answering to out of memory conditions as well as
+hardware memory errors.
+
+   For OOM failures, Ironclad will try to free internal storage used for
+cache and retry allocation until it is deemed the situation is not
+recoverable, in which case it will panic.  To this end, Ironclad will
+kill high memory consuming processes, this behaviour is configurable in
+*note failure_policy::.
+
+   For hardware memory failures, like RAM sticks going bad, handling
+will depend on the underlying architecture.  Behaviour is configurable
+as well under *note failure_policy::.
+
+
+File: ironclad.info,  Node: Userland state and conditions,  Next: Security and integrity facilities,  Prev: Memory architecture,  Up: Top
+
+6 Userland state and conditions
+*******************************
+
+Ironclad places several requirements on loaded userland programs, from
+the format of which, to memory layout.
+
+* Menu:
+
+* Program loading::
+* Memory layout::
+
+
+File: ironclad.info,  Node: Program loading,  Next: Memory layout,  Up: Userland state and conditions
+
+6.1 Program loading
+===================
+
+Loaded programs must be under the ELF64 format, other formats may be
+supported in the future.  Loaded programs can be static or relocatable.
+
+   ‘ld.so’, or any other linker program detailed on the interpreter
+segment of the ELF executable will be a special case, it is assumed to
+be relocatable.
+
+
+File: ironclad.info,  Node: Memory layout,  Prev: Program loading,  Up: Userland state and conditions
+
+6.2 Memory layout
+=================
+
+Loaded programs are loaded at address 0, and they are free to allocate
+themselves at nearby offsets.
+
+   ‘ld.so’ and entities like stacks, anonymous memory regions, and
+others, will be randomized on load time following ASLR
+(https://en.wikipedia.org/wiki/Address_space_layout_randomization), and
+must not be relied upon.  It is up to ‘ld.so’ to optionally place
+additionally loaded libraries at random offsets.
+
+   The stack is a fixed ‘128 KiB’ in size, and is not executable, by
+default.
+
+
+File: ironclad.info,  Node: Security and integrity facilities,  Next: Debugging facilities,  Prev: Userland state and conditions,  Up: Top
+
+7 Security and integrity facilities
+***********************************
+
+This chapter digs into the various Ironclad-specific security and
+integrity features available for the user.
+
+* Menu:
+
+* Users and groups::
+* Mandatory access control (MAC)::
+* Resource limits::
+* Miscellaneous measures::
+
+
+File: ironclad.info,  Node: Users and groups,  Next: Mandatory access control (MAC),  Up: Security and integrity facilities
+
+7.1 Users and groups
+====================
+
+As part of the UNIX-like package, Ironclad supports the traditional
+UID/EUID values per-process for basic access protection, both for files
+and syscalls.
+
+   Unlike most UNIX systems, the ‘setuid’ bit is fully ignored and not
+implemented, instead, as part of the mandatory access control facilities
+explained later, ‘MAC_CAP_SETUID’ is provided, with similar
+functionality.
+
+   Groups are not supported in any shape or form.
+
+
+File: ironclad.info,  Node: Mandatory access control (MAC),  Next: Resource limits,  Prev: Users and groups,  Up: Security and integrity facilities
+
+7.2 Mandatory access control (MAC)
+==================================
+
+Mandatory access control (MAC) is one of the main components of
+Ironclad’s security.  It does not necesarily help with preventing
+breaches, but, when configured correctly, it can help mitigate
+consequences to a massive degree.
+
+   MAC in Ironclad consists on a series of settings inherited from
+parent process to children, these settings come in the form of
+capabilities and file filters.
+
+   Capabilities are a set of coarse permissions that restrict a process
+on what it can and cannot do, only more restrictive capability
+escalations are allowed, they are configured using *note
+mac_capabilities::.
+
+   The available capability list is:
+
+‘MAC_CAP_SCHED’
+     The process will be allowed to change its own scheduling rules,
+     like modifying deadlines.
+
+‘MAC_CAP_SPAWN’
+     The process will be allowed to spawn other processes and threads.
+
+‘MAC_CAP_ENTROPY’
+     The process will have unrestricted access to the sources of entropy
+     of the kernel, this does not cover the UNIX-standard
+     ‘random/urandom’.
+
+‘MAC_CAP_SYS_MEM’
+     The process will be able to allocate and deallocate both private
+     and shared memory regions.
+
+‘MAC_CAP_USE_NET’
+     The process will be able to use networking.
+
+‘MAC_CAP_SYS_NET’
+     The process will be able to modify networking, for things like
+     hostname changing.
+
+‘MAC_CAP_SYS_MNT’
+     The process will be able to modify, add, and remove mountpoints.
+
+‘MAC_CAP_SYS_PWR’
+     The process will be able to modify power settings, along doing
+     things like shutdown and reboot.
+
+‘MAC_CAP_PTRACE’
+     The process will be able to use ptrace on children processes.
+
+‘MAC_CAP_SETUID’
+     The process will be able to change its effective and global UIDs
+     without checks.
+
+‘MAC_CAP_SYS_MAC’
+     The process will be able to add allowed inodes to the MAC
+     definitions, along with modifying hard limits for system resources.
+
+‘MAC_CAP_CLOCK’
+     The process will be able to access clocks syscalls like *note
+     clock:: or ‘clock_nanosleep’, as well as setting the time of clocks
+     that can do so.  This is provided as reading clock time can
+     sometimes be used as a way to coordinate attacks.
+
+‘MAC_CAP_SIGNALALL’
+     Processes by default need to share the user with another one to
+     either kill it or send a signal.  This capability allows to send
+     signals to all processes, regardless of the user issuing it.
+
+‘MAC_CAP_SETGID’
+     The process will be able to change its effective and global UIDs
+     without checks.
+
+‘MAC_CAP_IPC’
+     The process will be able to bypass UID/GID and mode checks when
+     interacting with SystemV-style IPC objects, like the ones you can
+     create with *note shmget::.
+
+   File filters consist on permissions given to specific paths and
+files, that, just like capabilities, get inherited from parent to child
+processes.  Access to inodes and devices can be granted using *note
+add_mac_permissions::.
+
+   The action to take on MAC violations can be set with *note
+set_mac_enforcement::.  Possible values include denying requests,
+killing the offending part outright, or denying and additionally logging
+the event.
+
+   Once booted, MAC is enabled and gives full access to all
+capabilities, and offers full access to all inodes and devices.  It is
+up to userland to further restrict access, and for those settings to
+trickle down to children processes.  File access enforcement will kick
+in only once the first filter is added with *note add_mac_permissions::.
+
+
+File: ironclad.info,  Node: Resource limits,  Next: Miscellaneous measures,  Prev: Mandatory access control (MAC),  Up: Security and integrity facilities
+
+7.3 Resource limits
+===================
+
+As part of the UNIX-like package, Ironclad supports various resource
+limits that, in the case of Ironclad, are built inside MAC, and are
+passed down like MAC capabilities (*note Mandatory access control
+(MAC)::).  *Note getrlimit/setrlimit::.
+
+   Limits mostly act as you would expect them to behave, and they are
+all initialized to the maximum possible value, there are only 2 quirks:
+For one, limits are only deescalatory (like MAC), you can only go down,
+never up, and, since Ironclad does not support dynamically growing
+stacks, the initial size is dictated (for the stacks created by the
+kernel) with ‘RLIMIT_STACK’.  Thus, Ironclad does not start that limit
+with the maximum value, but a smaller valid size.
+
+   A short description of the available limits and their default values
+is:
+
+‘RLIMIT_CORE’
+     Size of corefile dumps, by default 0 (disabling it).
+
+‘RLIMIT_CPU’
+     Limit of CPU time a process can consume in seconds, by default -1
+     (max value).
+
+‘RLIMIT_FSIZE’
+     Limit of individual file size a process can write, by default -1
+     (max value).
+
+‘RLIMIT_NOFILE’
+     Limit of files a process can open on top of other system limits, by
+     default -1 (max value).
+
+‘RLIMIT_STACK’
+     Limit of stack size for a process, by default 4 MiB.
+
+‘RLIMIT_AS’
+     Limit of maximum address size space used by a process, by default
+     -1 (max value).
+
+
+File: ironclad.info,  Node: Miscellaneous measures,  Prev: Resource limits,  Up: Security and integrity facilities
+
+7.4 Miscellaneous measures
+==========================
+
+7.4.1 W^X
+---------
+
+Ironclad does not allow mapping memory sections write and execute at the
+same time, this helps mitigate several kinds of memory corruption
+vulnerabilities by making it much harder to transform them into
+arbitrary code execution.
+
+
+File: ironclad.info,  Node: Debugging facilities,  Next: Syscalls,  Prev: Security and integrity facilities,  Up: Top
+
+8 Debugging facilities
+**********************
+
+This chapter digs into the various Ironclad-specific debugging features
+available for the user.
+
+* Menu:
+
+* Corefile and process dumping::
+* Program tracing::
+
+
+File: ironclad.info,  Node: Corefile and process dumping,  Next: Program tracing,  Up: Debugging facilities
+
+8.1 Corefile and process dumping
+================================
+
+Ironclad implements corefile dumping when a process irreparably crashes,
+which can be controlled and entirely disabled if wanted with the related
+limits, see *note Resource limits::.
+
+   Corefiles are generated on a path created as:
+
+     /tmp/<faulting PID>.core
+
+   This path is not configurable, and will only be created and
+overwritten if the file des not exist already.
+
+   As seen in *note Resource limits::, corefiles are disabled by
+default, this is done since core files can potentially contain private,
+sensible information that could be exploited by an attacker.
+
+   The format is a register dump of the process.
+
+
+File: ironclad.info,  Node: Program tracing,  Prev: Corefile and process dumping,  Up: Debugging facilities
+
+8.2 Program tracing
+===================
+
+Ironclad allows tracing children processes for a variety of information,
+MAC willing, see *note ptrace::.
+
+
+File: ironclad.info,  Node: Syscalls,  Next: Filesystem support and interfaces,  Prev: Debugging facilities,  Up: Top
+
+9 Syscalls
+**********
+
+Syscall are the main method for userland to interface with the kernel’s
+facilities, this section delves into the mechanism and how it works.
+
+* Menu:
+
+* Table and target quirks::
+* Errno::
+* exit::
+* arch_prctl::
+* open::
+* close::
+* read/write::
+* seek::
+* mmap/mprotect/munmap::
+* getpid/getppid::
+* exec::
+* clone::
+* wait::
+* socket::
+* sethostname::
+* unlink::
+* fstat::
+* chdir::
+* ioctl::
+* sched_yield::
+* delete_tcluster::
+* pipe::
+* rename::
+* sysconf::
+* spawn::
+* gettid::
+* manage_tcluster::
+* fcntl::
+* exit_thread::
+* getrandom::
+* mac_capabilities::
+* add_mac_permissions::
+* set_mac_enforcement::
+* mount/umount::
+* readlink::
+* getdents::
+* sync::
+* mknod::
+* truncate::
+* bind::
+* mkdir::
+* symlink::
+* connect::
+* openpty::
+* fsync::
+* link::
+* ptrace::
+* listen::
+* accept::
+* getrlimit/setrlimit::
+* access::
+* ppoll::
+* getuid/geteuid::
+* setuids::
+* fchmod::
+* umask::
+* reboot::
+* fchown::
+* pread/pwrite::
+* getsockname::
+* getpeername::
+* shutdown::
+* futex::
+* clock::
+* clock_nanosleep::
+* getrusage::
+* recvfrom/sendto::
+* config_netinter::
+* utimes::
+* create_tcluster::
+* switch_tcluster::
+* sigprogmask::
+* sigaction::
+* send_signal::
+* getprio/setprio::
+* getgid/getegid::
+* setgids::
+* getgroups/setgroups::
+* ttyname::
+* fadvise::
+* shmat::
+* shmctl::
+* shmdl::
+* shmget::
+* getsockopt/setsockopt::
+* gettidid/settidid::
+* failure_policy::
+
+
+File: ironclad.info,  Node: Table and target quirks,  Next: Errno,  Up: Syscalls
+
+9.1 Table and target quirks
+===========================
+
+Syscalls in Ironclad have an architecture-dependent ABI, but the table
+and its indexes are always the same, this is done to simplify
+development.  and here is a list of the supported architectures and the
+ABI for each of them.  Here is the table:
+
+  0. *note exit::.
+  1. *note arch_prctl::.
+  2. *note open::.
+  3. *note close::.
+  4. *note read: read/write.
+  5. *note write: read/write.
+  6. *note seek::.
+  7. *note mmap: mmap/mprotect/munmap.
+  8. *note munmap: mmap/mprotect/munmap.
+  9. *note getpid: getpid/getppid.
+  10. *note getppid: getpid/getppid.
+  11. *note exec::.
+  12. *note clone::.
+  13. *note wait::.
+  14. *note socket::.
+  15. *note sethostname::.
+  16. *note unlink::.
+  17. *note fstat::.
+  18. Empty.
+  19. *note chdir::.
+  20. *note ioctl::.
+  21. *note sched_yield::.
+  22. *note delete_tcluster::.
+  23. *note pipe::.
+  24. *note getuid: getuid/geteuid.
+  25. *note rename::.
+  26. *note sysconf::.
+  27. *note spawn::.
+  28. *note gettid::.
+  29. *note manage_tcluster::.
+  30. *note fcntl::.
+  31. *note exit_thread::.
+  32. *note getrandom::.
+  33. *note mprotect: mmap/mprotect/munmap.
+  34. *note sync::.
+  35. *note set_mac_capabilities: mac_capabilities.
+  36. *note get_mac_capabilities: mac_capabilities.
+  37. *note add_mac_permissions::.
+  38. *note set_mac_enforcement::.
+  39. *note mount: mount/umount.
+  40. *note umount: mount/umount.
+  41. *note readlink::.
+  42. *note getdents::.
+  43. *note mknod::.
+  44. *note truncate::.
+  45. *note bind::.
+  46. *note symlink::.
+  47. *note connect::.
+  48. *note openpty::.
+  49. *note fsync::.
+  50. *note link::.
+  51. *note ptrace::.
+  52. *note listen::.
+  53. *note accept::.
+  54. *note getrlimit: getrlimit/setrlimit.
+  55. *note setrlimit: getrlimit/setrlimit.
+  56. *note access::.
+  57. *note ppoll::.
+  58. *note geteuid: getuid/geteuid.
+  59. *note setuids::.
+  60. *note fchmod::.
+  61. *note umask::.
+  62. *note reboot::.
+  63. *note fchown::.
+  64. *note pread: pread/pwrite.
+  65. *note pwrite: pread/pwrite.
+  66. *note getsockname::.
+  67. *note getpeername::.
+  68. *note shutdown::.
+  69. *note futex::.
+  70. *note clock::.
+  71. *note clock_nanosleep::.
+  72. *note getrusage::.
+  73. *note recvfrom: recvfrom/sendto.
+  74. *note sendto: recvfrom/sendto.
+  75. *note config_netinter::.
+  76. *note utimes::.
+  77. *note create_tcluster::.
+  78. *note switch_tcluster::.
+  79. *note sigprogmask::.
+  80. *note sigaction::.
+  81. *note send_signal::.
+  82. *note getprio: getprio/setprio.
+  83. *note setprio: getprio/setprio.
+  84. *note getgid: getgid/getegid.
+  85. *note getegid: getgid/getegid.
+  86. *note setgids::.
+  87. *note getgroups: getgroups/setgroups.
+  88. *note setgroups: getgroups/setgroups.
+  89. *note ttyname::.
+  90. *note fadvise::.
+  91. *note shmat::.
+  92. *note shmctl::.
+  93. *note shmdl::.
+  94. *note shmget::.
+  95. *note getsockopt: getsockopt/setsockopt.
+  96. *note setsockopt: getsockopt/setsockopt.
+  97. *note gettidid: gettidid/settidid.
+  98. *note settidid: gettidid/settidid.
+
+9.1.1 riscv64-limine
+--------------------
+
+Syscalls are invoked in Ironclad by using ‘ecall’.
+
+   The index of the syscall is passed over ‘a7’, while the return value
+is returned in ‘a0’, errno is returned in ‘a1’, arguments are passed
+over ‘a0’ to ‘a6’.
+
+9.1.2 x86_64-limine
+-------------------
+
+Syscalls are invoked in Ironclad by using ‘syscall’.
+
+   The index of the syscall is passed over ‘%rax’, while the return
+value is returned in ‘%rax’, errno is returned on ‘%rdx’, arguments are
+passed over ‘%rdi’, ‘%rsi’, ‘%rdx’, ‘%r12’, ‘%r8’, ‘%r9’, and ‘%r10’,
+following the SysV ABI.
+
+
+File: ironclad.info,  Node: Errno,  Next: exit,  Prev: Table and target quirks,  Up: Syscalls
+
+9.2 Errno
+=========
+
+Errno are values returned by the kernel to detail the nature of an error
+in depth.  When a syscall does not error out, it returns the value 0 on
+the errno field.  Here is a table of all the possible errno and its
+values and meaning:
+
+‘ERANGE (3)’
+     The passed value was not big enough.
+
+‘EACCES (1002)’
+     The passed access for a variable points to bad memory.
+
+‘EAGAIN (1006)’
+     The requested resource is not available at the moment.
+
+‘EBUSY (1010)’
+     The requested resource is busy and cannot handle the request.
+
+‘ECHILD (1012)’
+     The passed value is not a child process.
+
+‘EFAULT (1020)’
+     The passed value would make the program fault.
+
+‘EFBIG (1021)’
+     File too large, or an attempt to surpass the limit on file size was
+     issued.
+
+‘EIDRM (1023)’
+     Invalid identifier.
+
+‘EINVAL (1026)’
+     The passed value is not valid for the called syscall.
+
+‘EIO (1027)’
+     The requested operation failed at a device level.
+
+‘ELOOP (1030)’
+     Too many symlinks were encountered when resolving a requested path.
+
+‘EMFILE (1031)’
+     Too many files were opened by the process.
+
+‘ENAMETOOLONG (1036)’
+     The passed value is too big for the syscall.
+
+‘ENOENT (1043)’
+     No such file or directory.
+
+‘ENOSYS (1051)’
+     The requested syscall or flag is not implemented.
+
+‘ENOTTY (1058)’
+     The passed argument is not a TTY.
+
+‘ENOTSUPP (1060)’
+     The passed argument is valid, but does not implement the operation.
+     Mostly used for sockets and other networking elements when dealing
+     with protocols.
+
+‘EPERM (1063)’
+     Bad permissions.
+
+‘ESPIPE (1069)’
+     A seek was issued to an invalid device.
+
+‘ESRCH (1070)’
+     The passed item could not be found after a search.
+
+‘EBADFD (1081)’
+     The passed FD is in a bad state or invalid.
+
+
+File: ironclad.info,  Node: exit,  Next: arch_prctl,  Prev: Errno,  Up: Syscalls
+
+9.3 exit
+========
+
+     void exit(uint64_t status);
+
+   This syscall terminates the calling process "immediately".  Any open
+file descriptors belonging to the process to be closed, and any threads
+of execution are terminated.
+
+   This syscall does not return any value, but it sets errno on failure:
+
+   • ‘EACCES’: MAC disallowed this, rookie mistake.
+
+
+File: ironclad.info,  Node: arch_prctl,  Next: open,  Prev: exit,  Up: Syscalls
+
+9.4 arch_prctl
+==============
+
+     int arch_prctl(int code, uint64_t argument);
+
+   This syscall interacts with architecture-specific thread-local
+storage.  For x86_64, these are the available codes:
+
+‘ARCH_SET_FS (1)’
+     Sets ‘argument’ as the current thread’s FS.
+
+‘ARCH_GET_FS (2)’
+     Stores the current thread’s FS into the variable pointed to by
+     ‘argument’.
+
+‘ARCH_SET_GS (3)’
+     Sets ‘argument’ as the current thread’s FS.
+
+‘ARCH_GET_GS (4)’
+     Stores the current thread’s GS into the variable pointed to by
+     ‘argument’.
+
+   This syscall returns ‘0’ on success, and ‘-1’ on failure.  errno is
+to be set to the following values on failure:
+
+   • ‘EINVAL’: ‘code’ is not valid.
+
+   • ‘EFAULT’: ‘argument’ is outside the available address space.
+
+
+File: ironclad.info,  Node: open,  Next: close,  Prev: arch_prctl,  Up: Syscalls
+
+9.5 open
+========
+
+     int open(int dir_fd, char *path, int path_len, int flags);
+
+   ‘open’ opens the passed file relative to ‘dir_fd’, depending on the
+flags passed.  It does not create the file if not existent.  By default,
+the file descriptor will remain open accross an ‘exec’.
+
+   ‘flags’ can be an OR’d field of the following elements:
+
+‘O_RDONLY (0b000001)’
+     Makes the file able to be read.
+
+‘O_WRONLY (0b000010)’
+     Makes the file able to be written to.
+
+‘O_APPEND (0b000100)’
+     Makes the file be opened at the end of the file, instead of the
+     beggining.
+
+‘O_CLOEXEC (0b001000)’
+     Will make the file close when ‘exec’’d.
+
+‘O_NOFOLLOW (0b0100000000)’
+     Do not follow symlinks when opening the file.
+
+‘O_NONBLOCK (0b1000000000)’
+     Make the file not block on read or write operations when possible.
+
+   The syscall returns the opened file descriptor or ‘-1’ on error, and
+errno is set to the following:
+
+   • ‘ENOENT’: The referenced file does not exist.
+
+   • ‘EINVAL’: Combination of ‘flags’ is not valid.
+
+   • ‘EMFILE’: Too many files are already owned by the process.
+
+   • ‘EFAULT’: The passed path is outside the available address space.
+
+
+File: ironclad.info,  Node: close,  Next: read/write,  Prev: open,  Up: Syscalls
+
+9.6 close
+=========
+
+     int close(int fd);
+
+   ‘close’ closes an open file descriptor.  Once no open references
+exist of a file descriptor, its resources are freed, and the file
+deleted if needed.
+
+   The syscall returns 0 on success and -1 in failure, and errno is set
+to:
+
+   • ‘EBADF’: The passed file to ‘close’ is not valid.
+
+
+File: ironclad.info,  Node: read/write,  Next: seek,  Prev: close,  Up: Syscalls
+
+9.7 read/write
+==============
+
+     ssize_t read(int fd, void *buffer, size_t count);
+     ssize_t write(int fd, void *buffer, size_t count);
+
+   These syscalls attempts to read or write up to passed count from the
+passed file descriptor.
+
+   On files that support seeking, the operation commences at the file
+offset, and the file offset is incremented by the number of bytes read
+or written.  If the file offset is at or past the end of file, no bytes
+are read or written, and the operation returns zero.
+
+   These syscalls returns the number of bytes operated on, or ‘-1’ on
+failure.  errno is to be set to:
+
+   • ‘EBADF’: Bad file descriptor.
+
+   • ‘EFAULT’: The passed buffer is not accessible.
+
+   • ‘EINVAL’: The passed fd is not suitable for the operation.
+
+   • ‘EFBIG’: When writing, the issued write would surpass the process
+     file size limit.
+
+   • ‘EIO’: The requested operation failed at the device level.
+
+
+File: ironclad.info,  Node: seek,  Next: mmap/mprotect/munmap,  Prev: read/write,  Up: Syscalls
+
+9.8 seek
+========
+
+     off_t seek(int fd, off_t offset, int whence);
+
+   This syscall repositions the file offset of the passed file
+description to the passed offset according to the directive whence as
+follows:
+
+   • ‘SEEK_SET’ (1): Set to the passed offset.
+
+     ‘SEEK_CUR’ (2): Set to the current offset plus the passed offset.
+
+     ‘SEEK_END’ (4): Set to the size of the file plus the passed offset.
+
+   This syscall returns the resulting offset, or ‘-1’ on failure.  errno
+is to be set to:
+
+   • ‘EBADF’: Bad file descriptor.
+
+   • ‘EINVAL’: The whence is malformed or the resulting offset would be
+     invalid.
+
+   • ‘ESPIPE’: ‘seek’ was called on a TTY or a pipe.
+
+
+File: ironclad.info,  Node: mmap/mprotect/munmap,  Next: getpid/getppid,  Prev: seek,  Up: Syscalls
+
+9.9 mmap/mprotect/munmap
+========================
+
+     void *mmap(void *hint, size_t length, int protection, int flags, int fd,
+        off_t offset);
+     int mprotect(void *addr, size_t len, int prot);
+     int munmap(void *address, size_t length);
+
+   ‘mmap’ creates a new mapping in the virtual address space of the
+calling process.  An address can be passed, if it is ‘null’, then the
+kernel gets to choose the address, else, it is taken as a hint about
+where to place the mapping.  If a section of the mapping overlaps an
+existing mapping, it will be ignored.
+
+   ‘fd’ may be used to specify a device or inode in the filesystem to
+back the memory region.  For devices, the mmap operation has a different
+meaning for each device.  For framebuffer devices, for example, one can
+make framebuffer windows this way.  For inodes, the contents of the file
+will be used to initialize the requested memory window, starting to read
+from ‘offset’, filling with zeros the non-filled part, if any.  This
+kind of filling does not advance the reading counter of the passed
+device or inode.
+
+   ‘hint’ and ‘length’ are required to be aligned to page boundaries for
+the running architecture, else it will fail.
+
+   ‘protection’ and ‘flags’ are a bitfield of the following flags:
+
+   • ‘PROT_READ’ (0b00001): Read permissions.
+
+   • ‘PROT_WRITE’ (0b00010): Write permissions.
+
+   • ‘MAP_FIXED’ (0b00100): Use hint as a hard requirement.
+
+   • ‘MAP_ANON’ (0b01000): Mapping is not backed by any file, and ‘fd’
+     is ignored.
+
+   • ‘MAP_WC’ (0b10000): Map using write-combining when possible.
+
+   ‘munmap’ will unmap a range for the virtual address space of the
+calling process, this values must be the same as passed and returned by
+‘mmap’, partial unmapping is allowed.
+
+   ‘mprotect’ allows to change the permission of a range of memory of
+the passed length pointed by ‘addr’, previously mapped by the caller.
+The format of ‘prot’ is the same as ‘mmap’.
+
+   ‘mmap’ returns a pointer to the allocated area, or ‘-1’ on failure.
+‘munmap’ and ‘mprotect’ both returns ‘0’ on success and ‘-1’ on failure.
+All the functions set the following errno:
+
+   • ‘EINVAL’: Bad hints or parameters.
+
+   • ‘ENOMEM’: The operation could not be completed due to a lack of
+     memory.
+
+   • ‘EACCES’: MAC disallowed this.
+
+
+File: ironclad.info,  Node: getpid/getppid,  Next: exec,  Prev: mmap/mprotect/munmap,  Up: Syscalls
+
+9.10 getpid/getppid
+===================
+
+     int getpid();
+     int getppid();
+
+   ‘getpid’ returns the process ID (PID) of the calling process.
+‘getppid’ does the same but it returns the one of the parent, which is
+the process that created the callee by a myriad of ways.
+
+   This functions are always successful.
+
+
+File: ironclad.info,  Node: exec,  Next: clone,  Prev: getpid/getppid,  Up: Syscalls
+
+9.11 exec
+=========
+
+     int exec(const char *path, int path_len, char *const argv[], int argv_len, char *const envp[], envp_len);
+
+   This syscall executes the program passed with the passed argv and
+evp, closing all the threads of the callee process and putting a single
+one in place for the new program.  Other process-specific elements like
+file descriptors are untouched.
+
+   This syscall only returns in failure with ‘-1’ with the following
+errno:
+
+   • ‘EINVAL’: One of the passed strings or arrays is not valid.
+
+   • ‘ENOENT’: The file passed in path doesnt exist.
+
+   • ‘EACCES’: The file couldn’t be launched out of a permission error.
+
+
+File: ironclad.info,  Node: clone,  Next: wait,  Prev: exec,  Up: Syscalls
+
+9.12 clone
+==========
+
+     #define CLONE_PARENT 0b01
+     #define CLONE_THREAD 0b10
+
+     pid_t clone(void *callback, uint64_t arg, void *stack, int flags, void *tls);
+
+   This syscall creates a new thread or process depending on ‘flags’.
+‘flags’ can be an OR’d combination of the following flags:
+
+   • ‘CLONE_PARENT’ (0b01): The process or thread will be a child of the
+     parent of the caller process, instead of the caller process itself.
+
+     ‘CLONE_THREAD’ (0b10): If set, a thread will be created and added
+     to the parent process, if not set, a process will be created
+     instead.  The child process will only have the callee thread
+     cloned.  The other threads, if any, are not cloned.
+
+   This syscall returns ‘0’ on success for the child, and the children
+PID or TID to the parent, in failure, the parent gets ‘-1’ with the
+following errno:
+
+   • ‘EAGAIN’: The system could not create the entity right now, try
+     again later.
+
+   • ‘EINVAL’: ‘CLONE_PARENT’ is specified and the caller process has no
+     parent.
+
+   • ‘EACCES’: MAC disallowed this.
+
+
+File: ironclad.info,  Node: wait,  Next: socket,  Prev: clone,  Up: Syscalls
+
+9.13 wait
+=========
+
+     pid_t wait(pid_t pid, int *status, int options);
+
+   This syscall suspends execution until the passed pid exits, to then
+store the exit code in ‘status’.
+
+   ‘wait’ allows the option ‘WNOHANG(0b000010)’ for non-blocking
+waiting, if the process has not finished yet, ‘0’ will be returned.
+
+   ‘pid’ can be a PID the callee is a parent of, or ‘-1’ to wait on all
+the PIDs the callee has as children.  ‘0’, which waits on all the
+children of a process group, is not implemented yet.
+
+   This syscall returns the PID waited on or ‘-1’ on failure, along with
+the following errno:
+
+   • ‘ECHILD’: The passed PID does not exist.
+
+   • ‘EINVAL’: The passed options are not correct or the passed PID is
+     ‘0’
+
+
+File: ironclad.info,  Node: socket,  Next: sethostname,  Prev: wait,  Up: Syscalls
+
+9.14 socket
+===========
+
+     #define AF_INET   1
+     #define AF_INET6  2
+     #define AF_UNIX   3
+
+     #define SOCK_DGRAM     0b000000000000000001
+     #define SOCK_RAW       0b000000000000000010
+     #define SOCK_STREAM    0b000000000000000100
+     #define SOCK_SEQPACKET 0b000000000000001000
+     #define SOCK_NONBLOCK  0b001000000000000000
+     #define SOCK_CLOEXEC   0b010000000000000000
+     #define SOCK_CLOFORK   0b100000000000000000
+     int socket(int domain, int type);
+
+   This syscall for creating sockets, the passed fields can be used for
+selecting the type of socket to create.  The available sockets type are:
+
+   • ‘AF_INET’: Basically IPv4 socket.
+
+     The address of a INET domain socket takes the shape of
+
+          struct sockaddr_in {
+             uint32_t sin_family;
+             uint16_t sin_port;
+             char     sin_addr[4];
+             uint8_t  pad[8];
+          };
+
+     ‘type’ can be one of ‘SOCK_DGRAM’ or ‘SOCK_STREAM’.  ‘SOCK_DGRAM’
+     will be translated to ‘TCP’, while ‘SOCK_STREAM’ will be translated
+     to ‘UDP’.
+
+   • ‘AF_INET6’: Basically IPv6 socket.
+
+     The address of a INET domain socket takes the shape of
+
+          struct sockaddr_in6 {
+             uint32_t sin6_family;
+             uint16_t sin6_port;
+             uint32_t sin6_flowinfo;
+             char     sin6_addr[16];
+             uint32_t sin6_scope_id;
+          };
+
+     ‘type’ can be one of ‘SOCK_DGRAM’ or ‘SOCK_STREAM’.  ‘SOCK_DGRAM’
+     will be translated to ‘TCP’, while ‘SOCK_STREAM’ will be translated
+     to ‘UDP’.
+
+   • ‘AF_UNIX’: UNIX domain socket for local communication, this sockets
+     can be unnamed or bound to filesystem paths.
+
+     The address of a UNIX domain socket takes the shape of
+
+          struct sockaddr_un {
+             uint32_t sun_family; // AF_UNIX.
+             char path[];         // Must be null terminated.
+          };
+
+   ‘type’ can be one of:
+
+   • ‘SOCK_DGRAM’: Unreliable, connection-less, datagram-based
+     interface.  When used with INET protocols, it will correspond to
+     UDP. When connected, these sockets will just cache the address for
+     further reception / sending.
+   • ‘SOCK_STREAM’: Reliable, connection-based stream-based interface.
+     Connection, accepting, and listening will be necessary for a proper
+     handshake.
+   • ‘SOCK_RAW’: Raw communication directly with the domain layer.  When
+     using these, no TCP or UDP will be done whatsoever, and the user
+     will be free to implement their own protocol on top, or none at all
+     and just use the domain datagram transport.  Not supported for some
+     protocols, like UNIX domain sockets.
+   • ‘SOCK_SEQPACKET’: Sequenced-packet socket that is
+     connection-oriented, preserves message boundaries, and delivers
+     messages in the order that they were sent.
+
+   Any socket type may have ‘type’ be OR’ed with ‘SOCK_NONBLOCK’ or
+‘SOCK_CLOEXEC’ for setting the created socket nonblock or cloese on exec
+respectively.
+
+   The syscall returns the resulting FD or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EINVAL’: Invalid combination of flags.
+   • ‘EMFILE’: No available file descriptor slots.
+
+
+File: ironclad.info,  Node: sethostname,  Next: unlink,  Prev: socket,  Up: Syscalls
+
+9.15 sethostname
+================
+
+     int sethostname(const char *buffer, size_t length);
+
+   This syscall sets the kernel hostname to the passed string.  ‘0’ is
+returned on success and ‘-1’ on failure, with the following errno:
+
+   • ‘EFAULT’: The passed buffer points to an invalid address.
+
+   • ‘EINVAL’: The passed length is bigger than the kernel can handle or
+     0.
+
+   • ‘EACCES’: MAC did not allow this.
+
+
+File: ironclad.info,  Node: unlink,  Next: fstat,  Prev: sethostname,  Up: Syscalls
+
+9.16 unlink
+===========
+
+     int unlink(int dir_fd, const char *path, int path_len);
+
+   The syscall queues for deletion the file pointed to by ‘path’.  If
+‘path’ points to a directory, it must be empty.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+   • ‘ENOENT’: ‘delete’ points to a file not valid for deletion, if at
+     all.
+
+
+File: ironclad.info,  Node: fstat,  Next: chdir,  Prev: unlink,  Up: Syscalls
+
+9.17 fstat
+==========
+
+     struct stat {
+         dev_t st_dev;
+         ino_t st_ino;
+         mode_t st_mode;
+         nlink_t st_nlink;
+         uid_t st_uid;
+         gid_t st_gid;
+         dev_t st_rdev;
+         off_t st_size;
+         struct timespec st_atim;
+         struct timespec st_mtim;
+         struct timespec st_ctim;
+         blksize_t st_blksize;
+         blkcnt_t st_blocks;
+     };
+
+     int fstat(int dir_fd, char *path, int len, struct stat *statbuf,
+        int flags);
+
+   This syscalls return information about a file, be it an already
+opened one with ‘dir_fd’ and ‘AT_EMPTY_PATH’ in ‘flags’, or by
+relatively opening, either following or not following symlinks with
+‘AT_SYMLINK_NOFOLLOW’.
+
+   ‘0’ is returned on success, ‘-1’ on failure, with the following
+errno:
+
+   • ‘EBADF’: The passed path or file descriptor is not valid.
+
+   • ‘ENOENT’: The file pointed by ‘path’ does not exist.
+
+   • ‘EFAULT’: The passed address for the path or stat buffer is not
+     valid.
+
+
+File: ironclad.info,  Node: chdir,  Next: ioctl,  Prev: fstat,  Up: Syscalls
+
+9.18 chdir
+==========
+
+     int chdir(int fd);
+
+   This syscalls will set the callee’s process current working directory
+to the passed FD, which must point to a directory.
+
+   The syscall returns ‘0’ on success and ‘-1’ on failure, with the
+following errno:
+
+   • ‘EBADFD’: The passed descriptor is not a valid directory.
+
+
+File: ironclad.info,  Node: ioctl,  Next: sched_yield,  Prev: chdir,  Up: Syscalls
+
+9.19 ioctl
+==========
+
+     int ioctl(int fd, unsigned long request, void *argument);
+
+   This syscall manipulates the underlying device parameters of special
+files.  It allows a device-dependent API for fetching and setting
+several modes.
+
+   Despite not all ioctl calls needing a specific value for their
+arguments, due to current limitations, all arguments must point to valid
+memory, regardless of whether it ends up used or not.
+
+   ‘ioctl’ returns ‘0’ on success and ‘-1’ on failure, and sets the
+following errno:
+
+   • ‘ENOTTY’: The passed file does not support the passed ioctl.
+
+   • ‘EBADF’: The passed file does not exist for the process.
+
+   • ‘EFAULT’: The passed argument is in non-accesible memory
+
+
+File: ironclad.info,  Node: sched_yield,  Next: delete_tcluster,  Prev: ioctl,  Up: Syscalls
+
+9.20 sched_yield
+================
+
+     int sched_yield(void);
+
+   This syscall relinquishes execution of the caller thread.  Its up for
+the kernel how far in the queue of execution this thread will go.
+
+   This syscall returns ‘0’ always, as it never fails, this is done for
+compatibility with POSIX instead of having a ‘void’ return type.
+
+
+File: ironclad.info,  Node: delete_tcluster,  Next: pipe,  Prev: sched_yield,  Up: Syscalls
+
+9.21 delete_tcluster
+====================
+
+     int delete_tcluster(int cluster);
+
+   This syscall deletes the passed thread cluster, will only succeed if
+the cluster has no associated threads.
+
+   The syscall returns ‘0’ on success and ‘-1’ on failure, with the
+following errno:
+
+   • ‘EINVAL’: The passed cluster does not exist or still has threads.
+
+
+File: ironclad.info,  Node: pipe,  Next: rename,  Prev: delete_tcluster,  Up: Syscalls
+
+9.22 pipe
+=========
+
+     int pipe(int pipefd[2], int flags);
+
+   This syscalls creates a pipe with the passed flags and returns the
+registered file descriptors in ‘pipefd’.  Index ‘0’ is the reader end,
+‘1’ is the writing one.
+
+   The only available flag for use is ‘O_NONBLOCK’.
+
+   The syscall returns ‘0’ on success and ‘-1’ on failure, with the
+following errno:
+
+   • ‘EFAULT’: ‘pipefd’ points to bogus memory.
+   • ‘EMFILE’: No available file descriptor slots.
+
+
+File: ironclad.info,  Node: rename,  Next: sysconf,  Prev: pipe,  Up: Syscalls
+
+9.23 rename
+===========
+
+     #define RENAME_NOREPLACE 1
+     int rename(int sourcedirfd, const char *sourcepath, size_t sourcelen,
+            int targetirfd, const char *targetpath, size_t targetlen, int flags);
+
+   This syscalls renames a file in an atomic operation, it is only
+available in between files in the same mountpoint.  If ‘targetpath’
+exists, it will be replaced, ‘RENAME_NOREPLACE’ may be passed in ‘flags’
+for making the call fail in said case instead of replacing silently.
+
+   The syscall return the new fd on success and ‘-1’ on failure.  The
+errno codes set on failure are:
+
+   • ‘EFAULT’: One of the passed values is outside addressable memory.
+
+   • ‘ENAMETOOLONG’: The passed path is too long.
+
+   • ‘EIO’: The operation could not be done out of an internal error.
+
+
+File: ironclad.info,  Node: sysconf,  Next: spawn,  Prev: rename,  Up: Syscalls
+
+9.24 sysconf
+============
+
+     #define SC_PAGESIZE         1 // Page size of the system.
+     #define SC_OPEN_MAX         2 // Maximum amount of files per process.
+     #define SC_HOST_NAME_MAX    3 // Maximum length of hostnames.
+     #define SC_AVPHYS_PAGES     4 // Number of free physical pages.
+     #define SC_PHYS_PAGES       5 // Number of total available pages.
+     #define SC_NPROCESSORS_ONLN 6 // Number of processors active and used.
+     #define SC_TOTAL_PAGES      7 // Total amount of installed memory pages.
+     #define SC_LIST_PROCS       8 // List all processes of the system.
+     #define SC_LIST_MOUNTS      9 // List all mountpoints of the system.
+     #define SC_UNAME           10 // Fetch basic system information.
+     #define SC_CHILD_MAX       11 // Maximum number of children for the user.
+     #define SC_LIST_THREADS    12 // List all threads of the system.
+     #define SC_LIST_CLUSTERS   13 // List all thread clusters of the system.
+     #define SC_LIST_NETINTER   14 // List all network interfaces.
+     #define SC_DUMPLOGS        15 // Dump kernel logging to a buffer.
+     #define SC_NGROUPS_MAX     16 // Max number of supplementary groups.
+     #define SC_SYMLOOP_MAX     17 // Max number of symbolic loops to follow.
+     #define SC_LIST_FILELOCKS  18 // List all advisory file locks.
+     #define SC_LOADAVG         19 // Dump load averages.
+     #define SC_MEMINFO         20 // Dump memory information.
+
+     long int sysconf(int request, uintptr_t addr, uintptr_t len);
+
+   This syscalls fetches the requested information in ‘request’ and
+returns it.
+
+   Depending on the request, ‘addr’ and ‘len’ may be used for
+determining the address of a buffer and its length for reporting
+information that doesn’t fit on the usual return value.  The options
+where they have meaning are:
+
+   • ‘SC_LIST_PROCS’: ‘addr’ points to an array of items, and ‘len’ is
+     the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct procinfo {
+              char id[20];
+              uint16_t id_len;
+              uint16_t ppid;
+              uint16_t pid;
+              uint32_t uid;
+              uint32_t flags;
+          } __attribute__((packed));
+
+     The total number of processes is returned, even if it doesnt fit in
+     the passed array.
+
+   • ‘SC_LIST_MOUNTS’: ‘addr’ points to an array of items, and ‘len’ is
+     the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct mountinfo {
+              uint32_t fs_type;
+              uint32_t flags;
+              char source[20];
+              uint32_t source_len;
+              char location[20];
+              uint32_t location_len;
+          };
+
+     The total number of mounts is returned, even if it doesnt fit in
+     the passed array.
+
+   • ‘SC_UNAME’: ‘addr’ points to the following structure, and ‘len’ is
+     the length in bytes of said structure:
+
+          struct utsname {
+              char sysname[65];  // Kernel name (e.g., "Ironclad")
+              char nodename[65]; // Hostname of the machine.
+              char release[65];  // Kernel release (e.g., "2.6.28")
+              char version[65];  // Kernel release, again.
+              char machine[65];  // Hardware identifier (e.g., "x86")
+          };
+
+     In success, the returned value will be ‘0’.
+
+   • ‘SC_LIST_THREADS’: ‘addr’ points to an array of items, and ‘len’ is
+     the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct threadinfo {
+              uint16_t tid;
+              int16_t  niceness;
+              uint16_t tcid;
+              uint16_t pid;
+          };
+
+     The total number of threads is returned, even if it doesnt fit in
+     the passed array.
+
+   • ‘SC_LIST_CLUSTERS’: ‘addr’ points to an array of items, and ‘len’
+     is the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct tclusterinfo {
+              uint16_t tcid;
+              uint16_t tflags;
+              uint16_t tquantum;
+          };
+
+     The total number of thread clusters is returned, even if it doesnt
+     fit in the passed array.
+
+   • ‘SC_LIST_NETINTER’: ‘addr’ points to an array of items, and ‘len’
+     is the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct netinterface {
+              char device[64]; // null terminated.
+              uint64_t flags;
+              uint8_t mac_addr[6];
+              uint8_t ip4_addr[4];
+              uint8_t ip4_subnet[4];
+              uint8_t ip6_addr[16];
+              uint8_t ip6_subnet[16];
+          };
+
+   • ‘SC_DUMPLOGS’: ‘addr’ points to a string to store the buffer, which
+     is an array of 80-char long strings.  ‘len’ is the length of the
+     buffer.  The total length of the kernel buffer is returned,
+     regardless of whether it fits or not.
+
+   • ‘SC_LIST_FILELOCKS’: ‘addr’ points to an array of items, and ‘len’
+     is the count of bytes reserved in the array.  The items have the
+     structure:
+
+          struct flock_info {
+              uint32_t pid;
+              uint32_t mode;
+              uint64_t start;
+              uint64_t length;
+              uint64_t dev_id;
+              uint64_t inode;
+          };
+
+   • ‘SC_LOADAVG’: ‘addr’ points to an array of at least 3 integers, and
+     ‘len’ is the count of bytes reserved in the array.  The array has
+     the structure:
+
+          uint32_t array[3];
+
+     The values the number of threads in the system run queue averaged
+     over various periods of time.  The 3 samples correspond to the
+     averages of 1, 5, and 15 minutes, respectively.  It can be used as
+     a measure of relative load.  The values are to be divided by 100
+     before being used.
+
+   • ‘SC_MEMINFO’: ‘len’ is ignored and ‘addr’ points to a structure as
+     such:
+
+          struct mem_info {
+              // All data is in bytes.
+              uint64_t phys_total;     // Total physical memory of the system.
+              uint64_t phys_available; // Non-reserved memory managed by the system.
+              uint64_t phys_free;      // Free memory available to the system.
+              uint64_t shared_usage;   // Amount of shared memory in the system.
+              uint64_t kernel_usage;   // Amount of memory in use by the kernel.
+              uint64_t table_usage;    // Of the kernel, amount in use for page tables.
+              uint64_t poison_usage;   // Memory marked by the hardware as faulty.
+          };
+
+     ‘0’ is returned on success.
+
+   The syscall return the requested information on success and ‘-1’ on
+failure.  If the requested value can also be ‘-1’, errno must be
+checked.
+
+   The errno codes set on failure are:
+
+   • ‘EINVAL’: Invalid request.
+
+
+File: ironclad.info,  Node: spawn,  Next: gettid,  Prev: sysconf,  Up: Syscalls
+
+9.25 spawn
+==========
+
+     pid_t spawn(const char *path, int path_len, char *const argv[],
+        int argv_len, char *const envp[], int envp_len, uint64_t *caps);
+
+   This syscall spawns a child process in a way similar to what a
+‘clone’+‘exec’ could be used for, but more efficiently, given it doesn’t
+need to copy the address space just to overwrite it.
+
+   File descriptors are copied and treated the same way a ‘fork’
+followed by an ‘exec’ call would.  That is, ‘FD_CLOEXEC’ FDs are closed,
+and ‘FD_CLOFORK’ FDs are not carried over.
+
+   The argument ‘caps’, if not ‘NULL’, points to a capability set in the
+same format as *note mac_capabilities::.  This can be useful for
+deescalating capabilities in the same convenient way as a call to
+‘mac_capabilities’ in between ‘clone’ and ‘exec’ could.
+
+   The syscall returns the created PID on success and ‘0’ on failure,
+with the errno codes being:
+
+   • ‘EAGAIN’: The system could not create the process right now.
+
+   • ‘EFAULT’: One or more of the passed arguments point to invalid
+     memory.
+
+   • ‘EACCES’: MAC disallowed this.
+
+
+File: ironclad.info,  Node: gettid,  Next: manage_tcluster,  Prev: spawn,  Up: Syscalls
+
+9.26 gettid
+===========
+
+     int gettid(void);
+
+   This syscall returns the current thread id.  It never fails.
+
+
+File: ironclad.info,  Node: manage_tcluster,  Next: fcntl,  Prev: gettid,  Up: Syscalls
+
+9.27 manage_tcluster
+====================
+
+     #define SCHED_RR   0b001
+     #define SCHED_COOP 0b010
+     #define SCHED_INTR 0b100
+
+     int manage_tcluster(int cluster, int flags, int quantum, int percentage);
+
+   This syscall sets settings for the passed cluster.
+
+   The syscall returns ‘0’ on success and ‘-1’ on failure, with the
+following errno:
+
+   • ‘EACCES’: MAC did not allow the operation.
+   • ‘EINVAL’: One of the passed values was not correct.
+
+
+File: ironclad.info,  Node: fcntl,  Next: exit_thread,  Prev: manage_tcluster,  Up: Syscalls
+
+9.28 fcntl
+==========
+
+     #define F_DUPFD         1
+     #define F_DUPFD_CLOEXEC 2
+     #define F_GETFD         3
+     #define F_SETFD         4
+     #define F_GETFL         5
+     #define F_SETFL         6
+     #define F_GETPIPE_SZ    7
+     #define F_SETPIPE_SZ    8
+     #define F_GETLK         9
+     #define F_SETLK         10
+     #define F_SETLKW        11
+
+     #define FD_CLOEXEC      0b01
+     #define FD_CLOFORK      0b10
+
+     #define F_RDLCK 1
+     #define F_UNLCK 2
+     #define F_WRLCK 3
+
+     struct flock {
+        uint16_t l_type;
+        uint16_t l_whence;
+        uint64_t l_start;
+        uint64_t l_len;
+        uint32_t l_pid;
+     }
+
+     int fcntl(int fd, int cmd, void *arg);
+
+   This syscall is a multiplexed syscall that performs the operations
+described below on the open file descriptor ‘fd’.  The operation is
+determined by ‘cmd’ and may take an optional argument ‘arg’.
+
+   The syscall’s return value will depend on the requested ‘cmd’, and is
+detailed along the operations below.
+
+   The valid operations are:
+
+   • ‘F_DUPFD’: Clones ‘fd’ into a the first available file descriptor
+     starting by ‘arg’.  Returns the resulting FD.
+
+   • ‘F_DUPFD_CLOEXEC’: The same as ‘F_DUPFD’ but sets the close on exec
+     flag for the cloned FD if succesful, in order to save a subsequent
+     call.
+
+   • ‘F_GETFD’: The flags used for ‘fd’ will be returned.  These can be
+     ‘FD_CLOEXEC’, which if set, will signal that ‘fd’ will be closed
+     should an ‘exec’ call or similar happen, and ‘FD_CLOFORK’, which
+     signals that ‘fd’ will not be cloned when calling ‘clone’ or
+     similar.
+
+   • ‘F_SETFD’: The flags for ‘fd’ will be set with ‘arg’ using the same
+     values returned by ‘F_GETFD’.  The syscall will return ‘0’ on
+     sucess.
+
+   • ‘F_GETFL’: Returns as the function result the file access mode and
+     status flags.
+
+   • ‘F_SETFL’: What ‘F_SETFD’ is to ‘F_GETFD’ for ‘F_GETFL’.
+
+   • ‘F_GETPIPE_SZ’: If ‘fd’ points to a FIFO or pipe, return its size.
+
+   • ‘F_SETPIPE_SZ’: If ‘fd’ points to a FIFO or pipe, the size will be
+     set to the value of ‘arg’.  If the operation would cause data loss,
+     it will fail.
+
+   • ‘F_GETLK’: If ‘fd’ points to a filesystem inode, the data passed in
+     ‘arg’ will be taken as a pointer to a ‘flock’ struct, and the
+     possibility to add the advisory lock described there will be
+     checked.
+
+     POSIX advisory locks are advisory file description-bound marks that
+     may be used as a filesystem semaphore.  They require processes to
+     check them, and are not automatic nor mandatory, thus, advisory.
+
+     If the lock could be placed, the passed struct’s ‘l_type’ will
+     become ‘F_UNLCK’, else, the call will fail and the fields used to
+     write the information regarding one of the conflicting locks.  As
+     all IPC, this data may not be true once processed, it is merely
+     informative.
+
+     POSIX advisory locks can be used for implementing PID lock files,
+     as to make sure only one instance of the same daemon is running.
+
+   • ‘F_SETLK’: The same as ‘F_GETLK’, but actually sets the passed
+     lock.  If it cannot be set, it will return failure with ‘EAGAIN’.
+
+   • ‘F_SETLKW’: The same as ‘F_SETLK’, but instead of being
+     non-blocking, this call will block until the passed lock can be
+     set.
+
+   On failure, the syscall returns ‘-1’.  The returned ‘errno’ are:
+
+   • ‘EINVAL’: The passed ‘cmd’ is not implemented by the kernel.
+
+   • ‘EBADF’: The passed ‘fd’ is not open.
+
+
+File: ironclad.info,  Node: exit_thread,  Next: getrandom,  Prev: fcntl,  Up: Syscalls
+
+9.29 exit_thread
+================
+
+     void exit_thread(void);
+
+   This syscall terminates the calling thread "immediately".  Any open
+file descriptors belonging to the process to be closed, and any threads
+of execution are terminated.
+
+   This syscall does not return any value, but it sets errno on failure:
+
+   • ‘EACCES’: MAC disallowed this.
+
+
+File: ironclad.info,  Node: getrandom,  Next: mac_capabilities,  Prev: exit_thread,  Up: Syscalls
+
+9.30 getrandom
+==============
+
+     ssize_t getrandom(void *buffer, size_t length);
+
+   This syscall fills the buffer pointed to ‘buffer’ with up to ‘length’
+random bytes.  These bytes can be used for cryptographic purposes.
+
+   The operation is the same as reading from ‘/dev/random’.  It is
+provided instead of just reading from the device as to avoid denial of
+service attacks based on exhausting the file descriptor limit of the
+system, along with other vulnerabilities and inconveniences related to
+the classic file interface.
+
+   The syscall returns the count of read random data or ‘-1’ on failure,
+and sets the following errno:
+
+   • ‘EFAULT’: ‘buffer’ points to invalid memory.
+   • ‘EACCES’: MAC disallowed this.
+
+
+File: ironclad.info,  Node: mac_capabilities,  Next: add_mac_permissions,  Prev: getrandom,  Up: Syscalls
+
+9.31 mac_capabilities
+=====================
+
+     #define MAC_CAP_SCHED     0b00000000000001
+     #define MAC_CAP_SPAWN     0b00000000000010
+     #define MAC_CAP_ENTROPY   0b00000000000100
+     #define MAC_CAP_SYS_MEM   0b00000000001000
+     #define MAC_CAP_USE_NET   0b00000000010000
+     #define MAC_CAP_SYS_NET   0b00000000100000
+     #define MAC_CAP_SYS_MNT   0b00000001000000
+     #define MAC_CAP_SYS_PWR   0b00000010000000
+     #define MAC_CAP_PTRACE    0b00000100000000
+     #define MAC_CAP_SETUID    0b00001000000000
+     #define MAC_CAP_SYS_MAC   0b00010000000000
+     #define MAC_CAP_SIGNALALL 0b00100000000000
+     #define MAC_CAP_SETGID    0b01000000000000
+     #define MAC_CAP_IPC       0b10000000000000
+     unsigned long get_mac_capabilities(void);
+     int set_mac_capabilities(unsigned long request);
+
+   These syscalls allow to fetch and set MAC capabilities on the way
+described in *note Mandatory access control (MAC)::.
+
+   Both syscalls cannot fail, ‘get_mac_capabilities’ always returns the
+capabilities of the callee process and ‘set_mac_capabilities’ always
+returns ‘0’, settings will just be ignored if permission to change them
+is not granted.
+
+
+File: ironclad.info,  Node: add_mac_permissions,  Next: set_mac_enforcement,  Prev: mac_capabilities,  Up: Syscalls
+
+9.32 add_mac_permissions
+========================
+
+     #define MAC_PERM_CONTENTS 0b000001
+     #define MAC_PERM_READ     0b000010
+     #define MAC_PERM_WRITE    0b000100
+     #define MAC_PERM_EXEC     0b001000
+     #define MAC_PERM_APPEND   0b010000
+     #define MAC_PERM_FLOCK    0b100000
+
+     int add_mac_permissions(const char *path, int flags);
+
+   This syscall adds permissions to access an inode or device as
+described in *note Mandatory access control (MAC)::.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EPERM’: MAC did not allow this.
+   • ‘EFAULT’: The passed pointer does not point to valid memory.
+   • ‘EAGAIN’: The system has reached a limit on registered rules.
+   • ‘EINVAL’: The passed rule is already covered or conflicts with an
+     existent one.
+
+
+File: ironclad.info,  Node: set_mac_enforcement,  Next: mount/umount,  Prev: add_mac_permissions,  Up: Syscalls
+
+9.33 set_mac_enforcement
+========================
+
+     #define MAC_DENY            0b001
+     #define MAC_DENY_AND_SCREAM 0b010
+     #define MAC_KILL            0b100
+
+     int set_mac_enforcement(unsigned long request);
+
+   This syscall sets the action to take for enforcement on MAC issues as
+explained in *note Mandatory access control (MAC)::.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EACCES’: MAC was locked.
+
+
+File: ironclad.info,  Node: mount/umount,  Next: readlink,  Prev: set_mac_enforcement,  Up: Syscalls
+
+9.34 mount/umount
+=================
+
+     #define MNT_FAT   1
+     #define MNT_EXT   2
+     #define MNT_DEV   3
+     #define MS_RDONLY 1
+
+     #define MNT_FORCE 1
+
+     int mount(const char *source, int source_len, const char *target,
+               int target_len, int fs_type, unsigned long flags);
+     int umount(const char *target, int target_len, int flags);
+
+   These syscalls mount and unmount filesystems.  For ‘mount’, ‘source’
+is the source device while ‘target’ is where to mount in the global
+virtual filesystem.  For ‘umount’, ‘target’ is the path to unmount.
+
+   For ‘mount’, ‘fs_type’ can be one of the following values to choose
+the filesystem type to mount, it must be specified, detection is not
+done.
+
+   • ‘MNT_FAT’: FAT family filesystem.
+   • ‘MNT_EXT’: EXT family filesystem.
+   • ‘MNT_DEV’: DevFS filesystem, cannot be used.
+
+   ‘flags’ may contain ‘MS_RDONLY’ to force mounting read-only mounting.
+
+   For ‘umount’, ‘flags’ allows the following options:
+
+   • ‘MNT_FORCE’: Unmount the filesystem even if busy, can cause data
+     loss.
+
+   These syscalls returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EFAULT’: Incorrect addresses for the string arguments.
+   • ‘EACCES’: MAC forbid this operation.
+   • ‘EINVAL’: Wrong arguments.
+   • ‘EBUSY’: For ‘umount’, the mount is busy, and ‘MNT_FORCE’ was not
+     passed.
+
+
+File: ironclad.info,  Node: readlink,  Next: getdents,  Prev: mount/umount,  Up: Syscalls
+
+9.35 readlink
+=============
+
+     ssize_t readlink(char *path, int path_len, char *buffer, size_t buffer_len);
+
+   The syscall reads the redirected path of a symlink.
+
+   The syscalls return the read length on success or ‘-1’ on failure,
+with the following errno:
+
+   • ‘EFAULT’: Incorrect addresses for the string arguments.
+   • ‘EACCES’: MAC forbid this operation.
+   • ‘EINVAL’: The passed file is not a symbolic link.
+
+
+File: ironclad.info,  Node: getdents,  Next: sync,  Prev: readlink,  Up: Syscalls
+
+9.36 getdents
+=============
+
+     #define DT_UNKNOWN 0
+     #define DT_FIFO    1
+     #define DT_CHR     2
+     #define DT_DIR     4
+     #define DT_BLK     6
+     #define DT_REG     8
+     #define DT_LNK    10
+     #define DT_SOCK   12
+     #define DT_WHT    14
+
+     struct dirent {
+        uint64_t d_ino;
+        uint64_t d_off;
+        uint16_t d_reclen;
+        uint8_t  d_type;     // One of the DT_ values.
+        char     d_name[61]; // Null-terminated.
+     };
+
+     ssize_t getdents(int fd, struct dirent *buffer, size_t size);
+
+   This syscall reads the contents of the passed directory, and advances
+the file position for the directory by the amount of read directory
+entries.  Partial reads are supported.
+
+   The syscalls return the read length in bytes on success, or ‘0’ if no
+contents or ‘-1’ on failure, with the following errno:
+
+   • ‘EFAULT’: Incorrect addresses for the arguments.
+   • ‘EBADFD’: ‘fd’ does not contain a valid file.
+   • ‘ENOENT’: ‘fd’ is not a directory.
+   • ‘EINVAL’: ‘size’ is not big enough to fit all the directory
+     entries.
+
+
+File: ironclad.info,  Node: sync,  Next: mknod,  Prev: getdents,  Up: Syscalls
+
+9.37 sync
+=========
+
+     int sync(void);
+
+   The syscall flushes the associated caches of all FSes and the devices
+that contain said FSs, ensuring that all operations are finished, this
+can be used in order to ensure data coherency on power loss or program
+failure.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with a corresponding
+errno:
+
+   • ‘EIO’: Device error while flushing.
+
+
+File: ironclad.info,  Node: mknod,  Next: truncate,  Prev: sync,  Up: Syscalls
+
+9.38 mknod
+==========
+
+     int mknod(int dir_fd, const char *path, int path_len, int mode, int dev);
+
+   This syscall creates files in the passed path and dir.  The type is
+chosen by ‘code’, which uses the same format as ‘stat’’s mode field.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+     ‘EACCES’: Bad memory addresses.
+   • ‘EINVAL’: The passed path length is way too big, or the mode is
+     invalid.
+   • ‘EIO’: Internal error.
+
+
+File: ironclad.info,  Node: truncate,  Next: bind,  Prev: mknod,  Up: Syscalls
+
+9.39 truncate
+=============
+
+     int truncate(int fd, uint64_t new_size);
+
+   The syscall truncates the size of ‘fd’ on disk to exactly ‘new_size’
+bytes.
+
+   If the file was larger, the cropped contents are lost, if it was
+smaller, the new data is zero’d out.  No other file data is changed.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+   • ‘EBADF’: The file pointed by ‘fd’ is not valid for truncation.
+   • ‘EINVAL’: ‘new_size’ could not be set.
+
+
+File: ironclad.info,  Node: bind,  Next: mkdir,  Prev: truncate,  Up: Syscalls
+
+9.40 bind
+=========
+
+     struct sockaddr {
+        uint32_t sun_family; // AF values of socket().
+        char data[];
+     };
+
+     int bind(int sockfd, const struct sockaddr *addr, unsigned int addrlen);
+
+   This syscall assigns a global address to the passed socket, the
+meaning and nature of the address depends on the passed socket.
+
+   The actual structure passed for the ‘addr’ argument will depend on
+the address family, ‘sockaddr’ is a catch-all placeholder value.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EINVAL’: Invalid address, may be already in use.
+   • ‘EFAULT’: Bad memory address.
+   • ‘EBADFD’: The passed FD is not a socket.
+
+
+File: ironclad.info,  Node: mkdir,  Next: symlink,  Prev: bind,  Up: Syscalls
+
+9.41 mkdir
+==========
+
+     int mkdir(int dir_fd, const char *path, int path_len, int mode);
+
+   This syscall creates directories in the passed path.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+     ‘EACCES’: Bad memory addresses.
+   • ‘EINVAL’: The passed path length is way too big.
+   • ‘EIO’: Internal error.
+
+
+File: ironclad.info,  Node: symlink,  Next: connect,  Prev: mkdir,  Up: Syscalls
+
+9.42 symlink
+============
+
+     int symlink(int dir_fd, const char *path, int path_len,
+                 const char *target, int target_len, int mode);
+
+   This syscall creates symlinks for the passed path and mode.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+     ‘EACCES’: Bad memory addresses.
+   • ‘EINVAL’: The passed path and target lengths are way too big, or
+     the passed mode is invalid.
+   • ‘EIO’: Internal error.
+
+
+File: ironclad.info,  Node: connect,  Next: openpty,  Prev: symlink,  Up: Syscalls
+
+9.43 connect
+============
+
+     int connect(int sockfd, const struct sockaddr *addr, unsigned int addrlen);
+
+   This syscall connects the passed socket to the passed global address.
+
+   If the passed socket is datagram-based, then ‘addr’ is the address to
+which datagrams are sent by default, and the only address from which
+datagrams are received.  If the socket is stream-based, the syscall
+attempts to make a connection to the socket that is bound to the address
+specified by ‘addr’.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EINVAL’: Invalid address, may not be bound.
+   • ‘EFAULT’: Bad memory address.
+   • ‘EBADFD’: The passed FD is not a socket.
+
+
+File: ironclad.info,  Node: openpty,  Next: fsync,  Prev: connect,  Up: Syscalls
+
+9.44 openpty
+============
+
+     int openty(int ptys[2]);
+
+   This syscalls creates a pair of pseudoterminals and returns the
+registered file descriptors in ‘ptys’.  Index ‘0’ is the primary end
+(also known as master), ‘1’ is the secondary end (also known as slave).
+
+   The syscall returns ‘0’ on success and ‘-1’ on failure, with the
+following errno:
+
+   • ‘EFAULT’: ‘ptys’ points to bogus memory.
+   • ‘EMFILE’: No available file descriptor slots.
+
+
+File: ironclad.info,  Node: fsync,  Next: link,  Prev: openpty,  Up: Syscalls
+
+9.45 fsync
+==========
+
+     int fsync(int fd, int flags);
+
+   The syscall does the same as ‘sync’, just only applied to ‘fd’.  If
+the passed file is a device, the device will flush its internal caches.
+
+   If the file was just created, one might considering synchronizing the
+parent directory as well, as, depending on the FS and FS driver, parent
+directory entries are stored separately to the file, EXT-series
+filesystems come to mind.
+
+   If ‘flags’ is not zero, only the data of the passed descriptor will
+be guaranteed to be flushed, and not modified metadata, this can be used
+in order to minimize disk activity even further.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the errno:
+
+   • ‘EBADF’: The passed file is not open.
+   • ‘EINVAL’: The passed points to a non-synchronizable entity.
+   • ‘EIO’: FS or device error while flushing.
+
+
+File: ironclad.info,  Node: link,  Next: ptrace,  Prev: fsync,  Up: Syscalls
+
+9.46 link
+=========
+
+     int link(int dir_fd, const char *path, int path_len,
+              const char *target, int target_len);
+
+   This syscall creates hard links, the paths are not dereferenced in
+the case of being symlinks.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+   • ‘EACCES’: Bad memory addresses.
+   • ‘EINVAL’: The passed path and target lengths are way too big.
+   • ‘EIO’: Internal error.
+
+
+File: ironclad.info,  Node: ptrace,  Next: listen,  Prev: link,  Up: Syscalls
+
+9.47 ptrace
+===========
+
+     #define PTRACE_SYSCALL_PIPE 1
+
+     long ptrace(long request, pid_t pid, void *addr, void *data);
+
+   This syscall can be used for tracing, debugging, execution control,
+and info reporting of data owned by a child process.  The operations is
+indicated by ‘request’, while the PID to act upon is ‘pid’, ‘addr’ the
+address in the child process to modify, and ‘data’ what to modify with.
+
+   ‘request’ can be one of:
+
+   • ‘PTRACE_SYSCALL_PIPE (1)’: ‘data’ will be taken as an FD in the
+     child process, which the kernel will use to report the state on
+     every syscall the child process does.  The descriptor must be a
+     pipe, no other files are supported.  Errors writing are silently
+     ignored.
+
+   The syscall returns ‘0’ or ‘-1’ on failure, with the following errno:
+
+   • ‘EACCES’: MAC did not allow this.
+   • ‘EPERM’: ‘pid’ is not a child or does not exist.
+   • ‘EINVAL’: ‘request’ is not valid.
+
+
+File: ironclad.info,  Node: listen,  Next: accept,  Prev: ptrace,  Up: Syscalls
+
+9.48 listen
+===========
+
+     int listen(int sockfd, int backlog);
+
+   This syscall marks the passed socket as a passive socket, that is, as
+a socket that will be used to accept incoming connection requests using
+‘accept’.
+
+   The passed socket must be stream based, as these are the only sockets
+with a true sense of connection.
+
+   ‘backlog’ is a recommendation as to the maximum length to which the
+queue of pending connections for ‘sockfd’ may grow.  If a connection
+request arrives when the queue is full, depending on the protocols
+involved, the client may receive an error or the connection may be
+ignored so that a later reattempt at connection succeeds.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+   • ‘EINVAL’: Invalid value for backlog.
+   • ‘EBADFD’: The passed FD is not a socket.
+   • ‘ENOTSUPP’: The passed FD is a socket, but it is not a stream
+     socket.
+
+
+File: ironclad.info,  Node: accept,  Next: getrlimit/setrlimit,  Prev: listen,  Up: Syscalls
+
+9.49 accept
+===========
+
+     int accept(int sockfd, const struct sockaddr *addr, int *addrlen, int flags);
+
+   This syscall takes the first connection request of ‘sockfd’ and
+creates a new connected socket with the flags in ‘flags’
+(‘SOCK_NONBLOCK’ and ‘SOCK_CLOEXEC’).  ‘addr’ is used for writing the
+address of the connection request.  ‘addrlen’ must be the length of the
+available buffer, and it will be written to be the actual length copied.
+
+   The syscall returns the added FD on success or ‘-1’ on failure, with
+the following errno:
+
+   • ‘EINVAL’: Invalid value for backlog.
+   • ‘EBADFD’: The passed FD is not a socket and listening.
+   • ‘ENOTSUPP’: The passed FD is a socket, but it is not a stream
+     socket.
+
+
+File: ironclad.info,  Node: getrlimit/setrlimit,  Next: access,  Prev: accept,  Up: Syscalls
+
+9.50 getrlimit/setrlimit
+========================
+
+     #define RLIMIT_CORE   1 // Size of core files, 0 for disabling.
+     #define RLIMIT_CPU    2 // CPU time limit in seconds.
+     #define RLIMIT_FSIZE  4 // Maximum file size in bytes.
+     #define RLIMIT_NOFILE 5 // Maximum number of open file descriptors.
+     #define RLIMIT_STACK  6 // Maximum stack size in bytes.
+     #define RLIMIT_AS     7 // Maximum memory size in bytes.
+
+     uint64_t getrlimit(int resource);
+     int setrlimit(int resource, uint64_t limit);
+
+   This syscall fetches and sets current limits for a specified
+resource, limits can only be lowered, are inherited from parent to
+children, and start maxed out.
+
+   When a limit is reached, the operation that would reach or exceed it
+will fail like the following:
+
+   • ‘RLIMIT_CORE’: Core files exceeding this size will be truncated,
+     with 0, core files are not generated.
+   • ‘RLIMIT_CPU’: Once the limit is passed, the process is killed.
+   • ‘RLIMIT_FSIZE’: System call growing the file fails with ‘EFBIG’.
+   • ‘RLIMIT_NOFILE’: Adding a new file descriptor fails with ‘EMFILE’.
+   • ‘RLIMIT_STACK’: The value is used for the size of created stacks,
+     thus there is no failure condition.
+   • ‘RLIMIT_AS’: ‘mmap’ or other virtual memory allocation syscalls
+     will fail with ‘ENOMEM’.
+
+   ‘setrlimit’ returns ‘0’ on success or ‘-1’ on failure.  For
+‘getrlimit’, ‘0’ is a valid return so checking errno is necessary.  Both
+report the following errno:
+
+   • ‘EINVAL’: Invalid value for resource.
+   • ‘EPERM’: MAC did not allow the operation.
+
+
+File: ironclad.info,  Node: access,  Next: ppoll,  Prev: getrlimit/setrlimit,  Up: Syscalls
+
+9.51 access
+===========
+
+     #define F_OK 0b0001
+     #define R_OK 0b0010
+     #define W_OK 0b0100
+     #define X_OK 0b1000
+
+     #define AT_EACCESS 512
+
+     int access(int dir_fd, char *path, int len, mode_t mode, int flags);
+
+   This syscall whether the callee process can access the passed file
+against POSIX file permissions and Ironclad’s MAC. What to check for is
+specified in ‘mode’ as an ORd list, as such:
+
+   • ‘F_OK’: When passed, only file existance will be checked.
+   • ‘R_OK’: When passed, read permissions will be checked.
+   • ‘W_OK’: When passed, write permissions will be checked.
+   • ‘X_OK’: When passed, execute permissions will be checked.
+
+   Permissions are checked with the real user and group IDs, instead of
+the effective ones, that behaviour can be changed by passing
+‘AT_EACCESS’ in ‘flags’, which can also be used for other common AT
+flags.  ‘AT_EMPTY_PATH’ is not accepted because that does not make any
+sense with this syscall.
+
+   The syscall returns ‘0’ on success when the passed mode is checked
+valid, or ‘-1’ on check failure, with the following errno:
+
+   • ‘EBADF’: ‘dirfd’ is not valid.
+   • ‘ENOENT’: The requested file does not exist.
+   • ‘EACCES’: The access is not allowed.
+
+
+File: ironclad.info,  Node: ppoll,  Next: getuid/geteuid,  Prev: access,  Up: Syscalls
+
+9.52 ppoll
+==========
+
+     #define POLLIN   0b00000001
+     #define POLLOUT  0b00000010
+     #define POLLPRI  0b00000100
+     #define POLLHUP  0b00001000
+     #define POLLERR  0b00010000
+     #define POLLNVAL 0b01000000
+
+     struct pollfd {
+        uint32_t fd;
+        uint16_t events;
+        uint16_t revents;
+     };
+
+     int poll(struct pollfd *fds, nfds_t nfds, struct timespec *timeout,
+        const sigset_t *sigmask);
+
+   This syscall allows to wait for a series of events to happen to the
+passed FDs, in a manner similar to POSIX’s ‘select’.
+
+   ‘fds’ is an array of ‘nfds’ length of ‘pollfd’ structures.  Each
+structure represents one FD, for which ‘events’ is a list of events to
+wait for and ‘revents’ is a bitmap written by the kernel to indicate
+which events of the waited ones did happen.  If the FD of an structure
+is negative, that is, it has the first bit set, it is ignored, and
+‘revents’ is set to ‘0’.
+
+   If passed no FDs to ppoll, that is, with ‘nfds == 0’, ‘ppoll’ will
+block for ‘timeout’ time.  This is used by some software as a means to
+implement ‘sleep’ functionality, for those cases, *note
+clock_nanosleep::.
+
+   If ‘sigmask’ is not ‘NULL’, it will atomatically set the passed
+sigmask for waiting.
+
+   Both ‘events’ and ‘revents’ are bitmaps of the values:
+
+‘POLLIN’
+     The passed FD has data pending for reading.
+
+‘POLLOUT’
+     The passed FD will not block when written to.
+
+‘POLLPRI’
+     The passed FD has prioritary data for processing, this data depends
+     on what is polled, some examples are a change of termios
+     information on a PTY, or Out-Of-Band (OOB) data for a TCP socket.
+
+‘POLLERR’
+     Only for ‘revents’, it is set when encountering an error waiting.
+     This bit is also set for FDs referring to the write end of a pipe
+     when the read end has been closed.
+
+‘POLLHUP’
+     Only for ‘revents’, it is set in the case of the passed FD having
+     lost connection, or the FD being the reader end of a broken pipe.
+
+‘POLLNVAL’
+     Only for ‘revents’, equivalent of ‘EBADFD’, that is, the passed FD
+     is not valid.
+
+   The call will block until either a file descriptor gets an event, the
+call is interrupted by a signal handler, or the timeout expires.
+
+   The syscall returns the number of FDs to have an event happen on
+success or ‘-1’ on failure, with the following errno:
+
+‘EFAULT’
+     The passed pointers are not in addressable memory.
+
+‘EINVAL’
+     The passed values are not valid.
+
+
+File: ironclad.info,  Node: getuid/geteuid,  Next: setuids,  Prev: ppoll,  Up: Syscalls
+
+9.53 getuid/geteuid
+===================
+
+     uid_t getuid(void);
+     uid_t geteuid(void);
+
+   These syscalls fetch the UID and the effective UID of the calling
+process.  They never fail.
+
+
+File: ironclad.info,  Node: setuids,  Next: fchmod,  Prev: getuid/geteuid,  Up: Syscalls
+
+9.54 setuids
+============
+
+     int setuids(uid_t uid, uid_t euid);
+
+   This syscall sets the UID and effective UID of the calling process.
+If the calling process has the ‘MAC_CAP_SETUID’ capability, it will set
+both the EUID and UID, else, it will only try to set EUID to values
+matching the process’s UID. If any of them is ‘-1’, it will not be
+modified.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EPERM’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: fchmod,  Next: umask,  Prev: setuids,  Up: Syscalls
+
+9.55 fchmod
+===========
+
+     int fchmod(int dir_fd, char *path, int len, mode_t mode, int flags);
+
+   This syscall sets the mode for the passed arguments in the same way
+*note fstat:: fetches information for the passed arguments.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed FD or mode is not valid.
+
+‘EACCES’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: umask,  Next: reboot,  Prev: fchmod,  Up: Syscalls
+
+9.56 umask
+==========
+
+     mode_t umask(mode_t mask);
+
+   This syscall sets the umask of the calling process to the passed mask
+AND’d with ‘777’ in octal.
+
+   The umask is used by the kernel when creating files in the name of
+the calling process.  It marks permissions to be turned off from ‘mode’
+arguments passed by the user.  The default value is ‘22’ in octal, and
+is inherited from parent processes to children.
+
+   This syscall never fails, it always returns the old mask before
+modification.
+
+
+File: ironclad.info,  Node: reboot,  Next: fchown,  Prev: umask,  Up: Syscalls
+
+9.57 reboot
+===========
+
+     #define RB_HALT     1
+     #define RB_POWEROFF 2
+     #define RB_RESTART  3
+     #define RB_ERROR_RET 0b1
+
+     int reboot(int cmd, int flags);
+
+   This syscall does the passed action to the system’s power management,
+the action is specified with ‘cmd’, it can be one of:
+
+‘RB_HALT’
+     System activity is terminated and the system will make all needed
+     preparations, but power will not be cut off, instead, the user will
+     have to do so, say, with the power button.  Data syncing is up to
+     the user.
+
+‘RB_POWEROFF’
+     The same as ‘RB_HALT’ but actually cuts power.
+
+‘RB_RESTART’
+     The same as ‘RB_HALT’ but at the end, the system will reboot.
+
+   If the operation fails internally, for any reason, the kernel will
+panic, for returning an error instead, one can use ‘RB_ERROR_RET’ in
+‘flags’.
+
+   This syscall does not return on success, it will only return in the
+case of invalid value for ‘cmd’, before comitting to an operation, or by
+using ‘RB_ERROR_RET’ as previously said.  In error, ‘-1’ will be
+returned, and errno will be set to:
+
+‘EINVAL’
+     The passed ‘cmd’ is not valid.
+
+‘EACCES’
+     MAC did not allow this.
+
+‘EIO’
+     The operation failed internally.
+
+
+File: ironclad.info,  Node: fchown,  Next: pread/pwrite,  Prev: reboot,  Up: Syscalls
+
+9.58 fchown
+===========
+
+     int fchown(int dir_fd, char *path, int len, uint32_t user, uint32_t group,
+        int flags);
+
+   This syscall sets the owner’s UID and GID for the passed arguments in
+the same way *note fstat:: fetches information for the passed arguments.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed FD or the user and group were not valid.
+
+‘EACCES’
+     MAC did not allow this.
+
+‘EBADF’
+     The passed file is valid but it was not a physical file in a
+     filesystem.
+
+
+File: ironclad.info,  Node: pread/pwrite,  Next: getsockname,  Prev: fchown,  Up: Syscalls
+
+9.59 pread/pwrite
+=================
+
+     ssize_t pread(int fd, void *buffer, size_t count, off_t offset);
+     ssize_t pwrite(int fd, void *buffer, size_t count, off_t offset);
+
+   These syscalls do the same as ‘read’ and ‘write’ respectively, but
+instead of using the description’s saved location for data access, they
+use the passed ‘offset’, and do not update it at the end of the
+operation.  ‘fd’ must point to a seekable file.
+
+   These syscalls are made for use in multithreaded applications, as
+having more than one thread updating file locations for a shared file
+description can lead to sudden catharsis.
+
+   These syscalls return the same values and errno as the non-p
+variants.  *note read/write::.
+
+
+File: ironclad.info,  Node: getsockname,  Next: getpeername,  Prev: pread/pwrite,  Up: Syscalls
+
+9.60 getsockname
+================
+
+     int getsockname(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict addrlen);
+
+   This syscall fetches the address of an already bound socket.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed FD was a non bound socket.
+
+‘EBADF’
+     The passed file is valid but it was not a physical file in a
+     filesystem.
+
+
+File: ironclad.info,  Node: getpeername,  Next: shutdown,  Prev: getsockname,  Up: Syscalls
+
+9.61 getpeername
+================
+
+     int getpeername(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict addrlen);
+
+   This syscall fetches the address of a socket’s peer.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed FD was a non bound socket.
+
+‘EBADF’
+     The passed file is valid but it was not a physical file in a
+     filesystem.
+
+
+File: ironclad.info,  Node: shutdown,  Next: futex,  Prev: getpeername,  Up: Syscalls
+
+9.62 shutdown
+=============
+
+     #define SHUT_RD   0b01
+     #define SHUT_RDWR 0b10
+     #define SHUT_WR   0b11
+
+     int shutdown(int sockfd, int how);
+
+   This syscall stops transmission or reception for a socket from a
+peer.
+
+   ‘how’ signals how to stop communication, it can be the following
+values:
+
+‘SHUT_RD’
+     Further receiving will not be allowed.
+
+‘SHUT_WR’
+     Further transmitting will not be allowed.
+
+‘SHUT_RDWR’
+     Further receiving and transmitting will not be allowed.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed FD was a non bound socket.
+
+‘EBADF’
+     The passed file is valid but it was not a physical file in a
+     filesystem.
+
+
+File: ironclad.info,  Node: futex,  Next: clock,  Prev: shutdown,  Up: Syscalls
+
+9.63 futex
+==========
+
+     struct futex_item {
+         uint64_t addr;
+         uint32_t expected;
+         uint32_t flags;
+     };
+
+     #define FUTEX_WAIT 1
+     #define FUTEX_WAKE 2
+
+     int futex(int operation, struct futex_item *futexes, size_t count,
+         struct timespec *time);
+
+   This syscall helps implement fast userland mutexes (futexes!).  It is
+typically used as a blocking construct in the context of shared-memory
+synchronization.
+
+   When using futexes, the majority of the synchronization operations
+are performed in user space by atomically testing for a 32-bit value.
+User-space is to use ‘futex’ only when it is likely that the program has
+to block for a longer time until the condition becomes true.  Other
+‘futex’ operations can be used to wake any processes or threads waiting
+for an address.
+
+   When executing a futex operation that requests to block a thread, the
+kernel will block only if the futex contents has the value that the call
+suplied under ‘expected’.  The loading of the futex’s contents and
+comparison of that value are atomic, and will be totally ordered with
+respect to concurrent operations performed by other threads on the same
+futex contents.  Thus, the futex contents are used to connect the
+synchronization in user space with the implementation of blocking by the
+kernel.  Analogously to an atomic compare-and-exchange operation that
+potentially changes shared memory, blocking via a futex is an atomic
+compare-and-block operation.  When blocked, the kernel will calmly wait
+for waking by ‘FUTEX_WAKE’, waking is not automatic once the values are
+acquired.
+
+   Note that no explicit initialization or destruction is necessary to
+use futexes; the kernel maintains a futex only while operations such as
+‘FUTEX_WAIT’ are being performed on particular futex contents.
+
+   When compared with other implementations like Linux’s, Ironclad’s
+allows for waiting and waking several futexes at once, this is done as
+to ease handling several futexes at once.
+
+   The available futex operations are:
+
+‘FUTEX_WAIT’
+     The passed values in futexes will be waited for.
+
+‘FUTEX_WAKE’
+     The passed values in futexes will be woken up.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EFAULT’
+     The passed addresses would fault if accessed.
+
+‘EINVAL’
+     The passed operation is not valid.
+
+
+File: ironclad.info,  Node: clock,  Next: clock_nanosleep,  Prev: futex,  Up: Syscalls
+
+9.64 clock
+==========
+
+     #define CLOCK_REALTIME  0
+     #define CLOCK_MONOTONIC 1
+     #define CLOCK_GETRES    0
+     #define CLOCK_GETTIME   1
+     #define CLOCK_SETTIME   2
+
+     int clock(int operation, int clock_id, struct timespec *time);
+
+   This syscall fetches or sets epoch dates for each of the supported
+clocks.  Clock is passed in ‘clock_id’, with the following values.
+
+‘CLOCK_REALTIME’
+     Wall-clock, may jump forward and back thanks to time setting.
+
+‘CLOCK_MONOTONIC’
+     Clock that only moves forward, and is unaffected by NTP or
+     adjustements.  It starts from an unspecified, target-dependent
+     point in time, usually boot.
+
+     Unlike Linux, it is still counted during suspend.
+
+   ‘operation’ specifies what to do, as such:
+
+‘CLOCK_GETRES’
+     Load the resolution of the passed clock on the contents of ‘time’.
+
+‘CLOCK_GETTIME’
+     Load the epoch date of the passed clock on the contents of ‘time’.
+
+‘CLOCK_SETTIME’
+     Set the epoch date of the passed clock to the contents of ‘time’,
+     not supported for ‘CLOCK_MONOTONIC’.  Underlying hardware will
+     always be updated.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EFAULT’
+     ‘time’ points to non accessible memory.
+
+‘EINVAL’
+     One of the passed values is not valid.
+
+
+File: ironclad.info,  Node: clock_nanosleep,  Next: getrusage,  Prev: clock,  Up: Syscalls
+
+9.65 clock_nanosleep
+====================
+
+     #define TIMER_ABSTIME 1
+
+     int clock_nanosleep(int clock_id, int flags, struct timespec *time,
+        struct timespec *remaining);
+
+   This syscall sleeps the callee thread for the passed time with the
+requested clock.  If interrupted by a signal or similar, it returns the
+remaining time that could not be waited.
+
+   Unlike what POSIX mandates, this syscall will always need ‘remaining’
+to be a valid structure.  ‘clock_id’ takes the same value as *note
+clock::.
+
+   ‘flags’ can be one of the following:
+
+‘TIMER_ABSTIME’
+     Instead of an increment on top of the current time, ‘time’ is taken
+     as an absolute time (ideally in the future!).
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EFAULT’
+     ‘time’ or ‘remaining’ point to non accessible memory.
+
+‘EINVAL’
+     One of the passed values is not valid.
+
+‘EPERM’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: getrusage,  Next: recvfrom/sendto,  Prev: clock_nanosleep,  Up: Syscalls
+
+9.66 getrusage
+==============
+
+     #define RUSAGE_SELF 1
+     #define RUSAGE_CHILDREN 2
+
+     struct rusage {
+         struct timeval ru_utime; // user CPU time used.
+         struct timeval ru_stime; // system CPU time used.
+     };
+
+     int getusage(int who, struct rusage *usage);
+
+   This syscall gets the use of several resources by a process.
+
+   Unlike what POSIX mandates, this syscall will always need ‘remaining’
+to be a valid structure.  ‘clock_id’ takes the same value as *note
+clock::.
+
+   Due to implementation details, for now, system time does include
+waiting time, but given this syscall’s information is merely advisory,
+it may be changed later.
+
+   ‘who’ establishes who to request the information for, it can be one
+of:
+
+‘RUSAGE_SELF’
+     Get information for the callee process.
+
+‘RUSAGE_CHILDREN’
+     Get information for all of the children processes.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EFAULT’
+     ‘usage’ point to non accessible memory.
+
+‘EINVAL’
+     ‘who’ was not valid.
+
+
+File: ironclad.info,  Node: recvfrom/sendto,  Next: config_netinter,  Prev: getrusage,  Up: Syscalls
+
+9.67 recvfrom/sendto
+====================
+
+     ssize_t recvfrom(int socket_fd, void *restrict buffer, size_t length,
+        int flags, struct sockaddr *address, socklen_t *address_len);
+     ssize_t sendto(int socket_fd, void *restrict buffer, size_t length,
+        int flags, struct sockaddr *address, socklen_t address_len);
+
+   These syscalls compliment ‘read’ and ‘write’ for socket-based IO.
+They allow specifing or fetching the address of a read or write
+operation when doing them, which can be vital for reading
+connection-less socket protocols.
+
+   Unlike doing ‘connect’ on a connection-less socket, the addresses
+passed here will not affect future transactions.
+
+   When used for connection-based protocols, or when passed as ‘NULL’,
+‘address’ and ‘address_len’ will be ignored.
+
+   ‘flags’ is right now a placeholder for future options.
+
+   These syscalls return and fail in the same ways *note read/write::
+would, with the addition of only accepting sockets as their passed
+‘socket_fd’.
+
+
+File: ironclad.info,  Node: config_netinter,  Next: utimes,  Prev: recvfrom/sendto,  Up: Syscalls
+
+9.68 config_netinter
+====================
+
+     #define NETINTER_SET_BLOCK      1
+     #define NETINTER_SET_STATIC_IP4 2
+     #define NETINTER_SET_STATIC_IP6 3
+
+     struct addr4_netinter {
+         uint32_t ip;
+         uint32_t sub;
+     };
+
+     struct addr6_netinter {
+         uint128_t ip;
+         uint128_t sub;
+     };
+
+     int config_netinter (int fd, int op, void *arg);
+
+   This syscall configures networking interfaces by using the device
+that implements the desired interface.
+
+   ‘op’ dictates what the arguments and action to do are, it can be one
+of:
+
+‘NETINTER_SET_BLOCK’
+     ‘arg’ will be a pointer to a boolean value, if it evaluates to
+     true, the passed interface will be blocked, if it evaluates to
+     false, it will be unblocked.
+
+‘NETINTER_SET_STATIC_IP4’
+     ‘arg’ will be a pointer to a ‘addr4_netinter’ structure, which
+     specifies an address and subnet to set as static addresses.
+
+‘NETINTER_SET_STATIC_IP6’
+     ‘arg’ will be a pointer to a ‘addr6_netinter’ structure, which
+     specifies an address and subnet to set as static addresses.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EFAULT’
+     ‘arg’ point to non accessible memory.
+
+‘EACCES’
+     MAC did not allow this.
+
+‘EINVAL’
+     An argument is not valid.
+
+
+File: ironclad.info,  Node: utimes,  Next: create_tcluster,  Prev: config_netinter,  Up: Syscalls
+
+9.69 utimes
+===========
+
+     int utimes(int dir, const char *path, struct timespec *times, int flags);
+
+   This syscall changes the access and modification time of the passed
+file to the 2 first values contained in the ‘times’ array.  All the
+standard options for ‘dir’ are accepted and ‘flags’ takes
+‘AT_EMPTY_PATH’ and ‘AT_SYMLINK_NOFOLLOW’.
+
+‘EFAULT’
+     ‘path’ or ‘times’ point to non accessible memory.
+
+‘EACCES’
+     MAC did not allow this.
+
+‘EINVAL’
+     An argument is not valid.
+
+
+File: ironclad.info,  Node: create_tcluster,  Next: switch_tcluster,  Prev: utimes,  Up: Syscalls
+
+9.70 create_tcluster
+====================
+
+     int create_tcluster(void);
+
+   This syscall creates a thread cluster.  It returns the new cluster ID
+or ‘-1’ on failure, with the following errno:
+
+‘ENOMEM’
+     A new cluster could not be made.
+
+‘EACCES’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: switch_tcluster,  Next: sigprogmask,  Prev: create_tcluster,  Up: Syscalls
+
+9.71 switch_tcluster
+====================
+
+     int switch_tcluster(int cluster, int tid);
+
+   This syscall moves the thread identified by ‘tid’ to the thread
+cluster identified by ‘cluster’.  No checks of parenthood are done.
+
+   It returns ‘0’ on success and ‘-1’ on failure, with the following
+errno:
+
+‘EINVAL’
+     ‘cluster’ is not a valid cluster, or ‘tid’ is not a valid tid.
+
+‘EACCES’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: sigprogmask,  Next: sigaction,  Prev: switch_tcluster,  Up: Syscalls
+
+9.72 sigprogmask
+================
+
+     #define SIG_BLOCK   1
+     #define SIG_UNBLOCK 2
+     #define SIG_SETMASK 3
+
+     int sigprocmask(int how, sigset_t *set, sigset_t *oldset);
+
+   This syscall fetches and/or changes the signal mask of the calling
+process.  The signal mask is the set of signals whose delivery is
+currently blocked.
+
+   If not ‘NULL’, ‘set’ can be used for passing a new mask, if not
+‘NULL’, ‘oldset’ can be used for getting the existing mask.
+
+   The behaviour of the syscall will depend on the value passed to
+‘how’, which can be one of:
+
+‘SIG_BLOCK’
+     The blocked signals will be a union of the current ones and the
+     passed ones.
+
+‘SIG_UNBLOCK’
+     The blocked signals will be the current ones minus the passed ones.
+
+‘SIG_SETMASK’
+     The blocked signals will be the passed ones.
+
+   It returns ‘0’ on success and ‘-1’ on failure, with the following
+errno:
+
+‘EINVAL’
+     ‘how’ is not valid.
+
+‘EFAULT’
+     A non-‘NULL’ pointer points to not valid memory.
+
+
+File: ironclad.info,  Node: sigaction,  Next: send_signal,  Prev: sigprogmask,  Up: Syscalls
+
+9.73 sigaction
+==============
+
+     int sigaction(int sig, struct sigaction *act, struct sigaction *oldact);
+
+   This syscall fetches and/or changes the associated actions with the
+signal ‘sig’.
+
+   If not ‘NULL’, ‘act’ can be used for setting a new action, if not
+‘NULL’, ‘oldact’ can be used for getting the existing action.
+
+   It returns ‘0’ on success or ‘-1’ on failure, with the following
+errno:
+
+‘EINVAL’
+     ‘sig’ is not valid.
+
+‘EFAULT’
+     A non-‘NULL’ pointer points to not valid memory.
+
+‘EPERM’
+     The caller does not have the appropiate permissions over ‘pid’ to
+     actually kill.
+
+
+File: ironclad.info,  Node: send_signal,  Next: getprio/setprio,  Prev: sigaction,  Up: Syscalls
+
+9.74 send_signal
+================
+
+     int send_signal(int pid, int signal);
+
+   This syscall sends the passed signal to the passed PID.
+
+   Group sending is not supported, but can easily be implemented in
+userland with process information.  *note sysconf::.
+
+   Only processes sharing the same UID or EUID as the caller’s EUID can
+be signaled.  The ‘MAC_CAP_SIGNALALL’ capability overrides this check.
+
+   It returns ‘0’ on success and ‘-1’ on failure, with the following
+errno:
+
+‘ESRCH’
+     ‘pid’ is not a valid target for sending.
+
+‘EPERM’
+     The caller does not have permissions to signal ‘pid’.
+
+‘EINVAL’
+     ‘signal’ is not a valid signal.
+
+
+File: ironclad.info,  Node: getprio/setprio,  Next: getgid/getegid,  Prev: send_signal,  Up: Syscalls
+
+9.75 getprio/setprio
+====================
+
+     #define PRIO_PROCESS 1
+     #define PRIO_PGRP 2
+     #define PRIO_USER 3
+     #define PRIO_THREAD 4
+
+     #define PRIO_MIN (-20)
+     #define PRIO_MAX 20
+
+     int getprio(int which, int who);
+     int setprio(int which, int who, int prio);
+
+   These syscalls get and set niceness values, ‘which’ says which entity
+to set the niceness to, while ‘who’ the pid or id of the entity, 0 for
+the current caller.
+
+   ‘who’ can be one of:
+
+‘PRIO_PROCESS’
+     Get or set the default niceness of a process.  When set, this will
+     make new threads created by a process be created with this niceness
+     value, and make all exiting threads have that niceness, along with
+     making child processes inherit the passed niceness.
+
+‘PRIO_PGRP / PRIO_USER’
+     Unimplemented, for future features.
+
+‘PRIO_THREAD’
+     Get or set the niceness of the passed thread.  Setting this value
+     does not affect the process niceness, or what will be reported when
+     getting it, it will just be an outliar until niceness is set again,
+     either thread-wide or process-wide.
+
+   ‘getprio’ returns the niceness and ‘-1’ on failure, while ‘setprio’
+returns ‘0’ on success and ‘-1’ on failure.  Both in failure feature the
+following errno:
+
+‘EINVAL’
+     A value is not valid.
+
+
+File: ironclad.info,  Node: getgid/getegid,  Next: setgids,  Prev: getprio/setprio,  Up: Syscalls
+
+9.76 getgid/getegid
+===================
+
+     gid_t getgid(void);
+     gid_t getegid(void);
+
+   These syscalls fetch the GID and the effective GID of the calling
+process.  They never fail.
+
+
+File: ironclad.info,  Node: setgids,  Next: getgroups/setgroups,  Prev: getgid/getegid,  Up: Syscalls
+
+9.77 setgids
+============
+
+     int setgids(gid_t gid, gid_t egid);
+
+   This syscall sets the GID and effective GID of the calling process.
+If the calling process has the ‘MAC_CAP_SETGID’ capability, it will set
+both the EGID and GID, else, it will only try to set EGID to values
+matching the process’s GID. If any of them is ‘-1’, it will not be
+modified.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EPERM’
+     MAC did not allow this.
+
+
+File: ironclad.info,  Node: getgroups/setgroups,  Next: ttyname,  Prev: setgids,  Up: Syscalls
+
+9.78 getgroups/setgroups
+========================
+
+     int getgroups(size_t size, gid_t list[]);
+     int setgroups(size_t size, const gid_t *list);
+
+   This syscall gets and sets the supplementary user groups of the
+caller process.  The stored group IDs, along with the effective GID,
+will be used to check permission for file access.  among others
+permission checks.
+
+   ‘getgroups’ does not return the effective GID of the caller process
+on the list.  POSIX leaves whether the effective GID is included on this
+list as an implementation detail, so portable programs should be ready
+for that scenario.
+
+   Init starts with an empty array of supplementary group IDs.
+
+   Passing ‘0’ and ‘NULL’ to ‘setgroups’ will empty the supplementary
+group list.
+
+   ‘getgroups’ returns the number of supplementary groups or ‘-1’ on
+failure, ‘setgroups’ returns ‘0’ on success and ‘-1’ on failure, both
+with the following errno:
+
+‘EINVAL’
+     ‘getgroups’ size is less than the number of supplementary group
+     IDs.
+
+
+File: ironclad.info,  Node: ttyname,  Next: fadvise,  Prev: getgroups/setgroups,  Up: Syscalls
+
+9.79 ttyname
+============
+
+     int ttyname(int fd, char *buffer, size_t size);
+
+   This syscall fetches the name of the filesystem entity backing a TTY
+and writes it to ‘buffer’ with a NULL terminator.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     ‘size’ is less than needed and/or ‘fd’ is not a TTY.
+
+‘EBADF’
+     ‘fd’ is not opened to anything.
+
+‘EFAULT’
+     ‘buffer’ points to invalid memory.
+
+
+File: ironclad.info,  Node: fadvise,  Next: shmat,  Prev: ttyname,  Up: Syscalls
+
+9.80 fadvise
+============
+
+     #define POSIX_FADV_NORMAL     1
+     #define POSIX_FADV_SEQUENTIAL 2
+     #define POSIX_FADV_NOREUSE    3
+     #define POSIX_FADV_DONTNEED   4
+     #define POSIX_FADV_WILLNEED   5
+     #define POSIX_FADV_RANDOM     6
+
+     int fadvise(int fd, off_t offset, off_t len, int advice);
+
+   This syscall is used for advising the kernel on how access will be
+done for the passed file for the passed range, in order to prepare
+caches ahead of time to optimize system resource use and performance.
+This can only be used with filesystem inodes.
+
+   Advising for a file does not make any operation illegal or behave
+weirdly, they are just used in order to cater to the passed information.
+
+   Advice is indicated on ‘advice’, and can take the following values:
+
+‘POSIX_FADV_NORMAL’
+     Indicates that the application has no advice to give about its
+     access pattern for the specified data.  If no advice is given for
+     an open file, this is the default assumption.
+
+‘POSIX_FADV_SEQUENTIAL’
+     Specifies that the application has no advice to give on its
+     behavior with respect to the specified data.  It is the default
+     characteristic if no advice is given for an open file.
+
+‘POSIX_FADV_NOREUSE’
+     Specifies that the application expects to access the specified data
+     once and then not reuse it thereafter.
+
+‘POSIX_FADV_DONTNEED’
+     Specifies that the application expects that it will not access the
+     specified data in the near future.
+
+‘POSIX_FADV_WILLNEED’
+     Specifies that the application expects to access the specified data
+     in the near future.
+
+‘POSIX_FADV_RANDOM’
+     Specifies that the application expects to access the specified data
+     in a random order.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     ‘advice’ is not valid.
+
+‘EBADF’
+     ‘fd’ is not opened to anything.
+
+‘ESPIPE’
+     The passed file is not a VFS inode.
+
+
+File: ironclad.info,  Node: shmat,  Next: shmctl,  Prev: fadvise,  Up: Syscalls
+
+9.81 shmat
+==========
+
+     void *shmat(int shmid, const void *shmaddr, int shmflg);
+
+   This syscall attaches the shared memory segment identified by ‘shmid’
+to the address space of the calling process.
+
+   If shmaddr is ‘NULL’, the system chooses a suitable (unused) address
+at which to attach the segment.  If it is not ‘NULL’, that address will
+be used for attaching.
+
+   If ‘SHM_RDONLY’ is specified in shmflg, the segment is attached fo
+reading and the process must have read permission for the segment.
+Otherwise the segment is attached for read and write and the process
+must have read and write permission for the segment.  There is no notion
+of a write-only shared memory segment.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EACCES’
+     The caller does not have enough permissions for attaching.
+
+‘EIDRM’
+     ‘shmid’ points to a removed identifier.
+
+‘EINVAL’
+     Invalid ‘shmid’ or invalid ‘shmaddr’.
+
+‘ENOMEM’
+     Not enough memory.
+
+
+File: ironclad.info,  Node: shmctl,  Next: shmdl,  Prev: shmat,  Up: Syscalls
+
+9.82 shmctl
+===========
+
+     struct ipc_perms {
+        uint32_t __key;
+        uint32_t uid;
+        uint32_t gid;
+        uint32_t cuid;
+        uint32_t cgid;
+        uint32_t mode;
+        uint32_t __seq;
+     }
+
+     struct shmid_ds {
+        struct ipc_perms shm_perm;
+        uint64_t shm_segsz;
+        uint64_t shm_atime;
+        uint64_t shm_dtime;
+        uint64_t shm_ctime;
+        uint32_t shm_cpid;
+        uint32_t shm_lpid;
+        uint64_t shm_nattch;
+     }
+
+     #define IPC_RMID 0
+     #define IPC_SET  1
+     #define IPC_STAT 2
+
+     int shmctl(int shmid, int cmd, struct shmid_ds *buf);
+
+   This syscall performs the control operation specified by ‘cmd’ on the
+shared memory segment whose identifier is given in ‘shmid’.
+
+   ‘cmd’ can be one of:
+
+‘IPC_RMID’
+     The passed ‘shmid’ is set to be deleted when the attached count of
+     the segment goes to ‘0’.  Otherwise, it will linger forever.  ‘buf’
+     is ignored.
+
+‘IPC_SET’
+     Information passed on the structure pointed to by ‘buf’ is used to
+     modify the permission fields of the passed segment, namely
+     ‘shm_perm.uid’, ‘shm_perm.gid’, and ‘shm_perm.mode’.
+
+‘IPC_STAT’
+     Get the associated information of the passed segment id and write
+     it to the structure pointed to by ‘buf’.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     ‘size’ is less than needed and/or ‘fd’ is not a TTY.
+
+‘EBADF’
+     ‘fd’ is not opened to anything.
+
+‘EFAULT’
+     ‘buffer’ points to invalid memory.
+
+
+File: ironclad.info,  Node: shmdl,  Next: shmget,  Prev: shmctl,  Up: Syscalls
+
+9.83 shmdl
+==========
+
+     int shmdt(const void *shmaddr);
+
+   This syscall detaches the shared memory segment located at ‘shmaddr’
+from the calling process.
+
+   The syscall returns ‘0’ on success or ‘-1’ on failure, with the
+following errno:
+
+‘EINVAL’
+     The passed ‘shmaddr’ is not valid.
+
+
+File: ironclad.info,  Node: shmget,  Next: getsockopt/setsockopt,  Prev: shmdl,  Up: Syscalls
+
+9.84 shmget
+===========
+
+     #define IPC_PRIVATE 0
+
+     int shmget(key_t key, size_t size, int shmflg);
+
+   This syscall fetches or creates a shared memory segment associated
+with ‘key’.
+
+   If ‘key’ is equal to ‘IPC_PRIVATE’, a segment will be created with no
+associated key, and will need to be accessed by other processes only by
+the returned ‘shmid’.
+
+   The syscall returns a valid ID on success or ‘-1’ on failure, with
+the following errno:
+
+‘EACCES’
+     MAC did not allow this.
+
+‘EEXISTS’
+     An attempt to create a public segment with an already registered
+     key happened.
+
+‘ENOENT’
+     The fetched segment is not present.
+
+
+File: ironclad.info,  Node: getsockopt/setsockopt,  Next: gettidid/settidid,  Prev: shmget,  Up: Syscalls
+
+9.85 getsockopt/setsockopt
+==========================
+
+     #define SOL_SOCKET 1
+
+     #define SO_ACCEPTCONN 1
+     #define SO_ERROR      5
+     #define SO_SNDBUF     13
+     #define SO_TYPE       16
+
+     int getsockopt(int fd, int level, int name, void *val, socklen_t *len);
+     int setsockopt(int fd, int level, int name, void *val, socklen_t len);
+
+   This syscall gets or sets the option passed on ‘name’ for the socket
+level passed on ‘level’, and writes or fetches data from ‘val’ with the
+length passed on ‘len’.
+
+   Right now, ‘SOL_SOCKET’ is the only supported socket level.
+
+   ‘name’ can be one of:
+
+‘SO_ACCEPTCONN’
+     ‘val’ will point to an ‘uint32_t’.  ‘1’ will be written there if
+     the passed socket is listening, and ‘0’ if it is not/cannot listen
+     due to protocol.  ‘getsockopt’ only.
+
+‘SO_ERROR’
+     ‘val’ will point to an ‘uint32_t’.  The value will be written with
+     the present socket error if any, or ‘0’ if none are present.
+     ‘getsockopt’ only.
+
+‘SO_SNDBUF’
+     ‘val’ will point to an ‘uint32_t’.  If getting the value, the
+     current send-buffer size will be returned, else, it setting it, the
+     passed size will be used for the same buffer.
+
+‘SO_TYPE’
+     ‘val’ will point to an ‘uint32_t’.  The type of socket will be
+     returned in that variable in the same format as *note socket::.
+     ‘getsockopt’ only.
+
+   The syscall returns 0 on success or ‘-1’ on failure, with the errno:
+
+‘EBADFD’
+     ‘fd’ was not open, or is not a socket.
+
+‘EACCES’
+     ‘val’ did not point to valid memory.
+
+‘EINVAL’
+     The passed ‘name’ or ‘level’ were not valid.
+
+
+File: ironclad.info,  Node: gettidid/settidid,  Next: failure_policy,  Prev: getsockopt/setsockopt,  Up: Syscalls
+
+9.86 gettidid/settidid
+======================
+
+     int gettidid(int tid, char *id, size_t size);
+     int settidid(int tid, char *id, size_t size);
+
+   This syscall gets or sets the passed thread’s ID. An ID is an array
+associated with a thread for debug purposes.  A thread is given no ID at
+creation, and fetching it will fail.  The ID is a C-style string.
+
+   These syscalls returns 0 on success or ‘-1’ on failure, with the
+errno:
+
+‘EINVAL’
+     The passed buffers were either too big for setting, or to small for
+     fetching the ID, or the passed thread is not valid.
+
+‘EFAULT’
+     The passed buffers were pointing to invalid memory.
+
+
+File: ironclad.info,  Node: failure_policy,  Prev: gettidid/settidid,  Up: Syscalls
+
+9.87 failure_policy
+===================
+
+     #define MEM_FAIL_PANIC      1
+     #define MEM_FAIL_SOFT_KILL  2
+     #define MEM_FAIL_HARD_KILL  3
+     #define OOM_ALLOW_PROC_KILL 1
+     struct fail_modes {
+         uint64_t mem_policy;
+         uint64_t oom_policy;
+     };
+
+     int failure_policy(struct fail_modes *old, struct fail_modes *new);
+
+   This syscall fetches and customized kernel behaviour on a series of
+failure conditions.  ‘old’, if not null, can be used for fetching the
+values used at the time of calling, while ‘new’, if not ‘null’, will be
+used to set new values.
+
+   The valid values for ‘mem_policy’ are:
+
+‘MEM_FAIL_PANIC’
+     When set to this value, a hardware memory failure will cause the
+     kernel to panic.  This is the default.
+
+‘MEM_FAIL_SOFT_KILL’
+     When set to this value, hardware failures will result in no
+     immediate action, when a process steps on the faulty memory, an
+     exception will be raised on the spot.
+
+‘MEM_FAIL_HARD_KILL’
+     When set to this value, hardware failures will result on the
+     processes holding the faulty memory to be eagerly terminated.
+
+   The valid values for ‘oom_policy’ are:
+
+‘OOM_ALLOW_PROC_KILL’
+     When set, this value will make the kernel able to kill processes if
+     deemed necessary for the prolonged function of the system, if not
+     set, the kernel will not kill user processes at any cost.
+
+   This syscall returns 0 on success or ‘-1’ on failure, with the errno:
+
+‘EINVAL’
+     When setting new values with ‘new’, the passed values were not
+     valid.
+
+‘EFAULT’
+     The passed buffers were pointing to invalid memory.
+
+‘EACCES’
+     When setting new values with ‘new’, the calling process did not
+     have the capability ‘MAC_CAP_SYSMAC’.
+
+
+File: ironclad.info,  Node: Filesystem support and interfaces,  Next: Networking,  Prev: Syscalls,  Up: Top
+
+10 Filesystem support and interfaces
+************************************
+
+Support for several filesystems is provided, with filesystem-specific
+quirks at times, and exposes interfaces with ‘ioctl’ calls.  This
+section of the manual focuses on documenting said quirks, details, and
+additional features.
+
+* Menu:
+
+* Extended FileSystem::
+* File Allocation Table::
+
+
+File: ironclad.info,  Node: Extended FileSystem,  Next: File Allocation Table,  Up: Filesystem support and interfaces
+
+10.1 Extended FileSystem
+========================
+
+Ironclad supports EXT-series filesystems read-only and read-write.
+
+   While a user may be used to the ext2/3/4 distinction, EXT internally
+works as an independent set of features, with the version numbers
+specifying a widely understood, assumed, and inconsistent set of
+features.
+
+   Ironclad supports the feature list: ‘sparse_super’, ‘large_file’,
+‘filetype’, ‘resize_inode’, ‘dir_index’, ‘ext_attr’.
+
+   Those features should translate to ext2 read-write support, and ext3
+read-only support.
+
+   Some ‘ioctl’ calls exist for files inside EXT-series FSs, which can
+help manage specialized FS-specific inode flags and permissions, they
+are:
+
+     EXT_GETFLAGS = 0x5600
+     EXT_SETFLAGS = 0x5601
+
+     ioctl(fd, EXT_GETFLAGS, pointer_to_u32); // Get EXT's flags inode field.
+     ioctl(fd, EXT_SETFLAGS, pointer_to_u32); // Set EXT's flags inode field.
+
+
+File: ironclad.info,  Node: File Allocation Table,  Prev: Extended FileSystem,  Up: Filesystem support and interfaces
+
+10.2 File Allocation Table
+==========================
+
+Ironclad’s FAT support is really rough.  Only read-only FAT32 is
+supported.  No special ‘ioctl’ calls are provided.  Long filenames are
+not supported.
+
+
+File: ironclad.info,  Node: Networking,  Next: Devices and their properties,  Prev: Filesystem support and interfaces,  Up: Top
+
+11 Networking
+*************
+
+This chapter gives all the details on how Ironclad handles networking.
+
+* Menu:
+
+* Layering::
+* Interface handling::
+* Loopback::
+
+
+File: ironclad.info,  Node: Layering,  Next: Interface handling,  Up: Networking
+
+11.1 Layering
+=============
+
+The OSI model, as per the X.200 recommendation, defines 7 layers:
+
+     | No. | Layer Name   | Example technologies                 |
+     | +++ | ++++++++++++ | ++++++++++++++++++++++++++++++++++++ |
+     | 7   | Application  | WebSocket, HL7                       |
+     | 6   | Presentation | Idk I do embedded, weird stuff here  |
+     | 5   | Session      | Sockets, Named pipes, NetBIOS (eek!) |
+     | 4   | Transport    | TCP, UDP, NBF                        |
+     | 3   | Network      | IP, IPSec, ICMP                      |
+     | 2   | Data link    | ARP, NDP, MAC                        |
+     | 1   | Physical     | Ethernet, WiFi, Bluetooth            |
+
+   Ironclad aims to provide all the way to the *session* layer, no more!
+(and no less).  The main interface for networking used to interface with
+that layer will be the socket.  For learning about sockets, *note
+socket::.
+
+
+File: ironclad.info,  Node: Interface handling,  Next: Loopback,  Prev: Layering,  Up: Networking
+
+11.2 Interface handling
+=======================
+
+Ironclad registers one interface per valid device plus one for a
+loopback device.  New addresses cannot be added manually, they may only
+be added and removde by the kernel.  Some parameters are available for
+user control though, including per-interface configuration and enabling
+and disabling.
+
+   All interfaces but ‘loopback’ will be disabled by default, that is,
+they will be setup and ready to go, but will refuse connectivity via
+kernel block, as a security measure to avoid unexpected connectivity.
+They will need manual enabling.
+
+
+File: ironclad.info,  Node: Loopback,  Prev: Interface handling,  Up: Networking
+
+11.3 Loopback
+=============
+
+The loopback device is a special, virtual network interface meant to be
+used mainly for diagnostics and troubleshooting, along for enabling
+connecting to servers running on the local machine.
+
+   It works fundamentally by returning the packets sent to it
+(loopback!), in such a way that services can talk with themselves.  This
+device implements no physical layer of the network stack, packets are
+passed without that layer.
+
+   Loopback will always have the static IP addresses ‘127.0.0.1/8’ and
+‘::1/128’.  These addresses can be changed in runtime.  *note
+config_netinter::.
+
+
+File: ironclad.info,  Node: Devices and their properties,  Next: GNU Free Documentation License,  Prev: Networking,  Up: Top
+
+12 Devices and their properties
+*******************************
+
+Ironclad exposes a number of physical and virtual devices to userland.
+All of them are exposed under the ‘/dev’ location, and support a series
+of standard operations, like being manipulated by the usual file-related
+syscalls like ‘read’ or ‘write’, while sporting device-specific
+interfaces in the form of device-specific ‘ioctl’ requests.
+
+   When quering device-specific information, Ironclad exposes
+information a bit different than other kernels like Linux.  Here is a
+quick list of the most notable differences:
+
+   • The ‘BLKGETSIZE’/‘BLKGETSIZE64’ ‘ioctl’ calls are not available,
+     instead, the block count and block size values of ‘stat’ are used.
+
+   All devices in Ironclad have the ‘ioctl’ call ‘DEV_UUID’ implemented,
+with the signature:
+
+     #define DEV_UUID 0x9821
+
+     ioctl(fd, DEV_UUID, &pointer_to_uuid); -- uuids being uint8_t[16];
+
+   This call will write the UUID of the device pointed to by ‘fd’,
+which, if all zeros, will mean that the device has no associated UUID.
+
+* Menu:
+
+* Common devices::
+* riscv64-limine devices::
+* x86_64-limine devices::
+
+
+File: ironclad.info,  Node: Common devices,  Next: riscv64-limine devices,  Up: Devices and their properties
+
+12.1 Common devices
+===================
+
+These are devices exposed in Ironclad regardless of target system when
+present, with standardized interfaces.
+
+12.1.1 console
+--------------
+
+‘/dev/console’ wraps architecture-specific debug output channels for use
+with file operations.  For x86-based targets, this is COM1, for other
+targets, this may be UART.
+
+   If the target implements reading from the debug channels, read will
+be supported as well.  If not implemented, the device will be read-only.
+
+   The kernel also uses the debug channels for output, so keep in mind
+the contentions that can cause.  If you are doing a lot of spaced
+writes, do not be surprised if the kernel pops in the middle!  In the
+other hand, the kernel does not read from the debug channels.
+
+12.1.2 loopback
+---------------
+
+‘/dev/loopback’ is the network loopback device, explained on *note
+Loopback::.
+
+12.1.3 ramdev
+-------------
+
+The devices starting by ‘ramdev’ are virtual devices representing the
+RAM driver passed by some boot protocols, an FS can be mounted to them,
+or be otherwise used like any other block device.  These RAM devices are
+read/write, but they cannot grow in size, so changes are constrained to
+the area the RAM device already has allocated.
+
+12.1.4 random/urandom/hwrng
+---------------------------
+
+The device ‘random’ is equivalent to the one featured in other UNIX-like
+kernels, and can be read to get a stream of cryptographically secure
+pseudo-random bytes.
+
+   Ironclad has limited sources of entropy, so the quality of this
+random numbers may be limited as well.  To mitigate this, one may write
+to the ‘random’ device.  The written data will be used as additional
+entropy.
+
+   ‘/dev/urandom’ does the same as ‘/dev/random’, and is only provided
+for compatibility.
+
+   ‘getrandom’ is provided as well for avoiding the file interface when
+interfacing with ‘/dev/random’, as that may avoid certain kinds of DoS
+attacks related to opened file limits.
+
+   When present, CPU random number generators may be exposed as
+‘/dev/hwrng’.  This device behaves the same as ‘/dev/random’ apart from
+the fact that it does not allow writing to it.  It is recommended that,
+unless necessary, you use ‘/dev/random’ instead.  If you are to use
+‘hwrng’, be sure you trust your hardware to not be backdoored, else,
+those backdoors might be rendered useless by the kernel’s own CSPRNG
+processing.
+
+12.1.5 null/zero
+----------------
+
+‘null’ returns ‘EOF’ whenever read, and all the write operations are
+discarded.
+
+   ‘zero’ returns exclusively a stream of zeros when read, and all write
+operations are discarded.
+
+
+File: ironclad.info,  Node: riscv64-limine devices,  Next: x86_64-limine devices,  Prev: Common devices,  Up: Devices and their properties
+
+12.2 riscv64-limine devices
+===========================
+
+To be determined.
+
+
+File: ironclad.info,  Node: x86_64-limine devices,  Prev: riscv64-limine devices,  Up: Devices and their properties
+
+12.3 x86_64-limine devices
+==========================
+
+12.3.1 ata
+----------
+
+The devices starting by ‘sata’ represent several ATA IDE block devices.
+These ATA drives have internal caching at the driver level, so they must
+be ‘sync’’d for data integrity when wanting to ensure data coherency.
+
+   No special ‘ioctl’ calls are supported.
+
+12.3.2 fb0
+----------
+
+The ‘fb0’ device exposes the framebuffer passed as part of the boot
+protocol, when present.  The device uses Linux’s fbdev
+(https://docs.kernel.org/fb/api.html) interface.
+
+12.3.3 i6300esb
+---------------
+
+‘i6300esb’ is a hardware watchdog featured in a lot of intel hardware,
+it can be reset by using ‘write’ and can be configured using ‘ioctl’
+like:
+
+     WDOG_START     = 1 // Start the count.
+     WDOG_STOP      = 2 // Stop the count.
+     WDOG_HEARTBEAT = 3 // Reset and set a new heartbeat period in seconds.
+
+     ioctl(wdog, WDOG_START, ignored); // Enable 2:1 scaling.
+     ioctl(wdog, WDOG_STOP,  ignored); // Enable 1:1 scaling.
+     ioctl(wdog, WDOG_HEARTBEAT, pointer_to_uint32_t);
+
+   There is no default heartbeat count, so be sure to configure it if
+you do not want mayhem.  Access to reset and configuration can be
+restricted by using MAC.
+
+   While this piece of hardware allows for hooking up interrupts and
+reboot separately when the timer expires, Ironclad right now will only
+reboot when the timer expires.
+
+12.3.4 lpt
+----------
+
+The devices starting by ‘lpt’ represent the several character devices
+representing the system’s parallel ports.  They support write
+operations, but no TTY interface is exposed, they are raw byte streams.
+
+12.3.5 pcspeaker
+----------------
+
+‘pcspeaker’ represents the IBM PC speaker, it is interfaced with using
+‘ioctl’, as such:
+
+     ioctl(fd, ignored, pointer_to_uint32_t_frequency_in_hz);
+
+12.3.6 ps2keyboard/ps2mouse
+---------------------------
+
+The devices ‘ps2keyboard’ and ‘ps2mouse’ exposes x86’s native PS2
+interfaces, ‘ps2keyboard’ is a normal character device that returns
+scancodes as they are received.  ‘ps2mouse’ is a character device that
+returns mouse packets following the structure:
+
+     struct mouse_data {
+        int x_variation;
+        int y_variation;
+        int z_variation;
+        bool is_left_click;
+        bool is_right_click;
+        bool is_middle_clock;
+        bool is_4th_click;
+        bool is_5th_click;
+     };
+
+   ‘ps2mouse’ supports a series of ‘ioctl’ calls for setting different
+modes and talking directly with the PS2 controller:
+
+     PS2MOUSE_2_1_SCALING     = 1
+     PS2MOUSE_1_1_SCALING     = 2
+     PS2MOUSE_SET_RES         = 3
+     PS2MOUSE_SET_SAMPLE_RATE = 4
+
+     ioctl(mouse, PS2MOUSE_2_1_SCALING, ignored);  // Enable 2:1 scaling.
+     ioctl(mouse, PS2MOUSE_1_1_SCALING, ignored);  // Enable 1:1 scaling.
+     ioctl(mouse, PS2MOUSE_SET_RES, resolution);   // (0 - 3).
+     ioctl(mouse, PS2MOUSE_SET_SAMPLE_RATE, rate); // (0 - 200).
+
+   Valid resolutions and sample rates are values for the PS2 controller,
+else the call is ignored.  For valid values and their meaning refer to
+this website
+(https://isdaman.com/alsos/hardware/mouse/ps2interface.htm).
+
+12.3.7 sata
+-----------
+
+The devices starting by ‘sata’ represent several SATA AHCI block
+devices.  For now only SATA drives are supported, support for ATAPI is
+not present.
+
+   These SATA drives have internal caching at the driver level, so they
+must be ‘sync’’d for data integrity when wanting to ensure data
+coherency.
+
+12.3.8 serial
+-------------
+
+The devices starting by ‘serial’ represent the several character devices
+used for each present serial port, they support read/write operations,
+but no TTY interface is exposed, they are raw byte streams.
+
+   Baud and other settings can be set by using the ‘termios’, note that
+most of the fields are not implemented as the serial devices are not
+ttys but just byte streams.
+
+   The default baud for all ports is set to be ‘115200’.
+
+
+File: ironclad.info,  Node: GNU Free Documentation License,  Prev: Devices and their properties,  Up: Top
+
+Appendix A GNU Free Documentation License
+*****************************************
+
+                     Version 1.3, 3 November 2008
+
+     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+     <https://fsf.org/>
+
+     Everyone is permitted to copy and distribute verbatim copies
+     of this license document, but changing it is not allowed.
+
+  0. PREAMBLE
+
+     The purpose of this License is to make a manual, textbook, or other
+     functional and useful document “free” in the sense of freedom: to
+     assure everyone the effective freedom to copy and redistribute it,
+     with or without modifying it, either commercially or
+     noncommercially.  Secondarily, this License preserves for the
+     author and publisher a way to get credit for their work, while not
+     being considered responsible for modifications made by others.
+
+     This License is a kind of “copyleft”, which means that derivative
+     works of the document must themselves be free in the same sense.
+     It complements the GNU General Public License, which is a copyleft
+     license designed for free software.
+
+     We have designed this License in order to use it for manuals for
+     free software, because free software needs free documentation: a
+     free program should come with manuals providing the same freedoms
+     that the software does.  But this License is not limited to
+     software manuals; it can be used for any textual work, regardless
+     of subject matter or whether it is published as a printed book.  We
+     recommend this License principally for works whose purpose is
+     instruction or reference.
+
+  1. APPLICABILITY AND DEFINITIONS
+
+     This License applies to any manual or other work, in any medium,
+     that contains a notice placed by the copyright holder saying it can
+     be distributed under the terms of this License.  Such a notice
+     grants a world-wide, royalty-free license, unlimited in duration,
+     to use that work under the conditions stated herein.  The
+     “Document”, below, refers to any such manual or work.  Any member
+     of the public is a licensee, and is addressed as “you”.  You accept
+     the license if you copy, modify or distribute the work in a way
+     requiring permission under copyright law.
+
+     A “Modified Version” of the Document means any work containing the
+     Document or a portion of it, either copied verbatim, or with
+     modifications and/or translated into another language.
+
+     A “Secondary Section” is a named appendix or a front-matter section
+     of the Document that deals exclusively with the relationship of the
+     publishers or authors of the Document to the Document’s overall
+     subject (or to related matters) and contains nothing that could
+     fall directly within that overall subject.  (Thus, if the Document
+     is in part a textbook of mathematics, a Secondary Section may not
+     explain any mathematics.)  The relationship could be a matter of
+     historical connection with the subject or with related matters, or
+     of legal, commercial, philosophical, ethical or political position
+     regarding them.
+
+     The “Invariant Sections” are certain Secondary Sections whose
+     titles are designated, as being those of Invariant Sections, in the
+     notice that says that the Document is released under this License.
+     If a section does not fit the above definition of Secondary then it
+     is not allowed to be designated as Invariant.  The Document may
+     contain zero Invariant Sections.  If the Document does not identify
+     any Invariant Sections then there are none.
+
+     The “Cover Texts” are certain short passages of text that are
+     listed, as Front-Cover Texts or Back-Cover Texts, in the notice
+     that says that the Document is released under this License.  A
+     Front-Cover Text may be at most 5 words, and a Back-Cover Text may
+     be at most 25 words.
+
+     A “Transparent” copy of the Document means a machine-readable copy,
+     represented in a format whose specification is available to the
+     general public, that is suitable for revising the document
+     straightforwardly with generic text editors or (for images composed
+     of pixels) generic paint programs or (for drawings) some widely
+     available drawing editor, and that is suitable for input to text
+     formatters or for automatic translation to a variety of formats
+     suitable for input to text formatters.  A copy made in an otherwise
+     Transparent file format whose markup, or absence of markup, has
+     been arranged to thwart or discourage subsequent modification by
+     readers is not Transparent.  An image format is not Transparent if
+     used for any substantial amount of text.  A copy that is not
+     “Transparent” is called “Opaque”.
+
+     Examples of suitable formats for Transparent copies include plain
+     ASCII without markup, Texinfo input format, LaTeX input format,
+     SGML or XML using a publicly available DTD, and standard-conforming
+     simple HTML, PostScript or PDF designed for human modification.
+     Examples of transparent image formats include PNG, XCF and JPG.
+     Opaque formats include proprietary formats that can be read and
+     edited only by proprietary word processors, SGML or XML for which
+     the DTD and/or processing tools are not generally available, and
+     the machine-generated HTML, PostScript or PDF produced by some word
+     processors for output purposes only.
+
+     The “Title Page” means, for a printed book, the title page itself,
+     plus such following pages as are needed to hold, legibly, the
+     material this License requires to appear in the title page.  For
+     works in formats which do not have any title page as such, “Title
+     Page” means the text near the most prominent appearance of the
+     work’s title, preceding the beginning of the body of the text.
+
+     The “publisher” means any person or entity that distributes copies
+     of the Document to the public.
+
+     A section “Entitled XYZ” means a named subunit of the Document
+     whose title either is precisely XYZ or contains XYZ in parentheses
+     following text that translates XYZ in another language.  (Here XYZ
+     stands for a specific section name mentioned below, such as
+     “Acknowledgements”, “Dedications”, “Endorsements”, or “History”.)
+     To “Preserve the Title” of such a section when you modify the
+     Document means that it remains a section “Entitled XYZ” according
+     to this definition.
+
+     The Document may include Warranty Disclaimers next to the notice
+     which states that this License applies to the Document.  These
+     Warranty Disclaimers are considered to be included by reference in
+     this License, but only as regards disclaiming warranties: any other
+     implication that these Warranty Disclaimers may have is void and
+     has no effect on the meaning of this License.
+
+  2. VERBATIM COPYING
+
+     You may copy and distribute the Document in any medium, either
+     commercially or noncommercially, provided that this License, the
+     copyright notices, and the license notice saying this License
+     applies to the Document are reproduced in all copies, and that you
+     add no other conditions whatsoever to those of this License.  You
+     may not use technical measures to obstruct or control the reading
+     or further copying of the copies you make or distribute.  However,
+     you may accept compensation in exchange for copies.  If you
+     distribute a large enough number of copies you must also follow the
+     conditions in section 3.
+
+     You may also lend copies, under the same conditions stated above,
+     and you may publicly display copies.
+
+  3. COPYING IN QUANTITY
+
+     If you publish printed copies (or copies in media that commonly
+     have printed covers) of the Document, numbering more than 100, and
+     the Document’s license notice requires Cover Texts, you must
+     enclose the copies in covers that carry, clearly and legibly, all
+     these Cover Texts: Front-Cover Texts on the front cover, and
+     Back-Cover Texts on the back cover.  Both covers must also clearly
+     and legibly identify you as the publisher of these copies.  The
+     front cover must present the full title with all words of the title
+     equally prominent and visible.  You may add other material on the
+     covers in addition.  Copying with changes limited to the covers, as
+     long as they preserve the title of the Document and satisfy these
+     conditions, can be treated as verbatim copying in other respects.
+
+     If the required texts for either cover are too voluminous to fit
+     legibly, you should put the first ones listed (as many as fit
+     reasonably) on the actual cover, and continue the rest onto
+     adjacent pages.
+
+     If you publish or distribute Opaque copies of the Document
+     numbering more than 100, you must either include a machine-readable
+     Transparent copy along with each Opaque copy, or state in or with
+     each Opaque copy a computer-network location from which the general
+     network-using public has access to download using public-standard
+     network protocols a complete Transparent copy of the Document, free
+     of added material.  If you use the latter option, you must take
+     reasonably prudent steps, when you begin distribution of Opaque
+     copies in quantity, to ensure that this Transparent copy will
+     remain thus accessible at the stated location until at least one
+     year after the last time you distribute an Opaque copy (directly or
+     through your agents or retailers) of that edition to the public.
+
+     It is requested, but not required, that you contact the authors of
+     the Document well before redistributing any large number of copies,
+     to give them a chance to provide you with an updated version of the
+     Document.
+
+  4. MODIFICATIONS
+
+     You may copy and distribute a Modified Version of the Document
+     under the conditions of sections 2 and 3 above, provided that you
+     release the Modified Version under precisely this License, with the
+     Modified Version filling the role of the Document, thus licensing
+     distribution and modification of the Modified Version to whoever
+     possesses a copy of it.  In addition, you must do these things in
+     the Modified Version:
+
+       A. Use in the Title Page (and on the covers, if any) a title
+          distinct from that of the Document, and from those of previous
+          versions (which should, if there were any, be listed in the
+          History section of the Document).  You may use the same title
+          as a previous version if the original publisher of that
+          version gives permission.
+
+       B. List on the Title Page, as authors, one or more persons or
+          entities responsible for authorship of the modifications in
+          the Modified Version, together with at least five of the
+          principal authors of the Document (all of its principal
+          authors, if it has fewer than five), unless they release you
+          from this requirement.
+
+       C. State on the Title page the name of the publisher of the
+          Modified Version, as the publisher.
+
+       D. Preserve all the copyright notices of the Document.
+
+       E. Add an appropriate copyright notice for your modifications
+          adjacent to the other copyright notices.
+
+       F. Include, immediately after the copyright notices, a license
+          notice giving the public permission to use the Modified
+          Version under the terms of this License, in the form shown in
+          the Addendum below.
+
+       G. Preserve in that license notice the full lists of Invariant
+          Sections and required Cover Texts given in the Document’s
+          license notice.
+
+       H. Include an unaltered copy of this License.
+
+       I. Preserve the section Entitled “History”, Preserve its Title,
+          and add to it an item stating at least the title, year, new
+          authors, and publisher of the Modified Version as given on the
+          Title Page.  If there is no section Entitled “History” in the
+          Document, create one stating the title, year, authors, and
+          publisher of the Document as given on its Title Page, then add
+          an item describing the Modified Version as stated in the
+          previous sentence.
+
+       J. Preserve the network location, if any, given in the Document
+          for public access to a Transparent copy of the Document, and
+          likewise the network locations given in the Document for
+          previous versions it was based on.  These may be placed in the
+          “History” section.  You may omit a network location for a work
+          that was published at least four years before the Document
+          itself, or if the original publisher of the version it refers
+          to gives permission.
+
+       K. For any section Entitled “Acknowledgements” or “Dedications”,
+          Preserve the Title of the section, and preserve in the section
+          all the substance and tone of each of the contributor
+          acknowledgements and/or dedications given therein.
+
+       L. Preserve all the Invariant Sections of the Document, unaltered
+          in their text and in their titles.  Section numbers or the
+          equivalent are not considered part of the section titles.
+
+       M. Delete any section Entitled “Endorsements”.  Such a section
+          may not be included in the Modified Version.
+
+       N. Do not retitle any existing section to be Entitled
+          “Endorsements” or to conflict in title with any Invariant
+          Section.
+
+       O. Preserve any Warranty Disclaimers.
+
+     If the Modified Version includes new front-matter sections or
+     appendices that qualify as Secondary Sections and contain no
+     material copied from the Document, you may at your option designate
+     some or all of these sections as invariant.  To do this, add their
+     titles to the list of Invariant Sections in the Modified Version’s
+     license notice.  These titles must be distinct from any other
+     section titles.
+
+     You may add a section Entitled “Endorsements”, provided it contains
+     nothing but endorsements of your Modified Version by various
+     parties—for example, statements of peer review or that the text has
+     been approved by an organization as the authoritative definition of
+     a standard.
+
+     You may add a passage of up to five words as a Front-Cover Text,
+     and a passage of up to 25 words as a Back-Cover Text, to the end of
+     the list of Cover Texts in the Modified Version.  Only one passage
+     of Front-Cover Text and one of Back-Cover Text may be added by (or
+     through arrangements made by) any one entity.  If the Document
+     already includes a cover text for the same cover, previously added
+     by you or by arrangement made by the same entity you are acting on
+     behalf of, you may not add another; but you may replace the old
+     one, on explicit permission from the previous publisher that added
+     the old one.
+
+     The author(s) and publisher(s) of the Document do not by this
+     License give permission to use their names for publicity for or to
+     assert or imply endorsement of any Modified Version.
+
+  5. COMBINING DOCUMENTS
+
+     You may combine the Document with other documents released under
+     this License, under the terms defined in section 4 above for
+     modified versions, provided that you include in the combination all
+     of the Invariant Sections of all of the original documents,
+     unmodified, and list them all as Invariant Sections of your
+     combined work in its license notice, and that you preserve all
+     their Warranty Disclaimers.
+
+     The combined work need only contain one copy of this License, and
+     multiple identical Invariant Sections may be replaced with a single
+     copy.  If there are multiple Invariant Sections with the same name
+     but different contents, make the title of each such section unique
+     by adding at the end of it, in parentheses, the name of the
+     original author or publisher of that section if known, or else a
+     unique number.  Make the same adjustment to the section titles in
+     the list of Invariant Sections in the license notice of the
+     combined work.
+
+     In the combination, you must combine any sections Entitled
+     “History” in the various original documents, forming one section
+     Entitled “History”; likewise combine any sections Entitled
+     “Acknowledgements”, and any sections Entitled “Dedications”.  You
+     must delete all sections Entitled “Endorsements.”
+
+  6. COLLECTIONS OF DOCUMENTS
+
+     You may make a collection consisting of the Document and other
+     documents released under this License, and replace the individual
+     copies of this License in the various documents with a single copy
+     that is included in the collection, provided that you follow the
+     rules of this License for verbatim copying of each of the documents
+     in all other respects.
+
+     You may extract a single document from such a collection, and
+     distribute it individually under this License, provided you insert
+     a copy of this License into the extracted document, and follow this
+     License in all other respects regarding verbatim copying of that
+     document.
+
+  7. AGGREGATION WITH INDEPENDENT WORKS
+
+     A compilation of the Document or its derivatives with other
+     separate and independent documents or works, in or on a volume of a
+     storage or distribution medium, is called an “aggregate” if the
+     copyright resulting from the compilation is not used to limit the
+     legal rights of the compilation’s users beyond what the individual
+     works permit.  When the Document is included in an aggregate, this
+     License does not apply to the other works in the aggregate which
+     are not themselves derivative works of the Document.
+
+     If the Cover Text requirement of section 3 is applicable to these
+     copies of the Document, then if the Document is less than one half
+     of the entire aggregate, the Document’s Cover Texts may be placed
+     on covers that bracket the Document within the aggregate, or the
+     electronic equivalent of covers if the Document is in electronic
+     form.  Otherwise they must appear on printed covers that bracket
+     the whole aggregate.
+
+  8. TRANSLATION
+
+     Translation is considered a kind of modification, so you may
+     distribute translations of the Document under the terms of section
+     4.  Replacing Invariant Sections with translations requires special
+     permission from their copyright holders, but you may include
+     translations of some or all Invariant Sections in addition to the
+     original versions of these Invariant Sections.  You may include a
+     translation of this License, and all the license notices in the
+     Document, and any Warranty Disclaimers, provided that you also
+     include the original English version of this License and the
+     original versions of those notices and disclaimers.  In case of a
+     disagreement between the translation and the original version of
+     this License or a notice or disclaimer, the original version will
+     prevail.
+
+     If a section in the Document is Entitled “Acknowledgements”,
+     “Dedications”, or “History”, the requirement (section 4) to
+     Preserve its Title (section 1) will typically require changing the
+     actual title.
+
+  9. TERMINATION
+
+     You may not copy, modify, sublicense, or distribute the Document
+     except as expressly provided under this License.  Any attempt
+     otherwise to copy, modify, sublicense, or distribute it is void,
+     and will automatically terminate your rights under this License.
+
+     However, if you cease all violation of this License, then your
+     license from a particular copyright holder is reinstated (a)
+     provisionally, unless and until the copyright holder explicitly and
+     finally terminates your license, and (b) permanently, if the
+     copyright holder fails to notify you of the violation by some
+     reasonable means prior to 60 days after the cessation.
+
+     Moreover, your license from a particular copyright holder is
+     reinstated permanently if the copyright holder notifies you of the
+     violation by some reasonable means, this is the first time you have
+     received notice of violation of this License (for any work) from
+     that copyright holder, and you cure the violation prior to 30 days
+     after your receipt of the notice.
+
+     Termination of your rights under this section does not terminate
+     the licenses of parties who have received copies or rights from you
+     under this License.  If your rights have been terminated and not
+     permanently reinstated, receipt of a copy of some or all of the
+     same material does not give you any rights to use it.
+
+  10. FUTURE REVISIONS OF THIS LICENSE
+
+     The Free Software Foundation may publish new, revised versions of
+     the GNU Free Documentation License from time to time.  Such new
+     versions will be similar in spirit to the present version, but may
+     differ in detail to address new problems or concerns.  See
+     <https://www.gnu.org/licenses/>.
+
+     Each version of the License is given a distinguishing version
+     number.  If the Document specifies that a particular numbered
+     version of this License “or any later version” applies to it, you
+     have the option of following the terms and conditions either of
+     that specified version or of any later version that has been
+     published (not as a draft) by the Free Software Foundation.  If the
+     Document does not specify a version number of this License, you may
+     choose any version ever published (not as a draft) by the Free
+     Software Foundation.  If the Document specifies that a proxy can
+     decide which future versions of this License can be used, that
+     proxy’s public statement of acceptance of a version permanently
+     authorizes you to choose that version for the Document.
+
+  11. RELICENSING
+
+     “Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+     World Wide Web server that publishes copyrightable works and also
+     provides prominent facilities for anybody to edit those works.  A
+     public wiki that anybody can edit is an example of such a server.
+     A “Massive Multiauthor Collaboration” (or “MMC”) contained in the
+     site means any set of copyrightable works thus published on the MMC
+     site.
+
+     “CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
+     license published by Creative Commons Corporation, a not-for-profit
+     corporation with a principal place of business in San Francisco,
+     California, as well as future copyleft versions of that license
+     published by that same organization.
+
+     “Incorporate” means to publish or republish a Document, in whole or
+     in part, as part of another Document.
+
+     An MMC is “eligible for relicensing” if it is licensed under this
+     License, and if all works that were first published under this
+     License somewhere other than this MMC, and subsequently
+     incorporated in whole or in part into the MMC, (1) had no cover
+     texts or invariant sections, and (2) were thus incorporated prior
+     to November 1, 2008.
+
+     The operator of an MMC Site may republish an MMC contained in the
+     site under CC-BY-SA on the same site at any time before August 1,
+     2009, provided the MMC is eligible for relicensing.
+
+ADDENDUM: How to use this License for your documents
+====================================================
+
+To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and license
+notices just after the title page:
+
+       Copyright (C)  YEAR  YOUR NAME.
+       Permission is granted to copy, distribute and/or modify this document
+       under the terms of the GNU Free Documentation License, Version 1.3
+       or any later version published by the Free Software Foundation;
+       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+       Texts.  A copy of the license is included in the section entitled ``GNU
+       Free Documentation License''.
+
+   If you have Invariant Sections, Front-Cover Texts and Back-Cover
+Texts, replace the “with...Texts.” line with this:
+
+         with the Invariant Sections being LIST THEIR TITLES, with
+         the Front-Cover Texts being LIST, and with the Back-Cover Texts
+         being LIST.
+
+   If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+
+   If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of free
+software license, such as the GNU General Public License, to permit
+their use in free software.
+
+
+
+Tag Table:
+Node: Top509
+Node: Installation and target support9788
+Node: riscv64-limine support10421
+Node: x86_64-limine support11120
+Node: Boot-time command-line options11641
+Node: Format12126
+Node: List12617
+Node: Scheduling and RTC13933
+Node: Ticks and other interruptions14394
+Node: Scheduling basics15007
+Node: Thread clustering management16440
+Node: Inter-process communication18276
+Node: Pipes18662
+Node: Futexes19094
+Node: PTYs19265
+Node: Signals19725
+Node: Sockets19897
+Node: Memory architecture20047
+Node: Physical memory allocation20376
+Node: Virtual memory21213
+Node: Memory failures21663
+Node: Userland state and conditions22383
+Node: Program loading22748
+Node: Memory layout23196
+Node: Security and integrity facilities23841
+Node: Users and groups24279
+Node: Mandatory access control (MAC)24883
+Node: Resource limits28646
+Node: Miscellaneous measures30242
+Node: Debugging facilities30666
+Node: Corefile and process dumping30994
+Node: Program tracing31797
+Node: Syscalls32056
+Node: Table and target quirks33579
+Node: Errno37403
+Node: exit39379
+Node: arch_prctl39823
+Node: open40742
+Node: close42081
+Node: read/write42512
+Node: seek43554
+Node: mmap/mprotect/munmap44369
+Node: getpid/getppid46900
+Node: exec47328
+Node: clone48089
+Node: wait49294
+Node: socket50152
+Node: sethostname53531
+Node: unlink54063
+Node: fstat54538
+Node: chdir55663
+Node: ioctl56082
+Node: sched_yield56912
+Node: delete_tcluster57358
+Node: pipe57820
+Node: rename58418
+Node: sysconf59324
+Node: spawn66331
+Node: gettid67569
+Node: manage_tcluster67774
+Node: fcntl68346
+Node: exit_thread72171
+Node: getrandom72616
+Node: mac_capabilities73473
+Node: add_mac_permissions74766
+Node: set_mac_enforcement75735
+Node: mount/umount76331
+Node: readlink77914
+Node: getdents78453
+Node: sync79658
+Node: mknod80140
+Node: truncate80723
+Node: bind81324
+Node: mkdir82138
+Node: symlink82588
+Node: connect83156
+Node: openpty83981
+Node: fsync84552
+Node: link85524
+Node: ptrace86067
+Node: listen87156
+Node: accept88195
+Node: getrlimit/setrlimit89063
+Node: access90826
+Node: ppoll92216
+Node: getuid/geteuid94881
+Node: setuids95162
+Node: fchmod95757
+Node: umask96263
+Node: reboot96860
+Node: fchown98221
+Node: pread/pwrite98888
+Node: getsockname99712
+Node: getpeername100253
+Node: shutdown100784
+Node: futex101629
+Node: clock104135
+Node: clock_nanosleep105599
+Node: getrusage106687
+Node: recvfrom/sendto107891
+Node: config_netinter109030
+Node: utimes110491
+Node: create_tcluster111123
+Node: switch_tcluster111519
+Node: sigprogmask112079
+Node: sigaction113226
+Node: send_signal113977
+Node: getprio/setprio114767
+Node: getgid/getegid116228
+Node: setgids116519
+Node: getgroups/setgroups117127
+Node: ttyname118277
+Node: fadvise118868
+Node: shmat120954
+Node: shmctl122081
+Node: shmdl123782
+Node: shmget124179
+Node: getsockopt/setsockopt124948
+Node: gettidid/settidid126789
+Node: failure_policy127564
+Node: Filesystem support and interfaces129457
+Node: Extended FileSystem129936
+Node: File Allocation Table130992
+Node: Networking131326
+Node: Layering131617
+Node: Interface handling132624
+Node: Loopback133317
+Node: Devices and their properties134017
+Node: Common devices135335
+Node: riscv64-limine devices138115
+Node: x86_64-limine devices138333
+Node: GNU Free Documentation License142456
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

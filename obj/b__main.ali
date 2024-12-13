@@ -1,0 +1,56 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -gnatA
+A -gnatWb
+A -gnatiw
+A -gnatws
+A -g
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_EXCEPTION_PROPAGATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_OBSOLESCENT_FEATURES
+
+U ada_main%b		b__main.adb		0a142c13 NE OO PK IL
+Z system%s		system.ads		system.ali
+
+U ada_main%s		b__main.ads		2e7f78c5 EE NE OO PK IL
+W system%s		system.ads		system.ali
+
+D b__main.ads		20241115153949 efd8970a ada_main%s
+D b__main.adb		20241115153949 e5ccbb19 ada_main%b
+D system.ads		20241115151050 c1a7efcf system%s
+G a e
+G c Z s b [adainit ada_main 18 14 none]
+G c Z s b [main ada_main 21 14 none]
+X 1 b__main.ads
+5K9*ada_main 155l5 155e13 2|7b14 102l5 102t13
+8a4*GNAT_Version{string} 10r22 12r54
+12m4*GNAT_Version_Address{3|25M9} 13r22
+15a4*Ada_Main_Program_Name{string} 16r22 2|21r52
+18U14*adainit 19i<c,adainit>22 2|11b14 15l8 15t15 25s7
+21U14*main 22i<c,main>22 2|20b14 27t7
+X 2 b__main.adb
+17U14 Ada_Main_Program 18b<ada,_ada_main>24 26s7
+21m7 Ensure_Reference{3|25M9} 22r24
+X 3 system.ads
+11K9*System 1|4w6 12r36 2|21r34 3|73e11
+25M9*Address 1|12r43 2|21r41
+

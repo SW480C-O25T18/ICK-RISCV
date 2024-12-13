@@ -1,0 +1,68 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.power%b		arch-power.adb		d9f41aa6 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.power%s		arch-power.ads		7aae2981 NE OO PK
+W arch%s		arch.ads		arch.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-power.ads	20241115151036 0576051f arch.power%s
+D arch-power.adb	20241115151036 dc821fb9 arch.power%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [halt arch__power 22 13 none]
+G c Z s b [reboot arch__power 25 13 none]
+G c Z s b [poweroff arch__power 28 13 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|17r9 29r5 3|17r14 32r5
+X 2 arch-power.ads
+17K14*Power 1|20k9 2|29l10 29e15 3|17b19 32l10 32t15
+19E9*Power_Status 19e49 22r25 25r27 28r29 3|18r25 23r27 28r29
+19n26*Not_Supported{19E9}
+19n41*Failure{19E9} 3|20r14 25r14 30r14
+22V13*Halt{19E9} 3|18b13 21l8 21t12
+25V13*Reboot{19E9} 3|23b13 26l8 26t14
+28V13*Poweroff{19E9} 3|28b13 31l8 31t16
+

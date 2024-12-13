@@ -1,0 +1,151 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.runtime%b		lib-runtime.adb		76b74268 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U lib.runtime%s		lib-runtime.ads		049df372 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W lib%s			lib.adb			lib.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-runtime.ads	20241115151036 e2d5964f lib.runtime%s
+D lib-runtime.adb	20241115151036 290e217a lib.runtime%b
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [last_chance_handler lib__runtime 25 14 none]
+G c Z s b [memcmp lib__runtime 30 13 none]
+G c Z s b [memcpy lib__runtime 32 13 none]
+G c Z s b [memmove lib__runtime 36 13 none]
+G c Z s b [memset lib__runtime 40 13 none]
+G r c none [last_chance_handler lib__runtime 25 14 none] [c_string_length lib 23 13 none]
+G r c none [last_chance_handler lib__runtime 25 14 none] [image lib__messages 63 14 none]
+G r c none [last_chance_handler lib__runtime 25 14 none] [hard_panic lib__panic 32 14 none]
+X 7 interfac.ads
+11K9*Interfaces 120e15 12|18r6 18r24 13|20w6 20r35
+16M9*Unsigned_8 13|39r35 40r35 58r34 59r34 71r34 72r34 93r22 93r36 94r34
+18M9*Unsigned_32 13|32r23
+X 8 i-c.ads
+11K20*C 41e17 12|18w17 18r35
+19I9*int<integer> 12|30r68 13|38r68
+31M9*size_t 12|30r53 34r24 38r24 43r16 13|38r53 56r24 69r24 91r16
+X 9 lib.ads
+19K9*Lib 35e8 12|23r9 45r5 13|17r6 18r6 22r14 29r34 33r7 101r5
+23V13*C_String_Length{natural} 13|29s38
+X 10 lib-messages.ads
+21K13*Messages 103e17 13|17w10 28r21 32r7
+55A12*Translated_String{string}<integer> 13|28r30
+63U14*Image 13|32s16
+X 11 lib-panic.ads
+21K13*Panic 39e14 13|18w10 33r11
+32U14*Hard_Panic 13|33s17
+X 12 lib-runtime.ads
+23K13*Runtime 9|19k9 12|45l9 45e16 13|22b18 101l9 101t16
+25U14*Last_Chance_Handler 25>35 25>58 13|26b14 36l8 36t27
+25m35 File{15|25M9} 13|26b35 29r55 30r26
+25i58 Line{integer} 13|26b58 32r36
+30V13*MemCmp{8|19I9} 30>21 30>25 30>46 13|38b13 52l8 52t14
+30m21 S1{15|25M9} 13|38b21 39r62
+30m25 S2{15|25M9} 13|38b25 40r62
+30m46 Size{8|31M9} 13|38b46 39r26 40r26 42r21
+32V13*MemCpy{15|25M9} 33>8 33>15 34>8 13|54b13 65l8 65t14
+33m8 Desto{15|25M9} 13|55b8 58r61 64r14
+33m15 Source{15|25M9} 13|55b15 59r61
+34m8 Size{8|31M9} 13|56b8 58r25 59r25 61r21
+36V13*MemMove{15|25M9} 37>8 37>15 38>8 13|67b13 86l8 86t15
+37m8 Desto{15|25M9} 13|68b8 71r61 73r60 85r14
+37m15 Source{15|25M9} 13|68b15 72r61 74r60
+38m8 Size{8|31M9} 13|69b8 71r25 72r25
+40V13*MemSet{15|25M9} 41>8 42>8 43>8 13|88b13 100l8 100t14
+41m8 Desto{15|25M9} 13|89b8 94r61 99r14
+42i8 Value{integer} 13|90b8 93r48
+43m8 Size{8|31M9} 13|91b8 94r25
+X 13 lib-runtime.adb
+27i7 Line_Len{natural} 32m56 35r43
+28a7 Line_Buffer{10|55A12} 32m43 35r11 35r24 35r59
+29a7 File_String{string} 34r43
+39a7 Str1(7|16M9) 43r13 44r16
+40a7 Str2(7|16M9) 43r25 44r27
+42m11 I{8|31M9} 43r19 43r31 44r22 44r33
+58a7 Dst(7|16M9) 62m10
+59a7 Src(7|16M9) 62r21
+61m11 I{8|31M9} 62r15 62r26
+71a7 Dst(7|16M9) 77r19 78m13 81r27 82m13
+72a7 Src(7|16M9) 78r24 82r24
+73m7 Desto_Int{16|49M9} 76r23 80r26
+74m7 Source_Int{16|49M9} 76r10 80r13
+77m14 I{8|31M9} 78r18 78r29
+81m14 I{8|31M9} 82r18 82r29
+93m7 Val{7|16M9} 97r15
+94a7 Dst(7|16M9) 96m16 96r16
+96m11 C=96:16{7|16M9} 97r10
+X 15 system.ads
+11K9*System 12|17w6 25r42 30r30 33r24 34r39 37r24 38r39 41r16 43r31 13|19r6
+. 19r35 26r42 38r30 55r24 56r39 68r24 69r39 89r16 91r31 15|73e11
+25M9*Address 12|25r49 30r37 33r31 34r46 37r31 38r46 41r23 43r38 13|26r49
+. 38r37 55r31 56r46 68r31 69r46 89r23 91r38
+X 16 s-stoele.ads
+11K16*Storage_Elements 13|19w13 19r42 16|60e28
+49M9*Integer_Address 13|73r29 74r29
+56V13*To_Integer{49M9} 13|73s48 74s48
+

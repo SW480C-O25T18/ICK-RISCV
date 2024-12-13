@@ -1,0 +1,77 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -gnatg
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U interfaces.c%s	i-c.ads			5282297f NE OL PU PK
+W interfaces%s		interfac.ads		interfac.ali
+
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [char_arrayIP interfaces__c 33 9 none]
+G c Z s s [wchar_arrayIP interfaces__c 36 9 none]
+G c Z s s [char16_arrayIP interfaces__c 38 9 none]
+G c Z s s [char32_arrayIP interfaces__c 40 9 none]
+X 1 interfac.ads
+11K9*Interfaces 120e15 2|11r9 41r5
+X 2 i-c.ads
+11K20*C 1|11k9 2|41l16 41e17
+13N4*CHAR_BIT 23r69 27r60 34r25
+14N4*SCHAR_MIN 23r33
+15N4*SCHAR_MAX 23r46
+16N4*UCHAR_MAX 27r32
+19I9*int<integer> 24r36
+20I9*short<short_integer> 25r36
+21I9*long<long_integer> 26r36
+23I9*signed_char<short_short_integer>
+24M9*unsigned
+25M9*unsigned_short
+26M9*unsigned_long
+27M9*unsigned_char 28r27
+28M12*plain_char{27M9}
+29I9*ptrdiff_t<long_integer>
+31M9*size_t 33r30 36r31 38r32 40r32
+32E9*char<character> 33r58
+33A9*char_array(32E9)<31M9>
+35E9*wchar_t<wide_character> 36r59
+36A9*wchar_array(35E9)<31M9>
+37E9*char16_t<wide_character> 38r60
+38A9*char16_array(37E9)<31M9>
+39E9*char32_t<wide_wide_character> 40r60
+40A9*char32_array(39E9)<31M9>
+

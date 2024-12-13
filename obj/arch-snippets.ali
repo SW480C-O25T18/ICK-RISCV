@@ -1,0 +1,100 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.snippets%b	arch-snippets.adb	3bc13f87 NE OO PK
+W arch%s		arch.ads		arch.ali
+W system%s		system.ads		system.ali
+W system.machine_code%s	s-maccod.ads		s-maccod.ali
+
+U arch.snippets%s	arch-snippets.ads	82659f09 BN NE OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+W memory%s		memory.ads		memory.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-snippets.ads	20241115151036 3613a65c arch.snippets%s
+D arch-snippets.adb	20241115151036 5baa226e arch.snippets%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-maccod.ads		20241115151050 5678bbb5 system.machine_code%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [hcf arch__snippets 26 14 none]
+G c Z s b [enable_interrupts arch__snippets 29 14 none]
+G c Z s b [disable_interrupts arch__snippets 30 14 none]
+G c Z s b [wait_for_interrupt arch__snippets 33 14 none]
+G c Z s b [pause arch__snippets 37 14 none]
+G c Z s b [read_sstatus arch__snippets 46 16 none]
+G c Z s b [write_sstatus arch__snippets 47 17 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|20r9 81r5 3|19r14 65r5
+X 2 arch-snippets.ads
+20K14*Snippets 1|20k9 2|81l10 81e18 3|19b19 65l10 65t18
+26U14*HCF 3|20b14 26l8 26t11
+29U14*Enable_Interrupts 3|28b14 31l8 31t25
+30U14*Disable_Interrupts 3|23s10 33b14 36l8 36t26
+33U14*Wait_For_Interrupt 3|24s10 38b14 41l8 41t26
+37U14*Pause 3|43b14 46l8 46t13
+46V16*Read_SStatus{4|19M9} 3|30s22 35s22 48b13 56l8 56t20
+47U17*Write_SStatus 47>32 3|30s7 35s7 58b14 64l8 64t21
+47m32 Value{4|19M9} 3|58b29 61r52
+X 3 arch-snippets.adb
+49m7 Value{4|19M9} 52m54 52r54 55r14
+X 4 interfac.ads
+11K9*Interfaces 2|17w6 17r22 4|120e15
+19M9*Unsigned_64 2|46r36 47r40 3|48r33 49r15 52r24 58r37 61r24
+X 5 memory.ads
+19K9*Memory 2|18w6 18r22 5|36e11
+X 6 system.ads
+11K9*System 3|17r6 17r31 6|73e11
+X 7 s-maccod.ads
+11K16*Machine_Code 3|17w13 17r38 7|93e24
+16I9*Asm_Input_Operand<integer>
+17I9*Asm_Output_Operand<integer>
+48U14*Asm 3|40s7 51s7 60s7
+50i8 Outputs{17I9} 3|52r12
+51i8 Inputs{16I9} 3|61r12
+52a8 Clobber{string} 3|53r12 62r12
+53b8 Volatile{boolean} 3|40r19 54r12 63r12
+

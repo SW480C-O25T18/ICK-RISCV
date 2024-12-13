@@ -1,0 +1,98 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.clocks%b		arch-clocks.adb		0689561d NE OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.clocks%s		arch-clocks.ads		704b79c1 NE OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-clocks.adb	20241115151036 f1e25636 arch.clocks%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [initialize_sources arch__clocks 23 14 none]
+G c Z s b [get_monotonic_resolution arch__clocks 27 14 none]
+G c Z s b [get_monotonic_time arch__clocks 31 14 none]
+G c Z s b [get_real_time_resolution arch__clocks 35 14 none]
+G c Z s b [get_real_time arch__clocks 39 14 none]
+G c Z s b [set_real_time arch__clocks 43 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|19r9 45r5 3|17r14 77r5
+X 2 arch-clocks.ads
+19K14*Clocks 1|20k9 2|45l10 45e16 3|17b19 77l10 77t16
+20@23*Monotonic_Clock_State 24r34 28r33 32r33 3|24r8
+20@46*RT_Clock_State 24r57 36r33 40r33 44r33 3|19r8
+23U14*Initialize_Sources 3|41b14 44l8 44t26
+27U14*Get_Monotonic_Resolution 27<40 27<49 3|46b14 51l8 51t32
+27m40 Seconds{4|19M9} 3|46b40 49m7
+27m49 Nanoseconds{4|19M9} 3|46b49 50m7
+31U14*Get_Monotonic_Time 31<34 31<43 3|53b14 57l8 57t26
+31m34 Seconds{4|19M9} 3|53b34 55m7
+31m43 Nanoseconds{4|19M9} 3|53b43 56m7
+35U14*Get_Real_Time_Resolution 35<40 35<49 3|59b14 64l8 64t32
+35m40 Seconds{4|19M9} 3|59b40 62m7
+35m49 Nanoseconds{4|19M9} 3|59b49 63m7
+39U14*Get_Real_Time 39<29 39<38 3|66b14 71l8 71t21
+39m29 Seconds{4|19M9} 3|66b29 69m7
+39m38 Nanoseconds{4|19M9} 3|66b38 70m7
+43U14*Set_Real_Time 43>29 43>38 3|73b14 76l8 76t21
+43m29 Seconds{4|19M9} 3|73b29
+43m38 Nanoseconds{4|19M9} 3|73b38
+X 3 arch-clocks.adb
+30m4 RT_Timestamp_Seconds{4|19M9} 20r11
+31m4 RT_Timestamp_Nanoseconds{4|19M9} 21r11
+32m4 RT_Stored_Seconds{4|19M9} 22r11
+33m4 RT_Stored_Nanoseconds{4|19M9} 23r11
+37N4 MS_Per_Sec
+38N4 Nanos_Per_MS 39r35
+39m4 Mono_TSC_Freq{4|19M9} 24r34
+X 4 interfac.ads
+11K9*Interfaces 2|17w6 17r22 4|120e15
+19M9*Unsigned_64 2|27r67 31r61 35r67 39r56 43r52 3|30r31 31r31 32r31 33r31
+. 39r20 46r67 53r61 59r67 66r56 73r52
+

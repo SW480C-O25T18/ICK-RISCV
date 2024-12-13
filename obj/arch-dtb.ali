@@ -1,0 +1,104 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.dtb%b		arch-dtb.adb		1fe12bc3 NE OO PK
+W arch%s		arch.ads		arch.ali
+W system%s		system.ads		system.ali
+
+U arch.dtb%s		arch-dtb.ads		32431cfe NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.limine%s		arch-limine.adb		arch-limine.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-dtb.ads		20241115151036 3bdb8188 arch.dtb%s
+D arch-dtb.adb		20241115151036 e59d4584 arch.dtb%b
+D arch-limine.ads	20241115151036 8eb8e49c arch.limine%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init arch__dtb 21 13 none]
+G c Z s s [fdt_headerIP arch__dtb 34 9 none]
+X 1 arch.ads
+20K9*Arch 52e9 2|18r6 20r9 25r18 26r20 46r5 3|19r14 21r18 34r5
+X 2 arch-dtb.ads
+20K14*DTB 1|20k9 2|25E4 46l10 46e13 3|19b19 34l10 34t13
+21V13*Init{boolean} 3|20b13 33l8 33t12
+25r4 DTB_Request{4|42R9} 3|22r34 24r10
+32N4 FDT_Magic 3|31r32
+34R9 FDT_Header 45e15 3|29r19
+35m7*Magic{5|18M9} 3|31r24
+36m7*Size{5|18M9}
+37m7*Offset_DT_Struct{5|18M9}
+38m7*Offset_DT_Strings{5|18M9}
+39m7*Offset_Reserved_Flag{5|18M9}
+40m7*Version{5|18M9}
+41m7*Last_Compatible_Vers{5|18M9}
+42m7*Boot_CPU_Physical_ID{5|18M9}
+43m7*Size_DT_Stings{5|18M9}
+44m7*Size_DT_Struct{5|18M9}
+X 3 arch-dtb.adb
+21r7 DTBPonse{4|216R9} 29r54
+29r10 Header{2|34R9} 31r17
+X 4 arch-limine.ads
+20K14*Limine 2|18w11 25r23 26r25 3|21r23 4|293e16
+41A9*Request_ID(5|19M9)<integer>
+42R9*Request 2|25r30 4|46e15
+43a7*ID{41A9} 2|26m8
+44m7*Revision{5|19M9} 2|27m8
+45m7*Response{6|25M9} 2|28m8 3|22r46 24r22
+216R9*DTB_Response 3|21r30 4|219e15
+218m7*DTB_Addr{6|25M9} 3|29r63
+250a4*DTB_ID{41A9} 2|26r32
+X 5 interfac.ads
+11K9*Interfaces 2|17w6 17r22 5|120e15
+18M9*Unsigned_32 2|35r30 36r30 37r30 38r30 39r30 40r30 41r30 42r30 43r30
+. 44r30
+19M9*Unsigned_64
+X 6 system.ads
+11K9*System 2|28r20 3|17w6 17r18 24r33 6|73e11
+25M9*Address
+26m4*Null_Address{25M9} 2|28r27 3|24r40
+32V14*"="{boolean} 3|24r31
+

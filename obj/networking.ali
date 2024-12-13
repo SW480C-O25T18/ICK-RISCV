@@ -1,0 +1,112 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U networking%b		networking.adb		8a19d7a9 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+
+U networking%s		networking.ads		141b8716 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking.adb	20241115151036 7d62411b networking%b
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [Tipv4_addressBIP networking 23 4 none]
+G c Z s s [Tipv6_addressBIP networking 24 4 none]
+G c Z s b [get_hostname networking 38 14 none]
+G c Z s b [set_hostname networking 45 14 none]
+G c Z s s [Tmac_addressBIP networking 22 4 none]
+G r c none [get_hostname networking 38 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_hostname networking 38 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_hostname networking 45 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_hostname networking 45 14 none] [release lib__synchronization 31 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 8|17r6 24r26
+X 2 a-charac.ads
+11K13*Characters 12e19 8|17r10 24r30
+X 3 a-chlat1.ads
+11K24*Latin_1 247e27 8|17w21 24r41
+13e4*NUL{character} 8|24r49
+X 4 interfac.ads
+11K9*Interfaces 120e15 7|17w6 17r22
+16M9*Unsigned_8 7|22r44 23r44 24r44
+17M9*Unsigned_16 7|25r26 26r26
+X 5 lib.ads
+19K9*Lib 35e8 7|18r6 18r31
+X 6 lib-synchronization.ads
+20K13*Synchronization 66e24 7|18w10 18r35
+22R9*Binary_Semaphore 57e14 7|51r30
+23r4*Unlocked_Semaphore{22R9} 7|51r50
+27U14*Seize 8|32s7 44s7
+31U14*Release 8|34s7 47s7
+X 7 networking.ads
+20K9*Networking 49E4 55l5 55e15 8|19b14 50l5 50t15
+22A9*MAC_Address(4|16M9)<integer>
+23A9*IPv4_Address(4|16M9)<integer> 29r32
+24A9*IPv6_Address(4|16M9)<integer> 30r32
+25M9*IPv4_Port<4|17M9>
+26M9*IPv6_Port<4|17M9>
+29a4*IPv4_8_Submask{23A9}
+30a4*IPv6_128_Submask{24A9}
+33i4*Hostname_Max_Len{natural} 40r47 49c4 52r41 53r28
+38U14*Get_Hostname 38<28 38<47 8|22b14 35l8 35t20
+38a28 Name{string} 39r19 40r19 8|22b28 24m7 26r10 27r20 33m7 33r13 33r27
+38i47 Length{natural} 8|22b47 27m10 29m10 33r40 33r70
+45U14*Set_Hostname 45>28 45<43 8|37b14 49l8 49t20
+45a28 Name{string} 8|37b28 39r10 39r29 45r26 46r22 46r38
+45b43 Success{boolean} 8|37b43 40m10 48m7
+51r4 Hostname_Lock{6|22R9} 8|32m14 32r14 34m16 34r16 44m14 44r14 47m16 47r16
+52i4 Hostname_Length{natural} 8|26r24 29r20 45m7
+53a4 Hostname{string} 8|33r55 39r43 46m7
+

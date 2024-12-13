@@ -1,0 +1,268 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U kernel_main%b		kernel_main.adb		7583b801 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
+W config%s		config.ads		config.ali
+W devices%s		devices.adb		devices.ali
+W lib%s			lib.adb			lib.ali
+W lib.cmdline%s		lib-cmdline.adb		lib-cmdline.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W lib.runtime%s		lib-runtime.adb		lib-runtime.ali
+W networking%s		networking.adb		networking.ali
+W networking.arp%s	networking-arp.adb	networking-arp.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+W userland%s		userland.ads		userland.ali
+W userland.loader%s	userland-loader.adb	userland-loader.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+W vfs%s			vfs.adb			vfs.ali
+
+U kernel_main%s		kernel_main.ads		fba3ee83 NE OO PK
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-hooks.ads	20241115151036 2bd12b55 arch.hooks%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D config.ads		20241115151036 e56314eb config%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D kernel_main.ads	20241115151036 fba3ee83 kernel_main%s
+D kernel_main.adb	20241115151036 3470b9b8 kernel_main%b
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-cmdline.ads	20241115151036 711caa36 lib.cmdline%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-runtime.ads	20241115151036 e2d5964f lib.runtime%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking-arp.ads	20241115151036 eec21925 networking.arp%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-loader.ads	20241115151036 4d432fbc userland.loader%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [entrypoint kernel_main 25 14 none]
+G r s environment_arr [entrypoint kernel_main 25 14 none] [environment_arrIP userland 21 9 none]
+G r c none [entrypoint kernel_main 25 14 none] [initialize_sources arch__clocks 23 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [enable_logging lib__messages 31 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [put_line lib__messages 41 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [init userland__process 146 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [initialize networking__arp 25 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [init devices 92 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [init vfs 79 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [register_ram_files arch__hooks 32 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [init scheduler 33 13 none]
+G r c none [entrypoint kernel_main 25 14 none] [hard_panic lib__panic 32 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [is_key_present lib__cmdline 45 13 none]
+G r c none [entrypoint kernel_main 25 14 none] [disable_aslr userland__loader 23 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [disable_aslr userland__process 149 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [get_key_value lib__cmdline 34 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [fetch_uuid devices 117 13 none]
+G r c none [entrypoint kernel_main 25 14 none] [fetch_name devices 130 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [mount vfs 87 14 none]
+G r s argument_arr [entrypoint kernel_main 25 14 none] [argument_arrIP userland 20 9 none]
+G r c none [entrypoint kernel_main 25 14 none] [mount vfs 104 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [open vfs 593 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [start_program userland__loader 29 13 none]
+G r c none [entrypoint kernel_main 25 14 none] [set_identifier userland__process 443 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [set_cwd userland__process 418 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [close vfs 359 14 none]
+G r c none [entrypoint kernel_main 25 14 none] [idle_core scheduler 37 14 none]
+X 4 arch.ads
+20K9*Arch 52e9 20|17w6 18r6 19r6 51r7 69r7
+X 5 arch-clocks.ads
+19K14*Clocks 45e16 20|18w11 51r12
+23U14*Initialize_Sources 20|51s19
+X 7 arch-hooks.ads
+17K14*Hooks 33e15 20|19w11 69r12
+32U14*Register_RAM_Files 20|69s18
+X 10 config.ads
+17K9*Config 29e11 20|32w6 58r30 58r50 59r57
+22a4*Name{string} 20|58r37
+23a4*Version{string} 20|58r57
+25a4*Bug_Site{string} 20|59r64
+X 11 devices.ads
+22K9*Devices 279e12 20|20w6 20r19 39r34 42r21 65r7 90r32 92r22 93r25 94r13
+35A12*UUID_String{string}<integer> 20|90r40
+83I9*Device_Handle<integer> 20|42r29
+85i4*Error_Handle{83I9} 20|93r33
+88i4*Max_Name_Length{natural} 20|39r42
+92U14*Init 20|65s15
+117V13*Fetch_UUID{83I9} 20|92s30
+130U14*Fetch_Name 20|94s21
+X 13 interfac.ads
+18M9*Unsigned_32
+19M9*Unsigned_64
+X 19 kernel_main.ads
+17K9*Kernel_Main 26l5 26e16 20|34b14 224l5 224t16
+25U14*Entrypoint 25>26 20|35b14 223l8 223t18
+25a26 Cmdline{string} 20|35b26 77r38 81r38 89r11 100r14 112r11 121r11 179r11
+X 20 kernel_main.adb
+36p7 Init_Path{34|19P9} 114m10 138r30 165r33 167r55
+37p7 Init_Args{34|22P9} 137m13 138r13 156r16 167m10 168r52 181r10 194r17
+. 194r59 198r30
+38a7 Init_Env{34|21A9} 195r17
+39a7 Value{string} 89m47 91r53 92r42 94m43 96r56 100m45 103r52 104r21 106r54
+. 112m42 114r35 121m46 130r22 141r30 142r19 143r31 149r22 150r22 157r31 165r55
+. 179m42 181r39 184r28
+40i7 Value_Len{natural} 89m61 90r20 91r65 92r54 94m50 96r68 100m59 102r20
+. 103r64 104r33 106r66 112m56 113r20 114r47 121m60 122r20 130r34 141r42 142r31
+. 143r43 149r34 165r67 179m56 180r20 181r51 184r40
+41b7 Found{boolean} 89m54 90r10 100m52 102r10 104m64 105r17 112m49 113r10
+. 121m53 122r10 172m61 173r14 179m49 180r10
+42i7 Init_Dev{11|83I9} 92m10 93r13 94r33
+43i7 Init_FS{39|74I9} 185m28 194r40 202m34 209r52 213r20
+44m7 Init_Ino{39|28M9} 186m28 194r49 203m34 209r61 213r29
+45i7 Init_PID{38|33I9} 193m13 196r16 198r20 209r42
+46e7 Success{39|234E9} 187m28 192r13 204m34
+47a7 Init_Stdin{string} 195r27
+48a7 Init_Stdout{string} 195r39 195r52
+124i13 Arg_Count{natural} 132m19 132r32 135m13 135r26 137r66
+125i13 First_Idx{natural} 140m13 143r19 148r28 157r38 159m16
+126i13 Last_Idx{natural} 141m13 142r50 148m16 149r53 150r29 153m19 153r31
+. 157r51 159r29
+127i13 Arg_Len{natural} 147m16 152m19 152r31
+128i13 List_Idx{natural} 139m13 156r27 158m16 158r29
+130e17 C=130:17{character} 131r19
+161L12 END_PARSE 144r24
+X 21 lib.ads
+19K9*Lib 20|22r6 23r6 24r6 30r6 54r7 58r7 59r7 73r10 77r10 77r47 78r10 81r10
+. 81r47 83r10 88r7 89r20 91r10 96r13 99r10 100r23 103r10 106r13 111r7 112r20
+. 116r10 120r7 121r20 164r10 168r10 174r10 178r7 179r20 211r16 215r13 218r10
+. 21|35e8
+X 22 lib-cmdline.ads
+17K13*Cmdline 20|22w10 77r14 77r51 81r14 81r51 88r11 89r24 99r14 100r27 111r11
+. 112r24 120r11 121r24 178r11 179r24 22|54e16
+23a4*Root_Key{string} 20|100r35
+24a4*Root_UUID_Key{string} 20|89r32
+25a4*Init_Key{string} 20|112r32 179r32
+26a4*Init_Arg_Key{string} 20|121r32
+27a4*No_Program_ASLR{string} 20|77r59
+28a4*No_Location_ASLR{string} 20|81r59
+34U14*Get_Key_Value 20|88s19 99s22 111s19 120s19 178s19
+45V13*Is_Key_Present{boolean} 20|77s22 81s22
+X 23 lib-messages.ads
+21K13*Messages 20|23w10 54r11 58r11 59r11 78r14 83r14 91r14 96r17 103r14
+. 106r17 164r14 168r14 23|103e17
+31U14*Enable_Logging 20|54s20
+41U14*Put_Line 20|58s20 59s20 78s23 83s23 91s23 96s26 103s23 106s26 164s23
+. 168s23
+X 24 lib-panic.ads
+21K13*Panic 20|24w10 73r14 116r14 174r14 211r20 215r17 218r14 24|39e14
+32U14*Hard_Panic 20|73s20 116s20 174s20 211s26 215s23 218s20
+X 25 lib-runtime.ads
+23K13*Runtime 20|30w10 31r26 25|45e16
+X 28 networking.ads
+20K9*Networking 20|29r6 64r7 28|55e15
+X 29 networking-arp.ads
+17K20*ARP 20|29w17 64r18 29|86e19
+25U14*Initialize 20|64s22
+X 30 scheduler.ads
+25K9*Scheduler 20|28w6 72r14 222r7 30|183e14
+33V13*Init{boolean} 20|72s24
+37U14*Idle_Core 20|222s17
+X 34 userland.ads
+17K9*Userland 20|25r6 26r6 26r28 27w6 36r21 37r21 38r21 63r7 79r10 84r10
+. 137r34 167r27 193r25 197r16 209r16 34|23e13
+19P9*String_Acc(string) 20|36r30
+20A9*Argument_Arr(19P9)<integer> 20|137r43 167r36
+21A9*Environment_Arr(19P9)<integer> 20|38r30
+22P9*Argument_Arr_Acc(20A9) 20|37r30
+X 36 userland-loader.ads
+20K18*Loader 20|25w15 79r19 193r34 36|65e20
+23U14*Disable_ASLR 20|79s26
+29V13*Start_Program{38|33I9} 20|193s41
+X 38 userland-process.ads
+28K18*Process 20|26w15 26r37 63r16 84r19 197r25 209r25 38|677e21
+33I9*PID<integer> 20|45r21
+34i4*Error_PID{33I9} 20|196r28
+146U14*Init 20|63s24
+149U14*Disable_ASLR 20|84s27
+418U14*Set_CWD 20|209s33
+443U14*Set_Identifier 20|197s33
+X 39 vfs.ads
+24K9*VFS 20|21w6 21r15 43r21 44r21 46r21 66r7 104r10 172r7 172r35 192r23
+. 39|674e8
+28M9*File_Inode_Number<13|19M9> 20|44r25
+73n23*FS_DEV{73E9} 20|172r39
+74I9*FS_Handle<integer> 20|43r25
+79U14*Init 20|66s11
+87U14*Mount 20|104s14
+104U14*Mount 20|172s11
+234E9*FS_Status 20|46r25 39|242e16
+235n8*FS_Success{234E9} 20|192r27
+359U14*Close 20|213s13
+593U14*Open 20|183s10 200s16
+594a8 Path{string} 20|184r14 201r20
+595i8 Key{74I9} 20|185r14 202r20
+596m8 Ino{28M9} 20|186r14 203r20
+597e8 Success{234E9} 20|187r14 204r20
+598m8 User{13|18M9} 20|188r14 205r20
+599b8 Want_Read{boolean} 20|189r14 206r20
+600b8 Want_Write{boolean} 20|190r14 207r20
+

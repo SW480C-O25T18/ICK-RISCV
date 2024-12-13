@@ -1,0 +1,1011 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.process%b	userland-process.adb	1a6079da NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W arch%s		arch.ads		arch.ali
+W arch.local%s		arch-local.adb		arch-local.ali
+W cryptography%s	cryptography.ads	cryptography.ali
+W cryptography.random%s	cryptography-random.adb	cryptography-random.ali
+W ipc%s			ipc.ads			ipc.ali
+W ipc.filelock%s	ipc-filelock.adb	ipc-filelock.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.time%s		lib-time.adb		lib-time.ali
+W system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W userland%s		userland.ads		userland.ali
+W userland.memory_locations%s  userland-memory_locations.ads  userland-memory_locations.ali
+
+U userland.process%s	userland-process.ads	bc162be0 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+W ipc.fifo%s		ipc-fifo.adb		ipc-fifo.ali
+W ipc.pty%s		ipc-pty.adb		ipc-pty.ali
+W ipc.socket%s		ipc-socket.adb		ipc-socket.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W userland%s		userland.ads		userland.ali
+W userland.mac%s	userland-mac.adb	userland-mac.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-uncdea.ads		20241115151050 f341340f ada.unchecked_deallocation%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-local.ads	20241115151036 e5953d14 arch.local%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D cryptography.ads	20241115151036 8132c7fc cryptography%s
+D cryptography-random.ads  20241115151036 ff611fa6 cryptography.random%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-filelock.ads	20241115151036 69934e3c ipc.filelock%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D lib-time.ads		20241115151036 30059be5 lib.time%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-memory_locations.ads  20241115151036 d86e3770 userland.memory_locations%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D userland-process.adb	20241115151036 fccee4aa userland.process%b
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init userland__process 146 14 none]
+G c Z s b [disable_aslr userland__process 149 14 none]
+G c Z s b [get_children userland__process 156 14 none]
+G c Z s b [list_all userland__process 176 14 none]
+G c Z s b [create_process userland__process 181 14 none]
+G c Z s b [delete_process userland__process 185 14 none]
+G c Z s b [get_runtime_times userland__process 188 14 none]
+G c Z s b [get_children_runtimes userland__process 194 14 none]
+G c Z s b [add_thread userland__process 203 14 none]
+G c Z s b [get_thread_count userland__process 212 13 none]
+G c Z s b [remove_thread userland__process 218 14 none]
+G c Z s b [flush_threads userland__process 223 14 none]
+G c Z s b [reassign_process_addresses userland__process 228 14 none]
+G c Z s b [get_niceness userland__process 232 13 none]
+G c Z s b [set_niceness userland__process 236 14 none]
+G c Z s b [is_valid_file userland__process 243 13 none]
+G c Z s b [add_file userland__process 252 14 none]
+G c Z s b [get_file_count userland__process 263 13 none]
+G c Z s b [duplicate userland__process 269 14 none]
+G c Z s b [duplicate_fd_table userland__process 277 14 none]
+G c Z s b [close userland__process 288 14 none]
+G c Z s b [get_file userland__process 294 13 none]
+G c Z s b [get_fd_flags userland__process 303 14 none]
+G c Z s b [set_fd_flags userland__process 314 14 none]
+G c Z s b [remove_file userland__process 324 14 none]
+G c Z s b [flush_files userland__process 329 14 none]
+G c Z s b [flush_exec_files userland__process 333 14 none]
+G c Z s b [set_common_map userland__process 338 14 none]
+G c Z s b [get_common_map userland__process 344 13 none]
+G c Z s b [get_stack_base userland__process 350 13 none]
+G c Z s b [set_stack_base userland__process 356 14 none]
+G c Z s b [bump_alloc_base userland__process 363 13 none]
+G c Z s b [get_traced_info userland__process 370 14 none]
+G c Z s b [set_traced_info userland__process 380 14 none]
+G c Z s b [issue_exit userland__process 390 14 none]
+G c Z s b [issue_exit userland__process 397 14 none]
+G c Z s b [check_exit userland__process 406 14 none]
+G c Z s b [set_cwd userland__process 418 14 none]
+G c Z s b [get_cwd userland__process 428 14 none]
+G c Z s b [get_parent userland__process 437 13 none]
+G c Z s b [set_identifier userland__process 443 14 none]
+G c Z s b [get_identifier userland__process 450 14 none]
+G c Z s b [get_uid userland__process 459 14 none]
+G c Z s b [set_uid userland__process 464 14 none]
+G c Z s b [get_effective_uid userland__process 469 14 none]
+G c Z s b [set_effective_uid userland__process 474 14 none]
+G c Z s b [get_gid userland__process 479 14 none]
+G c Z s b [set_gid userland__process 484 14 none]
+G c Z s b [get_effective_gid userland__process 489 14 none]
+G c Z s b [set_effective_gid userland__process 494 14 none]
+G c Z s b [get_supplementary_groups userland__process 499 14 none]
+G c Z s b [set_supplementary_groups userland__process 504 14 none]
+G c Z s b [empty_supplementary_groups userland__process 509 14 none]
+G c Z s b [get_umask userland__process 514 14 none]
+G c Z s b [set_umask userland__process 519 14 none]
+G c Z s b [get_masked_signals userland__process 525 14 none]
+G c Z s b [set_masked_signals userland__process 531 14 none]
+G c Z s b [raise_signal userland__process 536 14 none]
+G c Z s b [get_signal_handler userland__process 542 14 none]
+G c Z s b [set_signal_handler userland__process 551 14 none]
+G c Z s b [get_raised_signal_actions userland__process 562 14 none]
+G c Z s b [convert userland__process 573 13 none]
+G c Z s b [convert userland__process 579 13 none]
+G c Z s b [get_enforcement userland__process 586 13 none]
+G c Z s b [set_enforcement userland__process 587 14 none]
+G c Z s b [get_capabilities userland__process 589 13 none]
+G c Z s b [set_capabilities userland__process 590 14 none]
+G c Z s b [check_permissions userland__process 592 13 none]
+G c Z s b [add_entity userland__process 597 14 none]
+G c Z s b [get_limit userland__process 604 13 none]
+G c Z s b [set_limit userland__process 608 14 none]
+G c Z s s [file_descriptionIP userland__process 58 9 none]
+G c Z s s [Tsignal_bitmapBIP userland__process 143 4 none]
+G c Z s s [children_arrIP userland__process 155 9 none]
+G c Z s s [process_infoIP userland__process 162 9 none]
+G c Z s s [process_info_arrIP userland__process 171 9 none]
+G c Z s s [supplementary_gid_arrIP userland__process 497 9 none]
+G c Z s s [file_descriptorIP userland__process 627 9 none]
+G c Z s s [Tthread_arrBIP userland__process 633 4 none]
+G c Z s s [Tfile_arrBIP userland__process 634 4 none]
+G c Z s s [Thandle_arrBIP userland__process 635 4 none]
+G c Z s s [process_dataIP userland__process 636 9 none]
+G c Z s s [Tprocess_arrBIP userland__process 672 4 none]
+G c Z b b [free userland__process 27 14 none]
+G r c none [init userland__process 146 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_children userland__process 156 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_children userland__process 156 14 none] [release lib__synchronization 31 14 none]
+G r c none [list_all userland__process 176 14 none] [seize lib__synchronization 27 14 none]
+G r c none [list_all userland__process 176 14 none] [release lib__synchronization 31 14 none]
+G r c none [create_process userland__process 181 14 none] [seize lib__synchronization 27 14 none]
+G r c none [create_process userland__process 181 14 none] [release lib__synchronization 31 14 none]
+G r i none [create_process userland__process 181 14 none] [alignment lib 19 13 none]
+G r c none [create_process userland__process 181 14 none] [get_integer cryptography__random 32 14 none]
+G r c none [delete_process userland__process 185 14 none] [seize lib__synchronization 27 14 none]
+G r c none [delete_process userland__process 185 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_runtime_times userland__process 188 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_runtime_times userland__process 188 14 none] [get_runtime_times scheduler 80 14 none]
+G r c none [get_runtime_times userland__process 188 14 none] [normalize lib__time 27 14 none]
+G r c none [get_runtime_times userland__process 188 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_children_runtimes userland__process 194 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_children_runtimes userland__process 194 14 none] [release lib__synchronization 31 14 none]
+G r c none [add_thread userland__process 203 14 none] [seize lib__synchronization 27 14 none]
+G r c none [add_thread userland__process 203 14 none] [set_niceness scheduler 116 14 none]
+G r c none [add_thread userland__process 203 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_thread_count userland__process 212 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_thread_count userland__process 212 13 none] [release lib__synchronization 31 14 none]
+G r c none [remove_thread userland__process 218 14 none] [seize lib__synchronization 27 14 none]
+G r c none [remove_thread userland__process 218 14 none] [get_runtime_times scheduler 80 14 none]
+G r c none [remove_thread userland__process 218 14 none] [increment lib__time 37 14 none]
+G r c none [remove_thread userland__process 218 14 none] [release lib__synchronization 31 14 none]
+G r c none [flush_threads userland__process 223 14 none] [get_current_thread arch__local 36 13 none]
+G r c none [flush_threads userland__process 223 14 none] [seize lib__synchronization 27 14 none]
+G r c none [flush_threads userland__process 223 14 none] [get_runtime_times scheduler 80 14 none]
+G r c none [flush_threads userland__process 223 14 none] [increment lib__time 37 14 none]
+G r c none [flush_threads userland__process 223 14 none] [delete_thread scheduler 70 14 none]
+G r c none [flush_threads userland__process 223 14 none] [release lib__synchronization 31 14 none]
+G r i none [reassign_process_addresses userland__process 228 14 none] [alignment lib 19 13 none]
+G r c none [reassign_process_addresses userland__process 228 14 none] [get_integer cryptography__random 32 14 none]
+G r c none [reassign_process_addresses userland__process 228 14 none] [seize lib__synchronization 27 14 none]
+G r c none [reassign_process_addresses userland__process 228 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_niceness userland__process 232 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_niceness userland__process 232 13 none] [release lib__synchronization 31 14 none]
+G r c none [set_niceness userland__process 236 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_niceness userland__process 236 14 none] [set_niceness scheduler 116 14 none]
+G r c none [set_niceness userland__process 236 14 none] [release lib__synchronization 31 14 none]
+G r c none [is_valid_file userland__process 243 13 none] [seize lib__synchronization 27 14 none]
+G r c none [is_valid_file userland__process 243 13 none] [release lib__synchronization 31 14 none]
+G r c none [add_file userland__process 252 14 none] [seize lib__synchronization 27 14 none]
+G r c none [add_file userland__process 252 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_file_count userland__process 263 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_file_count userland__process 263 13 none] [release lib__synchronization 31 14 none]
+G r c none [duplicate_fd_table userland__process 277 14 none] [seize lib__synchronization 27 14 none]
+G r c none [duplicate_fd_table userland__process 277 14 none] [release lib__synchronization 31 14 none]
+G r c none [close userland__process 288 14 none] [close_reader ipc__fifo 82 14 none]
+G r c none [close userland__process 288 14 none] [close_writer ipc__fifo 84 14 none]
+G r c none [close userland__process 288 14 none] [close ipc__pty 47 14 none]
+G r c none [close userland__process 288 14 none] [release_lock ipc__filelock 80 14 none]
+G r c none [close userland__process 288 14 none] [put_line lib__messages 41 14 none]
+G r c none [close userland__process 288 14 none] [close vfs 359 14 none]
+G r c none [close userland__process 288 14 none] [close ipc__socket 75 14 none]
+G r c none [get_file userland__process 294 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_file userland__process 294 13 none] [release lib__synchronization 31 14 none]
+G r c none [get_fd_flags userland__process 303 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_fd_flags userland__process 303 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_fd_flags userland__process 314 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_fd_flags userland__process 314 14 none] [release lib__synchronization 31 14 none]
+G r c none [remove_file userland__process 324 14 none] [seize lib__synchronization 27 14 none]
+G r c none [remove_file userland__process 324 14 none] [close_reader ipc__fifo 82 14 none]
+G r c none [remove_file userland__process 324 14 none] [close_writer ipc__fifo 84 14 none]
+G r c none [remove_file userland__process 324 14 none] [close ipc__pty 47 14 none]
+G r c none [remove_file userland__process 324 14 none] [release_lock ipc__filelock 80 14 none]
+G r c none [remove_file userland__process 324 14 none] [put_line lib__messages 41 14 none]
+G r c none [remove_file userland__process 324 14 none] [close vfs 359 14 none]
+G r c none [remove_file userland__process 324 14 none] [close ipc__socket 75 14 none]
+G r c none [remove_file userland__process 324 14 none] [release lib__synchronization 31 14 none]
+G r c none [flush_files userland__process 329 14 none] [seize lib__synchronization 27 14 none]
+G r c none [flush_files userland__process 329 14 none] [close_reader ipc__fifo 82 14 none]
+G r c none [flush_files userland__process 329 14 none] [close_writer ipc__fifo 84 14 none]
+G r c none [flush_files userland__process 329 14 none] [close ipc__pty 47 14 none]
+G r c none [flush_files userland__process 329 14 none] [release_lock ipc__filelock 80 14 none]
+G r c none [flush_files userland__process 329 14 none] [put_line lib__messages 41 14 none]
+G r c none [flush_files userland__process 329 14 none] [close vfs 359 14 none]
+G r c none [flush_files userland__process 329 14 none] [close ipc__socket 75 14 none]
+G r c none [flush_files userland__process 329 14 none] [release lib__synchronization 31 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [seize lib__synchronization 27 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [close_reader ipc__fifo 82 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [close_writer ipc__fifo 84 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [close ipc__pty 47 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [release_lock ipc__filelock 80 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [put_line lib__messages 41 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [close vfs 359 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [close ipc__socket 75 14 none]
+G r c none [flush_exec_files userland__process 333 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_common_map userland__process 338 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_common_map userland__process 338 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_common_map userland__process 344 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_common_map userland__process 344 13 none] [release lib__synchronization 31 14 none]
+G r c none [get_stack_base userland__process 350 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_stack_base userland__process 350 13 none] [release lib__synchronization 31 14 none]
+G r c none [set_stack_base userland__process 356 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_stack_base userland__process 356 14 none] [release lib__synchronization 31 14 none]
+G r c none [bump_alloc_base userland__process 363 13 none] [seize lib__synchronization 27 14 none]
+G r c none [bump_alloc_base userland__process 363 13 none] [release lib__synchronization 31 14 none]
+G r c none [get_traced_info userland__process 370 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_traced_info userland__process 370 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_traced_info userland__process 380 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_traced_info userland__process 380 14 none] [release lib__synchronization 31 14 none]
+G r c none [issue_exit userland__process 390 14 none] [seize lib__synchronization 27 14 none]
+G r c none [issue_exit userland__process 390 14 none] [release lib__synchronization 31 14 none]
+G r c none [issue_exit userland__process 397 14 none] [seize lib__synchronization 27 14 none]
+G r c none [issue_exit userland__process 397 14 none] [release lib__synchronization 31 14 none]
+G r c none [check_exit userland__process 406 14 none] [seize lib__synchronization 27 14 none]
+G r c none [check_exit userland__process 406 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_cwd userland__process 418 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_cwd userland__process 418 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_cwd userland__process 428 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_cwd userland__process 428 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_parent userland__process 437 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_parent userland__process 437 13 none] [release lib__synchronization 31 14 none]
+G r c none [set_identifier userland__process 443 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_identifier userland__process 443 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_identifier userland__process 450 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_identifier userland__process 450 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_uid userland__process 459 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_uid userland__process 459 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_uid userland__process 464 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_uid userland__process 464 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_effective_uid userland__process 469 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_effective_uid userland__process 469 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_effective_uid userland__process 474 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_effective_uid userland__process 474 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_gid userland__process 479 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_gid userland__process 479 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_gid userland__process 484 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_gid userland__process 484 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_effective_gid userland__process 489 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_effective_gid userland__process 489 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_effective_gid userland__process 494 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_effective_gid userland__process 494 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_supplementary_groups userland__process 499 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_supplementary_groups userland__process 499 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_supplementary_groups userland__process 504 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_supplementary_groups userland__process 504 14 none] [release lib__synchronization 31 14 none]
+G r c none [empty_supplementary_groups userland__process 509 14 none] [seize lib__synchronization 27 14 none]
+G r c none [empty_supplementary_groups userland__process 509 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_umask userland__process 514 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_umask userland__process 514 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_umask userland__process 519 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_umask userland__process 519 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_masked_signals userland__process 525 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_masked_signals userland__process 525 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_masked_signals userland__process 531 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_masked_signals userland__process 531 14 none] [release lib__synchronization 31 14 none]
+G r c none [raise_signal userland__process 536 14 none] [seize lib__synchronization 27 14 none]
+G r c none [raise_signal userland__process 536 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_signal_handler userland__process 542 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_signal_handler userland__process 542 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_signal_handler userland__process 551 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_signal_handler userland__process 551 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_raised_signal_actions userland__process 562 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_raised_signal_actions userland__process 562 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_enforcement userland__process 586 13 none] [get_enforcement userland__mac 74 13 none]
+G r c none [set_enforcement userland__process 587 14 none] [set_enforcement userland__mac 79 14 none]
+G r c none [get_capabilities userland__process 589 13 none] [get_capabilities userland__mac 84 13 none]
+G r c none [set_capabilities userland__process 590 14 none] [set_capabilities userland__mac 89 14 none]
+G r c none [check_permissions userland__process 592 13 none] [check_permissions userland__mac 98 13 none]
+G r c none [add_entity userland__process 597 14 none] [add_entity userland__mac 112 14 none]
+G r c none [get_limit userland__process 604 13 none] [get_limit userland__mac 124 13 none]
+G r c none [set_limit userland__process 608 14 none] [set_limit userland__mac 133 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 36|20r6 27r26 446r29
+X 2 a-uncdea.ads
+14u15*Unchecked_Deallocation 36|20w10 27r30 446r33
+X 3 arch.ads
+20K9*Arch 52e9 35|19r6 338r48 344r48 658r25 36|21r6 282r40 324r48 325r48
+. 561r48 568r48 569r16
+X 7 arch-local.ads
+21K14*Local 40e15 36|21w11 282r45
+36V13*Get_Current_Thread{27|27I9} 36|282s51
+X 8 arch-mmu.ads
+22K14*MMU 250e13 35|19w11 338r53 344r53 658r30 36|324r53 325r53 561r53 568r53
+. 569r21
+43P9*Page_Table_Acc(42R9) 35|338r57 344r57 658r34 36|561r57 568r57 569r25
+49N7*Page_Size 36|324r57 325r57
+X 9 cryptography.ads
+17K9*Cryptography 18e17 36|22r6 315r10 319r10
+X 10 cryptography-random.ads
+19K22*Random 40e24 36|22w19 315r23 319r23
+32U14*Get_Integer 36|315s30 319s30
+X 13 interfac.ads
+11K9*Interfaces 120e15 35|22w6 22r22
+16M9*Unsigned_8 35|390r48 409r25 665r25 36|617r48 638r25
+18M9*Unsigned_32 35|167r25 459r45 464r41 469r56 474r52 479r45 484r41 489r56
+. 494r52 497r62 643r25 644r25 645r25 646r25 36|733r45 740r41 747r56 754r52
+. 761r45 768r41 775r56 782r52
+19M9*Unsigned_64 35|74r33 190r49 191r49 196r49 197r49 243r48 296r18 305r24
+. 316r24 350r51 356r52 363r48 363r68 659r25 660r25 666r25 667r25 668r25 669r25
+. 36|181r49 182r49 184r36 211r49 212r49 256r36 283r24 311r41 312r30 358r48
+. 362r16 475r18 480r16 491r24 498r16 510r24 517r16 577r51 578r16 586r52 675r48
+. 675r68 677r16
+X 14 ipc.ads
+17K9*IPC 18e8 35|24r6 24r22 25r6 25r22 26r6 26r22 62r33 64r33 66r33 68r35
+. 78r28 36|24r6 458r19
+X 15 ipc-fifo.ads
+21K13*FIFO 156e13 35|24w10 24r26 62r37 64r37
+39P9*Inner_Acc(38R9) 35|62r42 64r42
+82U14*Close_Reader 36|452s45
+84U14*Close_Writer 36|453s45
+X 16 ipc-filelock.ads
+21K13*FileLock 111e17 36|24w10 458r23
+80U14*Release_Lock 36|458s32
+X 17 ipc-pty.ads
+21K13*PTY 203e12 35|25w10 25r26 66r37 68r39
+37P9*Inner_Acc(36R9) 35|66r41 68r43
+47U14*Close 36|454s45 455s47
+X 18 ipc-socket.ads
+21K13*Socket 573e15 35|26w10 26r26 78r32
+37P9*Socket_Acc(36R9) 35|78r39
+75U14*Close 36|464s40
+X 19 lib.ads
+19K9*Lib 35e8 35|20r6 637r33 675r29 36|17r6 18r6 19r6 35r7 52r7 63r7 80r7
+. 85r16 95r16 99r7 107r7 111r36 143r16 159r16 168r7 173r7 174r7 176r7 191r7
+. 203r7 204r7 206r7 215r7 220r7 229r7 239r7 245r7 251r7 258r7 266r16 270r16
+. 278r7 285r7 293r16 296r16 307r7 311r26 331r7 334r7 340r7 342r7 348r7 355r7
+. 361r7 367r7 379r7 391r7 397r7 403r7 429r7 430r7 441r7 442r7 460r22 479r7
+. 485r7 497r7 505r7 516r7 521r7 526r7 532r7 537r7 545r7 550r7 558r7 563r7
+. 565r7 571r7 573r7 580r7 582r7 588r7 590r7 599r7 602r7 611r7 614r7 619r7
+. 623r7 628r7 632r7 643r7 648r7 657r7 660r7 669r7 672r7 679r7 682r7 689r7
+. 691r7 704r7 708r7 726r7 730r7 735r7 737r7 742r7 744r7 749r7 751r7 756r7
+. 758r7 763r7 765r7 770r7 772r7 777r7 779r7 784r7 786r7 795r7 803r7 812r7
+. 820r7 825r7 827r7 832r7 834r7 839r7 841r7 846r7 848r7 853r7 861r7 866r7
+. 870r7 879r7 881r7 890r7 894r7 910r7 926r7
+X 20 lib-alignment.ads
+19k13*Alignment 43e18 36|18w10 311r30
+27V13 Align_Up{13|19M9} 36|324s27[311] 325s27[311]
+X 22 lib-messages.ads
+21K13*Messages 103e17 36|19w10 460r26
+41U14*Put_Line 36|460s35
+X 23 lib-synchronization.ads
+20K13*Synchronization 66e24 35|20w10 637r37 675r33 36|35r11 52r11 63r11 80r11
+. 85r20 95r20 99r11 107r11 111r40 143r20 159r20 168r11 173r11 174r11 176r11
+. 191r11 206r11 215r11 220r11 229r11 239r11 245r11 251r11 258r11 278r11 285r11
+. 307r11 331r11 334r11 340r11 342r11 348r11 355r11 361r11 367r11 379r11 391r11
+. 397r11 403r11 429r11 430r11 441r11 442r11 479r11 485r11 497r11 505r11 516r11
+. 521r11 526r11 532r11 537r11 545r11 550r11 558r11 563r11 565r11 571r11 573r11
+. 580r11 582r11 588r11 590r11 599r11 602r11 611r11 614r11 619r11 623r11 628r11
+. 632r11 643r11 648r11 657r11 660r11 669r11 672r11 679r11 682r11 689r11 691r11
+. 704r11 708r11 726r11 730r11 735r11 737r11 742r11 744r11 749r11 751r11 756r11
+. 758r11 763r11 765r11 770r11 772r11 777r11 779r11 784r11 786r11 795r11 803r11
+. 812r11 820r11 825r11 827r11 832r11 834r11 839r11 841r11 846r11 848r11 853r11
+. 861r11 866r11 870r11 879r11 881r11 890r11 894r11 910r11 926r11
+22R9*Binary_Semaphore 57e14 35|637r53 675r49
+23r4*Unlocked_Semaphore{22R9} 36|111r56
+27U14*Seize 36|52s27 80s27 85s36 107s27 143s36 173s27 174s27 191s27 215s27
+. 229s27 245s27 258s27 285s27 331s27 340s27 348s27 361s27 379s27 397s27 429s27
+. 430s27 479s27 497s27 516s27 526s27 537s27 550s27 563s27 571s27 580s27 588s27
+. 599s27 611s27 619s27 628s27 643s27 657s27 669s27 679s27 689s27 704s27 726s27
+. 735s27 742s27 749s27 756s27 763s27 770s27 777s27 784s27 795s27 812s27 825s27
+. 832s27 839s27 846s27 853s27 866s27 879s27 890s27 910s27
+31U14*Release 36|35s27 63s27 95s36 99s27 159s36 168s27 176s27 206s27 220s27
+. 239s27 251s27 278s27 307s27 334s27 342s27 355s27 367s27 391s27 403s27 441s27
+. 442s27 485s27 505s27 521s27 532s27 545s27 558s27 565s27 573s27 582s27 590s27
+. 602s27 614s27 623s27 632s27 648s27 660s27 672s27 682s27 691s27 708s27 730s27
+. 737s27 744s27 751s27 758s27 765s27 772s27 779s27 786s27 803s27 820s27 827s27
+. 834s27 841s27 848s27 861s27 870s27 881s27 894s27 926s27
+X 24 lib-time.ads
+19K13*Time 77e13 36|17w10 203r11 204r11 266r20 270r20 293r20 296r20
+27U14*Normalize 36|203s16 204s16
+37U14*Increment 36|266s25 270s25 293s25 296s25
+X 27 scheduler.ads
+25K9*Scheduler 183e14 35|21w6 21r21 205r18 218r50 232r49 236r50 633r58 641r25
+. 36|115r36 195r13 225r18 234r13 255r50 262r13 291r16 302r16 337r49 338r16
+. 346r50 352r13
+27I9*TID<integer> 35|205r28 218r60 633r68 36|225r28 255r60 282r33
+29i4*Error_TID{27I9} 36|130r47 194r19 232r47 247r51 261r48 287r23 305r20
+. 351r23
+70U14*Delete_Thread 36|302s26
+80U14*Get_Runtime_Times 36|195s23 262s23 291s26
+112I12*Niceness{integer} 35|232r59 236r60 641r35 36|337r59 338r26 346r60
+113i4*Default_Niceness{112I12} 36|115r46
+116U14*Set_Niceness 36|234s23 352s23
+X 28 system.ads
+11K9*System 73e11 35|17w6 545r19 554r15 565r21 635r58 36|114r47 876r19 887r15
+. 900r21 906r17
+25M9*Address 35|545r26 554r22 565r28 635r65 36|876r26 887r22 900r28
+26m4*Null_Address{25M9} 36|114r54 906r24
+X 31 userland.ads
+17K9*Userland 23e13 35|23r6 28r9 677r5 36|23r6 26r14 1002r5
+X 33 userland-mac.ads
+20K18*MAC 180e17 35|23w15 586r49 587r49 589r50 590r51 595r45 601r17 602r21
+. 606r19 606r42 610r20 611r20 661r25 36|135r36 945r49 947r14 950r49 952r7
+. 955r50 957r14 960r51 962r7 968r45 971r14 978r17 979r21 982r7 987r19 987r42
+. 990r14 995r20 996r20 1000r7
+23R9*Capabilities 39e14 35|589r54 590r55 36|955r54 960r55
+42R9*Permissions 49e14 35|595r49 601r21 36|968r49 978r21
+52E9*Enforcement 55e13 35|586r53 587r53 36|945r53 950r53
+58M9*Limit_Value<13|19M9> 35|606r46 611r24 36|987r46 996r24
+59E9*Limit_Type 65e26 35|606r23 610r24 36|987r23 995r24
+68R9*Context 157e14 35|661r29
+69r4*Default_Context{68R9} 36|135r40
+74V13*Get_Enforcement{52E9} 36|947s18
+79U14*Set_Enforcement 36|952s11
+84V13*Get_Capabilities{23R9} 36|957s18
+89U14*Set_Capabilities 36|962s11
+98V13*Check_Permissions{42R9} 36|971s18
+104E9*Addition_Status 104e63 35|602r25 36|979r25
+112U14*Add_Entity 36|982s11
+124V13*Get_Limit{58M9} 36|990s18
+133U14*Set_Limit 36|1000s11
+X 34 userland-memory_locations.ads
+17K18*Memory_Locations 30e30 36|23w15 316r14 317r14 320r14 321r14 327r23
+. 328r23
+26N4*Mmap_Anon_Min 36|316r31 327r40
+27N4*Mmap_Anon_Max 36|317r31
+28N4*Stack_Jump_Min 36|320r31 328r40
+29N4*Stack_Jump_Max 36|321r31
+X 35 userland-process.ads
+28K18*Process 31|17k9 35|616E9 677l14 677e21 36|26b23 1002l14 1002t21
+33I9*PID<integer> 34r33 155r53 157r15 165r25 166r25 181r39 181r59 185r40
+. 189r15 195r15 204r18 212r41 218r36 223r36 228r52 232r37 236r38 243r38 253r18
+. 263r39 278r18 279r18 295r18 304r24 315r24 324r37 329r37 333r42 338r37 344r36
+. 350r39 356r40 363r34 371r20 381r20 390r36 397r36 407r21 419r15 429r15 437r32
+. 437r44 443r37 451r15 459r30 464r30 469r40 474r40 479r30 484r30 489r40 494r40
+. 500r17 505r18 509r49 514r32 519r32 525r41 531r41 536r35 543r15 552r15 563r17
+. 573r29 579r45 586r37 587r38 589r38 590r39 593r15 598r17 605r19 609r20 616c9
+. 617r33 651r25 672r35 672r50 36|44r15 102r39 102r59 103r11 161r44 164r25
+. 171r40 180r15 210r15 224r18 242r41 255r36 281r36 310r52 337r37 346r38 358r38
+. 372r18 394r39 422r18 423r18 474r18 490r24 509r24 524r37 535r37 548r42 561r37
+. 568r36 577r39 586r40 594r20 606r20 617r36 626r36 636r21 652r15 664r15 675r34
+. 686r32 686r44 687r16 695r37 712r15 733r30 740r30 747r40 754r40 761r30 768r30
+. 775r40 782r40 790r17 807r18 823r49 830r32 837r32 844r41 851r41 864r35 874r15
+. 885r15 898r17 929r29 934r45 937r20 939r17 945r37 950r38 955r38 960r39 966r15
+. 975r17 986r19 994r20
+34i4*Error_PID{33I9} 185r68 207r27 213r30 219r27 223r61 229r30 233r30 237r30
+. 244r30 258r30 264r30 281r31 282r30 297r30 308r30 319r30 325r30 329r65 333r70
+. 339r27 345r27 351r30 357r30 364r24 374r30 384r30 391r30 398r30 412r30 422r27
+. 432r27 438r27 444r27 454r27 573r69 617c4 36|50r25 73r33 105r19 142r26 263r42
+. 288r42 941r17
+35i4*Max_Process_Count{natural} 618c4 36|936r37
+39i4*Max_CWD_Length{natural} 620c4
+40i4*Max_Name_Length{natural} 621c4 649r38 650r44 36|698r24 699r20
+41i4*Max_Thread_Count{natural} 622c4 633r35
+42i4*Max_File_Count{natural} 280r29 284r29 623c4 634r35 653r44 36|424r29
+46m4*Default_Umask{37|32M12} 625c4 36|116r36
+49E9*File_Description_Type 55e27 58r41
+50n8*Description_Reader_FIFO{49E9} 61r15 36|452r18
+51n8*Description_Writer_FIFO{49E9} 63r15 36|453r18
+52n8*Description_Primary_PTY{49E9} 65r15 36|454r18
+53n8*Description_Secondary_PTY{49E9} 67r15 36|455r18
+54n8*Description_Inode{49E9} 69r15 36|456r18
+55n8*Description_Socket{49E9} 77r15 36|464r18
+56R9*File_Description 57r40 58c9 58d27 80e14 36|447r11
+57P9*File_Description_Acc(56R9) 254r18 270r17 271r21 288r32 296r38 630r23
+. 36|373r18 408r17 409r21 445r32 447r29 475r38 477r13
+58e27*Description{49E9} 60r12 36|451r17
+59i7*Children_Count{natural} 36|413r12 414m12 414r32 450r12 468m12 468r32
+62p13*Inner_Reader_FIFO{15|39P9} 36|452m61
+64p13*Inner_Writer_FIFO{15|39P9} 36|453m61
+66p13*Inner_Primary_PTY{17|37P9} 36|454m54
+68p13*Inner_Secondary_PTY{17|37P9} 36|455m56
+70b13*Inner_Is_Locked{boolean} 36|457r21
+71b13*Inner_Is_Blocking{boolean}
+72b13*Inner_Ino_Read{boolean}
+73b13*Inner_Ino_Write{boolean}
+74m13*Inner_Ino_Pos{13|19M9}
+75i13*Inner_Ino_FS{37|74I9} 36|458r48 463r29
+76m13*Inner_Ino{37|28M9} 36|458r64 463r45
+78p13*Inner_Socket{18|37P9} 36|464m49
+82E9*Signal 110e34 114r8 143r33 397r47 411r25 536r46 544r15 553r15 564r21
+. 635r30 663r25 36|626r47 640r25 864r46 875r15 886r15 899r21
+83n8*Signal_Abort{82E9} 115r8
+84n8*Signal_Alarm{82E9} 116r8
+85n8*Signal_Bad_Memory{82E9} 117r8
+86n8*Signal_Child{82E9} 118r8 36|920r29
+87n8*Signal_Continue{82E9} 119r8
+88n8*Signal_FP_Exception{82E9} 120r8 36|905r17
+89n8*Signal_Hang_Up{82E9} 121r8
+90n8*Signal_Illegal_Instruction{82E9} 122r8
+91n8*Signal_Interrupted{82E9} 123r8
+92n8*Signal_Kill{82E9} 124r8 36|137r36 857r39 891r17
+93n8*Signal_Broken_Pipe{82E9} 125r8
+94n8*Signal_Quit{82E9} 126r8
+95n8*Signal_Segmentation_Fault{82E9} 127r8
+96n8*Signal_Stop{82E9} 128r8 36|858r39
+97n8*Signal_Terminated{82E9} 129r8
+98n8*Signal_Terminal_Stop{82E9} 130r8
+99n8*Signal_Terminal_In{82E9} 131r8
+100n8*Signal_Terminal_Out{82E9} 132r8
+101n8*Signal_User_1{82E9} 133r8
+102n8*Signal_User_2{82E9} 134r8
+103n8*Signal_Pollable{82E9} 135r8
+104n8*Signal_Profiling_Timer{82E9} 136r8
+105n8*Signal_Bad_Syscall{82E9} 137r8
+106n8*Signal_Tracepoint{82E9} 138r8 36|859r39
+107n8*Signal_Urgent{82E9} 139r8 36|920r51
+108n8*Signal_Virtual_Timer{82E9} 140r8
+109n8*Signal_CPU_Exceeded{82E9} 141r8
+110n8*Signal_File_Size_Exceeded{82E9} 142r8
+143A9*Signal_Bitmap(boolean)<82E9> 525r56 531r52 638r25 639r25 36|844r56
+. 851r52
+146U14*Init 36|32b14 36l8 36t12
+149U14*Disable_ASLR 36|38b14 41l8 41t20
+155A9*Children_Arr(33I9)<integer> 158r19 36|45r19
+156U14*Get_Children 157>8 158<8 159<8 36|43b14 64l8 64t20
+157i8 Proc{33I9} 36|44b8 54r65
+158a8 Buf{155A9} 36|45b8 50m7 57r24 58m16 58r21
+159i8 Len{natural} 36|46b8 51m7 56m13 56r20
+162R9*Process_Info 170e14 171r57
+163a7*Identifier{string} 36|71m14 87m20
+164i7*Identifier_Len{natural} 36|72m14 88m20
+165i7*Process{33I9} 36|73m14 89m20
+166i7*Parent{33I9} 36|74m14 90m20
+167m7*User{13|18M9} 36|75m14 91m20
+168b7*Is_Being_Traced{boolean} 36|76m14 92m20
+169b7*Has_Exited{boolean} 36|77m14 93m20
+171A9*Process_Info_Arr(162R9)<integer> 176r35 36|66r35
+176U14*List_All 176<24 176<53 36|66b14 100l8 100t16
+176a24 List{171A9} 36|66b24 69m7 84r29 86m16 86r22
+176i53 Total{natural} 36|66b53 78m7 83m13 83r22
+181U14*Create_Process 181>30 181<44 36|102b14 169l8 169t22
+181i30 Parent{33I9} 36|102b30 103r23 142r16 146r48
+181i44 Returned{33I9} 36|102b44 105m7 164m13
+185U14*Delete_Process 185>30 36|171b14 177l8 177t22
+185i30 Process{33I9} 185r57 36|171b30 173r44 175r23
+188U14*Get_Runtime_Times 189>8 190<8 190<24 191<8 191<22 36|179b14 207l8
+. 207t25
+189i8 Proc{33I9} 36|180b8 191r44 193r27 206r46
+190m8 System_Seconds{13|19M9} 36|181b8 186m7 196m13 196r31 203m27
+190m24 System_Nanoseconds{13|19M9} 36|181b24 187m7 197m13 197r35 203m43
+191m8 User_Seconds{13|19M9} 36|182b8 188m7 198m13 198r29 204m27
+191m22 User_Nanoseconds{13|19M9} 36|182b22 189m7 199m13 199r33 204m41
+194U14*Get_Children_Runtimes 195>8 196<8 196<24 197<8 197<22 36|209b14 221l8
+. 221t29
+195i8 Proc{33I9} 36|210b8 215r44 216r35 217r39 218r33 219r37 220r46
+196m8 System_Seconds{13|19M9} 36|211b8 216m7
+196m24 System_Nanoseconds{13|19M9} 36|211b24 217m7
+197m8 User_Seconds{13|19M9} 36|212b8 218m7
+197m22 User_Nanoseconds{13|19M9} 36|212b22 219m7
+203U14*Add_Thread 204>8 205>8 206<8 36|223b14 240l8 240t18
+204i8 Proc{33I9} 207r19 36|224b8 229r44 231r26 232r23 233r23 234r55 239r46
+205i8 Thread{27|27I9} 36|225b8 233r48 234r37
+206b8 Success{boolean} 36|226b8 230m7 235m13
+212V13*Get_Thread_Count{natural} 212>31 36|242b13 253l8 253t24
+212i31 Process{33I9} 213r19 36|242b31 245r44 246r26 247r23 251r46
+218U14*Remove_Thread 218>29 218>41 36|255b14 279l8 279t21
+218i29 Proc{33I9} 219r19 36|255b29 258r44 259r26 260r23 261r23 263r26 264r36
+. 267r40 268r40 271r40 272r40 278r46
+218i41 Thread{27|27I9} 36|255b41 260r47 262r42
+223U14*Flush_Threads 223>29 36|281b14 308l8 308t21
+223i29 Proc{33I9} 223r53 36|281b29 285r44 286r31 288r26 289r36 294r40 295r40
+. 297r40 298r40 307r46
+228U14*Reassign_Process_Addresses 228>42 36|161s16 310b14 335l8 335t34
+228i42 Process{33I9} 229r19 36|310b42 331r44 332r17 333r17 334r46
+232V13*Get_Niceness{27|112I12} 232>27 36|337b13 344l8 344t20
+232i27 Process{33I9} 233r19 36|337b27 340r44 341r27 342r46
+236U14*Set_Niceness 236>28 236>43 36|346b14 356l8 356t20
+236i28 Process{33I9} 237r19 36|346b28 348r44 349r17 350r31 355r46
+236i43 Nice{27|112I12} 36|346b43 349r38 352r45
+243V13*Is_Valid_File{boolean} 243>28 243>43 36|358b13 369l8 369t21
+243i28 Process{33I9} 244r19 36|358b28 361r44 363r25 367r46
+243m43 FD{13|19M9} 36|358b43 362r10 363r55
+252U14*Add_File 253>8 254>8 255<8 256<8 257>8 36|371b14 392l8 392t16
+253i8 Process{33I9} 258r19 36|372b8 379r44 380r35 381r23 382r23 391r46
+254p8 File{57P9} 36|373b8 382r62
+255i8 FD{natural} 36|374b8 383m13 388m7
+256b8 Success{boolean} 36|375b8 384m13 389m7
+257i8 Start{natural} 36|376b8 380r16
+263V13*Get_File_Count{natural} 263>29 36|394b13 405l8 405t22
+263i29 Process{33I9} 264r19 36|394b29 397r44 398r28 403r46
+269U14*Duplicate 270>8 271<8 36|407b14 419l8 419t17 436s16
+270p8 F{57P9} 36|408b8 413r10 414r10 414r30 415r20
+271p8 Result{57P9} 36|409b8 415m10 417m10
+277U14*Duplicate_FD_Table 278>8 279>8 280>8 36|421b14 443l8 443t26
+278i8 Process{33I9} 281r20 36|422b8 426r40 429r44 442r46
+279i8 Target{33I9} 282r20 36|423b8 427r40 430r44 441r46
+280i8 Max_FD{natural} 283r19 284r19 36|424b8 432r21
+288U14*Close 288=21 36|445b14 471l8 471t13 528s10 540s13 553s13
+288p21 F{57P9} 36|445b21 450r10 451r15 452r59 453r59 454r52 455r54 457r19
+. 458r46 458r62 463r27 463r43 464r47 466m16 468r10 468r30 470m7
+294V13*Get_File{57P9} 295>8 296>8 36|473b13 487l8 487t16
+295i8 Process{33I9} 297r19 36|474b8 479r44 481r27 485r46
+296m8 FD{13|19M9} 36|475b8 480r10 481r57
+303U14*Get_FD_Flags 304>8 305>8 306<8 307<8 36|489b14 506l8 506t20
+304i8 Process{33I9} 308r19 36|490b8 495r42 497r44 505r46
+305m8 FD{13|19M9} 36|491b8 498r10 499r43 500r43
+306b8 Close_On_Exec{boolean} 36|492b8 499m10 502m10
+307b8 Close_On_Fork{boolean} 36|493b8 500m10 503m10
+314U14*Set_FD_Flags 315>8 316>8 317>8 318>8 36|508b14 522l8 522t20
+315i8 Process{33I9} 319r19 36|509b8 514r42 516r44 521r46
+316m8 FD{13|19M9} 36|510b8 517r10 518r26 519r26
+317b8 Close_On_Exec{boolean} 36|511b8 518r48
+318b8 Close_On_Fork{boolean} 36|512b8 519r48
+324U14*Remove_File 324>27 324>42 36|524b14 533l8 533t19
+324i27 Process{33I9} 325r19 36|524b27 526r44 528r27 529r20 530r20 532r46
+324i42 FD{natural} 36|524b42 527r10 528r48 529r41 530r41
+329U14*Flush_Files 329>27 36|535b14 546l8 546t19
+329i27 Process{33I9} 329r54 36|535b27 537r44 538r26 545r46
+333U14*Flush_Exec_Files 333>32 36|548b14 559l8 559t24
+333i32 Process{33I9} 333r59 36|548b32 550r44 551r26 558r46
+338U14*Set_Common_Map 338>30 338>42 36|561b14 566l8 566t22
+338i30 Proc{33I9} 339r19 36|561b30 563r44 564r17 565r46
+338p42 Map{8|43P9} 36|561b42 564r37
+344V13*Get_Common_Map{8|43P9} 344>29 36|568b13 575l8 575t22
+344i29 Proc{33I9} 345r19 36|568b29 571r44 572r27 573r46
+350V13*Get_Stack_Base{13|19M9} 350>29 36|577b13 584l8 584t22
+350i29 Process{33I9} 351r19 36|577b29 580r44 581r27 582r46
+356U14*Set_Stack_Base 356>30 356>45 36|586b14 591l8 591t22
+356i30 Process{33I9} 357r19 36|586b30 588r44 589r17 590r46
+356m45 Base{13|19M9} 36|586b45 589r40
+363V13*Bump_Alloc_Base{13|19M9} 363>30 363>39 36|675b13 684l8 684t23
+363i30 P{33I9} 364r19 36|675b30 679r44 680r27 681r17 682r46
+363m39 Length{13|19M9} 36|675b39 681r43
+370U14*Get_Traced_Info 371>8 372<8 373<8 36|593b14 603l8 603t23
+371i8 Process{33I9} 374r19 36|594b8 599r44 600r30 601r30 602r46
+372b8 Is_Traced{boolean} 36|595b8 600m7
+373i8 FD{natural} 36|596b8 601m7
+380U14*Set_Traced_Info 381>8 382>8 383>8 36|605b14 615l8 615t23
+381i8 Process{33I9} 384r19 36|606b8 611r44 612r17 613r17 614r46
+382b8 Is_Traced{boolean} 36|607b8 612r39
+383i8 FD{natural} 36|608b8 613r39
+390U14*Issue_Exit 390>26 390>41 36|617b14 624l8 624t18
+390i26 Process{33I9} 391r19 36|617b26 619r44 620r17 621r17 622r17 623r46
+390m41 Code{13|16M9} 36|617b41 622r41
+397U14*Issue_Exit 397>26 397>41 36|626b14 633l8 633t18
+397i26 Process{33I9} 398r19 36|626b26 628r44 629r17 630r17 631r17 632r46
+397e41 Sig{82E9} 36|626b41 631r42
+406U14*Check_Exit 407>8 408<8 409<8 410<8 411<8 36|635b14 649l8 649t18
+407i8 Process{33I9} 412r19 36|636b8 643r44 644r31 645r31 646r31 647r31 648r46
+408b8 Did_Exit{boolean} 36|637b8 644m7
+409m8 Code{13|16M9} 36|638b8 645m7
+410b8 Was_Signal{boolean} 36|639b8 646m7
+411e8 Sig{82E9} 36|640b8 647m7
+418U14*Set_CWD 419>8 420>8 421>8 36|651b14 661l8 661t15
+419i8 Proc{33I9} 422r19 36|652b8 657r44 658r17 659r17 660r46
+420i8 FS{37|74I9} 36|653b8 658r42
+421m8 Ino{37|28M9} 36|654b8 659r42
+428U14*Get_CWD 429>8 430<8 431<8 36|663b14 673l8 673t15
+429i8 Proc{33I9} 432r19 36|664b8 669r44 670r24 671r24 672r46
+430i8 FS{37|74I9} 36|665b8 670m7
+431m8 Ino{37|28M9} 36|666b8 671m7
+437V13*Get_Parent{33I9} 437>25 36|686b13 693l8 693t18
+437i25 Proc{33I9} 438r19 36|686b25 689r44 690r27 691r46
+443U14*Set_Identifier 443>30 443>42 36|695b14 709l8 709t22
+443i30 Proc{33I9} 444r19 36|695b30 704r44 705r17 706r17 708r46
+443a42 Name{string} 36|695b42 698r10 701r20 707r10 707r16 707r30
+450U14*Get_Identifier 451>8 452<8 453<8 36|711b14 731l8 731t22
+451i8 Proc{33I9} 454r19 36|712b8 720r32 721r30 726r44 728r20 730r46
+452a8 ID{string} 36|713b8 718m7 720r10 723r20 727m7 727r11 727r23
+453i8 Len{natural} 36|714b8 729m7
+459U14*Get_UID 459>23 459<35 36|733b14 738l8 738t15
+459i23 Proc{33I9} 36|733b23 735r44 736r24 737r46
+459m35 UID{13|18M9} 36|733b35 736m7
+464U14*Set_UID 464>23 464>35 36|740b14 745l8 745t15
+464i23 Proc{33I9} 36|740b23 742r44 743r17 744r46
+464m35 UID{13|18M9} 36|740b35 743r31
+469U14*Get_Effective_UID 469>33 469<45 36|747b14 752l8 752t25
+469i33 Proc{33I9} 36|747b33 749r44 750r25 751r46
+469m45 EUID{13|18M9} 36|747b45 750m7
+474U14*Set_Effective_UID 474>33 474>45 36|754b14 759l8 759t25
+474i33 Proc{33I9} 36|754b33 756r44 757r17 758r46
+474m45 EUID{13|18M9} 36|754b45 757r41
+479U14*Get_GID 479>23 479<35 36|761b14 766l8 766t15
+479i23 Proc{33I9} 36|761b23 763r44 764r24 765r46
+479m35 GID{13|18M9} 36|761b35 764m7
+484U14*Set_GID 484>23 484>35 36|768b14 773l8 773t15
+484i23 Proc{33I9} 36|768b23 770r44 771r17 772r46
+484m35 GID{13|18M9} 36|768b35 771r32
+489U14*Get_Effective_GID 489>33 489<45 36|775b14 780l8 780t25
+489i33 Proc{33I9} 36|775b33 777r44 778r25 779r46
+489m45 EGID{13|18M9} 36|775b45 778m7
+494U14*Set_Effective_GID 494>33 494>45 36|782b14 787l8 787t25
+494i33 Proc{33I9} 36|782b33 784r44 785r17 786r46
+494m45 EGID{13|18M9} 36|782b45 785r42
+496N4*Max_Supplementary_Groups 648r53 36|796r27 799r49 813r26
+497A9*Supplementary_GID_Arr(13|18M9)<integer> 501r21 506r18 648r25 36|791r21
+. 808r18
+499U14*Get_Supplementary_Groups 500>8 501<8 502<8 36|789b14 804l8 804t32
+500i8 Proc{33I9} 36|790b8 795r44 797r30 800r26 802r27 803r46
+501a8 Groups{497A9} 36|791b8 796r10 797m10 797r50 799m10 799r18 799r34
+502i8 Length{natural} 36|792b8 802m7
+504U14*Set_Supplementary_Groups 505>8 506>8 507<8 36|806b14 821l8 821t32
+505i8 Proc{33I9} 36|807b8 812r44 816r20 817r20 820r46
+506a8 Groups{497A9} 36|808b8 813r10 816r40 816r58 817r42
+507b8 Success{boolean} 36|809b8 814m10 818m10
+509U14*Empty_Supplementary_Groups 509>42 36|823b14 828l8 828t34
+509i42 Proc{33I9} 36|823b42 825r44 826r17 827r46
+514U14*Get_Umask 514>25 514<37 36|830b14 835l8 835t17
+514i25 Proc{33I9} 36|830b25 832r44 833r26 834r46
+514m37 Umask{37|32M12} 36|830b37 833m7
+519U14*Set_Umask 519>25 519>37 36|837b14 842l8 842t17
+519i25 Proc{33I9} 36|837b25 839r44 840r17 841r46
+519m37 Umask{37|32M12} 36|837b37 840r32
+525U14*Get_Masked_Signals 525>34 525<46 36|844b14 849l8 849t26
+525i34 Proc{33I9} 36|844b34 846r44 847r24 848r46
+525a46 Sig{143A9} 36|844b46 847m7
+531U14*Set_Masked_Signals 531>34 531>46 36|851b14 862l8 862t26
+531i34 Proc{33I9} 36|851b34 853r44 856r17 857r17 858r17 859r17 861r46
+531a46 Sig{143A9} 36|851b46 856r61
+536U14*Raise_Signal 536>28 536>40 36|864b14 871l8 871t20
+536i28 Proc{33I9} 36|864b28 866r44 867r24 868r20 870r46
+536e40 Sig{82E9} 36|864b40 867r46 868r42
+542U14*Get_Signal_Handler 543>8 544>8 545<8 36|873b14 882l8 882t26
+543i8 Proc{33I9} 36|874b8 879r44 880r25 881r46
+544e8 Sig{82E9} 36|875b8 880r48
+545m8 Addr{28|25M9} 36|876b8 880m7
+551U14*Set_Signal_Handler 552>8 553>8 554>8 36|884b14 895l8 895t26
+552i8 Proc{33I9} 36|885b8 890r44 892r20 894r46
+553e8 Sig{82E9} 36|886b8 891r10 892r43
+554m8 Addr{28|25M9} 36|887b8 892r51
+562U14*Get_Raised_Signal_Actions 563>8 564<8 565<8 566<8 567<8 36|897b14
+. 927l8 927t33
+563i8 Proc{33I9} 36|898b8 910r44 911r26 912r23 914r33 922r23 926r46
+564e8 Sig{82E9} 36|899b8 905m7 913m13 920r23 920r45
+565m8 Addr{28|25M9} 36|900b8 906m7 914m13
+566b8 No_Sig{boolean} 36|901b8 907m7 915m13
+567b8 Ignore{boolean} 36|902b8 908m7 920m13
+573V13*Convert{natural} 573>22 36|929b13 932l8 932t15
+573i22 Proc{33I9} 573r61 36|929b22 931r23
+579V13*Convert{33I9} 579>22 36|934b13 943l8 943t15
+579i22 Proc{natural} 36|934b22 936r10 936r29 937r25 939r22
+586V13*Get_Enforcement{33|52E9} 586>30 36|945b13 948l8 948t23
+586i30 Proc{33I9} 36|945b30 947r45
+587U14*Set_Enforcement 587>31 587>43 36|950b14 953l8 953t23
+587i31 Proc{33I9} 36|950b31 952r38
+587e43 Act{33|52E9} 36|950b43 952r51
+589V13*Get_Capabilities{33|23R9} 589>31 36|955b13 958l8 958t24
+589i31 Proc{33I9} 36|955b31 957r46
+590U14*Set_Capabilities 590>32 590>44 36|960b14 963l8 963t24
+590i32 Proc{33I9} 36|960b32 962r39
+590r44 Caps{33|23R9} 36|960b44 962r52
+592V13*Check_Permissions{33|42R9} 593>8 594>8 595>8 36|965b13 972l8 972t25
+593i8 Proc{33I9} 36|966b8 971r47
+594i8 FS{37|74I9} 36|967b8 971r60
+595m8 Ino{37|28M9} 36|968b8 971r64
+597U14*Add_Entity 598>8 599>8 600>8 601>8 602<8 36|974b14 983l8 983t18
+598i8 Proc{33I9} 36|975b8 982r33
+599i8 FS{37|74I9} 36|976b8 982r46
+600m8 Ino{37|28M9} 36|977b8 982r50
+601r8 Perms{33|42R9} 36|978b8 982r55
+602e8 Status{33|104E9} 36|979b8 982m62
+604V13*Get_Limit{33|58M9} 605>8 606>8 36|985b13 991l8 991t17
+605i8 Proc{33I9} 36|986b8 990r39
+606e8 Resource{33|59E9} 36|987b8 990r52
+608U14*Set_Limit 609>8 610>8 611>8 612<8 36|993b14 1001l8 1001t17
+609i8 Proc{33I9} 36|994b8 1000r32
+610e8 Resource{33|59E9} 36|995b8 1000r45
+611m8 Limit{33|58M9} 36|996b8 1000r55
+612b8 Could_Set{boolean} 36|997b8 1000m62
+627R9 File_Descriptor 631e14 634r58
+628b7*Close_On_Exec{boolean} 36|499r48 518m31 529m45 542m12 552r46 554m15
+629b7*Close_On_Fork{boolean} 36|433r25 500r48 519m31 530m45 543m12 555m15
+630p7*Description{57P9} 36|363r60 381r47 382m47 399r17 435r24 436r35 436m56
+. 481r62 528m52 539r15 540m22 552r15 553m22
+633A9 Thread_Arr(27|27I9)<integer> 656r25
+634A9 File_Arr(627R9)<integer> 657r25 36|362r29 426r13 427r13 480r29 495r15
+. 498r29 514r15 517r29 527r16
+635A9 Handle_Arr(28|25M9)<82E9> 640r25
+636R9 Process_Data 670e14 671r36 36|28r8 110r33
+637r7*Data_Mutex{23|22R9} 36|85m56 95m58 111m17 143m56 159m58 173m53 191m50
+. 206m52 215m50 220m52 229m50 239m52 245m53 251m55 258m50 278m52 285m50 307m52
+. 331m53 334m55 340m53 342m55 348m53 355m55 361m53 367m55 379m53 391m55 397m53
+. 403m55 429m53 430m52 441m54 442m55 479m53 485m55 497m53 505m55 516m53 521m55
+. 526m53 532m55 537m53 545m55 550m53 558m55 563m50 565m52 571m50 573m52 580m53
+. 582m55 588m53 590m55 599m53 602m55 611m53 614m55 619m53 623m55 628m53 632m55
+. 643m53 648m55 657m50 660m52 669m50 672m52 679m47 682m49 689m50 691m52 704m50
+. 708m52 726m50 730m52 735m50 737m52 742m50 744m52 749m50 751m52 756m50 758m52
+. 763m50 765m52 770m50 772m52 777m50 779m52 784m50 786m52 795m50 803m52 812m50
+. 820m52 825m50 827m52 832m50 834m52 839m50 841m52 846m50 848m52 853m50 861m52
+. 866m50 870m52 879m50 881m52 890m50 894m52 910m50 926m52
+638a7*Masked_Signals{143A9} 36|112m17 145m29 145r61 847r30 856m23 857m23
+. 858m23 859m23 867r30
+639a7*Raised_Signals{143A9} 36|113m17 868m26 911r32 912r29 922m29
+640a7*Signal_Handlers{635A9} 36|114m17 880r31 892m26 914r39
+641i7*Niceness{27|112I12} 36|115m17 144m29 144r61 234r61 341r36 349m26
+642m7*Umask{37|32M12} 36|116m17 158m29 158r61 833r32 840m23
+643m7*User{13|18M9} 36|91r52 117m17 152m29 152r61 736r30 743m23
+644m7*Effective_User{13|18M9} 36|118m17 153m29 153r61 750r31 757m23
+645m7*Group{13|18M9} 36|119m17 154m29 154r61 764r30 771m23
+646m7*Effective_Group{13|18M9} 36|120m17 155m29 155r61 778r31 785m23
+647i7*SGroup_Count{natural} 36|121m17 156m29 156r61 802r33 817m26 826m23
+648a7*SGroups{497A9} 36|122m17 157m29 157r61 797r36 800r32 816m26
+649a7*Identifier{string} 36|87r52 123m17 706m23 728r26
+650i7*Identifier_Len{integer} 36|88r52 124m17 705m23 720r38 721r36
+651i7*Parent{33I9} 36|54r56 90r52 125m17 146m29 263r32 264r42 267r46 268r46
+. 271r46 272r46 288r32 289r42 294r46 295r46 297r46 298r46 690r33
+652b7*Is_Traced{boolean} 36|92r52 126m17 600r39 612m26
+653i7*Tracer_FD{integer} 36|127m17 601r39 613m26
+654i7*Current_Dir_FS{37|74I9} 36|128m17 149m29 149r61 658m23 670r30
+655m7*Current_Dir_Ino{37|28M9} 36|129m17 150m29 150r61 659m23 671r30
+656a7*Thread_List{633A9} 36|130m17 193r33 231r32 232r29 233m29 246r35 247r32
+. 259r32 260r29 261m29 286r37 350r40
+657a7*File_Table{634A9} 36|131m17 363r34 380r44 381r32 382m32 398r37 426m49
+. 427m48 481r36 495m51 514m51 528r36 529m29 530m29 538r35 551r35
+658p7*Common_Map{8|43P9} 36|132m17 564m23 572r33
+659m7*Stack_Base{13|19M9} 36|133m17 147m29 147r61 333m26 581r36 589m26
+660m7*Alloc_Base{13|19M9} 36|134m17 148m29 148r61 332m26 680r30 681m20
+661r7*Perms{33|68R9} 36|135m17 151m29 151r61 947r51 952m44 957r52 962m45
+. 971r53 982m39 990r45 1000m38
+662b7*Signal_Exit{boolean} 36|136m17 621m26 630m26 646r40
+663e7*Which_Signal{82E9} 36|137m17 631m26 647r40
+664b7*Did_Exit{boolean} 36|93r52 138m17 620m26 629m26 644r40
+665m7*Exit_Code{13|16M9} 36|139m17 622m26 645r40
+666m7*Children_SSec{13|19M9} 36|216r41 267m54 294m54
+667m7*Children_SNSec{13|19M9} 36|217r45 268m54 295m54
+668m7*Children_USec{13|19M9} 36|218r39 271m54 297m54
+669m7*Children_UNSec{13|19M9} 36|219r43 272m54 298m54
+671P9 Process_Data_Acc(636R9) 672r63 36|28r22
+672A9 Process_Arr(671P9)<33I9> 673r36 36|34r23
+673P9 Process_Arr_Acc(672A9) 676r21
+675r4 Registry_Mutex{23|22R9} 36|35m36 35r36 52m34 52r34 63m36 63r36 80m34
+. 80r34 99m36 99r36 107m34 107r34 168m36 168r36 174m34 174r34 176m36 176r36
+676p4 Registry{673P9} 36|34m7 53r16 54r13 54r43 81r16 82r13 85r43 87r39 88r39
+. 90r39 91r39 92r39 93r39 95r45 108r16 109r13 110r13 143r43 144r16 144r48
+. 145r16 145r48 146r16 147r16 147r48 148r16 148r48 149r16 149r48 150r16 150r48
+. 151r16 151r48 152r16 152r48 153r16 153r48 154r16 154r48 155r16 155r48 156r16
+. 156r48 157r16 157r48 158r16 158r48 159r45 173r34 175r13 191r34 193r17 206r36
+. 215r34 216r25 217r29 218r23 219r27 220r36 229r34 231r16 232r13 233r13 234r45
+. 239r36 245r34 246r16 247r13 251r36 258r34 259r16 260r13 261r13 263r16 264r16
+. 264r26 267r20 267r30 268r20 268r30 271r20 271r30 272r20 272r30 278r36 285r34
+. 286r21 288r16 289r16 289r26 294r20 294r30 295r20 295r30 297r20 297r30 298r20
+. 298r30 307r36 331r34 332r7 333r7 334r36 340r34 341r17 342r36 348r34 349r7
+. 350r21 355r36 361r34 363r15 367r36 379r34 380r25 381r13 382r13 391r36 397r34
+. 398r18 403r36 426r30 427r30 429r34 430r34 441r36 442r36 479r34 481r17 485r36
+. 495r32 497r34 505r36 514r32 516r34 521r36 526r34 528r17 529r10 530r10 532r36
+. 537r34 538r16 545r36 550r34 551r16 558r36 563r34 564r7 565r36 571r34 572r17
+. 573r36 580r34 581r17 582r36 588r34 589r7 590r36 599r34 600r20 601r20 602r36
+. 611r34 612r7 613r7 614r36 619r34 620r7 621r7 622r7 623r36 628r34 629r7
+. 630r7 631r7 632r36 643r34 644r21 645r21 646r21 647r21 648r36 657r34 658r7
+. 659r7 660r36 669r34 670r14 671r14 672r36 679r34 680r17 681r7 682r36 689r34
+. 690r17 691r36 704r34 705r7 706r7 708r36 720r22 721r20 726r34 728r10 730r36
+. 735r34 736r14 737r36 742r34 743r7 744r36 749r34 750r15 751r36 756r34 757r7
+. 758r36 763r34 764r14 765r36 770r34 771r7 772r36 777r34 778r15 779r36 784r34
+. 785r7 786r36 795r34 797r20 800r16 802r17 803r36 812r34 816r10 817r10 820r36
+. 825r34 826r7 827r36 832r34 833r16 834r36 839r34 840r7 841r36 846r34 847r14
+. 848r36 853r34 856r7 857r7 858r7 859r7 861r36 866r34 867r14 868r10 870r36
+. 879r34 880r15 881r36 890r34 892r10 894r36 910r34 911r16 912r13 914r23 922r13
+. 926r36 937r10 947r35 952r28 957r36 962r29 971r37 982r23 990r29 1000r22
+X 36 userland-process.adb
+27U14 Free[2|14] 175s7
+30b4 Do_ASLR{boolean} 40m7 314r10
+48i7 Index{natural} 57r16 58r33 59m16 59r43
+53i11 I<integer> 54r23 54r53 58r43
+67i7 Curr_Index{natural} 84r16 86r35 94m16 94r30
+81i11 I<integer> 82r23 85r53 87r49 88r49 89r39 90r49 91r49 92r49 93r49 95r55
+103i7 P=103:23{35|33I9} 143r53 144r58 145r58 147r58 148r58 149r58 150r58
+. 151r58 152r58 153r58 154r58 155r58 156r58 157r58 158r58 159r55
+108i11 I<integer> 109r23 110r23 144r26 145r26 146r26 147r26 148r26 149r26
+. 150r26 151r26 152r26 153r26 154r26 155r26 156r26 157r26 158r26 161r49 164r30
+184m7 Temp1{13|19M9} 195m46 196r48
+184m14 Temp2{13|19M9} 195m53 197r56
+184m21 Temp3{13|19M9} 195m60 198r44
+184m28 Temp4{13|19M9} 195m67 199r52
+193i11 Th=193:11{27|27I9} 194r13 195r42
+231i11 I{integer} 232r42 233r42
+243i7 Returned{natural} 248m13 248r25 252r14
+246i11 I{integer} 247r45
+256m7 Temp1{13|19M9} 262m50 269r20
+256m14 Temp2{13|19M9} 262m57 269r27
+256m21 Temp3{13|19M9} 262m64 273r20
+256m28 Temp4{13|19M9} 262m71 273r27
+259i11 I{integer} 260r42 261r42
+282i7 Current_Thread{27|27I9} 301r26
+283m7 T1{13|19M9} 291m53 295r70
+283m11 T2{13|19M9} 291m57 295r74
+283m15 T3{13|19M9} 291m61 298r70
+283m19 T4{13|19M9} 291m65 298r74
+286i11 Thread=286:11{27|27I9} 287r13 291r45 301r16 302r41 305r10
+311K15 Aln[20|19] 324r23 325r23
+312m7 Rand_Addr{13|19M9} 318m14 324m10 324r37 327m10 332r40 333r40
+312m18 Rand_Jump{13|19M9} 322m14 325m10 325r37 328m10 333r52
+338i7 Result{27|112I12} 341m7 343r14
+350i11 Thread=350:11{27|27I9} 351r13 352r37
+359b7 R{boolean} 363m10 365m10 368r14
+380i11 I{integer} 381r44 382r44 383r24
+390L6 Cleanup 385r18
+395i7 Count_Of_FDs{natural} 400m13 400r29 404r14
+398r11 Ent=398:11{35|627R9} 399r13
+426a7 Src{35|634A9} 433r17 434r24 435r16 436r27
+427a7 Tgt{35|634A9} 434r13 436r48
+432i11 I{integer} 433r22 434r18 434r29 435r21 436r32 436r53
+446U17 Free[2|14] 466s10
+448b7 T{boolean} 458m75 459r26
+477p7 Res{35|57P9} 481m10 483m10 486r14
+495a7 Table{35|634A9} 499r27 500r27
+514a7 Table{35|634A9} 518r10 519r10
+538r11 F=538:11{35|627R9} 539r13 540r20 542r10 543r10
+551r11 F=551:11{35|627R9} 552r13 552r44 553r20 554r13 555r13
+569p7 Result{8|43P9} 572m7 574r14
+578m7 Result{13|19M9} 581m7 583r14
+677m7 Result{13|19M9} 680m7 681r34 683r14
+687i7 Result{35|33I9} 690m7 692r14
+696i7 Length{natural} 699m10 701m10 705r51 706r40 707r43
+716i7 Length{natural} 721m10 723m10 727r34 728r43 729r14
+911e11 I{35|82E9} 912r45 913r23 914r56 922r45
+X 37 vfs.ads
+24K9*VFS 35|18w6 46r29 75r33 76r33 420r15 421r15 430r19 431r19 514r49 519r45
+. 594r15 595r15 599r17 600r17 625r29 642r25 654r25 655r25 36|128r36 463r16
+. 653r15 654r15 665r19 666r19 830r49 837r45 967r15 968r15 976r17 977r17 37|674e8
+28M9*File_Inode_Number<13|19M9> 35|76r37 421r19 431r23 595r19 600r21 655r29
+. 36|654r19 666r23 968r19 977r21
+32M12*File_Mode{13|18M9} 35|46r33 514r53 519r49 625r33 642r29 36|830r53 837r49
+74I9*FS_Handle<integer> 35|75r37 420r19 430r23 594r19 599r21 654r29 36|653r19
+. 665r23 967r19 976r21
+75i4*Error_Handle{74I9} 36|128r40
+359U14*Close 36|463s20
+

@@ -1,0 +1,61 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.memory_locations%s  userland-memory_locations.ads  ce1ff5c9 NE OO PK
+W userland%s		userland.ads		userland.ali
+
+D system.ads		20241115151050 c1a7efcf system%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-memory_locations.ads  20241115151036 d86e3770 userland.memory_locations%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+X 2 userland.ads
+17K9*Userland 23e13 3|17r9 30r5
+X 3 userland-memory_locations.ads
+17K18*Memory_Locations 2|17k9 3|30l14 30e30
+20N4*Program_Offset
+24N4*LD_Offset_Min
+25N4*LD_Offset_Max
+26N4*Mmap_Anon_Min
+27N4*Mmap_Anon_Max
+28N4*Stack_Jump_Min
+29N4*Stack_Jump_Max
+

@@ -1,0 +1,215 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.filelock%b	ipc-filelock.adb	447f0202 NE OO PK IU
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+
+U ipc.filelock%s	ipc-filelock.ads	55c17d0b NE OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-filelock.ads	20241115151036 69934e3c ipc.filelock%s
+D ipc-filelock.adb	20241115151036 d01080ee ipc.filelock%b
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [could_acquire_lock ipc__filelock 33 14 none]
+G c Z s b [acquire_lock ipc__filelock 51 14 none]
+G c Z s b [release_lock ipc__filelock 68 14 none]
+G c Z s b [release_lock ipc__filelock 80 14 none]
+G c Z s b [list_all ipc__filelock 99 14 none]
+G c Z s b [inner_could_acquire ipc__filelock 103 14 none]
+G c Z s s [lock_infoIP ipc__filelock 86 9 none]
+G c Z s s [lock_arrIP ipc__filelock 94 9 none]
+G c Z b b [lock_innerIP ipc__filelock 21 9 none]
+G c Z b b [Tlock_inner_arrBIP ipc__filelock 29 4 none]
+G r c none [could_acquire_lock ipc__filelock 33 14 none] [seize lib__synchronization 27 14 none]
+G r c none [could_acquire_lock ipc__filelock 33 14 none] [release lib__synchronization 31 14 none]
+G r c none [acquire_lock ipc__filelock 51 14 none] [seize lib__synchronization 27 14 none]
+G r c none [acquire_lock ipc__filelock 51 14 none] [release lib__synchronization 31 14 none]
+G r c none [acquire_lock ipc__filelock 51 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [release_lock ipc__filelock 68 14 none] [seize lib__synchronization 27 14 none]
+G r c none [release_lock ipc__filelock 68 14 none] [release lib__synchronization 31 14 none]
+G r c none [release_lock ipc__filelock 80 14 none] [seize lib__synchronization 27 14 none]
+G r c none [release_lock ipc__filelock 80 14 none] [release lib__synchronization 31 14 none]
+G r c none [list_all ipc__filelock 99 14 none] [seize lib__synchronization 27 14 none]
+G r c none [list_all ipc__filelock 99 14 none] [release lib__synchronization 31 14 none]
+X 7 interfac.ads
+11K9*Interfaces 120e15 10|17w6 17r28
+19M9*Unsigned_64 10|36r30 37r30 54r23 55r23 71r23 72r23 89r20 90r20 106r23
+. 107r23 11|24r18 25r18 38r30 39r30 62r23 63r23 100r23 101r23 161r23 162r23
+X 8 ipc.ads
+17K9*IPC 18e8 10|21r9 111r5 11|20r14 185r5
+X 10 ipc-filelock.ads
+21K13*FileLock 8|17k9 10|103E14 111l9 111e17 11|20b18 185l9 185t17
+33U14*Could_Acquire_Lock 34>8 35>8 36=8 37=8 38=8 39=8 40<8 11|35b14 57l8
+. 57t26
+34i8 Acquired_FS{26|74I9} 11|36b8 48r11
+35m8 Acquired_Ino{26|28M9} 11|37b8 48r24
+36m8 Start{7|19M9} 11|38b8 48r38 51m10
+37m8 Length{7|19M9} 11|39b8 48r45 52m10
+38i8 Acquirer{25|33I9} 11|40b8 53m10
+39b8 Is_Write{boolean} 11|41b8 48r53 54m10
+40b8 Success{boolean} 11|42b8 49m24 50r14
+51U14*Acquire_Lock 52>8 53>8 54>8 55>8 56>8 57>8 58>8 59<8 11|59b14 95l8
+. 95t20
+52i8 Acquired_FS{26|74I9} 11|60b8 74r14 80r33
+53m8 Acquired_Ino{26|28M9} 11|61b8 74r27 81r33
+54m8 Start{7|19M9} 11|62b8 74r41 82r33
+55m8 Length{7|19M9} 11|63b8 74r48 83r33
+56i8 Acquirer{25|33I9} 11|64b8 84r33
+57b8 Is_Write{boolean} 11|65b8 74r56 85r33
+58b8 Is_Blocking{boolean} 11|66b8 92r24
+59b8 Success{boolean} 11|67b8 75m27 76r13 77m13 86m19 92r39
+68U14*Release_Lock 69>8 70>8 71>8 72>8 73>8 74<8 11|97b14 110l8 110t20
+69i8 Acquired_FS{26|74I9} 11|98b8 109r21
+70m8 Acquired_Ino{26|28M9} 11|99b8 109r34
+71m8 Start{7|19M9} 11|100b8 105r28
+72m8 Length{7|19M9} 11|101b8 106r28
+73i8 Acquirer{25|33I9} 11|102b8 107r28
+74b8 Success{boolean} 11|103b8 109m48
+80U14*Release_Lock 81>8 82>8 83<8 11|109s7 112b14 131l8 131t20
+81i8 Acquired_FS{26|74I9} 11|113b8 122r20
+82m8 Acquired_Ino{26|28M9} 11|114b8 123r21
+83b8 Success{boolean} 11|115b8 119m7 126m13
+86R9*Lock_Info 93e14 94r49
+87i7*Acquirer{25|33I9} 11|145m20
+88b7*Is_Writing{boolean} 11|146m20
+89m7*Start{7|19M9} 11|147m20
+90m7*Length{7|19M9} 11|148m20
+91i7*FS{26|74I9} 11|149m20
+92m7*Ino{26|28M9} 11|150m20
+94A9*Lock_Arr(86R9)<integer> 99r37 11|133r37
+99U14*List_All 99<24 99<47 11|133b14 156l8 156t16
+99a24 Buffer{94A9} 11|133b24 136m7 143r29 144m16 144r24
+99i47 Length{natural} 11|133b47 137m7 142m13 142r23
+103U14 Inner_Could_Acquire 104>8 105>8 106>8 107>8 108>8 109<8 110<8 11|47s7
+. 73s10 158b14 184l8 184t27
+104i8 Acquired_FS{26|74I9} 11|159b8 172r32
+105m8 Acquired_Ino{26|28M9} 11|160b8 173r32
+106m8 Start{7|19M9} 11|161b8 176r39
+107m8 Length{7|19M9} 11|162b8 176r72
+108b8 Is_Write{boolean} 11|163b8 175r41
+109i8 Conflicting{natural} 11|164b8 169m7 178m16
+110b8 Success{boolean} 11|165b8 168m7 179m16
+X 11 ipc-filelock.adb
+21R9 Lock_Inner 28e14 29r46
+22i7*FS{26|74I9} 80m21 122r15 149r47 172r26
+23m7*Ino{26|28M9} 81m21 123r15 150r47 173r26
+24m7*Start{7|19M9} 51r45 82m21 147r47 176r30
+25m7*Length{7|19M9} 52r45 83m21 148r47 176r62
+26i7*Acquirer{25|33I9} 53r45 79r21 84m21 121r15 125m15 141r26 145r47 171r26
+27b7*Is_Write{boolean} 54r45 85m21 146r47 175r29
+29A9 Lock_Inner_Arr(21R9)<integer> 32r32
+31r4 Registry_Mutex{15|22R9} 46m34 46r34 56m36 56r36 72m37 72r37 91m39 91r39
+. 118m34 118r34 130m36 130r36 139m34 139r34 155m36 155r36
+32a4 Registry{29A9} 51r22 52r22 53r22 54r22 78m22 78r22 120m16 120r16 140r16
+. 141r13 145r34 146r34 147r34 148r34 149r34 150r34 170r16 171r13 172r13 173r13
+. 175r16 176r17 176r49
+44i7 Conflicting{natural} 49m11 51r32 52r32 53r32 54r32
+69i7 Conflicting{natural} 75m14
+78r17 L=78:22{21R9} 79r19 80r19 81r19 82r19 83r19 84r19 85r19
+120r11 L=120:16{21R9} 121r13 122r13 123r13 125r13
+134i7 Curr_Index{natural} 143r16 144r39 151m16 151r30
+140i11 I{integer} 141r23 145r44 146r44 147r44 148r44 149r44 150r44
+170i11 I{integer} 171r23 172r23 173r23 175r26 176r27 176r59 178r31
+X 14 lib.ads
+19K9*Lib 11|17r6 17r31 46r7 56r7 72r10 91r10 118r7 130r7 139r7 155r7 14|35e8
+X 15 lib-synchronization.ads
+20K13*Synchronization 11|17w10 17r35 46r11 56r11 72r14 91r14 118r11 130r11
+. 139r11 155r11 15|66e24
+22R9*Binary_Semaphore 11|31r29 15|57e14
+23r4*Unlocked_Semaphore{22R9} 11|31r49
+27U14*Seize 11|46s27 72s30 118s27 139s27
+31U14*Release 11|56s27 91s30 130s27 155s27
+X 18 scheduler.ads
+25K9*Scheduler 11|18w6 93r10 18|183e14
+74U14*Yield_If_Able 11|93s20
+X 22 userland.ads
+17K9*Userland 10|19r6 19r28 38r30 56r23 73r23 11|26r18 40r30 64r23 102r23
+. 22|23e13
+X 25 userland-process.ads
+28K18*Process 10|19w15 19r37 38r39 56r32 73r32 11|26r27 40r39 64r32 102r32
+. 25|677e21
+33I9*PID<integer> 10|38r47 56r40 73r40 87r20 11|26r35 40r47 64r40 102r40
+34i4*Error_PID{33I9} 11|33r46 79r32 121r27 125r27 136r29 141r38 171r38
+X 26 vfs.ads
+24K9*VFS 10|18w6 18r28 34r23 35r23 52r23 53r23 69r23 70r23 81r23 82r23 91r20
+. 92r20 104r23 105r23 11|22r18 23r18 33r19 36r23 37r23 60r23 61r23 98r23
+. 99r23 113r23 114r23 136r53 159r23 160r23 26|674e8
+28M9*File_Inode_Number<7|19M9> 10|35r27 53r27 70r27 82r27 92r24 105r27 11|23r22
+. 37r27 61r27 99r27 114r27 160r27
+74I9*FS_Handle<integer> 10|34r27 52r27 69r27 81r27 91r24 104r27 11|22r22
+. 36r27 60r27 98r27 113r27 159r27
+75i4*Error_Handle{74I9} 11|33r23 136r57
+

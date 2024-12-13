@@ -1,0 +1,188 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.cpu%b		arch-cpu.adb		347d6fa0 NE OO PK
+W arch%s		arch.ads		arch.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W system%s		system.ads		system.ali
+
+U arch.cpu%s		arch-cpu.ads		82c299c5 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.limine%s		arch-limine.adb		arch-limine.ali
+W interfaces%s		interfac.ads		interfac.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-cpu.ads		20241115151036 4e264e50 arch.cpu%s
+D arch-cpu.adb		20241115151036 330249e0 arch.cpu%b
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-limine.ads	20241115151036 8eb8e49c arch.limine%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init_cores arch__cpu 50 14 none]
+G c Z s b [core_bootstrap arch__cpu 54 14 none]
+G c Z s b [init_common arch__cpu 57 14 none]
+G c Z s s [core_localIP arch__cpu 26 9 none]
+G c Z s s [core_local_arrIP arch__cpu 44 9 none]
+G r c none [init_cores arch__cpu 50 14 none] [hard_panic lib__panic 32 14 none]
+G r c none [core_bootstrap arch__cpu 54 14 none] [image lib__messages 74 14 none]
+G r c none [core_bootstrap arch__cpu 54 14 none] [put_line lib__messages 41 14 none]
+X 4 arch.ads
+20K9*Arch 52e9 7|20r6 22r9 58r5 8|21r14 87r5
+X 7 arch-cpu.ads
+22K14*CPU 4|20k9 7|54E4 58l10 58e13 8|21b19 87l10 87t13
+24R9*Core_Local 25r38 26c9 36e14 37r8 44r64
+25P9*Core_Local_Acc(24R9) 28r25
+26R9*Core_Local
+28p7*Self{25P9} 38r7 8|79m11
+29m7*Kernel_Stack{14|19M9} 39r7 8|80m11
+30m7*User_Stack{14|19M9} 40r7 8|81m11
+32i7*Number{positive} 8|82m11
+33m7*Hart_ID{14|19M9} 8|83m11
+34i7*Current_Thread{25|27I9} 8|84m11
+35i7*Current_Process{32|33I9} 8|85m11
+44A9*Core_Local_Arr(26R9)<integer> 45r38 8|47r26
+45P9*Core_Local_Arr_Acc(44A9) 47r18
+46i4*Core_Count{positive} 8|43m7 47r47 51r10
+47p4*Core_Locals{45P9} 8|47m7 78r7 79r30
+50U14*Init_Cores 8|30b14 65l8 65t18
+54U14 Core_Bootstrap 54^30 8|59r36 67b14 74l8 74t22
+54p30 Info(10|184R9) 8|67b30 71r27 73r29 73r46
+57U14 Init_Common 57>27 57>51 8|48s7 73s7 76b14 86l8 86t19
+57i27 Core_Number{positive} 8|76b27 78r20 79r43 82r30
+57m51 Hart_ID{14|19M9} 8|76b51 83r30
+X 8 arch-cpu.adb
+22r4 SMP_Request{10|155R9} 35r34 38r10
+31m7 BSP_Hart_ID{14|19M9} 44m7 48r23 57r34
+32i7 Idx{natural} 58r49 60m19 60r36
+34r7 SMPPonse{10|168R9} 43r31 44r22 53r58 54r40
+53a13 SMP_CPUs{10|201A9} 56r24
+56p17 CPU=56:24{10|199P9} 57r19 58r19 59r19
+68a7 Stp{20|55A12} 71m43 72r51
+69i7 Stp_Len{natural} 71m48
+X 10 arch-limine.ads
+20K14*Limine 7|20w11 54r44 8|22r18 24r23 34r18 53r24 67r44 10|293e16
+41A9*Request_ID(14|19M9)<integer>
+43a7*ID{41A9} 8|24m11
+44m7*Revision{14|19M9} 8|25m11
+45m7*Response{26|25M9} 8|26m11 35r51 38r27
+155R9*SMP_Request 8|22r25 10|158e14
+156r7*Base{42R9} 8|23m8 35r46 38r22
+157m7*Flags{14|19M9} 8|27m8
+168R9*RISCV64_SMP_Response 8|34r25 10|174e15
+171m7*BSP_Hart_ID{14|19M9} 8|44r31
+172m7*CPU_Count{14|19M9} 8|43r40 53r67
+173m7*CPUs{26|25M9} 8|54r49
+184R9*RISCV64_SMP_CPU_Info 7|54r51 8|67r51 10|190e15
+186m7*Hart_ID{14|19M9} 8|57r23 73r51
+188m7*Addr{26|25M9} 8|59m23
+189m7*Extra_Arg{14|19M9} 8|58m23 71r32 73r34
+199P9*RISCV64_CPU_Info_Acc(184R9)
+201A9*RISCV64_CPU_Info_Arr(199P9)<14|19M9> 8|53r31
+242a4*SMP_ID{41A9} 8|24r30
+X 14 interfac.ads
+11K9*Interfaces 7|17w6 17r22 14|120e15
+19M9*Unsigned_64 7|29r25 30r25 33r25 57r61 8|31r21 58r36 76r61
+X 19 lib.ads
+19K9*Lib 8|18r6 19r6 39r10 68r17 71r7 72r7 19|35e8
+X 20 lib-messages.ads
+21K13*Messages 8|18w10 68r21 71r11 72r11 20|103e17
+41U14*Put_Line 8|72s20
+55A12*Translated_String{string}<integer> 8|68r30
+74U14*Image 8|71s20
+X 21 lib-panic.ads
+21K13*Panic 8|19w10 39r14 21|39e14
+32U14*Hard_Panic 8|39s20
+X 25 scheduler.ads
+25K9*Scheduler 7|19w6 34r25 8|84r30 25|183e14
+27I9*TID<integer> 7|34r35
+29i4*Error_TID{27I9} 8|84r40
+X 26 system.ads
+11K9*System 8|17w6 17r18 26r23 38r38 26|73e11
+25M9*Address
+26m4*Null_Address{25M9} 8|26r30 38r45
+32V14*"="{boolean} 8|38r36
+X 29 userland.ads
+17K9*Userland 7|18r6 35r25 8|85r30 29|23e13
+X 32 userland-process.ads
+28K18*Process 7|18w15 35r34 8|85r39 32|677e21
+33I9*PID<integer> 7|35r42
+34i4*Error_PID{33I9} 8|85r47
+

@@ -1,0 +1,287 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.elf%b	userland-elf.adb	31641b25 NE OO PK
+W devices%s		devices.adb		devices.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W userland%s		userland.ads		userland.ali
+W userland.syscall%s	userland-syscall.adb	userland-syscall.ali
+
+U userland.elf%s	userland-elf.ads	17388f58 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W userland%s		userland.ads		userland.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-elf.adb	20241115151036 a1012059 userland.elf%b
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D userland-syscall.ads	20241115151036 b384b127 userland.syscall%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [load_elf userland__elf 48 13 none]
+G c Z s s [elf_id_fieldIP userland__elf 92 9 none]
+G c Z s b [get_linker userland__elf 130 13 none]
+G c Z s b [load_header userland__elf 136 13 none]
+G c Z s s [auxvalIP userland__elf 31 9 none]
+G c Z s s [parsed_elfIP userland__elf 38 9 none]
+G c Z s s [program_headerIP userland__elf 70 9 none]
+G c Z s s [elf_headerIP userland__elf 95 9 none]
+G r c none [load_elf userland__elf 48 13 none] [read vfs 400 14 none]
+G r i none [load_elf userland__elf 48 13 none] [alignment lib 19 13 none]
+G r c none [load_elf userland__elf 48 13 none] [check_userland_mappability userland__syscall 1257 13 none]
+G r c none [load_elf userland__elf 48 13 none] [map_allocated_range arch__mmu 139 14 none]
+G r c none [get_linker userland__elf 130 13 none] [read vfs 400 14 none]
+G r i none [load_header userland__elf 136 13 none] [alignment lib 19 13 none]
+G r c none [load_header userland__elf 136 13 none] [check_userland_mappability userland__syscall 1257 13 none]
+G r c none [load_header userland__elf 136 13 none] [map_allocated_range arch__mmu 139 14 none]
+G r c none [load_header userland__elf 136 13 none] [read vfs 400 14 none]
+X 3 arch.ads
+20K9*Arch 52e9 26|20r6 51r25 140r17 27|27r25 69r18 148r17 156r35 160r24 185r20
+. 185r57 190r7
+X 6 arch-mmu.ads
+22K14*MMU 250e13 26|20w11 51r30 140r22 27|27r30 69r23 148r22 156r40 160r29
+. 185r25 185r62 190r12
+26R9*Page_Permissions 32e14 27|160r33
+27b7*Is_User_Accesible{boolean} 27|161m11
+28b7*Can_Read{boolean} 27|162m11
+29b7*Can_Write{boolean} 27|163m11 176r39
+30b7*Can_Execute{boolean} 27|164m11 176r17
+31b7*Is_Global{boolean} 27|165m11
+43P9*Page_Table_Acc(42R9) 26|51r34 140r26 27|27r34 148r26
+49N7*Page_Size 27|69r27 156r44 185r29 185r66
+139U14*Map_Allocated_Range 27|190s16
+140p8 Map{43P9} 27|191r11
+141m8 Physical_Start{21|25M9} 27|195r11
+142m8 Virtual_Start{21|25M9} 27|192r11
+143i8 Length{22|16I12} 27|193r11
+144r8 Permissions{26R9} 27|194r11
+145b8 Success{boolean} 27|196r11
+X 7 devices.ads
+22K9*Devices 279e12 27|20w6 35r22 85r23 130r18 202r18
+29A9*Operation_Data(9|16M9)<integer> 27|35r30 85r31 130r26 202r26
+X 9 interfac.ads
+11K9*Interfaces 120e15 26|18w6 18r22
+16M9*Unsigned_8 26|92r53
+17M9*Unsigned_16 26|97r30 98r30 104r30 105r30 106r30 107r30 108r30 109r30
+18M9*Unsigned_32 26|71r25 72r25 99r30 103r30
+19M9*Unsigned_64 26|32r30 33r30 34r30 35r30 52r25 73r25 74r25 77r25 78r25
+. 101r30 102r30 141r17 27|28r25 32r22 50r19 56r20 74r35 77r10 82r27 83r13
+. 84r27 94r23 128r18 149r17 152r40 155r27 157r28 171r20
+X 14 lib.ads
+19K9*Lib 35e8 27|19r6 152r25 153r25
+X 15 lib-alignment.ads
+19k13*Alignment 43e18 27|19w10 152r29 153r29
+27V13 Align_Up{9|19M9} 27|184s19[152]
+35V13 Align_Down{22|49M9} 27|183s19[153]
+X 18 memory.ads
+19K9*Memory 36e11 27|18w6 18r18
+35M12*Virtual_Address{22|49M9} 27|158r30 159r10
+X 21 system.ads
+11K9*System 73e11 26|17w6 40r21 75r25 100r30 27|17r6 17r35 40r26 169r20
+25M9*Address 26|40r28 75r32 100r37 27|169r27
+26m4*Null_Address{25M9} 27|40r33
+X 22 s-stoele.ads
+11K16*Storage_Elements 60e28 27|17w13 17r42
+12I9*Storage_Offset<long_integer> 27|73r48 203r46
+16I12*Storage_Count{12I9} 27|193r30
+23V14*"+"{21|25M9} 27|73s46 203s44
+49M9*Integer_Address 27|153r40 170r20 183r44
+51V13*To_Address{21|25M9} 27|192s30
+56V13*To_Integer{49M9} 27|74s48
+X 25 userland.ads
+17K9*Userland 23e13 26|22r9 142r5 27|21r6 23r14 173r19 209r5
+X 26 userland-elf.ads
+22K18*ELF 25|17k9 26|57E4 142l14 142e17 27|23b23 209l14 209t17
+23P9*String_Acc(string) 41r21 133r40 27|125r40 129r22
+26N4*Auxval_Null
+27N4*Auxval_Program_Headers
+28N4*Auxval_Header_Size
+29N4*Auxval_Header_Count
+30N4*Auxval_Entrypoint
+31R9*Auxval 36e14 42r21
+32m7*Entrypoint{9|19M9} 27|43m14 74m21
+33m7*Program_Headers{9|19M9} 27|44m14 106m33
+34m7*Program_Header_Count{9|19M9} 27|45m14 76m21
+35m7*Program_Header_Size{9|19M9} 27|46m14 75m21
+38R9*Parsed_ELF 44e14 52r45 27|28r45 38r16
+39b7*Was_Loaded{boolean} 27|39m11 117m17
+40m7*Entrypoint{21|25M9} 27|40m11 73m14 74r67
+41p7*Linker_Path{23P9} 27|41m11 108m26
+42r7*Vector{31R9} 27|42m11 74m14 75m14 76m14 106m26
+43b7*Exec_Stack{boolean} 27|47m10 110m26
+48V13*Load_ELF{38R9} 49>8 50>8 51>8 52>8 27|24b13 120l8 120t16
+49i8 FS{31|74I9} 27|25b8 55r17 93r20 102r39 108r53
+50m8 Ino{31|28M9} 27|26b8 55r21 93r24 102r43 108r57
+51p8 Map{6|43P9} 27|27b8 102r53
+52m8 Requested_Base{9|19M9} 27|28b8 32r37
+57N4 ET_DYN 27|68r28
+60N4 Program_Loadable_Segment 27|101r21
+61N4 Program_Dynamic_Segment
+62N4 Program_Interpreter_Segment 27|107r21
+63N4 Program_Header_Table_Segment 27|105r21
+64N4 Program_GNU_Stack 27|109r21
+67N4 Flags_Executable 27|110r55 164r50
+68N4 Flags_Write 27|163r50
+69N4 Flags_Read 27|162r50
+70R9 Program_Header 79e14 80r8 90r8 133r17 139r17 27|75r45 81r62 125r17 147r17
+71m7*Segment_Type{9|18M9} 81r7 27|100r22
+72m7*Flags{9|18M9} 82r7 27|110r45 162r40 163r40 164r40
+73m7*Offset{9|19M9} 83r7 27|136r33 205r36
+74m7*Virt_Address{9|19M9} 84r7 27|106r63 156r17 159r41
+75m7*Phys_Address{21|25M9} 85r7
+76i7*File_Size_Bytes{natural} 86r7 27|129r60 130r54 137r54 202r54 206r62
+77m7*Mem_Size_Bytes{9|19M9} 87r7 27|157r61
+78m7*Alignment{9|19M9} 88r7 27|177r17 178r18 178r40 183r68 184r49
+92A9 ELF_ID_Field(9|16M9)<integer> 93r29 96r30
+93a4 ELF_Signature{92A9} 27|58r40
+95R9 ELF_Header 110e14 111r8 127r8 27|33r22 34r42
+96a7*Identifier{92A9} 112r7 27|58r17
+97m7*ELF_Type{9|17M9} 113r7 27|68r17
+98m7*Machine{9|17M9} 114r7
+99m7*Version{9|18M9} 115r7
+100m7*Entrypoint{21|25M9} 116r7 27|73r35
+101m7*Program_Header_List{9|19M9} 117r7 27|92r24
+102m7*Section_Header_List{9|19M9} 118r7
+103m7*Flags{9|18M9} 119r7
+104m7*Header_Size{9|17M9} 120r7
+105m7*Program_Header_Size{9|17M9} 121r7 27|83r33
+106m7*Program_Header_Count{9|17M9} 122r7 27|77r30 81r37
+107m7*Section_Header_Size{9|17M9} 123r7
+108m7*Section_Header_Count{9|17M9} 124r7
+109m7*Section_Names_Index{9|17M9} 125r7
+130V13 Get_Linker{23P9} 131>8 132>8 133>8 27|108s41 122b13 142l8 142t18
+131i8 FS{31|74I9} 27|123b8 136r17
+132m8 Ino{31|28M9} 27|124b8 136r21
+133r8 Header{70R9} 27|125b8 129r53 130r47 136r26 137r47
+136V13 Load_Header{boolean} 137>8 138>8 139>8 140>8 141>8 27|102s26 144b13
+. 208l8 208t19
+137i8 FS{31|74I9} 27|145b8 205r20
+138m8 Ino{31|28M9} 27|146b8 205r24
+139r8 Header{70R9} 27|147b8 156r10 157r54 159r34 162r33 163r33 164r33 177r10
+. 178r11 178r33 183r61 184r42 202r47 205r29 206r55
+140p8 Map{6|43P9} 27|148b8 174r11 191r30
+141m8 Base{9|19M9} 27|149b8 159r27
+X 27 userland-elf.adb
+32m7 Base{9|19M9} 68r39 69m10 73r64 102r58 106r52
+33r7 Header{26|95R9} 36m34 36r34 58r10 68r10 73r28 77r23 81r30 83r26 92r17
+34i7 Header_Bytes{natural} 35r51 57r48
+35a7 Header_Data{7|29A9} 55m31
+38r7 Result{26|38R9} 60r17 73m7 74m7 74r60 75m7 76m7 89r20 96r20 103r29 106m19
+. 108m19 110m19 117m10 118r17
+49i7 Ret_Count{natural} 55m44 56r33 57r35 93m46 94r36 95r38
+50m7 Pos{9|19M9} 55r26 56m7 56r14 92m10 93r29 94m10 94r17
+51b7 Discard{boolean}
+52e7 Success{31|234E9} 55m61 57r10 93m63 95r13
+81a10 PHDRs(26|70R9) 84r50 86m37 86r37 88r26 99r21
+82m10 HSize{9|19M9} 84r42 88r13
+84m10 RSize{9|19M9} 85r61 95r60
+85a10 PHDRs_Data{7|29A9} 93m34
+99r14 HDR=99:21{26|70R9} 100r18 102r48 106r59 108r62 110r41
+128m7 Discard{9|19M9}
+129p7 Ret{26|23P9} 131r34 138r17
+130a7 Ret_Data{7|29A9} 136m41
+132i7 Ret_Count{natural} 136m51 137r35
+133b7 Discard2{boolean}
+134e7 Success{31|234E9} 136m68 137r10
+152K15 A1[15|19] 184r16
+153K15 A2[15|19] 183r16
+155m7 MisAlign{9|19M9} 157r43 203r62
+157m7 Load_Size{9|19M9} 174r29 184r31
+158m7 ELF_Virtual{18|35M12} 174r16 183r31
+160r7 Flags{6|26R9} 176r11 176r33 194r30
+166i7 Ret_Count{natural} 205m51 206r43
+167b7 Success1{boolean} 173m7 175r14 196m30 197r14
+168e7 Success2{31|234E9} 205m68 206r17
+169m7 Result{21|25M9} 195m30 203r37
+170m7 Ali_V{22|49M9} 183m7 185r10 192r42
+171m7 Ali_L{9|19M9} 184m7 185r47 193r45
+202a10 Load2{7|29A9} 205m44
+X 30 userland-syscall.ads
+33K18*Syscall 27|21w15 173r28 30|1356e21
+1257V13*Check_Userland_Mappability{boolean} 27|173s36
+X 31 vfs.ads
+24K9*VFS 26|19w6 49r25 50r25 131r17 132r17 137r17 138r17 27|25r25 26r25 30r11
+. 55r7 93r10 123r17 124r17 127r11 136r7 145r17 146r17 151r11 205r10 31|674e8
+28M9*File_Inode_Number<9|19M9> 26|50r29 132r21 138r21 27|26r29 124r21 146r21
+74I9*FS_Handle<integer> 26|49r29 131r21 137r21 27|25r29 123r21 145r21
+234E9*FS_Status 27|52r19 134r19 168r20 31|242e16
+235n8*FS_Success{234E9} 27|57r21 95r24 137r20 206r28
+400U14*Read 27|55s11 93s14 136s11 205s14
+

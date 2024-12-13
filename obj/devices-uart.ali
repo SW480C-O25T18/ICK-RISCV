@@ -1,0 +1,94 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.uart%b	devices-uart.adb	882298b2 NE OO PK
+W devices%s		devices.adb		devices.ali
+Z system%s		system.ads		system.ali
+
+U devices.uart%s	devices-uart.ads	de767a04 NE OO PK
+W devices%s		devices.adb		devices.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-uart.ads	20241115151036 15b33d8b devices.uart%s
+D devices-uart.adb	20241115151036 9d91a539 devices.uart%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init_uart0 devices__uart 23 14 none]
+G c Z s b [write_uart0 devices__uart 26 14 none]
+G c Z s b [write_uart0 devices__uart 29 14 none]
+X 3 devices.ads
+22K9*Devices 279e12 4|21r9 37r5 5|17r14 35r5
+X 4 devices-uart.ads
+21K17*UART 3|22k9 4|33E4 37l13 37e17 5|17b22 35l13 35t17
+23U14*Init_UART0 5|18b14 21l8 21t18
+26U14*Write_UART0 26>27 5|23b14 27l8 27t19 32s10
+26e27 Message{character} 5|23b27 24r49
+29U14*Write_UART0 29>27 5|29b14 34l8 34t19
+29a27 Message{string} 5|29b27 31r16
+33N4 UART_Base 36r46
+35m4 UART0_TX{6|16M9} 5|26m7
+X 5 devices-uart.adb
+24m7 Data{6|16M9} 26r19
+31e11 C=31:16{character} 32r23
+X 6 interfac.ads
+16M9*Unsigned_8 4|35r15 5|24r14
+X 9 memory.ads
+19K9*Memory 4|19w6 19r18 9|36e11
+29N4*Memory_Offset 4|36r30
+X 10 system.ads
+11K9*System 4|17r6 17r35 18w6 10|73e11
+25M9*Address
+X 11 s-stoele.ads
+11K16*Storage_Elements 4|17w13 17r42 11|60e28
+51V13*To_Address{10|25M9} 4|36s18
+

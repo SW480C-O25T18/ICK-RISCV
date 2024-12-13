@@ -1,0 +1,317 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U vfs.dev%b		vfs-dev.adb		adc56e17 NE OO PK IU
+Z system%s		system.ads		system.ali
+W vfs%s			vfs.adb			vfs.ali
+
+U vfs.dev%s		vfs-dev.ads		5af0fac4 NE OO PK IU
+W system%s		system.ads		system.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D vfs-dev.ads		20241115151036 f8e32356 vfs.dev%s
+D vfs-dev.adb		20241115151036 55264d41 vfs.dev%b
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [probe vfs__dev 20 14 none]
+G c Z s b [remount vfs__dev 27 14 none]
+G c Z s b [unmount vfs__dev 33 14 none]
+G c Z s b [get_block_size vfs__dev 35 14 none]
+G c Z s b [get_fragment_size vfs__dev 37 14 none]
+G c Z s b [get_size vfs__dev 39 14 none]
+G c Z s b [get_inode_count vfs__dev 41 14 none]
+G c Z s b [get_free_blocks vfs__dev 43 14 none]
+G c Z s b [get_free_inodes vfs__dev 48 14 none]
+G c Z s b [get_max_length vfs__dev 53 13 none]
+G c Z s b [read_entries vfs__dev 55 14 none]
+G c Z s b [read vfs__dev 63 14 none]
+G c Z s b [write vfs__dev 72 14 none]
+G c Z s b [stat vfs__dev 81 14 none]
+G c Z s b [io_control vfs__dev 87 14 none]
+G c Z s b [mmap vfs__dev 94 14 none]
+G c Z s b [poll vfs__dev 103 14 none]
+G c Z s b [synchronize vfs__dev 110 13 none]
+G c Z s b [synchronize vfs__dev 112 13 none]
+G r c none [read_entries vfs__dev 55 14 none] [list devices 141 14 none]
+G r c none [read_entries vfs__dev 55 14 none] [get_unique_id devices 161 13 none]
+G r c none [read_entries vfs__dev 55 14 none] [is_block_device devices 150 13 none]
+G r c none [read_entries vfs__dev 55 14 none] [fetch_name devices 130 14 none]
+G r c none [read vfs__dev 63 14 none] [from_unique_id devices 165 13 none]
+G r c none [read vfs__dev 63 14 none] [read devices 193 14 none]
+G r c none [write vfs__dev 72 14 none] [from_unique_id devices 165 13 none]
+G r c none [write vfs__dev 72 14 none] [write devices 210 14 none]
+G r c none [stat vfs__dev 81 14 none] [from_unique_id devices 165 13 none]
+G r c none [stat vfs__dev 81 14 none] [get_block_size devices 154 13 none]
+G r c none [stat vfs__dev 81 14 none] [get_block_count devices 152 13 none]
+G r c none [stat vfs__dev 81 14 none] [is_block_device devices 150 13 none]
+G r c none [io_control vfs__dev 87 14 none] [from_unique_id devices 165 13 none]
+G r c none [io_control vfs__dev 87 14 none] [fetch devices 123 13 none]
+G r c none [io_control vfs__dev 87 14 none] [io_control devices 224 13 none]
+G r c none [mmap vfs__dev 94 14 none] [from_unique_id devices 165 13 none]
+G r c none [mmap vfs__dev 94 14 none] [mmap devices 236 13 none]
+G r c none [poll vfs__dev 103 14 none] [from_unique_id devices 165 13 none]
+G r c none [poll vfs__dev 103 14 none] [poll devices 249 14 none]
+G r c none [synchronize vfs__dev 110 13 none] [list devices 141 14 none]
+G r c none [synchronize vfs__dev 110 13 none] [synchronize devices 171 13 none]
+G r c none [synchronize vfs__dev 112 13 none] [from_unique_id devices 165 13 none]
+G r c none [synchronize vfs__dev 112 13 none] [synchronize devices 171 13 none]
+X 1 arch.ads
+20K9*Arch 52e9 11|97r18 100r18 12|284r18 287r18
+X 2 arch-mmu.ads
+22K14*MMU 250e13 11|97r23 100r23 12|284r23 287r23
+26R9*Page_Permissions 32e14 11|100r27 12|287r27
+43P9*Page_Table_Acc(42R9) 11|97r27 12|284r27
+X 3 devices.ads
+22K9*Devices 279e12 12|105r27 118r20 130r7 139r32 143r16 147r13 237r35 238r35
+. 243r13 266r24 293r10 310r7 315r20 318r7 320r17 336r10
+29A9*Operation_Data(4|16M9)<integer> 11|67r26 76r22 12|163r26 186r22
+34A9*UUID(4|16M9)<integer> 12|266r32
+83I9*Device_Handle<integer> 11|21r23 12|24r23 169r23 192r23 212r22 267r28
+. 291r22 308r22 334r22
+84A9*Device_List(83I9)<integer> 12|118r28 315r28
+88i4*Max_Name_Length{natural} 12|105r35
+123V13*Fetch{34A9} 12|270s28
+130U14*Fetch_Name 12|147s21
+141U14*List 12|130s15 318s15
+150V13*Is_Block_Device{boolean} 12|143s24 243s21
+152V13*Get_Block_Count{4|19M9} 12|238s43
+154V13*Get_Block_Size{natural} 12|237s43
+161V13*Get_Unique_ID{natural} 12|139s40
+165V13*From_Unique_ID{83I9} 12|169s40 192s40 212s39 267s45 291s39 308s39
+. 334s39
+171V13*Synchronize{boolean} 12|320s25 336s18
+193U14*Read 12|172s7
+194i8 Handle{83I9} 12|173r11
+195m8 Offset{4|19M9} 12|174r11
+196a8 Data{29A9} 12|175r11
+197i8 Ret_Count{natural} 12|176r11
+198b8 Success{boolean} 12|177r11
+199b8 Is_Blocking{boolean} 12|178r11
+210U14*Write 12|195s7
+211i8 Handle{83I9} 12|196r11
+212m8 Offset{4|19M9} 12|197r11
+213a8 Data{29A9} 12|198r11
+214i8 Ret_Count{natural} 12|199r11
+215b8 Success{boolean} 12|200r11
+216b8 Is_Blocking{boolean} 12|201r11
+224V13*IO_Control{boolean} 12|272s19
+236V13*Mmap{boolean} 12|293s18
+249U14*Poll 12|310s15
+X 4 interfac.ads
+16M9*Unsigned_8
+18M9*Unsigned_32
+19M9*Unsigned_64 11|35r62 37r65 39r56 41r64 45r33 46r33 50r33 51r33 53r57
+. 66r22 75r22 90r17 99r18 12|56r62 62r65 68r56 74r64 82r33 83r33 93r33 94r33
+. 102r57 105r14 139r19 162r22 185r22 242r25 254r17 286r18
+X 7 memory.ads
+19K9*Memory 36e11 11|98r18 12|285r18
+35M12*Virtual_Address{9|49M9} 11|98r25 12|285r25
+X 8 system.ads
+11K9*System 73e11 11|17w6 24r27 28r23 33r35 35r35 37r38 39r29 41r36 44r29
+. 49r29 53r34 56r20 64r22 73r22 82r18 88r17 91r17 95r18 104r20 110r33 113r20
+. 12|27r27 34r20 39r23 51r35 53r13 56r35 62r38 68r29 74r36 81r29 92r29 102r34
+. 109r20 160r22 183r22 206r18 252r17 255r17 282r18 301r20 313r33 328r20
+25M9*Address 11|24r34 28r30 33r42 35r42 37r45 39r36 41r43 44r36 49r36 53r41
+. 56r27 64r29 73r29 82r25 88r24 91r24 95r25 104r27 110r40 113r27 12|27r34
+. 34r20 39r30 51r42 56r42 62r45 68r36 74r43 81r36 92r36 102r41 109r27 160r29
+. 183r29 206r25 252r24 255r24 282r25 301r27 313r40 328r27
+26m4*Null_Address{25M9} 12|53r20
+X 9 s-stoele.ads
+49M9*Integer_Address
+X 10 vfs.ads
+24K9*VFS 674e8 11|19r9 116r5 12|17r14 342r5
+28M9*File_Inode_Number<4|19M9> 11|25r27 57r20 65r22 74r22 83r18 89r17 96r18
+. 105r20 114r20 12|28r27 110r20 161r22 184r22 207r18 253r17 283r18 302r20
+. 329r20
+32M12*File_Mode{4|18M9}
+39n37*File_Directory{39E9} 12|217r35
+40n23*File_Character_Device{39E9} 12|142r33 231r35
+40n46*File_Block_Device{39E9} 12|145r19 244r31
+41R9*File_Stat 54e14 11|84r22 12|208r22
+42m7*Unique_Identifier{28M9} 12|216m14 230m14
+43e7*Type_Of_File{39E9} 12|217m14 231m14 244m15
+44m7*Mode{32M12} 12|218m14 232m14
+45m7*UID{4|18M9} 12|219m14 233m14
+46m7*GID{4|18M9} 12|220m14 234m14
+47i7*Hard_Link_Count{positive} 12|221m14 235m14
+48m7*Byte_Size{4|19M9} 12|222m14 236m14 242m12
+49i7*IO_Block_Size{natural} 12|223m14 237m14 242r40
+50m7*IO_Block_Count{4|19M9} 12|224m14 238m14 242r59
+51r7*Creation_Time{35R9} 12|225m14 239m14
+52r7*Modification_Time{35R9} 12|226m14 240m14
+53r7*Access_Time{35R9} 12|227m14 241m14
+58m7*Inode_Number{4|19M9} 12|138m17
+59a7*Name_Buffer{string} 12|140m17 149m49
+60i7*Name_Len{natural} 12|141m17 150m49
+61e7*Type_Of_File{39E9} 12|142m17 144m48
+63A9*Directory_Entities(57R9)<integer> 11|59r24 12|112r24
+234E9*FS_Status 242e16 11|61r24 70r26 79r26 85r22 92r21 101r22 110r56 115r36
+. 12|114r24 166r26 189r26 209r22 256r21 288r22 313r56 330r36
+235n8*FS_Success{234E9} 12|156r18 179r32 202r32 248r18 271r28 273r26 294r20
+. 324r14 337r17
+236n8*FS_Invalid_Value{234E9} 12|124r23 263r20
+241n8*FS_IO_Failure{234E9} 12|179r48 202r48 275r26 296r20 321r20 339r17
+X 11 vfs-dev.ads
+19K13*Dev 10|24k9 11|116l9 116e12 12|17b18 342l9 342t12
+20U14*Probe 21>8 22>8 23>8 24<8 25<8 12|23b14 36l8 36t13
+21i8 Handle{3|83I9} 12|24b8 30r28
+22b8 Do_Read_Only{boolean} 12|25b8 31r28
+23b8 Do_Relatime{boolean} 12|26b8 32r28
+24m8 Data_Addr{8|25M9} 12|27b8 34m7
+25m8 Root_Ino{10|28M9} 12|28b8 35m7
+27U14*Remount 28>8 29>8 30>8 31<8 12|38b14 49l8 49t15
+28m8 FS{8|25M9} 12|39b8 44r28
+29b8 Do_Read_Only{boolean} 12|40b8 45r28
+30b8 Do_Relatime{boolean} 12|41b8 46r28
+31b8 Success{boolean} 12|42b8 48m7
+33U14*Unmount 33=23 12|51b14 54l8 54t15
+33m23 FS{8|25M9} 12|51b23 53m7
+35U14*Get_Block_Size 35>30 35<51 12|56b14 60l8 60t22
+35m30 FS{8|25M9} 12|56b30 57r28
+35m51 Size{4|19M9} 12|56b51 59m7
+37U14*Get_Fragment_Size 37>33 37<54 12|62b14 66l8 66t25
+37m33 FS{8|25M9} 12|62b33 63r28
+37m54 Size{4|19M9} 12|62b54 65m7
+39U14*Get_Size 39>24 39<45 12|68b14 72l8 72t16
+39m24 FS{8|25M9} 12|68b24 69r28
+39m45 Size{4|19M9} 12|68b45 71m7
+41U14*Get_Inode_Count 41>31 41<52 12|74b14 78l8 78t23
+41m31 FS{8|25M9} 12|74b31 75r28
+41m52 Count{4|19M9} 12|74b52 77m7
+43U14*Get_Free_Blocks 44>8 45<8 46<8 12|80b14 89l8 89t23
+44m8 FS{8|25M9} 12|81b8 85r28
+45m8 Free_Blocks{4|19M9} 12|82b8 87m7
+46m8 Free_Unpriviledged{4|19M9} 12|83b8 88m7
+48U14*Get_Free_Inodes 49>8 50<8 51<8 12|91b14 100l8 100t23
+49m8 FS{8|25M9} 12|92b8 96r28
+50m8 Free_Inodes{4|19M9} 12|93b8 98m7
+51m8 Free_Unpriviledged{4|19M9} 12|94b8 99m7
+53V13*Get_Max_Length{4|19M9} 53>29 12|102b13 106l8 106t22
+53m29 FS{8|25M9} 12|102b29 103r28
+55U14*Read_Entries 56>8 57>8 58>8 59<8 60<8 61<8 12|108b14 157l8 157t20
+56m8 FS_Data{8|25M9} 12|109b8 116r28
+57m8 Ino{10|28M9} 12|110b8 122r10
+58i8 Offset{natural} 12|111b8 132r22
+59a8 Entities{10|63A9} 12|112b8 133r28 137m13 137r23 144m16 144r26 149m17
+. 149r17 149r27 150m17 150r17 150r27
+60i8 Ret_Count{natural} 12|113b8 123m10 128m7 133r16 151m13 151r26
+61e8 Success{10|234E9} 12|114b8 124m10 156m7
+63U14*Read 64>8 65>8 66>8 67<8 68<8 69>8 70<8 12|159b14 180l8 180t12
+64m8 FS_Data{8|25M9} 12|160b8 168r28
+65m8 Ino{10|28M9} 12|161b8 169r65
+66m8 Offset{4|19M9} 12|162b8 174r26
+67a8 Data{3|29A9} 12|163b8 175m26
+68i8 Ret_Count{natural} 12|164b8 176m26
+69b8 Is_Blocking{boolean} 12|165b8 178r26
+70e8 Success{10|234E9} 12|166b8 179m7
+72U14*Write 73>8 74>8 75>8 76>8 77<8 78>8 79<8 12|182b14 203l8 203t13
+73m8 FS_Data{8|25M9} 12|183b8 191r28
+74m8 Ino{10|28M9} 12|184b8 192r65
+75m8 Offset{4|19M9} 12|185b8 197r26
+76a8 Data{3|29A9} 12|186b8 198r26
+77i8 Ret_Count{natural} 12|187b8 199m26
+78b8 Is_Blocking{boolean} 12|188b8 201r26
+79e8 Success{10|234E9} 12|189b8 202m7
+81U14*Stat 82>8 83>8 84<8 85<8 12|205b14 249l8 249t12
+82m8 Data{8|25M9} 12|206b8 211r28
+83m8 Ino{10|28M9} 12|207b8 212r64 214r10 230r35
+84r8 S{10|41R9} 12|208b8 215m10 229m10 242m10 242r38 242r57 244m13
+85e8 Success{10|234E9} 12|209b8 248m7
+87U14*IO_Control 88>8 89>8 90>8 91>8 92<8 12|251b14 279l8 279t18
+88m8 Data{8|25M9} 12|252b8 258r28
+89m8 Ino{10|28M9} 12|253b8 262r10 267r70
+90m8 Req{4|19M9} 12|254b8 269r16 272r36
+91m8 Arg{8|25M9} 12|255b8 266r61 272r41
+92e8 Status{10|234E9} 12|256b8 263m10 271m16 273m16 275m16
+94U14*Mmap 95>8 96>8 97>8 98>8 99>8 100>8 101<8 12|281b14 298l8 298t12
+95m8 Data{8|25M9} 12|282b8 290r28
+96m8 Ino{10|28M9} 12|283b8 291r64
+97p8 Map{2|43P9} 12|284b8 293r29
+98m8 Address{7|35M12} 12|285b8 293r34
+99m8 Length{4|19M9} 12|286b8 293r43
+100r8 Flags{2|26R9} 12|287b8 293r51
+101e8 Status{10|234E9} 12|288b8 294m10 296m10
+103U14*Poll 104>8 105>8 106<8 107<8 108<8 12|300b14 311l8 311t12
+104m8 Data{8|25M9} 12|301b8 307r28
+105m8 Ino{10|28M9} 12|302b8 308r64
+106b8 Can_Read{boolean} 12|303b8 310m26
+107b8 Can_Write{boolean} 12|304b8 310m36
+108b8 Is_Error{boolean} 12|305b8 310m47
+110V13*Synchronize{10|234E9} 110>26 12|313b13 325l8 325t19
+110m26 Data{8|25M9} 12|313b26 314r28
+112V13*Synchronize{10|234E9} 113>8 114>8 115>8 12|327b13 341l8 341t19
+113m8 Data{8|25M9} 12|328b8 332r28
+114m8 Ino{10|28M9} 12|329b8 334r64
+115b8 Data_Only{boolean} 12|330b8 333r28
+X 12 vfs-dev.adb
+20N4 Root_Inode 35r20 122r17 214r16 216r35 262r16
+21N4 Device_Permissions 218r35 232r35
+118a7 Buffer{3|84A9} 130m21 139r55 143r41 148r17
+119i7 Idx{natural} 129m7 137r40 144r43 149r44 150r44 152m13 152r32
+120i7 Buffer_Len{natural} 130m29 131r21
+131i11 I{integer} 132r13 139r63 143r49 148r25
+169i7 Dev{3|83I9} 173r26
+170b7 Succ{boolean} 177m26 179r22
+192i7 Dev{3|83I9} 196r26
+193b7 Succ{boolean} 200m26 202r22
+212i7 Dev{3|83I9} 237r59 238r60 243r38
+260N7 DEV_UUID 269r22
+266a13 Arg_UUID{3|34A9} 270m16
+267i13 Dev{3|83I9} 270r35 272r31
+291i7 Dev{3|83I9} 293r24
+308i7 Dev{3|83I9} 310r21
+315a7 Buffer{3|84A9} 318m21 320r38
+316i7 Buffer_Len{natural} 318m29 319r21
+319i11 I{integer} 320r46
+334i7 Dev{3|83I9} 336r31
+

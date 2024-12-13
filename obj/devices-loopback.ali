@@ -1,0 +1,176 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.loopback%b	devices-loopback.adb	e9e38411 NE OO PK
+W devices%s		devices.adb		devices.ali
+W devices.netinter%s	devices-netinter.ads	devices-netinter.ali
+W networking%s		networking.adb		networking.ali
+W networking.interfaces%s  networking-interfaces.adb  networking-interfaces.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+Z system%s		system.ads		system.ali
+
+U devices.loopback%s	devices-loopback.ads	cd6acf4d NE OO PK
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-loopback.ads	20241115151036 39340044 devices.loopback%s
+D devices-loopback.adb	20241115151036 8c05de28 devices.loopback%b
+D devices-netinter.ads	20241115151036 a12468cd devices.netinter%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking-arp.ads	20241115151036 eec21925 networking.arp%s
+D networking-interfaces.ads  20241115151036 9c034257 networking.interfaces%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init devices__loopback 19 14 none]
+G c Z s b [read devices__loopback 32 14 none]
+G c Z s b [write devices__loopback 40 14 none]
+G c Z s b [io_control devices__loopback 48 13 none]
+G c Z s s [loopback_dataIP devices__loopback 26 9 none]
+G r s resource [init devices__loopback 19 14 none] [resourceIP devices 39 9 none]
+G r c none [init devices__loopback 19 14 none] [register devices 98 14 none]
+G r c none [init devices__loopback 19 14 none] [fetch devices 105 13 none]
+G r c none [init devices__loopback 19 14 none] [register_interface networking__interfaces 33 14 none]
+G r c none [init devices__loopback 19 14 none] [block networking__interfaces 56 14 none]
+G r c none [read devices__loopback 32 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [write devices__loopback 40 14 none] [yield_if_able scheduler 74 14 none]
+X 5 devices.ads
+22K9*Devices 279e12 6|17r9 52r5 7|19r6 21r14 133r5
+29A9*Operation_Data(9|16M9)<integer> 6|24r31 35r26 43r22 7|59r26 89r22
+34A9*UUID(9|16M9)<integer>
+39R9*Resource 80e14 7|23r16
+40m7*Data{17|25M9} 7|30m11
+41a7*ID{34A9} 7|31m11
+42b7*Is_Block{boolean} 7|32m11
+43i7*Block_Size{natural} 7|33m11
+44m7*Block_Count{9|19M9} 7|34m11
+46p7*Read 7|35m11
+53p7*Write 7|36m11
+60p7*Sync(boolean) 7|37m11
+61p7*Sync_Range(boolean) 7|38m11
+65p7*IO_Control(boolean) 7|39m11
+69p7*Mmap(boolean) 7|40m11
+75p7*Poll 7|41m11
+83I9*Device_Handle<integer> 7|24r16
+98U14*Register 7|42s7
+105V13*Fetch{83I9} 7|44s17
+X 6 devices-loopback.ads
+17K17*Loopback 5|22k9 6|24E12 52l13 52e21 7|21b22 133l13 133t21
+19U14*Init 19<20 7|22b14 54l8 54t12
+19b20 Success{boolean} 7|22b20 42m37 43r10 51m29 52m51
+24A12 Loopback_Buffer{5|29A9}<integer> 25r39 7|26r23
+25P9 Loopback_Buffer_Acc(24A12) 27r14
+26R9 Loopback_Data 29e14 30r37 7|25r50 66r13 96r13
+27p7*Data{25P9} 7|26m11 74r17 78r22 102r29 103r14
+28i7*Len{natural} 7|27m11 68r17 72r28 73r47 74r32 75r27 76m14 80m14 80r25
+. 98r17 104m14
+30P9 Loopback_Data_Acc(26R9) 7|25r25
+32U14 Read 33>8 34>8 35<8 36<8 37<8 38>8 7|35r26 56b14 84l8 84t12
+33m8 Key{17|25M9} 7|57b8 66r51
+34m8 Offset{9|19M9} 7|58b8 64r28
+35a8 Data{5|29A9} 7|59b8 72r10 73m10 73r16 73r30 78m10 78r33 79r23 80r31
+36i8 Ret_Count{natural} 7|60b8 75m10 79m10
+37b8 Success{boolean} 7|61b8 83m7
+38b8 Is_Blocking{boolean} 7|62b8 65r28
+40U14 Write 41>8 42>8 43>8 44<8 45<8 46>8 7|36r26 86b14 111l8 111t13
+41m8 Key{17|25M9} 7|87b8 96r51
+42m8 Offset{9|19M9} 7|88b8 94r28
+43a8 Data{5|29A9} 7|89b8 102r10 103r25 103r41 104r21 105r23
+44i8 Ret_Count{natural} 7|90b8 105m10 108m10
+45b8 Success{boolean} 7|91b8 106m10 109m10
+46b8 Is_Blocking{boolean} 7|92b8 95r28
+48V13 IO_Control{boolean} 49>8 50>8 51>8 7|39r26 113b13 132l8 132t18
+49m8 Data{17|25M9} 7|114b8 118r28
+50m8 Request{9|19M9} 7|115b8 120r12
+51m8 Argument{17|25M9} 7|116b8 123r70
+X 7 devices-loopback.adb
+23r7 Device{5|39R9} 29m7 42r17
+24i7 Dev{5|83I9} 44m10 46r29 52r39
+25p7 Data{6|30P9} 30r26
+66r7 Dev{6|26R9} 68r13 72r24 73r43 74r13 74r28 75r23 76m10 78r18 80m10 80r21
+96r7 Dev{6|26R9} 98r13 102r25 103m10 103r10 104m10
+123a16 Addr{13|22A9} 125m16
+X 8 devices-netinter.ads
+17K17*NetInter 7|19w14 121r15 8|20e21
+19N4*NET_GETMAC 7|121r24
+X 9 interfac.ads
+16M9*Unsigned_8
+19M9*Unsigned_64 6|34r22 42r22 50r19 7|58r22 88r22 115r19
+X 13 networking.ads
+20K9*Networking 7|17r6 45r10 52r10 123r23 13|55e15
+22A9*MAC_Address(9|16M9)<integer> 7|123r34
+23A9*IPv4_Address(9|16M9)<integer>
+24A9*IPv6_Address(9|16M9)<integer>
+X 15 networking-interfaces.ads
+20K20*Interfaces 7|17w17 45r21 52r21 15|107e26
+33U14*Register_Interface 7|45s32
+34i8 Interfaced{5|83I9} 7|46r14
+35a8 IPv4{13|23A9} 7|47r14
+36a8 IPv4_Subnet{13|23A9} 7|48r14
+37a8 IPv6{13|24A9} 7|49r14
+38a8 IPv6_Subnet{13|24A9} 7|50r14
+39b8 Success{boolean} 7|51r14
+56U14*Block 7|52s32
+X 16 scheduler.ads
+25K9*Scheduler 7|18w6 69r10 99r10 16|183e14
+74U14*Yield_If_Able 7|69s20 99s20
+X 17 system.ads
+11K9*System 6|33r22 41r22 49r19 51r19 7|57r22 87r22 114r19 116r19 17|73e11
+25M9*Address 6|33r29 41r29 49r26 51r26 7|57r29 87r29 114r26 116r26
+

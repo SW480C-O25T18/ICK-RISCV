@@ -1,0 +1,105 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -gnatg
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U system%s		system.ads		c1a7efcf NE OL PU PK
+
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [Olt system 28 13 none]
+G c Z s s [Ole system 29 13 none]
+G c Z s s [Ogt system 30 13 none]
+G c Z s s [Oge system 31 13 none]
+G c Z s s [Oeq system 32 13 none]
+X 1 system.ads
+11K9*System 45E9 73l5 73e11
+12E9*Name 12e54 13r27
+12n18*SYSTEM_NAME_RISCV64_LIMINE_IRONCLAD{12E9} 13r35
+13e4*System_Name{12E9}
+16N4*Min_Int
+17N4*Max_Int
+18N4*Max_Binary_Modulus
+19N4*Max_Nonbinary_Modulus
+20N4*Storage_Unit
+21N4*Word_Size
+22N4*Memory_Size 45r24
+25M9*Address 26r28 28r33 29r33 30r33 31r33 32r33 45c9 46r28
+26m4*Null_Address{25M9} 46c4
+28V14*"<"{boolean} 28>19 28>25 33b31
+28m19 Left{25M9}
+28m25 Right{25M9}
+29V14*"<="{boolean} 29>19 29>25 34b31
+29m19 Left{25M9}
+29m25 Right{25M9}
+30V14*">"{boolean} 30>19 30>25 35b31
+30m19 Left{25M9}
+30m25 Right{25M9}
+31V14*">="{boolean} 31>19 31>25 36b31
+31m19 Left{25M9}
+31m25 Right{25M9}
+32V14*"="{boolean} 32>19 32>25 37b31
+32m19 Left{25M9}
+32m25 Right{25M9}
+40E9*Bit_Order 40e57 41r33
+40n23*High_Order_First{40E9}
+40n41*Low_Order_First{40E9} 41r46
+41e4*Default_Bit_Order{40E9}
+49b4 Backend_Divide_Checks{boolean}
+50b4 Backend_Overflow_Checks{boolean}
+51b4 Command_Line_Args{boolean}
+52b4 Configurable_Run_Time{boolean}
+53b4 Denorm{boolean}
+54b4 Duration_32_Bits{boolean}
+55b4 Exit_Status_Supported{boolean}
+56b4 Machine_Overflows{boolean}
+57b4 Machine_Rounds{boolean}
+58b4 Preallocated_Stacks{boolean}
+59b4 Signed_Zeros{boolean}
+60b4 Stack_Check_Default{boolean}
+61b4 Stack_Check_Probes{boolean}
+62b4 Stack_Check_Limits{boolean}
+63b4 Support_Aggregates{boolean}
+64b4 Support_Atomic_Primitives{boolean}
+65b4 Support_Composite_Assign{boolean}
+66b4 Support_Composite_Compare{boolean}
+67b4 Support_Long_Shifts{boolean}
+68b4 Always_Compatible_Rep{boolean}
+69b4 Suppress_Standard_Library{boolean}
+70b4 Use_Ada_Main_Program_Name{boolean}
+71b4 ZCX_By_Default{boolean}
+72b4 GCC_ZCX_Support{boolean}
+

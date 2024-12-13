@@ -1,0 +1,253 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.shm%b		ipc-shm.adb		d37d4d2d NE OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W memory.physical%s	memory-physical.adb	memory-physical.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U ipc.shm%s		ipc-shm.ads		1dd438e2 NE OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-shm.ads		20241115151036 e6bb078c ipc.shm%s
+D ipc-shm.adb		20241115151036 0fa53a76 ipc.shm%b
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D memory-physical.ads	20241115151036 f22cd7a2 memory.physical%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [create_segment ipc__shm 29 13 none]
+G c Z s b [create_unkeyed_segment ipc__shm 38 13 none]
+G c Z s b [get_segment ipc__shm 45 13 none]
+G c Z s b [get_segment_and_size ipc__shm 48 14 none]
+G c Z s b [get_address ipc__shm 54 14 none]
+G c Z s b [check_permissions ipc__shm 59 13 none]
+G c Z s b [mark_refcounted ipc__shm 64 14 none]
+G c Z s b [modify_attachment ipc__shm 68 14 none]
+G c Z s b [modify_permissions ipc__shm 70 14 none]
+G c Z s b [fetch_information ipc__shm 87 14 none]
+G c Z s b [get_total_size ipc__shm 93 14 none]
+G c Z s b [check_and_maybe_free ipc__shm 97 14 none]
+G c Z s s [segment_informationIP ipc__shm 76 9 none]
+G c Z b b [segment_innerIP ipc__shm 24 9 none]
+G c Z b b [Tsegment_arrBIP ipc__shm 37 4 none]
+G r c none [create_segment ipc__shm 29 13 none] [seize lib__synchronization 27 14 none]
+G r c none [create_segment ipc__shm 29 13 none] [alloc memory__physical 34 13 none]
+G r c none [create_segment ipc__shm 29 13 none] [release lib__synchronization 31 14 none]
+G r c none [create_unkeyed_segment ipc__shm 38 13 none] [seize lib__synchronization 27 14 none]
+G r c none [create_unkeyed_segment ipc__shm 38 13 none] [alloc memory__physical 34 13 none]
+G r c none [create_unkeyed_segment ipc__shm 38 13 none] [release lib__synchronization 31 14 none]
+G r c none [get_segment ipc__shm 45 13 none] [seize lib__synchronization 27 14 none]
+G r c none [get_segment ipc__shm 45 13 none] [release lib__synchronization 31 14 none]
+G r c none [get_segment_and_size ipc__shm 48 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_segment_and_size ipc__shm 48 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_address ipc__shm 54 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_address ipc__shm 54 14 none] [release lib__synchronization 31 14 none]
+G r c none [check_permissions ipc__shm 59 13 none] [seize lib__synchronization 27 14 none]
+G r c none [check_permissions ipc__shm 59 13 none] [release lib__synchronization 31 14 none]
+G r c none [mark_refcounted ipc__shm 64 14 none] [seize lib__synchronization 27 14 none]
+G r c none [mark_refcounted ipc__shm 64 14 none] [free memory__physical 40 14 none]
+G r c none [mark_refcounted ipc__shm 64 14 none] [release lib__synchronization 31 14 none]
+G r c none [modify_attachment ipc__shm 68 14 none] [seize lib__synchronization 27 14 none]
+G r c none [modify_attachment ipc__shm 68 14 none] [free memory__physical 40 14 none]
+G r c none [modify_attachment ipc__shm 68 14 none] [release lib__synchronization 31 14 none]
+G r c none [modify_permissions ipc__shm 70 14 none] [seize lib__synchronization 27 14 none]
+G r c none [modify_permissions ipc__shm 70 14 none] [release lib__synchronization 31 14 none]
+G r c none [fetch_information ipc__shm 87 14 none] [seize lib__synchronization 27 14 none]
+G r c none [fetch_information ipc__shm 87 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_total_size ipc__shm 93 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_total_size ipc__shm 93 14 none] [release lib__synchronization 31 14 none]
+G r c none [check_and_maybe_free ipc__shm 97 14 none] [free memory__physical 40 14 none]
+X 2 interfac.ads
+11K9*Interfaces 120e15 5|17w6 17r22 6|20r6 20r24
+18M9*Unsigned_32 5|25r26 30r22 32r22 33r22 40r22 41r22 45r32 61r14 62r14
+. 72r15 73r15 77r21 79r21 80r21 81r21 82r21 6|26r26 27r26 28r26 29r26 30r26
+. 44r22 46r22 47r22 82r22 83r22 112r32 167r14 168r14 207r15 208r15
+19M9*Unsigned_64 5|31r22 34r22 39r22 42r22 49r18 50r22 56r22 57r22 74r15
+. 78r21 83r21 93r41 6|31r26 45r22 48r22 81r22 84r22 127r18 128r22 140r21
+. 150r22 151r22 156r21 157r18 209r15 231r29 245r41 251r28
+X 3 i-c.ads
+11K20*C 41e17 6|20w17 20r35
+31M9*size_t 6|70r17 99r23 261r16
+X 4 ipc.ads
+17K9*IPC 18e8 5|19r9 98r5 6|23r14 264r5
+X 5 ipc-shm.ads
+19K13*SHM 4|17k9 5|97E14 98l9 98e12 6|23b18 264l9 264t12
+25M12*Segment_ID{2|18M9} 26r24 34r42 42r42 45r52 51r22 55r18 60r14 64r36
+. 68r38 71r15 88r16 97r41 6|37r31 48r42 50r18 84r42 86r18 112r52 113r18 129r22
+. 149r18 166r14 184r36 194r38 206r15 222r16 257r41
+26m4*Error_ID{25M12} 6|50r32 57r56 86r32 113r32 133r15
+29V13*Create_Segment{25M12} 30>8 31>8 32>8 33>8 34>8 6|43b13 78l8 78t22
+30m8 Wanted_Key{2|18M9} 35r19 6|44b8 54r60 63r34
+31m8 Wanted_Size{2|19M9} 6|45b8 70r25 71r48
+32m8 Creator_UID{2|18M9} 6|46b8 64r40 66r42
+33m8 Creator_GID{2|18M9} 6|47b8 65r40 67r42
+34m8 Mode{2|19M9} 6|48b8 68r35
+38V13*Create_Unkeyed_Segment{25M12} 39>8 40>8 41>8 42>8 6|80b13 110l8 110t30
+39m8 Wanted_Size{2|19M9} 6|81b8 99r31 100r47
+40m8 Creator_UID{2|18M9} 6|82b8 93r39 95r41
+41m8 Creator_GID{2|18M9} 6|83b8 94r39 96r41
+42m8 Mode{2|19M9} 6|84b8 97r34
+45V13*Get_Segment{25M12} 45>26 6|112b13 124l8 124t19
+45m26 Key{2|18M9} 6|112b26 117r60
+48U14*Get_Segment_And_Size 49>8 50<8 51<8 6|126b14 146l8 146t28
+49m8 Address{2|19M9} 6|127b8 138r70
+50m8 Size{2|19M9} 6|128b8 132m7 140m13
+51m8 ID{25M12} 6|129b8 133m7 141m13
+54U14*Get_Address 55>8 56<8 57<8 6|148b14 163l8 163t19
+55m8 ID{25M12} 6|149b8 155r20 156r44 157r41
+56m8 Address{2|19M9} 6|150b8 156m10 159m10
+57m8 Size{2|19M9} 6|151b8 157m10 160m10
+59V13*Check_Permissions{boolean} 60>8 61>8 62>8 6|165b13 182l8 182t25
+60m8 ID{25M12} 6|166b8 173r20 174r36 175r30 176r24
+61m8 UID{2|18M9} 6|167b8 174r20
+62m8 GID{2|18M9} 6|168b8 175r14
+64U14*Mark_Refcounted 64>31 6|184b14 192l8 192t23
+64m31 ID{25M12} 6|184b31 187r20 188r20 189r32
+68U14*Modify_Attachment 68>33 68>50 6|194b14 203l8 203t25
+68m33 ID{25M12} 6|194b33 197r20 198r20 199r23 200r32
+68b50 Increment{boolean} 6|194b50 199r42
+70U14*Modify_Permissions 71>8 72>8 73>8 74>8 6|205b14 219l8 219t26
+71m8 ID{25M12} 6|206b8 213r20 214r20 215r20 216r20
+72m8 UID{2|18M9} 6|207b8 214r37
+73m8 GID{2|18M9} 6|208b8 215r37
+74m8 Mode{2|19M9} 6|209b8 216r32
+76R9*Segment_Information 85e14 89r20 6|223r20
+77m7*Key{2|18M9} 6|230m14
+78m7*Size{2|19M9} 6|231m14
+79m7*Owner_UID{2|18M9} 6|232m14
+80m7*Owner_GID{2|18M9} 6|233m14
+81m7*Creator_UID{2|18M9} 6|234m14
+82m7*Creator_GID{2|18M9} 6|235m14
+83m7*Mode{2|19M9} 6|236m14
+84i7*Refcount{natural} 6|237m14
+87U14*Fetch_Information 88>8 89<8 90<8 6|221b14 243l8 243t25
+88m8 ID{25M12} 6|222b8 228r20 230r39 231r52 232r39 233r39 234r39 235r39 236r39
+. 237r39
+89r8 Info{76R9} 6|223b8 229m10
+90b8 Found{boolean} 6|224b8 238m10 240m10
+93U14*Get_Total_Size 93<30 6|245b14 255l8 255t22
+93m30 Size{2|19M9} 6|245b30 247m7 251m13 251r21
+97U14 Check_And_Maybe_Free 97>36 6|189s10 200s10 257b14 263l8 263t28
+97m36 ID{25M12} 6|257b36 259r20 259r51 260r20 261r34
+X 6 ipc-shm.adb
+24R9 Segment_Inner 36e14 37r60
+25b7*Is_Present{boolean} 54r26 57r30 62m27 90r30 91m26 117r26 137r26 155r24
+. 173r24 187r24 197r24 213r24 228r24 250r17 260m24
+26m7*Key{2|18M9} 54r54 63m27 92m26 117r54 230r43
+27m7*Owner_UID{2|18M9} 64m27 93m26 174r40 214m24 232r43
+28m7*Owner_GID{2|18M9} 65m27 94m26 175r34 215m24 233r43
+29m7*Creator_UID{2|18M9} 66m27 95m26 234r43
+30m7*Creator_GID{2|18M9} 67m27 96m26 235r43
+31m7*Mode{2|19M9} 68m27 97m26 176r28 216m24 236r43
+32m7*Physical_Address{9|34M12} 69m27 98m26 138r26 156r48 261r38
+33m7*Size{9|20M9} 71m27 100m26 140r47 157r45 231r56 251r45
+34i7*Refcount{natural} 72m27 101m26 198m24 199r27 237r43 259r24
+35b7*Is_Refcounted{boolean} 73m27 102m26 188m24 259r55
+37A9 Segment_Arr(24R9)<2|18M9> 40r15
+39r4 Registry_Mutex{8|22R9} 52m34 52r34 76m36 76r36 88m34 88r34 108m36 108r36
+. 115m34 115r34 122m36 122r36 135m34 135r34 145m36 145r36 154m34 154r34 162m36
+. 162r36 172m34 172r34 180m36 180r36 186m34 186r34 191m36 191r36 196m34 196r34
+. 202m36 202r36 212m34 212r34 218m36 218r36 227m34 227r34 242m36 242r36 248m34
+. 248r34 254m36 254r36
+40a4 Registry{37A9} 53r16 54r13 54r41 57r17 62m7 63m7 64m7 65m7 66m7 67m7
+. 68m7 69m7 71m7 72m7 73m7 89r16 90r17 91m13 92m13 93m13 94m13 95m13 96m13
+. 97m13 98m13 100m13 101m13 102m13 116r16 117r13 117r41 136r16 137r13 138r13
+. 140r34 155r10 156r34 157r31 173r10 174r26 175r20 176r14 187r10 188m10 197r10
+. 198m10 199r13 213r10 214m10 215m10 216m10 228r10 230r29 231r42 232r29 233r29
+. 234r29 235r29 236r29 237r29 249r18 259r10 259r41 260m10 261r24
+50m7 Returned{5|25M12} 57r45 58m13 62r17 63r17 64r17 65r17 66r17 67r17 68r17
+. 69r17 71r17 72r17 73r17 77r14
+53m11 I{2|18M9} 54r23 54r51 57r27 58r25
+75L6 Cleanup 55r18
+86m7 Returned{5|25M12} 103m13 109r14
+89m11 I{2|18M9} 90r27 91r23 92r23 93r23 94r23 95r23 96r23 97r23 98r23 100r23
+. 101r23 102r23 103r25
+113m7 Returned{5|25M12} 118m13 123r14
+116m11 I{2|18M9} 117r23 117r51 118r25
+136m11 I{2|18M9} 137r23 138r23 140r44 141r21
+170b7 Result{boolean} 174m10 178m10 181r14
+249r11 Reg=249:18{24R9} 250r13 251r41
+X 7 lib.ads
+19K9*Lib 6|17r6 17r31 52r7 76r7 88r7 108r7 115r7 122r7 135r7 145r7 154r7
+. 162r7 172r7 180r7 186r7 191r7 196r7 202r7 212r7 218r7 227r7 242r7 248r7
+. 254r7 7|35e8
+X 8 lib-synchronization.ads
+20K13*Synchronization 6|17w10 17r35 52r11 76r11 88r11 108r11 115r11 122r11
+. 135r11 145r11 154r11 162r11 172r11 180r11 186r11 191r11 196r11 202r11 212r11
+. 218r11 227r11 242r11 248r11 254r11 8|66e24
+22R9*Binary_Semaphore 6|39r29 8|57e14
+23r4*Unlocked_Semaphore{22R9} 6|39r49
+27U14*Seize 6|52s27 88s27 115s27 135s27 154s27 172s27 186s27 196s27 212s27
+. 227s27 248s27
+31U14*Release 6|76s27 108s27 122s27 145s27 162s27 180s27 191s27 202s27 218s27
+. 242s27 254s27
+X 9 memory.ads
+19K9*Memory 6|18w6 19r6 19r27 32r26 33r26 70r41 71r35 99r47 100r34 138r45
+. 9|36e11
+20M9*Size 6|33r33 71r42 100r41
+29N4*Memory_Offset 6|70r48 99r54
+34M12*Physical_Address{12|49M9} 6|32r33 138r52
+X 10 memory-physical.ads
+20K16*Physical 6|19w13 19r34 10|60e20
+34V13*Alloc{9|35M12} 6|70s10 99s16
+40U14*Free 6|261s10
+X 11 system.ads
+11K9*System 6|21r6 21r35 11|73e11
+X 12 s-stoele.ads
+11K16*Storage_Elements 6|21w13 21r42 12|60e28
+49M9*Integer_Address
+

@@ -1,0 +1,87 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U networking.ipv6%b	networking-ipv6.adb	82a67bf3 NE OO PK
+W networking%s		networking.adb		networking.ali
+
+U networking.ipv6%s	networking-ipv6.ads	d037e954 NE OO PK
+W networking%s		networking.adb		networking.ali
+W system%s		system.ads		system.ali
+
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking-ipv6.ads	20241115151036 617a68ce networking.ipv6%s
+D networking-ipv6.adb	20241115151036 e3dc133d networking.ipv6%b
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [generate_header networking__ipv6 49 13 none]
+G c Z s s [ipv6_packet_headerIP networking__ipv6 26 9 none]
+X 1 interfac.ads
+16M9*Unsigned_8 5|28r25 31r25 32r25 6|31r30
+17M9*Unsigned_16 5|30r25 53r28 6|29r30
+X 4 networking.ads
+20K9*Networking 55e15 5|19r9 54r5 6|17r14 35r5
+24A9*IPv6_Address(1|16M9)<integer> 5|33r25 34r25 50r30 6|21r30
+X 5 networking-ipv6.ads
+19K20*IPv6 4|20k9 5|54l16 54e20 6|17b25 35l16 35t20
+21M9*Unsigned_4 27r25
+22M9*Unsigned_20 29r25
+26R9*IPv6_Packet_Header 35e15 37r8 51r46 53r48 6|22r46
+27m7*Version{21M9} 38r7 6|26m11
+28m7*Trafic_Class{1|16M9} 39r7 6|27m11
+29m7*Flow_Label{22M9} 40r7 6|28m11
+30m7*Payload_Length{1|17M9} 41r7 6|29m11
+31m7*Next_Header{1|16M9} 42r7 6|30m11
+32m7*Hop_Limit{1|16M9} 43r7 6|31m11
+33a7*Source_IP{4|24A9} 44r7 6|32m11
+34a7*Destination_IP{4|24A9} 45r7 6|33m11
+49V13*Generate_Header{26R9} 50>8 50>19 51>8 6|20b13 34l8 34t23
+50a8 Source_IP{4|24A9} 6|21b8 32r30
+50a19 Desto_IP{4|24A9} 6|21b19 33r30
+51i8 Data_Length{natural} 52r19 6|22b8 29r43
+X 7 system.ads
+11K9*System 5|17w6 35r46 36r31 7|73e11
+40n23*High_Order_First{40E9} 5|35r53 36r38
+

@@ -1,0 +1,125 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.console%b	devices-console.adb	d3e70226 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.debug%s		arch-debug.adb		arch-debug.ali
+W devices%s		devices.adb		devices.ali
+
+U devices.console%s	devices-console.ads	c390c2b6 NE OO PK
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-debug.ads	20241115151036 7987b5ed arch.debug%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-console.ads	20241115151036 37ce0dbf devices.console%s
+D devices-console.adb	20241115151036 9daeba74 devices.console%b
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init devices__console 19 14 none]
+G c Z s b [read devices__console 24 14 none]
+G c Z s b [write devices__console 32 14 none]
+G r s resource [init devices__console 19 14 none] [resourceIP devices 39 9 none]
+G r c none [init devices__console 19 14 none] [register devices 98 14 none]
+G r c none [write devices__console 32 14 none] [print arch__debug 40 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 6|17r6 51r10 52r10 73r7
+X 2 arch-debug.ads
+19K14*Debug 49e15 6|17w11 51r15 52r15 73r12
+24b4*Supports_Read{boolean} 6|51r21
+28U14*Read 6|52s21
+40U14*Print 6|73s18
+X 4 devices.ads
+22K9*Devices 279e12 5|17r9 39r5 6|19r14 77r5
+29A9*Operation_Data(7|16M9)<integer> 5|27r26 35r22 6|42r26 64r22
+34A9*UUID(7|16M9)<integer>
+39R9*Resource 80e14 6|21r16
+40m7*Data{11|25M9} 6|24m11
+41a7*ID{34A9} 6|25m11
+42b7*Is_Block{boolean} 6|26m11
+43i7*Block_Size{natural} 6|27m11
+44m7*Block_Count{7|19M9} 6|28m11
+46p7*Read 6|29m11
+53p7*Write 6|30m11
+60p7*Sync(boolean) 6|31m11
+61p7*Sync_Range(boolean) 6|32m11
+65p7*IO_Control(boolean) 6|33m11
+69p7*Mmap(boolean) 6|34m11
+75p7*Poll 6|35m11
+98U14*Register 6|36s7
+X 5 devices-console.ads
+17K17*Console 4|22k9 5|24E14 39l13 39e20 6|19b22 77l13 77t20
+19U14*Init 19<20 6|20b14 37l8 37t12
+19b20 Success{boolean} 6|20b20 36m36
+24U14 Read 25>8 26>8 27<8 28<8 29<8 30>8 6|29r26 39b14 59l8 59t12
+25m8 Key{11|25M9} 6|40b8 47r28
+26m8 Offset{7|19M9} 6|41b8 48r28
+27a8 Data{4|29A9} 6|42b8 52m27 53r23
+28i8 Ret_Count{natural} 6|43b8 53m10 56m10
+29b8 Success{boolean} 6|44b8 54m10 57m10
+30b8 Is_Blocking{boolean} 6|45b8 49r28
+32U14 Write 33>8 34>8 35>8 36<8 37<8 38>8 6|30r26 61b14 76l8 76t13
+33m8 Key{11|25M9} 6|62b8 69r28
+34m8 Offset{7|19M9} 6|63b8 70r28
+35a8 Data{4|29A9} 6|64b8 73r25 74r20
+36i8 Ret_Count{natural} 6|65b8 74m7
+37b8 Success{boolean} 6|66b8 75m7
+38b8 Is_Blocking{boolean} 6|67b8 71r28
+X 6 devices-console.adb
+21r7 Device{4|39R9} 23m7 36r17
+X 7 interfac.ads
+16M9*Unsigned_8
+19M9*Unsigned_64 5|26r22 34r22 6|41r22 63r22
+X 11 system.ads
+11K9*System 5|25r22 33r22 6|24r26 40r22 62r22 11|73e11
+25M9*Address 5|25r29 33r29 6|40r29 62r29
+26m4*Null_Address{25M9} 6|24r33
+

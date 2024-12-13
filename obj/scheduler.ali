@@ -1,0 +1,674 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U scheduler%b		scheduler.adb		16dfd0fd NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W arch.local%s		arch-local.adb		arch-local.ali
+W arch.snippets%s	arch-snippets.adb	arch-snippets.ali
+W lib%s			lib.adb			lib.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W lib.time%s		lib-time.adb		lib-time.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+
+U scheduler%s		scheduler.ads		5dd0540c NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.context%s	arch-context.adb	arch-context.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+W userland%s		userland.ads		userland.ali
+W userland.elf%s	userland-elf.adb	userland-elf.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-local.ads	20241115151036 e5953d14 arch.local%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D arch-snippets.ads	20241115151036 3613a65c arch.snippets%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D lib-time.ads		20241115151036 30059be5 lib.time%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D scheduler.adb		20241115151036 6fbe4959 scheduler%b
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [init scheduler 33 13 none]
+G c Z s b [idle_core scheduler 37 14 none]
+G c Z s b [create_user_thread scheduler 41 13 none]
+G c Z s b [create_user_thread scheduler 52 13 none]
+G c Z s b [create_user_thread scheduler 61 13 none]
+G c Z s b [delete_thread scheduler 70 14 none]
+G c Z s b [yield_if_able scheduler 74 14 none]
+G c Z s b [bail scheduler 77 14 none]
+G c Z s b [get_runtime_times scheduler 80 14 none]
+G c Z s b [signal_kernel_entry scheduler 87 14 none]
+G c Z s b [signal_kernel_exit scheduler 88 14 none]
+G c Z s b [set_scheduling_algorithm scheduler 97 13 none]
+G c Z s b [set_time_slice scheduler 103 13 none]
+G c Z s b [create_cluster scheduler 105 13 none]
+G c Z s b [delete_cluster scheduler 106 13 none]
+G c Z s b [switch_cluster scheduler 108 13 none]
+G c Z s b [get_niceness scheduler 115 13 none]
+G c Z s b [set_niceness scheduler 116 14 none]
+G c Z s b [get_name scheduler 118 14 none]
+G c Z s b [set_name scheduler 119 14 none]
+G c Z s b [get_load_averages scheduler 125 14 none]
+G c Z s b [scheduler_isr scheduler 129 14 none]
+G c Z s s [convert scheduler 132 13 none]
+G c Z s s [convert scheduler 133 13 none]
+G c Z s s [convert scheduler 134 13 none]
+G c Z s s [convert scheduler 135 13 none]
+G c Z s b [list_all scheduler 155 14 none]
+G c Z s b [list_all scheduler 156 14 none]
+G c Z s b [waiting_spot scheduler 169 14 none]
+G c Z s b [has_available_time scheduler 171 13 none]
+G c Z s b [is_switchable scheduler 173 13 none]
+G c Z s b [add_bucket_and_shift scheduler 175 14 none]
+G c Z s s [thread_listingIP scheduler 137 9 none]
+G c Z s s [thread_listing_arrIP scheduler 142 9 none]
+G c Z s s [cluster_listingIP scheduler 144 9 none]
+G c Z s s [cluster_listing_arrIP scheduler 150 9 none]
+G c Z b b [Tstats_bucket_arrBIP scheduler 89 4 none]
+G c Z b b [thread_stackIP scheduler 31 9 none]
+G c Z b b [thread_stack_64IP scheduler 32 9 none]
+G c Z b b [Tkernel_stackBIP scheduler 33 4 none]
+G c Z b b [thread_clusterIP scheduler 36 9 none]
+G c Z b b [Tcluster_arrBIP scheduler 45 4 none]
+G c Z b b [thread_infoIP scheduler 48 9 none]
+G c Z b b [Tthread_info_arrBIP scheduler 74 4 none]
+G r c none [init scheduler 33 13 none] [release lib__synchronization 49 14 none]
+G r c none [idle_core scheduler 37 14 none] [pause arch__snippets 37 14 none]
+G r c none [idle_core scheduler 37 14 none] [reschedule_asap arch__local 24 14 none]
+G r c none [idle_core scheduler 37 14 none] [enable_interrupts arch__snippets 29 14 none]
+G r c none [idle_core scheduler 37 14 none] [wait_for_interrupt arch__snippets 33 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [convert userland__process 579 13 none]
+G r c none [create_user_thread scheduler 41 13 none] [get_stack_base userland__process 350 13 none]
+G r c none [create_user_thread scheduler 41 13 none] [set_stack_base userland__process 356 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [map_allocated_range arch__mmu 139 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [init_gp_context arch__context 33 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [init_fp_context arch__context 49 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [seize lib__synchronization 44 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [release lib__synchronization 31 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [success_fork_result arch__context 46 14 none]
+G r c none [create_user_thread scheduler 41 13 none] [release lib__synchronization 49 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [init_gp_context arch__context 33 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [init_fp_context arch__context 49 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [seize lib__synchronization 44 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [convert userland__process 579 13 none]
+G r c none [create_user_thread scheduler 52 13 none] [release lib__synchronization 31 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [success_fork_result arch__context 46 14 none]
+G r c none [create_user_thread scheduler 52 13 none] [release lib__synchronization 49 14 none]
+G r c none [create_user_thread scheduler 61 13 none] [seize lib__synchronization 44 14 none]
+G r c none [create_user_thread scheduler 61 13 none] [convert userland__process 579 13 none]
+G r c none [create_user_thread scheduler 61 13 none] [release lib__synchronization 31 14 none]
+G r c none [create_user_thread scheduler 61 13 none] [success_fork_result arch__context 46 14 none]
+G r c none [create_user_thread scheduler 61 13 none] [release lib__synchronization 49 14 none]
+G r c none [delete_thread scheduler 70 14 none] [seize lib__synchronization 44 14 none]
+G r c none [delete_thread scheduler 70 14 none] [release lib__synchronization 49 14 none]
+G r c none [yield_if_able scheduler 74 14 none] [get_current_thread arch__local 36 13 none]
+G r c none [yield_if_able scheduler 74 14 none] [seize lib__synchronization 27 14 none]
+G r c none [yield_if_able scheduler 74 14 none] [reschedule_asap arch__local 24 14 none]
+G r c none [yield_if_able scheduler 74 14 none] [release lib__synchronization 31 14 none]
+G r c none [bail scheduler 77 14 none] [get_current_thread arch__local 36 13 none]
+G r c none [bail scheduler 77 14 none] [seize lib__synchronization 44 14 none]
+G r c none [bail scheduler 77 14 none] [release lib__synchronization 49 14 none]
+G r c none [bail scheduler 77 14 none] [reschedule_asap arch__local 24 14 none]
+G r c none [bail scheduler 77 14 none] [enable_interrupts arch__snippets 29 14 none]
+G r c none [bail scheduler 77 14 none] [wait_for_interrupt arch__snippets 33 14 none]
+G r c none [get_runtime_times scheduler 80 14 none] [seize lib__synchronization 44 14 none]
+G r c none [get_runtime_times scheduler 80 14 none] [release lib__synchronization 49 14 none]
+G r c none [signal_kernel_entry scheduler 87 14 none] [seize lib__synchronization 44 14 none]
+G r c none [signal_kernel_entry scheduler 87 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [signal_kernel_entry scheduler 87 14 none] [substract lib__time 48 14 none]
+G r c none [signal_kernel_entry scheduler 87 14 none] [increment lib__time 37 14 none]
+G r c none [signal_kernel_entry scheduler 87 14 none] [release lib__synchronization 49 14 none]
+G r c none [signal_kernel_exit scheduler 88 14 none] [seize lib__synchronization 44 14 none]
+G r c none [signal_kernel_exit scheduler 88 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [signal_kernel_exit scheduler 88 14 none] [substract lib__time 48 14 none]
+G r c none [signal_kernel_exit scheduler 88 14 none] [increment lib__time 37 14 none]
+G r c none [signal_kernel_exit scheduler 88 14 none] [release lib__synchronization 49 14 none]
+G r c none [set_scheduling_algorithm scheduler 97 13 none] [seize lib__synchronization 44 14 none]
+G r c none [set_scheduling_algorithm scheduler 97 13 none] [release lib__synchronization 49 14 none]
+G r c none [set_time_slice scheduler 103 13 none] [seize lib__synchronization 44 14 none]
+G r c none [set_time_slice scheduler 103 13 none] [release lib__synchronization 49 14 none]
+G r c none [create_cluster scheduler 105 13 none] [seize lib__synchronization 44 14 none]
+G r c none [create_cluster scheduler 105 13 none] [release lib__synchronization 49 14 none]
+G r c none [delete_cluster scheduler 106 13 none] [seize lib__synchronization 44 14 none]
+G r c none [delete_cluster scheduler 106 13 none] [release lib__synchronization 49 14 none]
+G r c none [switch_cluster scheduler 108 13 none] [seize lib__synchronization 44 14 none]
+G r c none [switch_cluster scheduler 108 13 none] [release lib__synchronization 49 14 none]
+G r c none [get_load_averages scheduler 125 14 none] [seize lib__synchronization 44 14 none]
+G r c none [get_load_averages scheduler 125 14 none] [release lib__synchronization 49 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [get_current_thread arch__local 36 13 none]
+G r c none [scheduler_isr scheduler 129 14 none] [get_monotonic_time arch__clocks 31 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [seize lib__synchronization 44 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [release lib__synchronization 31 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [substract lib__time 48 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [increment lib__time 37 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [release lib__synchronization 49 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [reschedule_in arch__local 23 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [fetch_tcb arch__local 27 13 none]
+G r c none [scheduler_isr scheduler 129 14 none] [save_core_context arch__context 42 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [save_fp_context arch__context 50 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [destroy_fp_context arch__context 52 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [make_active arch__mmu 81 13 none]
+G r c none [scheduler_isr scheduler 129 14 none] [hard_panic lib__panic 32 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [set_current_process arch__local 39 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [set_current_thread arch__local 38 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [set_stacks arch__local 31 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [load_tcb arch__local 28 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [load_fp_context arch__context 51 14 none]
+G r c none [scheduler_isr scheduler 129 14 none] [load_gp_context arch__context 39 14 none]
+G r c none [list_all scheduler 155 14 none] [seize lib__synchronization 44 14 none]
+G r c none [list_all scheduler 155 14 none] [convert userland__process 573 13 none]
+G r c none [list_all scheduler 155 14 none] [release lib__synchronization 49 14 none]
+G r c none [list_all scheduler 156 14 none] [seize lib__synchronization 44 14 none]
+G r c none [list_all scheduler 156 14 none] [release lib__synchronization 49 14 none]
+G r c none [waiting_spot scheduler 169 14 none] [enable_interrupts arch__snippets 29 14 none]
+G r c none [waiting_spot scheduler 169 14 none] [wait_for_interrupt arch__snippets 33 14 none]
+X 4 arch.ads
+20K9*Arch 52e9 25|22r6 23r6 45r21 54r21 62r19 63r19 64r19 129r37 26|22w6
+. 23r6 24r6 25r6 56r25 58r25 59r25 60r25 128r10 130r7 138r21 144r36 153r19
+. 154r19 162r7 242r10 246r10 263r21 270r18 271r18 273r7 277r7 289r19 290r19
+. 291r19 339r7 356r34 362r10 369r32 376r7 399r7 418r7 582r37 583r37 585r21
+. 591r7 698r7 707r54 709r13 710r13 712r13 718r7 731r7 734r14 737r7 738r7
+. 740r7 743r7 744r7 747r7 796r7 797r12
+X 5 arch-clocks.ads
+19K14*Clocks 45e16 26|24w11 399r12 418r12 591r12 718r12
+31U14*Get_Monotonic_Time 26|399s19 418s19 591s19 718s19
+X 6 arch-context.ads
+20K14*Context 70e17 25|23w11 62r24 63r24 129r42 26|58r30 59r30 60r30 153r24
+. 154r24 242r15 246r15 270r23 271r23 273r12 277r12 289r24 290r24 339r12 582r42
+. 585r26 709r18 710r18 712r18 744r12 747r12
+22R15*GP_Context{7|21R9} 25|62r32 129r50 26|58r38 153r32 270r31 289r32 582r50
+. 585r34
+23A15*FP_Context(13|16M9)<integer> 25|63r32 26|59r38 154r32 271r31 290r32
+24M15*Core_Context{13|19M9} 26|60r38
+33U14*Init_GP_Context 26|242s23 273s20
+39U14*Load_GP_Context 26|747s20
+42U14*Save_Core_Context 26|709s26
+46U14*Success_Fork_Result 26|339s20
+49U14*Init_FP_Context 26|246s23 277s20
+50U14*Save_FP_Context 26|710s26
+51U14*Load_FP_Context 26|744s20
+52U14*Destroy_FP_Context 26|712s26
+X 8 arch-local.ads
+21K14*Local 40e15 26|23w11 130r12 356r39 362r15 369r37 376r12 583r42 698r12
+. 707r59 731r12 737r12 738r12 740r12 743r12
+23U14*Reschedule_In 26|698s18 731s18
+24U14*Reschedule_ASAP 26|130s18 362s21 376s18
+27V13*Fetch_TCB{27|25M9} 26|707s65
+28U14*Load_TCB 26|743s18
+31U14*Set_Stacks 26|740s18
+36V13*Get_Current_Thread{25|27I9} 26|356s45 369s43 583s48
+38U14*Set_Current_Thread 26|738s18
+39U14*Set_Current_Process 26|737s18
+X 9 arch-mmu.ads
+22K14*MMU 250e13 25|22w11 45r26 54r26 64r24 26|56r30 138r26 144r41 162r12
+. 263r26 291r24 734r19
+26R9*Page_Permissions 32e14 26|144r45
+27b7*Is_User_Accesible{boolean} 26|145m11
+28b7*Can_Read{boolean} 26|146m11
+29b7*Can_Write{boolean} 26|147m11
+30b7*Can_Execute{boolean} 26|148m11
+31b7*Is_Global{boolean} 26|149m11
+43P9*Page_Table_Acc(42R9) 25|45r30 54r30 64r28 26|56r34 138r30 263r30 291r28
+81V13*Make_Active{boolean} 26|734s23
+139U14*Map_Allocated_Range 26|162s16
+140p8 Map{43P9} 26|163r11
+141m8 Physical_Start{27|25M9} 26|164r11
+142m8 Virtual_Start{27|25M9} 26|165r11
+143i8 Length{28|16I12} 26|166r11
+144r8 Permissions{26R9} 26|167r11
+145b8 Success{boolean} 26|168r11
+X 10 arch-snippets.ads
+20K14*Snippets 81e18 26|25w11 128r15 796r12 797r17
+29U14*Enable_Interrupts 26|796s21
+33U14*Wait_For_Interrupt 26|797s26
+37U14*Pause 26|128s24
+X 13 interfac.ads
+11K9*Interfaces 120e15 25|18w6 18r22
+16M9*Unsigned_8 26|31r57 33r64
+18M9*Unsigned_32 25|125r60 175r50 26|89r48 562r60 589r15 821r50
+19M9*Unsigned_64 25|48r21 55r21 56r21 82r49 83r49 26|32r57 42r26 43r26 63r25
+. 64r25 65r25 66r25 67r25 68r25 69r25 70r25 71r25 72r25 90r18 141r21 156r19
+. 223r46 232r46 244r55 264r21 265r21 382r49 383r49 395r17 415r29 588r29 801r15
+. 802r15 804r17 805r18 807r18 808r19
+X 18 lib.ads
+19K9*Lib 35e8 26|18r6 19r6 26w6 27r6 62r33 82r30 118r7 298r7 337r7 342r7
+. 348r7 352r7 361r10 363r10 364r10 371r7 375r7 386r7 391r7 398r7 404r7 408r7
+. 411r7 417r7 426r10 431r10 435r7 445r7 449r7 457r7 470r7 477r7 493r7 500r7
+. 507r7 514r7 523r7 564r7 579r7 593r7 612r10 613r10 616r10 697r7 735r10 746r7
+. 756r7 768r7 777r7 791r7
+X 20 lib-panic.ads
+21K13*Panic 39e14 26|19w10 735r14
+32U14*Hard_Panic 26|735s20
+X 21 lib-synchronization.ads
+20K13*Synchronization 66e24 26|18w10 62r37 82r34 118r11 298r11 337r11 342r11
+. 348r11 352r11 361r14 363r14 364r14 371r11 375r11 386r11 391r11 398r11 411r11
+. 417r11 435r11 445r11 449r11 457r11 470r11 477r11 493r11 500r11 507r11 514r11
+. 523r11 564r11 579r11 593r11 612r14 697r11 746r11 756r11 768r11 777r11 791r11
+22R9*Binary_Semaphore 57e14 26|62r53
+27U14*Seize 26|361s30 363s30
+31U14*Release 26|337s27 364s30 612s30
+38R9*Critical_Lock 62e14 26|82r50
+44U14*Seize 26|298s27 348s27 371s27 386s27 398s27 417s27 445s27 457s27 477s27
+. 500s27 514s27 564s27 593s27 756s27 777s27
+49U14*Release 26|118s27 342s27 352s27 375s27 391s27 411s27 435s27 449s27
+. 470s27 493s27 507s27 523s27 579s27 697s27 746s27 768s27 791s27
+X 22 lib-time.ads
+19K13*Time 77e13 26|27w10 404r11 408r11 426r14 431r14 613r14 616r14
+37U14*Increment 26|408s16 431s19 616s19
+48U14*Substract 26|404s16 426s19 613s19
+49m8 Seconds1{13|19M9} 26|427r14
+49m18 Nanoseconds1{13|19M9} 26|428r14
+50m8 Seconds2{13|19M9} 26|429r14
+50m18 Nanoseconds2{13|19M9} 26|430r14
+X 23 memory.ads
+19K9*Memory 36e11 25|19w6 19r18
+35M12*Virtual_Address{28|49M9} 25|42r21 53r21 26|135r21 165r41 262r21
+X 25 scheduler.ads
+25K9*Scheduler 160E9 183l5 183e14 26|29b14 828l5 828t14
+27I9*TID<integer> 29r26 49r37 58r37 67r42 70r38 81r17 87r44 88r43 108r54
+. 115r36 116r37 118r33 119r33 132r31 134r46 138r17 160c9 162r27 173r32 177r31
+. 179r46 180r29 180r59 26|74r39 74r54 142r37 152r19 267r37 269r18 294r42
+. 296r17 346r38 356r27 369r25 381r17 394r44 414r43 511r54 527r36 532r37 537r33
+. 551r33 583r30 584r30 815r32
+28I9*TCID<integer> 30r26 47r21 57r21 65r19 98r27 103r39 105r35 106r39 108r39
+. 133r30 135r46 139r17 145r22 161c9 163r26 171r37 173r41 178r30 181r46 182r29
+. 182r61 26|45r35 45r51 54r25 140r21 266r21 292r19 439r27 453r39 474r35 475r18
+. 497r39 511r39 587r36 800r37 815r41
+29i4*Error_TID{27I9} 162c4 180r44 26|152r26 296r24 358r22 584r37 610r25 675r28
+. 703r25 753r28
+30i4*Error_TCID{28I9} 163c4 182r45 26|491r19 587r44 630r31 640r31 753r39
+. 774r28
+33V13*Init{boolean} 26|93b13 120l8 120t12
+37U14*Idle_Core 26|122b14 132l8 132t17
+41V13*Create_User_Thread{27I9} 42>8 43>8 44>8 45>8 46>8 47>8 48>8 49>8 26|134b13
+. 259l8 259t26
+42m8 Address{23|35M12} 26|135b8 245r26
+43a8 Args{30|20A9} 26|136b8 191r29 202r35 230r29 237r31
+44a8 Env{30|21A9} 26|137b8 181r28 202r49 221r28
+45p8 Map{9|43P9} 26|138b8 163r29 251r27
+46r8 Vector{31|31R9} 26|139b8 207r35 209r35 211r35 213r35
+47i8 Cluster{28I9} 26|140b8 253r27
+48m8 Stack_Size{13|19M9} 26|141b8 161r58 166r45 174r48
+49i8 PID{natural} 26|142b8 151r73 252r27
+52V13*Create_User_Thread{27I9} 53>8 54>8 55>8 56>8 57>8 58>8 26|261b13 286l8
+. 286t26
+53m8 Address{23|35M12} 26|262b8 276r23
+54p8 Map{9|43P9} 26|263b8 281r23
+55m8 Stack_Addr{13|19M9} 26|264b8 275r40
+56m8 TLS_Addr{13|19M9} 26|265b8 284r52
+57i8 Cluster{28I9} 26|266b8 283r23
+58i8 PID{natural} 26|267b8 282r23
+61V13*Create_User_Thread{27I9} 62>8 63>8 64>8 65>8 66>8 67>8 26|248s21 278s18
+. 288b13 344l8 344t26
+62r8 GP_State{6|22R15} 26|249r14 279r11 289b8 323r41
+63a8 FP_State{6|23A15} 26|250r14 280r11 290b8 324r41
+64p8 Map{9|43P9} 26|251r14 281r11 291b8 321r40
+65i8 Cluster{28I9} 26|253r14 283r11 292b8 320r40
+66i8 PID{natural} 26|252r14 282r11 293b8 325r66
+67m8 TCB{27|25M9} 26|254r14 284r11 294b8 322r44
+70U14*Delete_Thread 70>29 26|346b14 353l8 353t21
+70i29 Thread{27I9} 26|346b29 349r23 350r23
+74U14*Yield_If_Able 26|355b14 366l8 366t21
+77U14*Bail 26|368b14 378l8 378t12
+80U14*Get_Runtime_Times 81>8 82<8 82<24 83<8 83<22 26|380b14 392l8 392t25
+81i8 Thread{27I9} 26|381b8 387r38 388r42 389r36 390r40
+82m8 System_Seconds{13|19M9} 26|382b8 387m7
+82m24 System_Nanoseconds{13|19M9} 26|382b24 388m7
+83m8 User_Seconds{13|19M9} 26|383b8 389m7
+83m22 User_Nanoseconds{13|19M9} 26|383b22 390m7
+87U14*Signal_Kernel_Entry 87>35 26|394b14 412l8 412t27
+87i35 Thread{27I9} 26|394b35 401r20 402r20 406r24 407r24 409r24 409r55
+88U14*Signal_Kernel_Exit 88>34 26|414b14 436l8 436t26
+88i34 Thread{27I9} 26|414b34 420r20 421r20 423r23 424r23 429r43 430r43 432r27
+. 432r60
+93E9*Cluster_Algorithm 95e28 99r27 146r22 26|38r26 440r27
+94n8*Cluster_RR{93E9} 26|110r61 482r37 654r18 774r40
+95n8*Cluster_Cooperative{93E9} 26|662r18
+97V13*Set_Scheduling_Algorithm{boolean} 98>8 99>8 100>8 101>8 26|438b13 451l8
+. 451t32
+98i8 Cluster{28I9} 26|439b8 446r21 447r21 448r21
+99e8 Algo{93E9} 26|440b8 446r50
+100i8 Quantum{natural} 26|441b8 447r50
+101b8 Is_Interruptible{boolean} 26|442b8 448r50
+103V13*Set_Time_Slice{boolean} 103>29 103>45 26|453b13 472l8 472t22
+103i29 Cluster{28I9} 26|453b29 459r50 464r24 465r24
+103i45 Per{natural} 26|453b45 464r48 465r47
+105V13*Create_Cluster{28I9} 26|474b13 495l8 495t22
+106V13*Delete_Cluster{boolean} 106>29 26|497b13 509l8 509t22
+106i29 Cluster{28I9} 26|497b29 501r24 502r24
+108V13*Switch_Cluster{boolean} 108>29 108>45 26|511b13 525l8 525t22
+108i29 Cluster{28I9} 26|511b29 515r24 518r42
+108i45 Thread{27I9} 26|511b45 516r23 518r23
+112I12*Niceness{integer} 113r32 115r48 116r49 26|53r25 527r48 532r49
+113i4*Default_Niceness{112I12}
+115V13*Get_Niceness{112I12} 115>27 26|527b13 530l8 530t20
+115i27 Thread{27I9} 26|527b27 529r27
+116U14*Set_Niceness 116>28 116>42 26|532b14 535l8 535t20
+116i28 Thread{27I9} 26|532b28 534r20
+116i42 Nice{112I12} 26|532b42 534r36
+118U14*Get_Name 118>24 118<38 118<57 26|537b14 549l8 549t16
+118i24 Thread{27I9} 26|537b24 539r38 540r23 542r56 543r26 543r58 544r30
+118a38 Name{string} 26|537b38 539r10 542m10 542r16 542r30 546m10
+118i57 Len{natural} 26|537b57 544m10 547m10
+119U14*Set_Name 119>24 119>38 119<53 26|551b14 560l8 560t16
+119i24 Thread{27I9} 26|551b24 553r38 554r23 555r23
+119a38 Name{string} 26|551b38 553r10 554r42 554r58 555r58
+119b53 Success{boolean} 26|551b53 556m10 558m10
+125U14*Get_Load_Averages 125<33 125<40 125<47 26|562b14 580l8 580t25
+125m33 Avg_1{13|18M9} 26|562b33 565m7
+125m40 Avg_5{13|18M9} 26|562b40 567m7 569m10 569r19 571m7 571r16
+125m47 Avg_15{13|18M9} 26|562b47 573m7 575m10 575r20 577m7 577r17
+129U14*Scheduler_ISR 129>29 26|582b14 748l8 748t21
+129r29 State{6|22R15} 26|582b29 708r54
+132V13*Convert{natural} 132>22 177b13
+132i22 Thread{27I9} 177r64
+133V13*Convert{natural} 133>22 178b13
+133i22 Group{28I9} 178r64
+134V13*Convert{27I9} 134>22 179b13
+134i22 Value{natural} 180r12 180r64
+135V13*Convert{28I9} 135>22 181b13
+135i22 Value{natural} 182r12 182r67
+137R9*Thread_Listing 141e14 142r59
+138i7*Thread{27I9}
+139i7*Cluster{28I9}
+140i7*Proc{natural}
+142A9*Thread_Listing_Arr(137R9)<integer> 155r35 26|750r35
+144R9*Cluster_Listing 149e14 150r60
+145i7*Cluster{28I9}
+146e7*Cluster_Algo{93E9}
+147b7*Cluster_Int{boolean}
+148i7*Cluster_Quan{natural}
+150A9*Cluster_Listing_Arr(144R9)<integer> 156r35 26|771r35
+155U14*List_All 155<24 155<55 26|750b14 769l8 769t16
+155a24 List{142A9} 26|750b24 753m7 761m16 761r22
+155i55 Total{natural} 26|750b55 754m7 759m13 759r22
+156U14*List_All 156<24 156<56 26|771b14 792l8 792t16
+156a24 List{150A9} 26|771b24 774m7 782m16 782r22
+156i56 Total{natural} 26|771b56 775m7 780m13 780r22
+165b4 Is_Initialized{boolean} 26|117m7 126r21
+169U14 Waiting_Spot 26|131s7 377s7 794b14 798l8 798t20
+171V13 Has_Available_Time{boolean} 171>33 26|620s13 625s19 632s22 800b13
+. 813l8 813t26
+171i33 C{28I9} 26|800b33 801r44 802r44 812r42
+173V13 Is_Switchable{boolean} 173>28 173>37 26|670s16 677s19 815b13 819l8
+. 819t21
+173i28 T{27I9} 26|815b28 816r45
+173i37 C{28I9} 26|815b37 818r67
+175U14 Add_Bucket_And_Shift 175>36 26|605s10 821b14 827l8 827t28
+175m36 Last_Bucket{13|18M9} 26|821b36 826r34
+X 26 scheduler.adb
+30N4 Kernel_Stack_Size 33r42
+31A9 Thread_Stack(13|16M9)<integer> 175r19
+32A9 Thread_Stack_64(13|19M9)<integer> 176r19
+33A9 Kernel_Stack(13|16M9)<integer> 34r36 312r52 742r48
+34P9 Kernel_Stack_Acc(33A9) 57r25
+36R9 Thread_Cluster 44e14 45r65
+37b7*Is_Present{boolean} 103m13 109m41 459r30 464r33 479r34 481m17 501r33
+. 502m33 515r33 779r30
+38e7*Algorithm{25|93E9} 110m41 446m30 482m17 653r43 784r37
+39i7*RR_Quantum{natural} 112m41 447m30 484m17 656r47 657r49 786r37
+40b7*Is_Interruptible{boolean} 111m41 359r56 448m30 483m17 785r37
+41i7*Percentage{integer} 113m41 460r53 465m33 485m17 650r56 812r45
+42m7*Progress_Seconds{13|19M9} 104m13 114m41 617m42 642m21 801r47
+43m7*Progress_Nanos{13|19M9} 105m13 115m41 618m42 643m21 651r50 802r47
+45A9 Cluster_Arr(36R9)<25|28I9> 46r35 97r27
+46P9 Cluster_Arr_Acc(45A9) 83r22
+48R9 Thread_Info 73e14 74r67 816r12
+49b7*Is_Present{boolean} 99m13 302r33 315m29 349r31 350m31 372r31 373m31
+. 516r31 601r32 686r32 706r39 758r29 818r17
+50b7*Is_Running{boolean} 302r68 316m29 686r67 704m36 739m30 818r39
+51a7*Path{string} 317m29 543r34 553r46 554m31
+52i7*Path_Len{integer} 318m29 539r46 540r31 542r64 543r66 544r38 555m31
+53i7*Nice{25|112I12} 319m29 529r35 534m28 658r46
+54i7*Cluster{25|28I9} 320m29 359r47 518m31 611r52 689r48 762r39 818r57
+55m7*TCB_Pointer{27|25M9} 322m29 707m39 743r51
+56p7*PageMap{9|43P9} 321m29 734r59
+57p7*Kernel_Stack{34P9} 100m13 311r32 312m32 742r34
+58r7*GP_State{6|22R15} 323m29 339m63 708m39 745r44
+59a7*FP_State{6|23A15} 324m29 710m69 713m43 744r60
+60m7*C_State{6|24M15} 709m71 741r34
+61i7*Process{33|33I9} 325m29 737r62 763r62
+62r7*Yield_Mutex{21|22R9} 337m58 361m60 363m62 364m62 612m65
+63m7*Last_Sched_Sec{13|19M9} 326m29 614m40 719m34 725r36
+64m7*Last_Sched_NSec{13|19M9} 327m29 615m40 720m34 727r36
+65m7*System_Sec{13|19M9} 328m29 387r46 432m35
+66m7*System_NSec{13|19M9} 329m29 388r50 432m68
+67m7*User_Sec{13|19M9} 330m29 389r44 409m32
+68m7*User_NSec{13|19M9} 331m29 390r48 409m63
+69m7*System_Tmp_Sec{13|19M9} 332m29 401m28 423r31 429r51
+70m7*System_Tmp_NSec{13|19M9} 333m29 402m28 424r31 430r51
+71m7*User_Tmp_Sec{13|19M9} 334m29 406r32 420m28 721r33 724m33
+72m7*User_Tmp_NSec{13|19M9} 335m29 407r32 421m28 722r33 726m33
+74A9 Thread_Info_Arr(48R9)<25|27I9> 75r39 96r27
+75P9 Thread_Info_Arr_Acc(74A9) 84r22
+80N4 Total_Slice 650r14 812r14
+82r4 Scheduler_Mutex{21|38R9} 118m36 118r36 298m34 298r34 342m36 342r36 348m34
+. 348r34 352m36 352r36 371m34 371r34 375m36 375r36 386m34 386r34 391m36 391r36
+. 398m34 398r34 411m36 411r36 417m34 417r34 435m36 435r36 445m34 445r34 449m36
+. 449r36 457m34 457r34 470m36 470r36 477m34 477r34 493m36 493r36 500m34 500r34
+. 507m36 507r36 514m34 514r34 523m36 523r36 564m34 564r34 579m36 579r36 593m34
+. 593r34 697m36 697r36 746m36 746r36 756m34 756r34 768m36 768r36 777m34 777r34
+. 791m36 791r36
+83p4 Cluster_Pool{46P9} 97m7 102r17 102r31 102r57 109r7 109r21 110r7 110r21
+. 111r7 111r21 112r7 112r21 113r7 113r21 114r7 114r21 115r7 115r21 359r10
+. 446r7 447r7 448r7 458r16 459r13 460r36 464r10 465r10 478r16 479r17 480r13
+. 501r10 502r10 515r10 617r14 618r14 624r42 631r25 641r25 650r28 651r22 653r15
+. 656r19 657r21 778r16 779r13 784r20 785r20 786r20 801r30 802r30 812r28
+84p4 Thread_Pool{75P9} 96m7 98r17 301r16 302r17 302r52 311r10 312r10 315r7
+. 316r7 317r7 318r7 319r7 320r7 321r7 322r7 323r7 324r7 325r7 326r7 327r7
+. 328r7 329r7 330r7 331r7 332r7 333r7 334r7 335r7 337r36 339r41 349r10 350r10
+. 359r24 361r37 363r39 364r39 372r10 373r10 387r25 388r29 389r23 390r27 401r7
+. 402r7 406r11 407r11 409r11 409r42 420r7 421r7 423r10 424r10 429r30 430r30
+. 432r14 432r47 516r10 518r10 529r14 534r7 539r25 540r10 542r43 543r13 543r45
+. 544r17 553r25 554r10 555r10 600r19 600r40 601r16 611r26 612r39 614r14 615r14
+. 658r20 669r38 676r22 685r19 686r16 686r51 689r32 704r10 706r13 707r13 708r13
+. 709r45 710r43 713r17 719r11 720r11 721r10 722r10 724r10 725r13 726r10 727r13
+. 734r36 737r39 739r7 741r11 742r11 743r28 744r37 745r21 757r16 758r13 760r29
+. 762r23 763r46 781r29 816r32
+89A9 Stats_Bucket_Arr(13|18M9)<integer> 91r18
+90m4 Last_Bucket{13|19M9} 597r22 598m10
+91a4 Buckets{89A9} 565r16 565r25 568r18 568r27 568r44 574r18 823r24 823r41
+. 824m10 824r29 826m7 826r16
+98r11 Th=98:11{48R9} 99r10 100r10
+102r11 Cl=102:11{36R9} 103r10 104r10 105r10
+123b7 To_Test{boolean} 126m10 127r20
+144r7 Stack_Permissions{9|26R9} 167r29
+151i7 Proc{33|33I9} 160r53 161r40
+152i7 New_TID{25|27I9} 248m10 258r14
+153r7 GP_State{6|22R15} 243m14 249r26
+154a7 FP_State{6|23A15} 246m40 250r26
+155m7 Result{27|25M9} 164m29 175r66 176r73
+156m7 Stack_Top{13|19M9} 160m7 161r46 165r58 223r34 232r34 244r43
+157b7 Success{boolean} 168m29 169r14
+174i10 Sz{natural} 175r38 176r41
+175a10 Stk_8{31A9} 177r32 182m13 185m16 192m13 195m16 218r21
+176a10 Stk_64{32A9} 178r32 205m10 206m10 207m10 208m10 209m10 210m10 211m10
+. 212m10 213m10 214m10 219m10 223m13 228m10 232m13 237m10
+177i10 Index_8{natural} 182r20 183m13 183r24 185r23 186m16 186r27 192r20
+. 193m13 193r24 195r23 196m16 196r27 201r23 201r40 218m10 222m13 222r25 223r59
+. 231m13 231r25 232r59
+178i10 Index_64{natural} 201m10 202m10 202r22 205r18 206r18 207r18 208r18
+. 209r18 210r18 211r18 212r18 213r18 214r18 215m10 215r22 219r18 220m10 220r22
+. 223r21 224m13 224r25 228r18 229m10 229r22 232r21 233m13 233r25 237r18 238m10
+. 238r22 241m10 241r22 244r68
+181p14 En=181:28{30|19P9} 184r30
+184e17 C=184:17{character} 185r50
+191p14 Arg=191:29{30|19P9} 194r30
+194e17 C=194:17{character} 195r50
+221p14 En=221:28{30|19P9} 222r35
+230p14 Arg=230:29{30|19P9} 231r35
+257L6 Cleanup 170r15
+269i7 New_TID{25|27I9} 278m7 285r14
+270r7 GP_State{6|22R15} 274m11 279r23
+271a7 FP_State{6|23A15} 277m37 280r23
+296i7 New_TID{25|27I9} 304m13 311r23 312r23 315r20 316r20 317r20 318r20 319r20
+. 320r20 321r20 322r20 323r20 324r20 325r20 326r20 327r20 328r20 329r20 330r20
+. 331r20 332r20 333r20 334r20 335r20 337r49 339r54 343r14
+301i11 I<integer> 302r30 302r65 304r24
+310L6 Found_TID 305r18
+341L6 End_Return 308r12
+356i7 Curr_TID{25|27I9} 358r10 359r37 361r50 363r52 364r52
+369i7 Thread{25|27I9} 372r23 373r23
+395m7 T1{13|19M9} 399m39 401r46 405m11 405r11 410r11
+395m11 T2{13|19M9} 399m43 402r47 405m15 405r15 410r15
+396b7 Discard{boolean}
+415m7 Temp_Sec{13|19M9} 418m39 420r44 427m30 427r30 433r14
+415m17 Temp_NSec{13|19M9} 418m49 421r45 428m30 428r30 433r24
+454i7 Consumed{natural} 460m13 460r25 464r62
+455b7 Success{boolean} 466m10 468m10 471r14
+458i11 I<integer> 459r27 459r45 460r50
+475i7 Returned{25|28I9} 487m13 491m7 494r14
+478i11 I<integer> 479r31 480r27 487r25
+492L6 Cleanup 488r18
+498b7 Success{boolean} 503m10 505m10 508r14
+512b7 Success{boolean} 519m10 521m10 524r14
+568m11 Val=568:11{13|18M9} 569r28
+574m11 Val=574:18{13|18M9} 575r30
+583i7 Current_TID{25|27I9} 610r10 611r39 612r52 614r27 615r27 658r33 669r19
+. 675r13 676r43 703r10 704r23 706r26 707r26 708r26 709r58 710r56 713r30
+584i7 Next_TID{25|27I9} 671m16 678m19 688m16 719r24 720r24 721r23 722r23
+. 724r23 725r26 726r23 727r26 734r49 737r52 738r38 739r20 741r24 742r24 743r41
+. 744r50 745r34
+585r7 Next_State{6|22R15} 745m7 747r37
+586i7 Timeout{natural} 655m16 659r19 660m19 663m16 684m10 698r33 731r33
+586i16 Max_Next_Timeout{natural} 649m10 659r29 660r30 663r27
+587i7 Curr_Cluster{25|28I9} 611m10 617r28 618r28 620r33 621r29 624r22 631r47
+. 645r32 650r42 651r36
+587i21 Next_Cluster{25|28I9} 621m13 626m19 630r16 633m22 640r16 645m16 653r29
+. 656r33 657r35 670r34 677r37 689m16
+588m7 Curr_Sec{13|19M9} 591m39 597r10 598r25 615r57 618r58
+588m17 Curr_NSec{13|19M9} 591m49 615r67 618r68
+589m7 Count{13|18M9} 599m10 602m16 602r25 605r32
+600i14 I<integer> 601r29
+624i17 I<integer> 625r39 626r35
+631i20 I<integer> 632r42 633r38
+641r20 C=641:20{36R9} 642r19 643r19
+669i14 I<integer> 670r31 671r28
+676i17 I<integer> 677r34 678r31
+685i14 I<integer> 686r29 686r64 688r28 689r45
+701L6 Found_TID_TCID_Combo 672r21 679r24 690r21
+751i7 Curr_Index{natural} 760r16 761r35 764m16 764r30
+757i11 I<integer> 758r26 762r20 762r36 763r59
+772i7 Curr_Index{natural} 781r16 782r35 787m16 787r30
+778i11 I<integer> 779r27 783r20 784r34 785r34 786r34
+801m7 Secs{13|19M9} 804r10 805m10 811r23
+802m7 Nanos{13|19M9} 807r10 808m10 811r40
+816r7 Th{48R9} 818r14 818r36 818r54
+823i11 I{integer} 824r19 824r38
+X 27 system.ads
+11K9*System 25|17w6 67r19 26|17w6 20r6 20r35 55r25 155r19 254r27 294r19 27|73e11
+25M9*Address 25|67r26 26|55r32 155r26 294r26
+26m4*Null_Address{25M9} 26|254r34
+X 28 s-stoele.ads
+11K16*Storage_Elements 26|20w13 20r42 28|60e28
+12I9*Storage_Offset<long_integer> 26|166r29
+16I12*Storage_Count{12I9}
+49M9*Integer_Address 26|244r26 275r23 284r35
+51V13*To_Address{27|25M9} 26|165s29 244s14 245s14 275s11 276s11 284s23
+X 30 userland.ads
+17K9*Userland 25|20w6 21r6 43r21 44r21 46r21 26|21r6 61r25 136r21 137r21
+. 139r21 151r23 151r47 160r20 161r7 206r35 208r35 210r35 212r35 214r35 325r40
+. 763r20 30|23e13
+19P9*String_Acc(string)
+20A9*Argument_Arr(19P9)<integer> 25|43r30 26|136r30
+21A9*Environment_Arr(19P9)<integer> 25|44r30 26|137r30
+X 31 userland-elf.ads
+22K18*ELF 25|21w15 46r30 26|139r30 206r44 208r44 210r44 212r44 214r44 31|142e17
+26N4*Auxval_Null 26|206r48
+27N4*Auxval_Program_Headers 26|210r48
+28N4*Auxval_Header_Size 26|214r48
+29N4*Auxval_Header_Count 26|212r48
+30N4*Auxval_Entrypoint 26|208r48
+31R9*Auxval 25|46r34 26|139r34 31|36e14
+32m7*Entrypoint{13|19M9} 26|207r42
+33m7*Program_Headers{13|19M9} 26|209r42
+34m7*Program_Header_Count{13|19M9} 26|211r42
+35m7*Program_Header_Size{13|19M9} 26|213r42
+X 33 userland-process.ads
+28K18*Process 26|21w15 61r34 151r32 151r56 160r29 161r16 325r49 763r29 33|677e21
+33I9*PID<integer> 26|61r42 151r40
+350V13*Get_Stack_Base{13|19M9} 26|160s37
+356U14*Set_Stack_Base 26|161s24
+573V13*Convert{natural} 26|763s37
+579V13*Convert{33I9} 26|151s64 325s57
+

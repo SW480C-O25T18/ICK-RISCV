@@ -1,0 +1,128 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.synchronization%b	lib-synchronization.adb	f95ab937 NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.snippets%s	arch-snippets.adb	arch-snippets.ali
+W lib%s			lib.adb			lib.ali
+W lib.atomic%s		lib-atomic.ads		lib-atomic.ali
+Z system%s		system.ads		system.ali
+
+U lib.synchronization%s	lib-synchronization.ads	28c3f075 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W system%s		system.ads		system.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-snippets.ads	20241115151036 3613a65c arch.snippets%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-atomic.ads	20241115151036 4d435862 lib.atomic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D lib-synchronization.adb  20241115151036 61dbd7a0 lib.synchronization%b
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [seize lib__synchronization 27 14 none]
+G c Z s b [release lib__synchronization 31 14 none]
+G c Z s b [seize lib__synchronization 44 14 none]
+G c Z s b [release lib__synchronization 49 14 none]
+G c Z s s [binary_semaphoreIP lib__synchronization 55 9 none]
+G c Z s s [critical_lockIP lib__synchronization 60 9 none]
+G c Z s b [poll_until_zero lib__synchronization 65 14 none]
+G r c none [seize lib__synchronization 27 14 none] [atomic_test_and_set lib__atomic 59 13 none]
+G r c none [seize lib__synchronization 27 14 none] [atomic_load_8 lib__atomic 38 13 none]
+G r c none [seize lib__synchronization 27 14 none] [pause arch__snippets 37 14 none]
+G r c none [release lib__synchronization 31 14 none] [atomic_clear lib__atomic 64 14 none]
+G r c none [seize lib__synchronization 44 14 none] [disable_interrupts arch__snippets 30 14 none]
+G r c none [seize lib__synchronization 44 14 none] [atomic_test_and_set lib__atomic 59 13 none]
+G r c none [seize lib__synchronization 44 14 none] [enable_interrupts arch__snippets 29 14 none]
+G r c none [seize lib__synchronization 44 14 none] [atomic_load_8 lib__atomic 38 13 none]
+G r c none [seize lib__synchronization 44 14 none] [pause arch__snippets 37 14 none]
+G r c none [release lib__synchronization 49 14 none] [atomic_clear lib__atomic 64 14 none]
+G r c none [release lib__synchronization 49 14 none] [enable_interrupts arch__snippets 29 14 none]
+G r c none [poll_until_zero lib__synchronization 65 14 none] [atomic_load_8 lib__atomic 38 13 none]
+G r c none [poll_until_zero lib__synchronization 65 14 none] [pause arch__snippets 37 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 7|18w6 19r6 44r10 49r10 61r10 68r10
+X 2 arch-snippets.ads
+20K14*Snippets 81e18 7|19w11 44r15 49r15 61r15 68r15
+29U14*Enable_Interrupts 7|49s24 61s24
+30U14*Disable_Interrupts 7|44s24
+37U14*Pause 7|68s24
+X 3 interfac.ads
+11K9*Interfaces 120e15 6|17w6 17r22
+16M9*Unsigned_8 6|56r19 61r19
+X 4 lib.ads
+19K9*Lib 35e8 6|20r9 66r5 7|17r6 17r22 21r14 71r5
+X 5 lib-atomic.ads
+20K13*Atomic 68e15 7|17w10 17r26
+22N4*Mem_Relaxed 7|67r37
+24N4*Mem_Acquire 7|28r67 45r62
+25N4*Mem_Release 7|38r50 59r45
+38V13*Atomic_Load_8[33]{3|16M9} 7|67s13
+59V13*Atomic_Test_And_Set{boolean} 7|28s17 45s17
+64U14*Atomic_Clear 7|38s7 59s7
+X 6 lib-synchronization.ads
+20K13*Synchronization 4|19k9 6|55E9 66l9 66e24 7|21b18 71l9 71t24
+22R9*Binary_Semaphore 23r34 27r48 31r50 55c9 57e14 58r34 7|25r48 36r50
+23r4*Unlocked_Semaphore{22R9} 58c4
+27U14*Seize 27=21 7|25b14 34l8 34t13
+27r21 Semaphore{22R9} 7|25b21 28m38 28r38 32m27 32r27
+31U14*Release 31=23 7|36b14 39l8 39t15
+31r23 Semaphore{22R9} 7|36b23 38m21 38r21
+38R9*Critical_Lock 39r33 44r43 50r36 60c9 62e14 63r33 7|41r43 55r36
+39r4*Unlocked_Critical{38R9} 63c4
+44U14*Seize 44=21 7|41b14 52l8 52t13
+44r21 Lock{38R9} 7|41b21 45m38 45r38 50m27 50r27
+49U14*Release 50=7 51>7 7|54b14 63l8 63t15
+50r7 Lock{38R9} 7|55b7 59m21 59r21
+51b7 Do_Not_Lift{boolean} 7|56b7 60r14
+56m7*Is_Locked{3|16M9} 7|28m48 32m37 38m31
+61m7*Is_Locked{3|16M9} 7|45m43 50m32 59m26
+65U14 Poll_Until_Zero 65>31 7|32s10 50s10 65b14 70l8 70t23
+65m31 Address{9|25M9} 7|65b31 67r28
+X 9 system.ads
+11K9*System 6|18w6 65r41 7|65r41 9|73e11
+25M9*Address 6|65r48 7|65r48
+

@@ -1,0 +1,99 @@
+--  ironclad.gpr.in: Project's building script.
+--  Copyright (C) 2024 streaksu
+--
+--  This program is free software: you can redistribute it and/or modify
+--  it under the terms of the GNU General Public License as published by
+--  the Free Software Foundation, either version 3 of the License, or
+--  (at your option) any later version.
+--
+--  This program is distributed in the hope that it will be useful,
+--  but WITHOUT ANY WARRANTY; without even the implied warranty of
+--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+--  GNU General Public License for more details.
+--
+--  You should have received a copy of the GNU General Public License
+--  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+project Ironclad is
+   type Arch_Name is
+      ("riscv64-limine",
+       "x86_64-limine");
+
+   Arch : Arch_Name := "@target_cpu@-@target_vendor@";
+   Ada_Flags        := "@ADAFLAGS@";
+   Asm_Flags        := "@ASFLAGS@";
+   Linker_Flags     := "@LDFLAGS@";
+
+   for Source_Dirs use
+      ("@SRCDIR@/source/arch/" & Arch,
+       "@SRCDIR@/source/arch",
+       "@SRCDIR@/source/cryptography",
+       "@SRCDIR@/source/devices",
+       "@SRCDIR@/source/ipc",
+       "@SRCDIR@/source/lib",
+       "@SRCDIR@/source/memory",
+       "@SRCDIR@/source/networking",
+       "@SRCDIR@/source/userland",
+       "@SRCDIR@/source/vfs",
+       "@SRCDIR@/source");
+   for Object_Dir use "obj";
+   for Exec_Dir use ".";
+   for Main use ("main.adb");
+   for Languages use ("Ada", "Asm_Cpp");
+   for Create_Missing_Dirs use "True";
+
+   package Builder is
+      for Executable ("main.adb") use "ironclad";
+   end Builder;
+
+   package Compiler is
+      Base_Ada_Switches := Split (Ada_Flags, " ") &
+         ("-fno-stack-protector", "-fno-stack-check",
+          "-fdata-sections", "-ffunction-sections",
+          "-gnateDIroncladName=""" & "@PACKAGE_NAME@"      & """",
+          "-gnateDVersion="""      & "@PACKAGE_VERSION@"   & """",
+          "-gnateDBugSite="""      & "@PACKAGE_BUGREPORT@" & """",
+          "-gnateDArchName="""     & Arch                  & """",
+          "-ffile-prefix-map="     & "@SRCDIR@"            & "=.",
+          "-gnateDALLOCONLY="      & "@MEMORY_ALLOCONLY@");
+      Base_Asm_Switches := Split (Asm_Flags, " ") &
+         ("-ffile-prefix-map=" & "@SRCDIR@" & "=.");
+
+      case Arch is
+         when "riscv64-limine" =>
+            for Switches ("Ada") use Base_Ada_Switches & (
+               "-fno-pie", "-fno-pic", "-mno-relax",
+               "-march=rv64imac_zicsr_zifencei", "-mabi=lp64"
+            );
+            for Switches ("Asm") use Base_Ada_Switches & (
+               "-fno-pie", "-fno-pic", "-mno-relax",
+               "-march=rv64imac_zicsr_zifencei", "-mabi=lp64"
+            );
+         when "x86_64-limine" =>
+            for Switches ("Ada") use Base_Ada_Switches &
+               ("-fno-pie", "-fno-pic", "-mgeneral-regs-only", "-mno-red-zone",
+                "-mcmodel=kernel", "-fcf-protection");
+            for Switches ("Asm_Cpp") use Base_Asm_Switches &
+               ("-fno-pie", "-fno-pic", "-mno-red-zone", "-mcmodel=kernel");
+      end case;
+
+      for Local_Configuration_Pragmas use "@SRCDIR@/source/pragmas.adc";
+   end Compiler;
+
+   package Linker is
+      Base_Link_Switches := Split (Linker_Flags, " ") &
+         ("-T@SRCDIR@/source/arch/" & Arch & "/linker.ld", "-nostdlib",
+          "-Llibgnat-hack", "-Wl,-gc-sections");
+
+      case Arch is
+         when "riscv64-limine" =>
+            for Switches ("Ada") use Base_Link_Switches &
+               ("-static", "-zmax-page-size=0x1000", "-Wl,-melf64lriscv",
+                "-Wl,--no-relax");
+         when "x86_64-limine" =>
+            for Switches ("Ada") use Base_Link_Switches &
+               ("-static", "-zmax-page-size=0x1000",
+                "-Wl,--undefined=multiboot2,-zmuldefs");
+      end case;
+   end Linker;
+end Ironclad;

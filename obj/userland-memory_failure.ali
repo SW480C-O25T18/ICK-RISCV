@@ -1,0 +1,103 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.memory_failure%b  userland-memory_failure.adb  21d4eb33 NE OO PK
+W lib%s			lib.adb			lib.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W userland%s		userland.ads		userland.ali
+
+U userland.memory_failure%s  userland-memory_failure.ads  6fe99d62 NE OO PK
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W userland%s		userland.ads		userland.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-memory_failure.ads  20241115151036 e591e3ec userland.memory_failure%s
+D userland-memory_failure.adb  20241115151036 0e397577 userland.memory_failure%b
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [get_system_policy userland__memory_failure 27 14 none]
+G c Z s b [set_system_policy userland__memory_failure 30 14 none]
+G c Z s b [handle_failure userland__memory_failure 33 14 none]
+G r c none [get_system_policy userland__memory_failure 27 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_system_policy userland__memory_failure 27 14 none] [release lib__synchronization 31 14 none]
+G r c none [set_system_policy userland__memory_failure 30 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_system_policy userland__memory_failure 30 14 none] [release lib__synchronization 31 14 none]
+G r c none [handle_failure userland__memory_failure 33 14 none] [hard_panic lib__panic 32 14 none]
+X 7 lib.ads
+19K9*Lib 35e8 14|17r6 17r31 15|17r6 36r7
+X 9 lib-panic.ads
+21K13*Panic 39e14 15|17w10 36r11
+32U14*Hard_Panic 15|36s17
+X 10 lib-synchronization.ads
+20K13*Synchronization 66e24 14|17w10 17r35
+22R9*Binary_Semaphore 57e14 14|37r27
+23r4*Unlocked_Semaphore{22R9} 14|37r47
+27U14*Seize 15|22s7 29s7
+31U14*Release 15|24s7 31s7
+X 13 userland.ads
+17K9*Userland 23e13 14|19r9 39r5 15|19r14 38r5
+X 14 userland-memory_failure.ads
+19K18*Memory_Failure 13|17k9 14|37E4 39l14 39e28 15|19b23 38l14 38t28
+21E9*Policy 24e18 27r43 30r39 38r37 15|20r43 27r39
+22n8*Hard_Panic{21E9} 38r47
+23n8*Soft_Kill{21E9}
+24n8*Hard_Kill{21E9}
+27U14*Get_System_Policy 27<33 15|20b14 25l8 25t25
+27e33 Pol{21E9} 15|20b33 23m7
+30U14*Set_System_Policy 30>33 15|27b14 32l8 32t25
+30e33 Pol{21E9} 15|27b33 30r21
+33U14*Handle_Failure 15|34b14 37l8 37t22
+37r4 Config_Mutex{10|22R9} 15|22m14 22r14 24m16 24r16 29m14 29r14 31m16 31r16
+38e4 Mem_Policy{21E9} 15|23r14 30m7
+

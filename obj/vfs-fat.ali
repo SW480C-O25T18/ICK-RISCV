@@ -1,0 +1,438 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U vfs.fat%b		vfs-fat.adb		4c942d78 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W system%s		system.ads		system.ali
+W system.address_to_access_conversions%s
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W vfs%s			vfs.adb			vfs.ali
+
+U vfs.fat%s		vfs-fat.ads		3d3f4adc NE OO PK IU
+W vfs%s			vfs.adb			vfs.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-unccon.ads		20241115151050 13b8aaf3 ada.unchecked_conversion%s
+D a-uncdea.ads		20241115151050 f341340f ada.unchecked_deallocation%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-alignment.ads	20241115151036 68e8a917 lib.alignment%s
+D lib-alignment.adb	20241115151036 a3b617fd lib.alignment%b
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-atacco.ads		20241115151050 0446b16c system.address_to_access_conversions%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-stoele.adb		20241115151050 c919feed system.storage_elements%b
+D vfs.ads		20241115151036 63b4365d vfs%s
+D vfs-fat.ads		20241115151036 5e8b7c81 vfs.fat%s
+D vfs-fat.adb		20241115151036 409a5a7b vfs.fat%b
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [probe vfs__fat 18 14 none]
+G c Z s b [remount vfs__fat 24 14 none]
+G c Z s b [unmount vfs__fat 30 14 none]
+G c Z s b [get_block_size vfs__fat 32 13 none]
+G c Z s b [get_fragment_size vfs__fat 34 13 none]
+G c Z s b [get_size vfs__fat 36 13 none]
+G c Z s b [get_inode_count vfs__fat 38 13 none]
+G c Z s b [get_free_blocks vfs__fat 40 14 none]
+G c Z s b [get_free_inodes vfs__fat 45 14 none]
+G c Z s b [get_max_length vfs__fat 50 13 none]
+G c Z s b [open vfs__fat 52 14 none]
+G c Z s b [close vfs__fat 58 14 none]
+G c Z s b [read_entries vfs__fat 60 14 none]
+G c Z s b [read vfs__fat 68 14 none]
+G c Z s b [stat vfs__fat 76 14 none]
+G c Z s b [read_directory_entry vfs__fat 206 14 none]
+G c Z s b [get_next_cluster vfs__fat 213 14 none]
+G c Z s b [are_paths_equal vfs__fat 219 13 none]
+G c Z s b [compose_path vfs__fat 223 14 none]
+G c Z s s [sector_to_disk_offset vfs__fat 228 13 none]
+G c Z s s [cluster_to_disk_offset vfs__fat 231 13 none]
+G c Z s s [get_type vfs__fat 238 13 none]
+G c Z s s [fat32_bytesIP vfs__fat 87 9 none]
+G c Z s s [bios_parameter_blockIP vfs__fat 88 9 none]
+G c Z s s [directory_entryIP vfs__fat 158 9 none]
+G c Z s s [fat_dataIP vfs__fat 189 9 none]
+G c Z s s [fat_fileIP vfs__fat 199 9 none]
+G c Z b b [to_pointer vfs__fat__conv_1 21 13 23_4]
+G c Z b b [to_address vfs__fat__conv_1 22 13 23_4]
+G c Z b b [to_pointer vfs__fat__conv_2 21 13 24_4]
+G c Z b b [to_address vfs__fat__conv_2 22 13 24_4]
+G c Z b b [free_1 vfs__fat 25 14 none]
+G c Z b b [free_2 vfs__fat 26 14 none]
+G r c none [probe vfs__fat 18 14 none] [read devices 193 14 none]
+G r c none [probe vfs__fat 18 14 none] [is_read_only devices 156 13 none]
+G r c none [open vfs__fat 52 14 none] [read devices 193 14 none]
+G r c none [read_entries vfs__fat 60 14 none] [read devices 193 14 none]
+G r c none [read vfs__fat 68 14 none] [read devices 193 14 none]
+G r i none [stat vfs__fat 76 14 none] [alignment lib 19 13 none]
+G r c none [stat vfs__fat 76 14 none] [get_block_size devices 154 13 none]
+G r c none [read_directory_entry vfs__fat 206 14 none] [read devices 193 14 none]
+G r c none [get_next_cluster vfs__fat 213 14 none] [read devices 193 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 19|19r6 25r28 26r28
+X 3 a-uncdea.ads
+14u15*Unchecked_Deallocation 19|19w10 25r32 26r32
+X 6 devices.ads
+22K9*Devices 279e12 19|42r7 340r10 385r32 410r7 436r10
+29A9*Operation_Data(7|16M9)<integer> 18|72r24 19|39r19 299r24 402r21 427r23
+83I9*Device_Handle<integer> 18|19r23 190r24 19|29r23
+154V13*Get_Block_Size{natural} 19|373s52 385s40
+156V13*Is_Read_Only{boolean} 19|52s29
+193U14*Read 19|42s15 340s18 410s15 436s18
+194i8 Handle{83I9} 19|341r14 411r11 437r14
+195m8 Offset{7|19M9} 19|342r14 412r11 438r14
+196a8 Data{29A9} 19|343r14 413r11 439r14
+197i8 Ret_Count{natural} 19|345r14 414r11 440r14
+198b8 Success{boolean} 19|346r14 415r11 441r14
+X 7 interfac.ads
+16M9*Unsigned_8 18|87r52 92r31 94r31 97r31 110r31 111r31 112r31 161r28 162r28
+. 163r28 238r36
+17M9*Unsigned_16 18|91r31 93r31 95r31 96r31 98r31 99r31 100r31 104r31 105r31
+. 107r31 108r31 117r31 164r28 165r28 166r28 167r28 168r28 169r28 170r28
+18M9*Unsigned_32 18|101r31 102r31 103r31 106r31 113r31 171r28 193r24 194r24
+. 195r24 200r23 208r18 215r24 216r28 228r45 232r30 233r30 234r30 19|54r29
+. 55r29 56r29 57r29 145r20 196r39 197r30 240r17 307r24 308r33 309r10 338r37
+. 369r43 373r23 373r39 374r23 395r18 408r34 421r24 422r28
+19M9*Unsigned_64 18|32r57 34r60 36r51 38r58 42r33 43r33 47r33 48r33 50r57
+. 71r20 90r31 209r18 228r65 229r11 234r50 19|85r57 91r60 97r51 103r58 111r33
+. 112r33 122r33 123r33 131r57 147r20 179r24 241r17 262r21 275r22 282r19 298r20
+. 306r24 310r24 322r33 323r34 328r32 329r23 330r13 330r39 332r35 384r32 386r32
+. 396r18 400r21 425r23 429r18 432r10 438r37
+71V13*Shift_Left{18M9} 19|196s27
+X 8 lib.ads
+19K9*Lib 35e8 19|20r6 369r28
+X 9 lib-alignment.ads
+19k13*Alignment 43e18 19|20w10 369r32
+40V13 Divide_Round_Up{7|18M9} 19|375s16[369]
+X 13 system.ads
+11K9*System 73e11 18|21r27 25r23 30r35 32r34 34r37 36r28 38r35 41r29 46r29
+. 50r34 53r18 58r26 61r20 69r20 77r18 19|17r6 17r35 18r6 23r28 24r28 31r27
+. 46r23 66r23 78r35 82r13 85r34 91r37 97r28 103r35 110r29 121r29 131r34 138r18
+. 221r26 230r20 296r20 364r18
+25M9*Address 18|21r34 25r30 30r42 32r41 34r44 36r35 38r42 41r36 46r36 50r41
+. 53r25 58r33 61r27 69r27 77r25 19|31r34 66r30 78r42 85r41 91r44 97r35 103r42
+. 110r36 121r36 131r41 138r25 221r33 230r27 296r27 364r25
+26m4*Null_Address{25M9} 19|46r30 82r20
+X 14 s-atacco.ads
+13k16*Address_To_Access_Conversions 27e41 19|18w13 23r35 24r35
+19P9*Object_Pointer(18|189R9) 19|62r46[23] 212r37[24]
+21V13*To_Pointer{19P9[19|23]} 19|79s51[23] 143s60[23] 224s18[24] 237s58[23]
+. 239s18[24] 303s58[23] 305s18[24] 370s60[23] 372s18[24]
+22V13*To_Address{13|25M9} 19|62s27[23] 212s18[24]
+X 15 s-stoele.ads
+11K16*Storage_Elements 60e28 19|17w13 17r42
+49M9*Integer_Address 19|224r42 239r42 305r42 372r42
+51V13*To_Address{13|25M9} 19|224s30 239s30 305s30 372s30
+56V13*To_Integer{49M9} 19|211s33
+X 17 vfs.ads
+24K9*VFS 674e8 18|17r9 241r5 19|22r14 505r5
+28M9*File_Inode_Number<7|19M9> 18|55r22 58r48 62r20 70r20 78r18 19|140r22
+. 211r14 221r48 231r20 297r20 365r18 378r32
+39E9*File_Type 40e64 18|201r23 238r55 19|146r20
+39n23*File_Regular{39E9} 18|240r13 19|317r29
+39n37*File_Directory{39E9} 18|239r58 19|146r35 168r27 249r29
+41R9*File_Stat 54e14 18|79r22 19|366r22
+42m7*Unique_Identifier{28M9} 19|378m11
+43e7*Type_Of_File{39E9} 19|379m11
+44m7*Mode{32M12} 19|380m11
+45m7*UID{7|18M9} 19|381m11
+46m7*GID{7|18M9} 19|382m11
+47i7*Hard_Link_Count{positive} 19|383m11
+48m7*Byte_Size{7|19M9} 19|384m11
+49i7*IO_Block_Size{natural} 19|385m11
+50m7*IO_Block_Count{7|19M9} 19|386m11
+51r7*Creation_Time{35R9} 19|387m11
+52r7*Modification_Time{35R9} 19|388m11
+53r7*Access_Time{35R9} 19|389m11
+58m7*Inode_Number{7|19M9} 19|281m32
+59a7*Name_Buffer{string} 19|283m32
+60i7*Name_Len{natural} 19|285m32
+61e7*Type_Of_File{39E9} 19|286m32
+63A9*Directory_Entities(57R9)<integer> 18|64r24 19|233r24
+234E9*FS_Status 242e16 18|56r22 66r24 74r24 80r22 19|141r22 235r24 301r24
+. 367r22
+235n8*FS_Success{234E9} 19|213r18 254r18 326r18 390r18
+236n8*FS_Invalid_Value{234E9} 19|218r18 250r21 318r21
+241n8*FS_IO_Failure{234E9} 19|258r24 348r24 355r24
+X 18 vfs-fat.ads
+17K13*FAT 17|24k9 18|84E4 241l9 241e12 19|22b18 505l9 505t12
+18U14*Probe 19>8 20>8 21<8 19|28b14 63l8 63t13
+19i8 Handle{6|83I9} 19|29b8 42r21 51r29 52r43
+20b8 Do_Read_Only{boolean} 19|30b8 33r28
+21m8 Data_Addr{13|25M9} 19|31b8 46m10 62m7
+24U14*Remount 25>8 26>8 27>8 28<8 19|65b14 76l8 76t15
+25m8 FS{13|25M9} 19|66b8 71r28
+26b8 Do_Read_Only{boolean} 19|67b8 72r28
+27b8 Do_Relatime{boolean} 19|68b8 73r28
+28b8 Success{boolean} 19|69b8 75m7
+30U14*Unmount 30=23 19|78b14 83l8 83t15
+30m23 FS{13|25M9} 19|78b23 79r63 82m7
+32V13*Get_Block_Size{7|19M9} 32>29 19|85b13 89l8 89t22
+32m29 FS{13|25M9} 19|85b29 86r28
+34V13*Get_Fragment_Size{7|19M9} 34>32 19|91b13 95l8 95t25
+34m32 FS{13|25M9} 19|91b32 92r28
+36V13*Get_Size{7|19M9} 36>23 19|97b13 101l8 101t16
+36m23 FS{13|25M9} 19|97b23 98r28
+38V13*Get_Inode_Count{7|19M9} 38>30 19|103b13 107l8 107t23
+38m30 FS{13|25M9} 19|103b30 104r28
+40U14*Get_Free_Blocks 41>8 42<8 43<8 19|109b14 118l8 118t23
+41m8 FS{13|25M9} 19|110b8 114r28
+42m8 Free_Blocks{7|19M9} 19|111b8 116m7
+43m8 Free_Unpriviledged{7|19M9} 19|112b8 117m7
+45U14*Get_Free_Inodes 46>8 47<8 48<8 19|120b14 129l8 129t23
+46m8 FS{13|25M9} 19|121b8 125r28
+47m8 Free_Inodes{7|19M9} 19|122b8 127m7
+48m8 Free_Unpriviledged{7|19M9} 19|123b8 128m7
+50V13*Get_Max_Length{7|19M9} 50>29 19|131b13 135l8 135t22
+50m29 FS{13|25M9} 19|131b29 132r28
+52U14*Open 53>8 54>8 55<8 56<8 19|137b14 219l8 219t12
+53m8 FS{13|25M9} 19|138b8 143r72
+54a8 Path{string} 19|139b8 153r10 157r18 158r18 161r23 164r26 164r45 193r33
+55m8 Ino{17|28M9} 19|140b8 211m7 217m7
+56e8 Success{17|234E9} 19|141b8 213m7 218m7
+58U14*Close 58>21 58>42 19|221b14 227l8 227t13
+58m21 FS{13|25M9} 19|221b21 222r28
+58m42 Ino{17|28M9} 19|221b42 224r59
+60U14*Read_Entries 61>8 62>8 63>8 64<8 65<8 66<8 19|229b14 293l8 293t20
+61m8 FS_Data{13|25M9} 19|230b8 237r70
+62m8 Ino{17|28M9} 19|231b8 239r59
+63i8 Offset{natural} 19|232b8 275r35
+64a8 Entities{17|63A9} 19|233b8 278r28 280r24 281m16 283m16 285m16 286m16
+65i8 Ret_Count{natural} 19|234b8 248m7 278r16 280r41 288m13 288r26
+66e8 Success{17|234E9} 19|235b8 250m10 254m7 258m13
+68U14*Read 69>8 70>8 71>8 72<8 73<8 74<8 19|295b14 361l8 361t12
+69m8 FS_Data{13|25M9} 19|296b8 303r70
+70m8 Ino{17|28M9} 19|297b8 305r59
+71m8 Offset{7|19M9} 19|298b8 310r39 322r10 323r69
+72a8 Data{6|29A9} 19|299b8 313r39 322r19 343m27 343r27 343r33 344r33
+73i8 Ret_Count{natural} 19|300b8 316m7 327r13 329r36 343r46 344r46 359m10
+. 359r23
+74e8 Success{17|234E9} 19|301b8 318m10 326m7 348m13 355m13
+76U14*Stat 77>8 78>8 79<8 80<8 19|363b14 391l8 391t12
+77m8 Data{13|25M9} 19|364b8 370r72
+78m8 Ino{17|28M9} 19|365b8 372r59
+79r8 S{17|41R9} 19|366b8 377m7
+80e8 Success{17|234E9} 19|367b8 390m7
+84N4 Sector_Size 229r34 19|309r53 429r59
+85N4 Boot_Signature 19|44r31
+87A9 FAT32_Bytes(7|16M9)<integer> 89r31 109r31 116r31
+88R9 BIOS_Parameter_Block 118e15 119r8 192r24 19|36r19
+89a7*Infinite_Loop{87A9} 120r7
+90m7*OEM_Identifier{7|19M9} 121r7
+91m7*Bytes_Per_Sector{7|17M9} 122r7
+92m7*Sectors_Per_Cluster{7|16M9} 123r7 19|179r46 262r41 309r30 338r57 408r56
+93m7*Reserved_Sectors{7|17M9} 124r7 19|55r45 56r45
+94m7*FAT_Count{7|16M9} 125r7 19|57r45
+95m7*Root_Entry_Count{7|17M9} 126r7
+96m7*Sector_Count{7|17M9} 127r7 19|54r45
+97m7*Media_Descriptor_Type{7|16M9} 128r7
+98m7*Sectors_Per_FAT_Old{7|17M9} 129r7
+99m7*Sectors_Per_Track{7|17M9} 130r7
+100m7*Head_Count{7|17M9} 131r7
+101m7*Hidden_Sector_Count{7|18M9} 132r7
+102m7*Large_Sector_Count{7|18M9} 133r7 19|59r34
+103m7*Sectors_Per_FAT{7|18M9} 134r7 19|57r61 429r40
+104m7*Flags{7|17M9} 135r7
+105m7*FAT_Version_Number{7|17M9} 136r7
+106m7*Root_Entry_Cluster{7|18M9} 137r7 19|145r44
+107m7*FSInfo_Sector{7|17M9} 138r7
+108m7*Backup_MBR_Sector{7|17M9} 139r7
+109a7*Reserved{87A9} 140r7
+110m7*Drive_Number{7|16M9} 141r7
+111m7*NT_FLags{7|16M9} 142r7
+112m7*Signature{7|16M9} 143r7
+113m7*Volume_ID_Serial{7|18M9} 144r7
+114a7*Volume_Label{string} 145r7
+115a7*System_Identifier{string} 146r7
+116a7*Boot_Code{87A9} 147r7
+117m7*Boot_Signature{7|17M9} 148r7 19|44r13
+151N4 Directory_Read_Only
+152N4 Directory_Hidden
+153N4 Directory_System
+154N4 Directory_Volume_ID
+155N4 Directory_Directory 239r27
+156N4 Directory_Archive
+157N4 Directory_LFN 19|192r36 192r54 276r33 276r51
+158R9 Directory_Entry 172e15 173r8 202r23 210r22 221r15 224r17 19|148r20
+. 242r17 397r22 402r42 452r15 470r17
+159a7*File_Name{string} 174r7 19|478r20 495r17 500r17
+160a7*File_Extension{string} 175r7 19|485r20 496r17
+161m7*Attributes{7|16M9} 176r7 19|187r20 192r21 195r44 270r17 276r18 286r62
+162m7*Reserved_NT{7|16M9} 177r7
+163m7*Creation_Time_1{7|16M9} 178r7
+164m7*Creation_Time_2{7|17M9} 179r7
+165m7*Creation_Time_3{7|17M9} 180r7
+166m7*Access_Time{7|17M9} 181r7
+167m7*First_Cluster_High{7|17M9} 182r7 19|196r56
+168m7*Modification_Time{7|17M9} 183r7
+169m7*Modification_Date{7|17M9} 184r7
+170m7*First_Cluster_Low{7|17M9} 185r7 19|197r47 282r36
+171m7*Size{7|18M9} 186r7 19|322r60 323r61 375r47 384r59
+189R9 FAT_Data 196e14 197r36 19|23r66 25r56 50r19
+190i7*Handle{6|83I9} 19|51m11 341r30 373r71 385r59 411r29 437r32
+191b7*Is_Read_Only{boolean} 19|52m11
+192r7*BPB{88R9} 19|53m11 145r40 179r42 262r37 309r26 338r53 408r52 429r36
+193m7*Sector_Count{7|18M9} 19|54m11 58r15 59m15
+194m7*FAT_Offset{7|18M9} 19|55m11 430r45
+195m7*Cluster_Offset{7|18M9} 19|56m11 337r40 407r39
+197P9 FAT_Data_Acc(189R9) 207r18 214r24 19|25r66 35r19 79r14 79r30 143r23
+. 143r39 237r21 237r37 303r21 303r37 370r23 370r39 394r18 420r24
+199R9 FAT_File 203e14 204r36 19|24r66 26r56 210r21
+200m7*Begin_Cluster{7|18M9} 19|240r37 307r44 378r56
+201e7*Inner_Type{17|39E9} 19|249r15 317r15 379r37
+202r7*FS_Entry{158R9} 19|322r51 323r52 375r38 384r50
+204P9 FAT_File_Acc(199R9) 19|26r66 144r20 223r14 223r30 238r23 238r39 304r24
+. 304r40 371r23 371r39
+206U14 Read_Directory_Entry 207>8 208>8 209>8 210<8 211<8 19|174s13 256s10
+. 393b14 417l8 417t28
+207p8 Data{197P9} 19|394b8 407r34 408r47 411r24
+208m8 Cluster{7|18M9} 19|395b8 406r34
+209m8 Index{7|19M9} 19|396b8 412r33
+210r8 Result{158R9} 19|397b8 403m26 403r26
+211b8 Success{boolean} 19|398b8 415m24 416m7 416r18
+213U14 Get_Next_Cluster 214>8 215>8 216<8 217<8 19|181s16 264s13 353s10 419b14
+. 448l8 448t24
+214p8 Data{197P9} 19|420b8 429r31 430r40 437r27
+215m8 Cluster_Index{7|18M9} 19|421b8 432r23 438r50
+216m8 Returned{7|18M9} 19|422b8 427m63 427r63 433m10 445r24
+217b8 Success{boolean} 19|423b8 434m10 441m27 442r17 443m13 445m13
+219V13 Are_Paths_Equal{boolean} 220>8 221>8 19|193s16 450b13 467l8 467t23
+220a8 Base{string} 19|451b8 455r34
+221r8 Ent{158R9} 19|452b8 465r21
+223U14 Compose_Path 224>8 225<8 226<8 19|279s16 465s7 469b14 504l8 504t20
+224r8 Ent{158R9} 19|470b8 478r16 485r16 495r13 496r13 500r13
+225a8 Result{string} 19|471b8 494m10 494r18 494r34 499m10 499r18 499r34
+226i8 Length{natural} 19|472b8 503m7
+228V13 Sector_To_Disk_Offset{7|19M9} 228>36 235s8 19|430s17
+228m36 Sector{7|18M9} 229r24
+231V13 Cluster_To_Disk_Offset{7|19M9} 232>8 233>8 234>8 19|335s28 405s17
+232m8 Cluster{7|18M9} 235r48 19|336r14 406r11
+233m8 Cluster_Begin{7|18M9} 235r31 19|337r14 407r11
+234m8 Sectors_Per_Cluster{7|18M9} 236r31 19|338r14 408r11
+238V13 Get_Type{17|39E9} 238>23 19|195s30 286s48
+238m23 Attributes{7|16M9} 239r12
+X 19 vfs-fat.adb
+23K14 Conv_1[14|13] 62r20 62r39 79r44 143r53 237r51 303r51 370r53
+24K14 Conv_2[14|13] 212r11 212r30 224r11 239r11 305r11 372r11
+25U14 Free_1[3|14] 81s7
+26U14 Free_2[3|14] 226s7
+35p7 Data{18|197P9} 50m7 58r10 59r10 62r62
+36r7 BP{18|88R9} 39r40 40m34 40r34 44r10 53r29 54r42 55r42 56r42 57r42 57r58
+. 59r31
+37i7 Ret_Count{natural} 42m41 43r25
+38b7 Success{boolean} 42m52 43r14
+39a7 BP_Data{6|29A9} 42m32 43r38
+79p7 Data{18|197P9} 81m15 81r15
+143p7 Data{18|197P9} 145r35 174r35 179r37 181r34
+144p7 Result{18|204P9} 210m7 212r53
+145m7 Cluster{7|18M9} 174r41 181r40 181m49 196m16 210r31
+146e7 Inner_Type{17|39E9} 168r13 195m16 210r40
+147m7 Index{7|19M9} 172m10 174r50 179r16 180m16 201m13 201r22
+148r7 Ent{18|158R9} 174m57 187r16 192r17 193r63 195r40 196r52 197r43 210r52
+149i7 First_I{natural} 157m7 193r39 206m10
+150i7 Last_I{natural} 158m7 161r13 164r16 164r51 165m13 165r23 193r50 205m10
+. 205r21 206r21
+151b7 Success2{boolean} 174m62 175r20 181m58 182r23
+204L9 Next_Iteration 198r21
+209L6 End_Return 154r15
+216L6 Error_Return 169r18 176r21 183r24 188r21
+223p7 File{18|204P9} 226m15 226r15
+237p7 FS{18|197P9} 256r32 262r34 264r31
+238p7 File{18|204P9} 240r32 249r10
+240m7 Cluster{7|18M9} 256r36 264r35 264m44
+241m7 Index{7|19M9} 256r45 262r13 263m13 275r13 291m10 291r19
+242r7 Ent{18|158R9} 256m52 270r13 276r14 279r30 282r32 286r58
+243a7 Composed{string} 279m35 284r19
+244i7 Composed_Len{natural} 279m45 283r50 284r34 285r48
+245i7 Temp{natural} 280m16 281r26 283r26 285r26 286r26
+246b7 Success2{boolean} 256m57 257r17 264m53 265r20
+303p7 FS{18|197P9} 309r23 337r37 338r50 341r27 353r28
+304p7 File{18|204P9} 307r39 317r10 322r46 323r47
+306m7 Cluster_Offset{7|19M9} 335m10 342r27
+307m7 Cluster{7|18M9} 336r37 353r32 353m41
+308m7 Cluster_Sz{7|18M9} 330r52 332r48
+310m7 Final_Offset{7|19M9} 330r66 332r62 342r44 352m10
+311i7 Step_Size{natural} 328m10 330r26 332m13 344r62 359r35
+312i7 Discard{natural} 345m27
+313i7 Final_Count{natural} 323m10 327r25 328r45
+314b7 Succ{boolean} 346m27 347r17 353m50 354r17
+369K15 Align[9|19] 375r10
+370p7 FS{18|197P9} 373r68 385r56
+371p7 File{18|204P9} 375r33 378r51 379r32 384r45
+373m7 Blk{7|18M9} 375r53
+374m7 Cnt{7|18M9} 386r45
+400m7 Offset{7|19M9} 405m7 412r24
+401i7 Ret_Count{natural} 414m24 416r30
+402a7 Result_Data{6|29A9} 413m24 416r42
+425m7 Limit{7|19M9} 429m7 432r41
+425m14 Offset{7|19M9} 430m7 438r27
+426i7 Ret_Count{natural} 440m27 442r28
+427a7 Returned_Data{6|29A9} 439m27 442r41
+454N7 Offset 461r53
+455a7 Base_Copy{string} 459m16 459r16 466r14
+456a7 Composed{string} 465m26 466r26
+457i7 Composed_Len{natural} 465m36 466r41
+459e11 C=459:16{character} 460r13 461r13 461r48
+474i7 Ret{natural} 493m10 494r49 498m10 499r49 503r17
+475i7 Ent_Name_Len{natural} 482m10 482r26 493r17 495r33 498r17 500r33
+476i7 Ent_Ext_Len{natural} 489m10 489r25 492r10 493r36 496r38
+478e11 C{character} 479r13
+485e11 C{character} 486r13
+

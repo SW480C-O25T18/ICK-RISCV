@@ -1,0 +1,134 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -gnatg
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U interfaces%s		interfac.ads		f8f85574 NE OL PU PK
+
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [shift_left interfaces 21 13 none]
+G c Z s s [shift_right interfaces 26 13 none]
+G c Z s s [shift_right_arithmetic interfaces 31 13 none]
+G c Z s s [rotate_left interfaces 36 13 none]
+G c Z s s [rotate_right interfaces 41 13 none]
+G c Z s s [shift_left interfaces 46 13 none]
+G c Z s s [shift_right interfaces 51 13 none]
+G c Z s s [shift_right_arithmetic interfaces 56 13 none]
+G c Z s s [rotate_left interfaces 61 13 none]
+G c Z s s [rotate_right interfaces 66 13 none]
+G c Z s s [shift_left interfaces 71 13 none]
+G c Z s s [shift_right interfaces 76 13 none]
+G c Z s s [shift_right_arithmetic interfaces 81 13 none]
+G c Z s s [rotate_left interfaces 86 13 none]
+G c Z s s [rotate_right interfaces 91 13 none]
+G c Z s s [shift_left interfaces 96 13 none]
+G c Z s s [shift_right interfaces 101 13 none]
+G c Z s s [shift_right_arithmetic interfaces 106 13 none]
+G c Z s s [rotate_left interfaces 111 13 none]
+G c Z s s [rotate_right interfaces 116 13 none]
+X 1 interfac.ads
+11K9*Interfaces 120l5 120e15
+12I9*Integer_8<short_short_integer>
+13I9*Integer_16<short_integer>
+14I9*Integer_32<integer>
+15I9*Integer_64<long_integer>
+16M9*Unsigned_8 22r17 23r33 27r17 28r33 32r17 33r33 37r17 38r33 42r17 43r33
+17M9*Unsigned_16 47r17 48r33 52r17 53r33 57r17 58r33 62r17 63r33 67r17 68r33
+18M9*Unsigned_32 72r17 73r33 77r17 78r33 82r17 83r33 87r17 88r33 92r17 93r33
+19M9*Unsigned_64 97r17 98r33 102r17 103r33 107r17 108r33 112r17 113r33 117r17
+. 118r33
+21V13*Shift_Left{16M9} 22>8 23>8
+22m8 Value{16M9}
+23i8 Amount{natural}
+26V13*Shift_Right{16M9} 27>8 28>8
+27m8 Value{16M9}
+28i8 Amount{natural}
+31V13*Shift_Right_Arithmetic{16M9} 32>8 33>8
+32m8 Value{16M9}
+33i8 Amount{natural}
+36V13*Rotate_Left{16M9} 37>8 38>8
+37m8 Value{16M9}
+38i8 Amount{natural}
+41V13*Rotate_Right{16M9} 42>8 43>8
+42m8 Value{16M9}
+43i8 Amount{natural}
+46V13*Shift_Left{17M9} 47>8 48>8
+47m8 Value{17M9}
+48i8 Amount{natural}
+51V13*Shift_Right{17M9} 52>8 53>8
+52m8 Value{17M9}
+53i8 Amount{natural}
+56V13*Shift_Right_Arithmetic{17M9} 57>8 58>8
+57m8 Value{17M9}
+58i8 Amount{natural}
+61V13*Rotate_Left{17M9} 62>8 63>8
+62m8 Value{17M9}
+63i8 Amount{natural}
+66V13*Rotate_Right{17M9} 67>8 68>8
+67m8 Value{17M9}
+68i8 Amount{natural}
+71V13*Shift_Left{18M9} 72>8 73>8
+72m8 Value{18M9}
+73i8 Amount{natural}
+76V13*Shift_Right{18M9} 77>8 78>8
+77m8 Value{18M9}
+78i8 Amount{natural}
+81V13*Shift_Right_Arithmetic{18M9} 82>8 83>8
+82m8 Value{18M9}
+83i8 Amount{natural}
+86V13*Rotate_Left{18M9} 87>8 88>8
+87m8 Value{18M9}
+88i8 Amount{natural}
+91V13*Rotate_Right{18M9} 92>8 93>8
+92m8 Value{18M9}
+93i8 Amount{natural}
+96V13*Shift_Left{19M9} 97>8 98>8
+97m8 Value{19M9}
+98i8 Amount{natural}
+101V13*Shift_Right{19M9} 102>8 103>8
+102m8 Value{19M9}
+103i8 Amount{natural}
+106V13*Shift_Right_Arithmetic{19M9} 107>8 108>8
+107m8 Value{19M9}
+108i8 Amount{natural}
+111V13*Rotate_Left{19M9} 112>8 113>8
+112m8 Value{19M9}
+113i8 Amount{natural}
+116V13*Rotate_Right{19M9} 117>8 118>8
+117m8 Value{19M9}
+118i8 Amount{natural}
+

@@ -1,0 +1,161 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U userland.oom_failure%b  userland-oom_failure.adb  2857fcdf NE OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+W userland.syscall%s	userland-syscall.adb	userland-syscall.ali
+
+U userland.oom_failure%s  userland-oom_failure.ads  04b92c92 NE OO PK
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W userland%s		userland.ads		userland.ali
+
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D devices-termios.ads	20241115151036 06aea761 devices.termios%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
+D userland-oom_failure.ads  20241115151036 8ec1521c userland.oom_failure%s
+D userland-oom_failure.adb  20241115151036 1128c0e8 userland.oom_failure%b
+D userland-process.ads	20241115151036 a4893a04 userland.process%s
+D userland-syscall.ads	20241115151036 b384b127 userland.syscall%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [get_killing_config userland__oom_failure 22 14 none]
+G c Z s b [configure_killing userland__oom_failure 26 14 none]
+G c Z s b [handle_failure userland__oom_failure 29 14 none]
+G r c none [get_killing_config userland__oom_failure 22 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_killing_config userland__oom_failure 22 14 none] [release lib__synchronization 31 14 none]
+G r c none [configure_killing userland__oom_failure 26 14 none] [seize lib__synchronization 27 14 none]
+G r c none [configure_killing userland__oom_failure 26 14 none] [release lib__synchronization 31 14 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [list_all userland__process 176 14 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [get_common_map userland__process 344 13 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [get_user_mapped_size arch__mmu 187 13 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [convert userland__process 573 13 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [image lib__messages 74 14 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [put_line lib__messages 41 14 none]
+G r c none [handle_failure userland__oom_failure 29 14 none] [do_exit userland__syscall 1249 14 none]
+X 1 arch.ads
+20K9*Arch 52e9 26|18r6 18r28 41r21 61r24
+X 5 arch-mmu.ads
+22K14*MMU 250e13 26|18w11 18r33 41r26 61r29
+43P9*Page_Table_Acc(42R9) 26|41r30
+187V13*Get_User_Mapped_Size{8|19M9} 26|61s33
+X 8 interfac.ads
+11K9*Interfaces 120e15 26|17w6 17r28
+19M9*Unsigned_64 26|43r21 44r21 73r17
+X 13 lib.ads
+19K9*Lib 35e8 25|17r6 17r31 26|21r6 45r21 72r13 74r13
+X 14 lib-messages.ads
+21K13*Messages 103e17 26|21w10 45r25 72r17 74r17
+41U14*Put_Line 26|74s26
+55A12*Translated_String{string}<integer> 26|45r34
+74U14*Image 26|72s26
+X 15 lib-synchronization.ads
+20K13*Synchronization 66e24 25|17w10 17r35
+22R9*Binary_Semaphore 57e14 25|33r33
+23r4*Unlocked_Semaphore{22R9} 25|33r53
+27U14*Seize 26|26s7 33s7
+31U14*Release 26|28s7 35s7
+X 22 userland.ads
+17K9*Userland 23e13 25|19r9 35r5 26|19r6 19r28 20r6 23r14 85r5
+X 25 userland-oom_failure.ads
+19K18*OOM_Failure 22|17k9 25|33E4 35l14 35e25 26|23b23 85l14 85t25
+22U14*Get_Killing_Config 22<34 26|24b14 29l8 29t26
+22b34 Enabled{boolean} 26|24b34 27m7
+26U14*Configure_Killing 26>33 26|31b14 36l8 36t25
+26b33 Enabled{boolean} 26|31b33 34r29
+29U14*Handle_Failure 26|38b14 84l8 84t22
+33r4 Config_Mutex{15|22R9} 26|26m14 26r14 28m16 28r16 33m14 33r14 35m16 35r16
+34b4 Is_Killing_Allowed{boolean} 26|27r18 34m7 48r10
+X 26 userland-oom_failure.adb
+39i7 Count{natural} 50m35 51r13 52m13 58r34 73m70 76r33
+40a7 Items{27|171A9} 50m28 51r21 52r22 58r19 59r44 70r34 73r39 78r17 78r49
+. 81r30
+41p7 Map{5|43P9} 59m13 60r16 61r55
+42i7 Guilty{natural} 56m10 63m19 70r13 70r41 73r46 78r24 78r56 81r37
+43m7 Guilty_Size{8|19M9} 57m10 62r26 64m19
+44m7 Size{8|19M9} 61m16 62r19 64r34
+45a7 Str{14|55A12} 73m65 76r17 76r22 76r46
+58i14 I{integer} 59r51 63r34
+X 27 userland-process.ads
+28K18*Process 26|19w15 19r37 40r21 50r10 59r20 70r60 27|677e21
+33I9*PID<integer>
+34i4*Error_PID{33I9} 26|70r68
+163a7*Identifier{string} 26|78r32
+164i7*Identifier_Len{natural} 26|78r64
+165i7*Process{33I9} 26|59r54 70r49 73r54 81r45
+171A9*Process_Info_Arr(162R9)<integer> 26|40r29
+176U14*List_All 26|50s18
+344V13*Get_Common_Map{5|43P9} 26|59s28
+573V13*Convert{natural} 26|73s30
+X 28 userland-syscall.ads
+33K18*Syscall 26|20w15 81r13 28|1356e21
+1249U14*Do_Exit 26|81s21
+

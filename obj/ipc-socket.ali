@@ -1,0 +1,657 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.socket%b		ipc-socket.adb		a3ce410c NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W ipc%s			ipc.ads			ipc.ali
+W networking%s		networking.adb		networking.ali
+W networking.interfaces%s  networking-interfaces.adb  networking-interfaces.ali
+W networking.ipv4%s	networking-ipv4.adb	networking-ipv4.ali
+W networking.ipv6%s	networking-ipv6.adb	networking-ipv6.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+Z system%s		system.ads		system.ali
+
+U ipc.socket%s		ipc-socket.ads		b04b93ec NE OO PK IU
+W devices%s		devices.adb		devices.ali
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W networking%s		networking.adb		networking.ali
+
+D ada.ads		20241115151050 0e5b2a16 ada%s
+D a-uncdea.ads		20241115151050 f341340f ada.unchecked_deallocation%s
+D arch.ads		20241115151036 7fd82c9e arch%s
+D arch-context.ads	20241115151036 7bffdd51 arch.context%s
+D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
+D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
+D devices.ads		20241115151036 f45ecf09 devices%s
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D ipc.ads		20241115151036 03976a1a ipc%s
+D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
+D ipc-socket.adb	20241115151036 7b5a2e7d ipc.socket%b
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
+D memory.ads		20241115151036 335640bf memory%s
+D networking.ads	20241115151036 70ea6e55 networking%s
+D networking-arp.ads	20241115151036 eec21925 networking.arp%s
+D networking-interfaces.ads  20241115151036 9c034257 networking.interfaces%s
+D networking-ipv4.ads	20241115151036 1c38e59d networking.ipv4%s
+D networking-ipv6.ads	20241115151036 617a68ce networking.ipv6%s
+D scheduler.ads		20241115151036 61f570e7 scheduler%s
+D system.ads		20241115151050 c1a7efcf system%s
+D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
+D userland.ads		20241115151036 1671c2b9 userland%s
+D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
+D vfs.ads		20241115151036 63b4365d vfs%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s b [create ipc__socket 55 13 none]
+G c Z s b [get_domain ipc__socket 63 13 none]
+G c Z s b [get_type ipc__socket 70 13 none]
+G c Z s b [close ipc__socket 75 14 none]
+G c Z s b [is_blocking ipc__socket 81 13 none]
+G c Z s b [set_blocking ipc__socket 87 14 none]
+G c Z s b [poll ipc__socket 96 14 none]
+G c Z s b [read ipc__socket 109 14 none]
+G c Z s b [write ipc__socket 121 14 none]
+G c Z s b [shutdown ipc__socket 136 13 none]
+G c Z s b [is_listening ipc__socket 144 13 none]
+G c Z s b [listen ipc__socket 152 13 none]
+G c Z s b [accept_connection ipc__socket 159 14 none]
+G c Z s b [get_bound ipc__socket 173 14 none]
+G c Z s b [get_peer ipc__socket 185 14 none]
+G c Z s b [bind ipc__socket 197 13 none]
+G c Z s b [connect ipc__socket 210 13 none]
+G c Z s b [accept_connection ipc__socket 222 14 none]
+G c Z s b [read ipc__socket 239 14 none]
+G c Z s b [write ipc__socket 257 14 none]
+G c Z s b [get_bound ipc__socket 276 14 none]
+G c Z s b [get_peer ipc__socket 288 14 none]
+G c Z s b [bind ipc__socket 300 13 none]
+G c Z s b [connect ipc__socket 313 13 none]
+G c Z s b [accept_connection ipc__socket 326 14 none]
+G c Z s b [read ipc__socket 343 14 none]
+G c Z s b [write ipc__socket 361 14 none]
+G c Z s b [get_bound ipc__socket 381 14 none]
+G c Z s b [get_peer ipc__socket 393 14 none]
+G c Z s b [bind ipc__socket 405 13 none]
+G c Z s b [connect ipc__socket 415 13 none]
+G c Z s b [accept_connection ipc__socket 425 14 none]
+G c Z s b [read ipc__socket 441 14 none]
+G c Z s b [write ipc__socket 457 14 none]
+G c Z s b [inner_ipv4_read ipc__socket 508 14 none]
+G c Z s b [inner_ipv4_write ipc__socket 514 14 none]
+G c Z s b [inner_ipv6_read ipc__socket 521 14 none]
+G c Z s b [inner_ipv6_write ipc__socket 527 14 none]
+G c Z s s [bound_socketIP ipc__socket 535 9 none]
+G c Z s b [get_bound ipc__socket 546 13 none]
+G c Z s b [inner_unix_close ipc__socket 548 14 none]
+G c Z s b [inner_unix_read ipc__socket 550 14 none]
+G c Z s b [inner_unix_write ipc__socket 556 14 none]
+G c Z s b [inner_unix_poll ipc__socket 562 14 none]
+G c Z s b [inner_unix_shutdown ipc__socket 569 13 none]
+G c Z s s [socketIP ipc__socket 471 9 none]
+G c Z b b [free ipc__socket 24 14 none]
+G c Z b b [free ipc__socket 25 14 none]
+G r c none [close ipc__socket 75 14 none] [seize lib__synchronization 27 14 none]
+G r c none [close ipc__socket 75 14 none] [release lib__synchronization 31 14 none]
+G r c none [is_blocking ipc__socket 81 13 none] [seize lib__synchronization 27 14 none]
+G r c none [is_blocking ipc__socket 81 13 none] [release lib__synchronization 31 14 none]
+G r c none [set_blocking ipc__socket 87 14 none] [seize lib__synchronization 27 14 none]
+G r c none [set_blocking ipc__socket 87 14 none] [release lib__synchronization 31 14 none]
+G r c none [poll ipc__socket 96 14 none] [seize lib__synchronization 27 14 none]
+G r c none [poll ipc__socket 96 14 none] [release lib__synchronization 31 14 none]
+G r c none [read ipc__socket 109 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [read ipc__socket 109 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [read ipc__socket 109 14 none] [read devices 193 14 none]
+G r c none [read ipc__socket 109 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [read ipc__socket 109 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [read ipc__socket 109 14 none] [seize lib__synchronization 27 14 none]
+G r c none [read ipc__socket 109 14 none] [release lib__synchronization 31 14 none]
+G r c none [read ipc__socket 109 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [write ipc__socket 121 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [write ipc__socket 121 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [write ipc__socket 121 14 none] [generate_header networking__ipv4 62 13 none]
+G r c none [write ipc__socket 121 14 none] [write devices 210 14 none]
+G r c none [write ipc__socket 121 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [write ipc__socket 121 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [write ipc__socket 121 14 none] [generate_header networking__ipv6 49 13 none]
+G r c none [write ipc__socket 121 14 none] [seize lib__synchronization 27 14 none]
+G r c none [write ipc__socket 121 14 none] [release lib__synchronization 31 14 none]
+G r c none [write ipc__socket 121 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [shutdown ipc__socket 136 13 none] [seize lib__synchronization 27 14 none]
+G r c none [shutdown ipc__socket 136 13 none] [release lib__synchronization 31 14 none]
+G r c none [is_listening ipc__socket 144 13 none] [seize lib__synchronization 27 14 none]
+G r c none [is_listening ipc__socket 144 13 none] [release lib__synchronization 31 14 none]
+G r c none [listen ipc__socket 152 13 none] [seize lib__synchronization 27 14 none]
+G r c none [listen ipc__socket 152 13 none] [release lib__synchronization 31 14 none]
+G r c none [accept_connection ipc__socket 159 14 none] [seize lib__synchronization 27 14 none]
+G r c none [accept_connection ipc__socket 159 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [accept_connection ipc__socket 159 14 none] [release lib__synchronization 31 14 none]
+G r c none [read ipc__socket 239 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [read ipc__socket 239 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [read ipc__socket 239 14 none] [read devices 193 14 none]
+G r c none [write ipc__socket 257 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [write ipc__socket 257 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [write ipc__socket 257 14 none] [generate_header networking__ipv4 62 13 none]
+G r c none [write ipc__socket 257 14 none] [write devices 210 14 none]
+G r c none [read ipc__socket 343 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [read ipc__socket 343 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [read ipc__socket 343 14 none] [read devices 193 14 none]
+G r c none [write ipc__socket 361 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [write ipc__socket 361 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [write ipc__socket 361 14 none] [generate_header networking__ipv6 49 13 none]
+G r c none [write ipc__socket 361 14 none] [write devices 210 14 none]
+G r c none [get_bound ipc__socket 381 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_bound ipc__socket 381 14 none] [release lib__synchronization 31 14 none]
+G r c none [get_peer ipc__socket 393 14 none] [seize lib__synchronization 27 14 none]
+G r c none [get_peer ipc__socket 393 14 none] [release lib__synchronization 31 14 none]
+G r c none [bind ipc__socket 405 13 none] [seize lib__synchronization 27 14 none]
+G r c none [bind ipc__socket 405 13 none] [release lib__synchronization 31 14 none]
+G r c none [connect ipc__socket 415 13 none] [seize lib__synchronization 27 14 none]
+G r c none [connect ipc__socket 415 13 none] [yield_if_able scheduler 74 14 none]
+G r c none [connect ipc__socket 415 13 none] [release lib__synchronization 31 14 none]
+G r c none [accept_connection ipc__socket 425 14 none] [seize lib__synchronization 27 14 none]
+G r c none [accept_connection ipc__socket 425 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [accept_connection ipc__socket 425 14 none] [release lib__synchronization 31 14 none]
+G r c none [read ipc__socket 441 14 none] [seize lib__synchronization 27 14 none]
+G r c none [read ipc__socket 441 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [read ipc__socket 441 14 none] [release lib__synchronization 31 14 none]
+G r c none [write ipc__socket 457 14 none] [seize lib__synchronization 27 14 none]
+G r c none [write ipc__socket 457 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [write ipc__socket 457 14 none] [release lib__synchronization 31 14 none]
+G r c none [inner_ipv4_read ipc__socket 508 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [inner_ipv4_read ipc__socket 508 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [inner_ipv4_read ipc__socket 508 14 none] [read devices 193 14 none]
+G r c none [inner_ipv4_write ipc__socket 514 14 none] [get_suitable_interface networking__interfaces 62 14 none]
+G r c none [inner_ipv4_write ipc__socket 514 14 none] [get_interface_address networking__interfaces 42 14 none]
+G r c none [inner_ipv4_write ipc__socket 514 14 none] [generate_header networking__ipv4 62 13 none]
+G r c none [inner_ipv4_write ipc__socket 514 14 none] [write devices 210 14 none]
+G r c none [inner_ipv6_read ipc__socket 521 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [inner_ipv6_read ipc__socket 521 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [inner_ipv6_read ipc__socket 521 14 none] [read devices 193 14 none]
+G r c none [inner_ipv6_write ipc__socket 527 14 none] [get_suitable_interface networking__interfaces 67 14 none]
+G r c none [inner_ipv6_write ipc__socket 527 14 none] [get_interface_address networking__interfaces 47 14 none]
+G r c none [inner_ipv6_write ipc__socket 527 14 none] [generate_header networking__ipv6 49 13 none]
+G r c none [inner_ipv6_write ipc__socket 527 14 none] [write devices 210 14 none]
+G r c none [inner_unix_close ipc__socket 548 14 none] [seize lib__synchronization 27 14 none]
+G r c none [inner_unix_close ipc__socket 548 14 none] [release lib__synchronization 31 14 none]
+G r c none [inner_unix_read ipc__socket 550 14 none] [seize lib__synchronization 27 14 none]
+G r c none [inner_unix_read ipc__socket 550 14 none] [release lib__synchronization 31 14 none]
+G r c none [inner_unix_read ipc__socket 550 14 none] [yield_if_able scheduler 74 14 none]
+G r c none [inner_unix_write ipc__socket 556 14 none] [seize lib__synchronization 27 14 none]
+G r c none [inner_unix_write ipc__socket 556 14 none] [release lib__synchronization 31 14 none]
+G r c none [inner_unix_write ipc__socket 556 14 none] [yield_if_able scheduler 74 14 none]
+X 1 ada.ads
+11K9*Ada 12e8 11|17r6 24r26 25r26
+X 2 a-uncdea.ads
+14u15*Unchecked_Deallocation 11|17w10 24r30 25r30
+X 7 devices.ads
+22K9*Devices 279e12 10|18w6 18r19 111r24 123r20 241r24 259r20 345r24 363r20
+. 443r24 459r20 477r27 510r24 516r20 523r24 529r20 552r24 558r20 11|151r24
+. 165r20 302r24 311r14 318r22 326r13 344r20 353r14 364r22 376r13 462r24 471r14
+. 478r22 486r13 503r20 512r14 523r22 535r13 706r24 721r20 736r24 752r20 768r24
+. 784r20 822r24 899r20
+29A9*Operation_Data(8|16M9)<integer> 10|111r32 123r28 241r32 259r28 345r32
+. 363r28 443r32 459r28 477r35 510r32 516r28 523r32 529r28 552r32 558r28 11|26r8
+. 151r32 165r28 302r32 344r28 358r18 372r29 462r32 503r28 517r18 531r29 706r32
+. 721r28 736r32 752r28 768r32 784r28 822r32 899r28
+30P9*Operation_Data_Acc(29A9) 11|26r24 354r18 513r18
+83I9*Device_Handle<integer> 11|311r22 353r22 471r22 512r22
+85i4*Error_Handle{83I9} 11|318r30 364r30 478r30 523r30
+193U14*Read 11|326s21 486s21
+210U14*Write 11|376s21 535s21
+X 8 interfac.ads
+16M9*Unsigned_8
+17M9*Unsigned_16
+X 9 ipc.ads
+17K9*IPC 18e8 10|21r9 573r5 11|23r14 1029r5
+X 10 ipc-socket.ads
+21K13*Socket 9|17k9 10|469E4 573l9 573e15 11|23b18 1029l9 1029t15
+25E9*Domain 28e13 36r23 56r22 63r51 471r23 11|29r22 90r51
+26n8*IPv4{25E9} 178r61 190r61 201r61 214r61 229r39 247r39 265r39 281r61 488r15
+. 11|35r15 40r37 104r15 138r15 157r15 171r15 186r15 223r15
+27n8*IPv6{25E9} 293r61 304r61 317r61 333r39 351r39 369r39 448r39 464r39 496r15
+. 11|48r15 53r37 104r22 138r22 158r15 172r15 186r22 223r22
+28n8*UNIX{25E9} 386r61 398r61 406r61 416r61 432r39 476r15 11|61r15 66r39
+. 78r41 106r15 143r15 159r15 173r15 188r15 225r15
+30E9*DataType 33e12 36r37 57r22 70r49 471r37 11|30r22 95r49
+31n8*Stream{30E9} 153r59 163r59 230r37 248r38 266r38 334r37 352r38 370r38
+. 433r37 449r38 465r38 480r21 11|63r21 67r39 642r15 841r15 907r15 994r15
+32n8*Datagram{30E9} 11|75r21 79r41
+33n8*Raw{30E9} 490r21 498r21 11|37r21 41r37 50r21 54r37 84r21 276r15 316r15
+. 362r15 436r15 476r15 521r15
+36R9*Socket 36d17 36d31 37r30 471c9 505e14 11|24r54 38r30 51r30 64r30 76r30
+36e17 Dom{25E9} 471r17 475r12 11|40m21 53m21 66m21 78m21 92r19 103r21 137r17
+. 156r17 170r17 185r17 222r17 685r40
+36e31 Typ{30E9} 471r31 479r18 489r18 497r18 11|41m21 54m21 67m21 79m21 97r19
+. 275r17 315r17 361r17 435r17 475r17 520r17 641r17 686r40 840r17 906r17 993r17
+37P9*Socket_Acc(36R9) 58r46 63r32 70r30 75r39 81r33 87r35 97r20 110r20 122r20
+. 137r27 144r34 152r28 160r22 162r26 174r18 186r18 198r15 211r15 223r23 227r27
+. 240r20 258r20 277r18 289r18 301r15 314r15 327r23 331r27 344r20 362r20 382r18
+. 394r18 405r26 415r29 426r30 430r34 442r20 458r20 482r36 483r36 484r36 486r38
+. 509r20 515r20 522r20 528r20 536r18 546r46 548r43 551r20 557r20 563r20 570r27
+. 11|24r62 31r46 90r32 95r30 100r39 112r33 121r35 129r20 150r20 164r20 178r27
+. 195r34 204r28 214r22 216r26 232r18 245r18 258r15 270r15 286r23 290r27 301r20
+. 343r20 391r18 404r18 418r15 430r15 446r23 450r27 461r20 502r20 550r18 574r18
+. 601r26 630r29 631r20 667r30 671r34 673r13 705r20 712r23 720r20 727r23 735r20
+. 751r20 767r20 783r20 798r46 808r43 821r20 898r20 986r20 1016r27
+40E9*Socket_Status 43e20 113r24 125r24 245r24 263r24 349r24 367r24 446r24
+. 462r24 512r24 518r24 525r24 531r24 554r24 560r24 11|153r24 167r24 306r24
+. 348r24 466r24 507r24 709r24 724r24 738r24 754r24 770r24 786r24 824r24 901r24
+41n8*Plain_Success{40E9} 11|331r27 380r27 491r27 539r27 880r24 886r29 955r26
+. 976r29
+42n8*Is_Bad_Type{40E9} 11|338r24 386r24 497r26 545r26 845r29 910r29
+43n8*Would_Block{40E9} 11|321r29 333r27 366r29 382r27 481r29 493r27 525r29
+. 541r27 854r32 889r29 935r32 964r29 979r29
+46i4*Default_Socket_Size{natural} 469c4 477r56 478r46 11|919r22 929r50 940r22
+. 941r22 943r25 944r25 961r31 971r31 1003r54
+55V13*Create{37P9} 56>8 57>8 58>8 11|28b13 88l8 88t14 684s26
+56e8 Dom{25E9} 11|29b8 34r12
+57e8 Typ{30E9} 11|30b8 36r18 49r18 62r18
+58b8 Is_Blocking{boolean} 11|31b8 42r37 55r37 69r39 80r41
+63V13*Get_Domain{25E9} 63>25 178s41 190s41 201s41 214s41 229s19 247s19 265s19
+. 281s41 293s41 304s41 317s41 333s19 351s19 369s19 386s41 398s41 406s41 416s41
+. 432s19 448s19 464s19 11|90b13 93l8 93t18
+63p25 Sock{37P9} 64r19 11|90b25 92r14
+70V13*Get_Type{30E9} 70>23 153s41 163s41 230s19 248s19 266s19 334s19 352s19
+. 370s19 433s19 449s19 465s19 11|95b13 98l8 98t16
+70p23 Sock{37P9} 71r19 11|95b23 97r14
+75U14*Close 75=21 11|100b14 110l8 110t13
+75p21 To_Close{37P9} 76r19 76r45 11|100b21 102r34 103r12 107r31 109m13
+81V13*Is_Blocking{boolean} 81>26 11|112b13 119l8 119t19
+81p26 Sock{37P9} 82r19 11|112b26 115r34 116r17 117r36
+87U14*Set_Blocking 87>28 87>47 11|121b14 126l8 126t20
+87p28 Sock{37P9} 88r19 11|121b28 123r34 124r7 125r36
+87b47 Is_Blocking{boolean} 11|121b47 124r27
+96U14*Poll 97>8 98<8 99<8 100<8 101<8 11|128b14 147l8 147t12
+97p8 Sock{37P9} 102r19 11|129b8 136r34 137r12 144r30 146r36
+98b8 Can_Read{boolean} 11|130b8 139m13 144m36
+99b8 Can_Write{boolean} 11|131b8 140m13 144m46
+100b8 Is_Broken{boolean} 11|132b8 141m13 144m57
+101b8 Is_Error{boolean} 11|133b8 142m13 144m68
+109U14*Read 110>8 111<8 112<8 113<8 11|149b14 161l8 161t12
+110p8 Sock{37P9} 114r19 11|150b8 156r12 157r40 158r40 159r40
+111a8 Data{7|29A9} 11|151b8 157m46 158m46 159m46
+112i8 Ret_Count{natural} 11|152b8 157m52 158m52 159m52
+113e8 Success{40E9} 11|153b8 157m63 158m63 159m63
+121U14*Write 122>8 123>8 124<8 125<8 11|163b14 175l8 175t13
+122p8 Sock{37P9} 126r19 11|164b8 170r12 171r41 172r41 173r41
+123a8 Data{7|29A9} 11|165b8 171r47 172r47 173r47
+124i8 Ret_Count{natural} 11|166b8 171m53 172m53 173m53
+125e8 Success{40E9} 11|167b8 171m64 172m64 173m64
+136V13*Shutdown{boolean} 137>8 138>8 139>8 11|177b13 193l8 193t16
+137p8 Sock{37P9} 11|178b8 184r34 185r12 189r41 191r36
+138b8 Do_Receptions{boolean} 11|179b8 189r47
+139b8 Do_Transmissions{boolean} 11|180b8 189r62
+144V13*Is_Listening{boolean} 144>27 11|195b13 202l8 202t20
+144p27 Sock{37P9} 145r19 11|195b27 198r34 199r17 200r36
+152V13*Listen{boolean} 152>21 152>40 11|204b13 211l8 211t14
+152p21 Sock{37P9} 153r19 153r51 11|204b21 207r34 208r7 209r36
+152i40 Backlog{natural} 11|204b40 205r28
+159U14*Accept_Connection 160>8 161>8 162<8 11|213b14 229l8 229t25
+160p8 Sock{37P9} 163r19 163r51 11|214b8 221r34 222r12 226r32 228r36
+161b8 Is_Blocking{boolean} 11|215b8 226r38
+162p8 Result{37P9} 11|216b8 224m13 226m62
+173U14*Get_Bound 174>8 175<8 176<8 177<8 11|231b14 242l8 242t17
+174p8 Sock{37P9} 178r19 178r53 11|232b8 237r28
+175a8 Addr{15|23A9} 11|233b8 239m7
+176m8 Port{15|25M9} 11|234b8 240m7
+177b8 Success{boolean} 11|235b8 241m7
+185U14*Get_Peer 186>8 187<8 188<8 189<8 11|244b14 255l8 255t16
+186p8 Sock{37P9} 190r19 190r53 11|245b8 250r28
+187a8 Addr{15|23A9} 11|246b8 252m7
+188m8 Port{15|25M9} 11|247b8 253m7
+189b8 Success{boolean} 11|248b8 254m7
+197V13*Bind{boolean} 198>8 199>8 200>8 11|257b13 267l8 267t12
+198p8 Sock{37P9} 201r19 201r53 11|258b8 262r28
+199a8 Addr{15|23A9} 11|259b8 263r28
+200m8 Port{15|25M9} 11|260b8 264r28
+210V13*Connect{boolean} 211>8 212>8 213>8 11|269b13 283l8 283t15
+211p8 Sock{37P9} 214r19 214r53 11|270b8 275r12 277r13 278r13
+212a8 Addr{15|23A9} 11|271b8 277r41
+213m8 Port{15|25M9} 11|272b8 278r38
+222U14*Accept_Connection 223>8 224>8 225<8 226<8 227<8 11|285b14 298l8 298t25
+223p8 Sock{37P9} 228r19 229r31 230r29 11|286b8 292r28
+224b8 Is_Blocking{boolean} 11|287b8 293r28
+225a8 Peer_Address{15|23A9} 11|288b8 295m7
+226m8 Peer_Port{15|25M9} 11|289b8 296m7
+227p8 Result{37P9} 11|290b8 297m7
+239U14*Read 240>8 241<8 242<8 243>8 244>8 245<8 11|300b14 340l8 340t12 741s7
+240p8 Sock{37P9} 246r19 247r31 248r29 11|301b8 315r12 742r11
+241a8 Data{7|29A9} 11|302b8 319m16 326m35 327m13 327r19 327r33 328r16 328r22
+. 328r53 336m13 743r11
+242i8 Ret_Count{natural} 11|303b8 320m16 326m41 329m13 329r26 337m13 744r11
+243a8 Addr{15|23A9} 11|304b8 317r59 745r11
+244m8 Port{15|25M9} 11|305b8 308r28 746r11
+245e8 Success{40E9} 11|306b8 321m16 331m16 333m16 338m13 747r11
+257U14*Write 258>8 259>8 260<8 261>8 262>8 263<8 11|342b14 388l8 388t13 757s7
+258p8 Sock{37P9} 264r19 265r31 266r29 11|343b8 361r12 758r11
+259a8 Data{7|29A9} 11|344b8 371r64 372r50 374r64 759r11
+260i8 Ret_Count{natural} 11|345b8 365m16 376m50 385m13 760r11
+261a8 Addr{15|23A9} 11|346b8 363r59 371r58 761r11
+262m8 Port{15|25M9} 11|347b8 350r28 762r11
+263e8 Success{40E9} 11|348b8 366m16 380m16 382m16 386m13 763r11
+276U14*Get_Bound 277>8 278<8 279<8 280<8 11|390b14 401l8 401t17
+277p8 Sock{37P9} 281r19 281r53 11|391b8 396r28
+278a8 Addr{15|24A9} 11|392b8 398m7
+279m8 Port{15|26M9} 11|393b8 399m7
+280b8 Success{boolean} 11|394b8 400m7
+288U14*Get_Peer 289>8 290<8 291<8 292<8 11|403b14 414l8 414t16
+289p8 Sock{37P9} 293r19 293r53 11|404b8 409r28
+290a8 Addr{15|24A9} 11|405b8 411m7
+291m8 Port{15|26M9} 11|406b8 412m7
+292b8 Success{boolean} 11|407b8 413m7
+300V13*Bind{boolean} 301>8 302>8 303>8 11|417b13 427l8 427t12
+301p8 Sock{37P9} 304r19 304r53 11|418b8 422r28
+302a8 Addr{15|24A9} 11|419b8 423r28
+303m8 Port{15|26M9} 11|420b8 424r28
+313V13*Connect{boolean} 314>8 315>8 316>8 11|429b13 443l8 443t15
+314p8 Sock{37P9} 317r19 317r53 11|430b8 435r12 437r13 438r13
+315a8 Addr{15|24A9} 11|431b8 437r41
+316m8 Port{15|26M9} 11|432b8 438r38
+326U14*Accept_Connection 327>8 328>8 329<8 330<8 331<8 11|445b14 458l8 458t25
+327p8 Sock{37P9} 332r19 333r31 334r29 11|446b8 452r28
+328b8 Is_Blocking{boolean} 11|447b8 453r28
+329a8 Peer_Address{15|24A9} 11|448b8 455m7
+330m8 Peer_Port{15|26M9} 11|449b8 456m7
+331p8 Result{37P9} 11|450b8 457m7
+343U14*Read 344>8 345<8 346<8 347>8 348>8 349<8 11|460b14 499l8 499t12 773s7
+344p8 Sock{37P9} 350r19 351r31 352r29 11|461b8 475r12 774r11
+345a8 Data{7|29A9} 11|462b8 479m16 486m35 487m13 487r19 487r33 488r16 488r22
+. 488r53 775r11
+346i8 Ret_Count{natural} 11|463b8 480m16 486m41 489m13 489r26 496m13 776r11
+347a8 Addr{15|24A9} 11|464b8 477r59 777r11
+348m8 Port{15|26M9} 11|465b8 468r28 778r11
+349e8 Success{40E9} 11|466b8 481m16 491m16 493m16 497m13 779r11
+361U14*Write 362>8 363>8 364<8 365>8 366>8 367<8 11|501b14 547l8 547t13 789s7
+362p8 Sock{37P9} 368r19 369r31 370r29 11|502b8 520r12 790r11
+363a8 Data{7|29A9} 11|503b8 530r64 531r50 533r64 791r11
+364i8 Ret_Count{natural} 11|504b8 524m16 535m50 544m13 792r11
+365a8 Addr{15|24A9} 11|505b8 522r59 530r58 793r11
+366m8 Port{15|26M9} 11|506b8 509r28 794r11
+367e8 Success{40E9} 11|507b8 525m16 539m16 541m16 545m13 795r11
+381U14*Get_Bound 382>8 383<8 384<8 385<8 11|549b14 571l8 571t17
+382p8 Sock{37P9} 386r19 386r53 11|550b8 562r24
+383a8 Path{string} 11|551b8 556m7 563m13 563r19 563r33
+384i8 Length{natural} 11|552b8 557m7 565m13
+385b8 Success{boolean} 11|553b8 558m7 566m13
+393U14*Get_Peer 394>8 395<8 396<8 397<8 11|573b14 599l8 599t16
+394p8 Sock{37P9} 398r19 398r53 11|574b8 586r24
+395a8 Path{string} 11|575b8 580m7 587r16 588m16 588r22 588r36 591m16 591r39
+396i8 Length{natural} 11|576b8 581m7 593m13
+397b8 Success{boolean} 11|577b8 582m7 594m13
+405V13*Bind{boolean} 405>19 405>38 11|601b13 628l8 628t12
+405p19 Sock{37P9} 406r19 406r53 11|601b19 611r24 617r25
+405a38 Path{string} 11|601b38 604r10 604r29 618r28 618r44 619r29
+415V13*Connect{boolean} 415>22 415>41 11|630b13 664l8 664t15 714s18 729s18
+415p22 Sock{37P9} 416r19 416r53 11|630b22 641r12 643r13 646r48 652r26 656r13
+415a41 Path{string} 11|630b41 636r32
+425U14*Accept_Connection 426>8 427>8 428<8 429<8 430<8 11|226s13 666b14 702l8
+. 702t25
+426p8 Sock{37P9} 431r19 432r31 433r29 11|667b8 679r34 681r10 683r16 685r20
+. 686r20 689r23 690r38 693r16 696r27 701r36
+427b8 Is_Blocking{boolean} 11|668b8 687r20
+428a8 Peer_Address{string} 11|669b8 675m7
+429i8 Peer_Address_Length{natural} 11|670b8 676m7
+430p8 Result{37P9} 11|671b8 677m7 684m16 690r16 691r38 692r16
+441U14*Read 442>8 443<8 444<8 445>8 446<8 11|704b14 717l8 717t12
+442p8 Sock{37P9} 447r19 448r31 449r29 11|705b8 712r37 714r27 715r24 716r7
+443a8 Data{7|29A9} 11|706b8 715m30
+444i8 Ret_Count{natural} 11|707b8 715m36
+445a8 Path{string} 11|708b8 714r33
+446e8 Success{40E9} 11|709b8 715m47
+457U14*Write 458>8 459>8 460<8 461>8 462<8 11|719b14 732l8 732t13
+458p8 Sock{37P9} 463r19 464r31 465r29 11|720b8 727r37 729r27 730r25 731r7
+459a8 Data{7|29A9} 11|721b8 730r31
+460i8 Ret_Count{natural} 11|722b8 730m37
+461a8 Path{string} 11|723b8 729r33
+462e8 Success{40E9} 11|724b8 730m48
+472r7*Mutex{13|22R9} 11|39m21 52m21 65m21 77m21 102m43 115m39 117m41 123m39
+. 125m41 136m39 146m41 184m39 191m41 198m39 200m41 207m39 209m41 221m39 228m41
+. 679m39 701m41 831m45 833m47 837m42 849m53 894m41 917m66 920m68 924m63 927m45
+. 931m53 957m62 958m47 969m62 981m64
+473b7*Is_Blocking{boolean} 11|42m21 55m21 69m21 80m21 116r22 124m12 696r32
+. 829r15 848r24 915r21 930r24
+477a13*Data{7|29A9} 11|73m21 82m21 867r21 869r30 869r49 870m24 870r41 884r24
+. 949m33 973m38
+478i13*Data_Length{integer} 11|74m21 83m21 832r28 847r24 859r27 860r28 872r24
+. 873m24 873r44 882r21 883r32 884r40 885r34 918r49 929r36 941r64 944r67 946r45
+. 950r37 952m33 970r38 974m38 1001r34 1003r39 1008r31
+481b19*Is_Listener{boolean} 11|68m21 199r22 208m12 681r15 842r21 908r21 995r21
+482p19*Connected{37P9} 11|70m21 643m18
+483p19*Pending_Accept{37P9} 11|71m21 645r30 646m30 652r31 683r21 685r25 686r25
+. 689r28 691m20 692m23 693m21 842r41 908r41 917r51 918r34 920r53 924r48 929r21
+. 941r49 944r52 946r30 949r18 950r22 952r18 957r47 996r34 1002r34 1003r24
+484p19*Established{37P9} 11|72m21 586r29 690m23 1023r15 1024r15 1024m27 1025m15
+486p19*Simple_Connected{37P9} 11|81m21 656m18 712r42 716m12 727r42 731m12
+. 960r21 969r45 970r21 973r21 974r21 981r47 1009r31
+491a19*IPv4_Cached_Address{15|23A9} 11|43m21 277m18 745r29 761r29
+492m19*IPv4_Cached_Port{15|25M9} 11|44m21 278m18 746r29 762r29
+499a19*IPv6_Cached_Address{15|24A9} 11|56m21 437m18 777r29 793r29
+500m19*IPv6_Cached_Port{15|26M9} 11|57m21 438m18 778r29 794r29
+508U14 Inner_IPv4_Read 509>8 510<8 511<8 512<8 11|157s23 734b14 748l8 748t23
+509p8 Sock{37P9} 11|735b8 742r24 745r24 746r24
+510a8 Data{7|29A9} 11|736b8 743m24
+511i8 Ret_Count{natural} 11|737b8 744m24
+512e8 Success{40E9} 11|738b8 747m24
+514U14 Inner_IPv4_Write 515>8 516>8 517<8 518<8 11|171s23 750b14 764l8 764t24
+515p8 Sock{37P9} 11|751b8 758r24 761r24 762r24
+516a8 Data{7|29A9} 11|752b8 759r24
+517i8 Ret_Count{natural} 11|753b8 760m24
+518e8 Success{40E9} 11|754b8 763m24
+521U14 Inner_IPv6_Read 522>8 523<8 524<8 525<8 11|158s23 766b14 780l8 780t23
+522p8 Sock{37P9} 11|767b8 774r24 777r24 778r24
+523a8 Data{7|29A9} 11|768b8 775m24
+524i8 Ret_Count{natural} 11|769b8 776m24
+525e8 Success{40E9} 11|770b8 779m24
+527U14 Inner_IPv6_Write 528>8 529>8 530<8 531<8 11|172s23 782b14 796l8 796t24
+528p8 Sock{37P9} 11|783b8 790r24 793r24 794r24
+529a8 Data{7|29A9} 11|784b8 791r24
+530i8 Ret_Count{natural} 11|785b8 792m24
+531e8 Success{40E9} 11|786b8 795m24
+534N4 Bind_Path_Max 537r31 538r37 11|604r43
+535R9 Bound_Socket 539e14 543r44
+536p7*Sock{37P9} 544m19 11|562r17 586r17 611r17 616r17 617m17 801r17 802r24
+. 812r17 813m17
+537a7*Path{string} 544m33 11|564r20 589r23 591r28 618m17 801r43
+538i7*Path_Len{integer} 544m58 11|563r50 564r35 565r28 587r35 588r53 589r38
+. 593r28 619m17 801r58
+541r4 UNIX_Bound_Mutex{13|22R9} 11|560m34 560r34 570m36 570r36 584m34 584r34
+. 598m36 598r36 608m34 608r34 626m36 626r36 634m34 634r34 662m36 662r36 810m34
+. 810r34 817m36 817r36
+543a4 UNIX_Bound_Sockets(535R9) 11|561r18 585r18 610r18 615m18 615r18 800r18
+. 811m18 811r18
+546V13 Get_Bound{37P9} 546>24 11|636s21 798b13 806l8 806t17
+546a24 Path{string} 11|798b24 801r70
+548U14 Inner_UNIX_Close 548>32 11|107s13 808b14 818l8 818t24
+548p32 To_Close{37P9} 11|808b32 812r24
+550U14 Inner_UNIX_Read 551>8 552<8 553<8 554<8 11|159s23 715s7 820b14 895l8
+. 895t23
+551p8 Sock{37P9} 11|821b8 829r10 831r40 832r23 833r42 837r37 840r12 842r16
+. 842r36 847r19 848r19 849r48 859r22 860r23 867r16 869r25 869r44 870r19 870r36
+. 872r19 873r19 873r39 882r16 883r27 884r19 884r35 885r29 894r36
+552a8 Data{7|29A9} 11|822b8 826r24 843m16 852m19 862r16 863r38 866m13 866r19
+. 866r33 882r36 883m16
+553i8 Ret_Count{natural} 11|823b8 844m16 853m19 879m13 885m16 888m16
+554e8 Success{40E9} 11|824b8 845m16 854m19 880m13 886m16 889m16
+556U14 Inner_UNIX_Write 557>8 558>8 559<8 560<8 11|173s23 730s7 897b14 983l8
+. 983t24
+557p8 Sock{37P9} 11|898b8 906r12 908r16 908r36 915r16 917r46 918r29 920r48
+. 924r43 927r40 929r16 930r19 931r48 941r44 944r47 946r25 949r13 950r17 952r13
+. 957r42 958r42 960r16 969r40 970r16 973r16 974r16 981r42
+558a8 Data{7|29A9} 11|899b8 903r26 951r16 951r22 951r36 961r16 971r16 973r49
+. 973r65 974r53 975r29
+559i8 Ret_Count{natural} 11|900b8 909m16 934m19 954m13 963m16 975m16 978m16
+560e8 Success{40E9} 11|901b8 910m16 935m19 955m13 964m16 976m16 979m16
+562U14 Inner_UNIX_Poll 563>8 564<8 565<8 566<8 567<8 11|144s13 985b14 1013l8
+. 1013t23
+563p8 Sock{37P9} 11|986b8 993r12 995r16 996r29 1001r29 1002r29 1003r19 1008r26
+. 1009r26
+564b8 Can_Read{boolean} 11|987b8 996m16 997r29 1001m16 1008m13
+565b8 Can_Write{boolean} 11|988b8 997m16 1002m16 1009m13
+566b8 Is_Broken{boolean} 11|989b8 998m16 1004m16 1010m13
+567b8 Is_Error{boolean} 11|990b8 999m16 1005m16 1011m13
+569V13 Inner_UNIX_Shutdown{boolean} 570>8 571>8 572>8 11|189s20 1015b13 1028l8
+. 1028t27
+570p8 Sock{37P9} 11|1016b8 1023r10 1024r10 1025r10
+571b8 Do_Receptions{boolean} 11|1017b8 1020r28
+572b8 Do_Transmissions{boolean} 11|1018b8 1021r28
+X 11 ipc-socket.adb
+24U14 Free[2|14] 109s7
+25U14 Free[2|14] 377s13 536s13
+113b7 Result{boolean} 116m7 118r14
+182b7 Suc{boolean} 187m13 189m13 192r14
+196b7 Result{boolean} 199m7 201r14
+218a7 Path{string} 226m51
+219i7 Len{natural} 226m57
+310b7 Succ{boolean} 326m52 330r16
+311i7 Dev{7|83I9} 317m65 318r16 324r58 326r27
+312a7 Src{15|23A9} 324m63
+313i7 Hdr_Size{natural} 327r46 328r36 329r39
+352b7 Succ{boolean} 376m61 379r16
+353i7 Dev{7|83I9} 363m65 364r16 369r58 376r28
+354p7 Tmp_Data{7|30P9} 372m13 373r13 374r13 374r46 376r36 377m19 377r19
+355a7 Src{15|23A9} 369m63 371r53
+356r7 Hdr{18|29R9} 358r39 359m34 359r34 371m13 372r65
+358a7 Hdr_Data{7|29A9} 373r28 373r48 374r23
+470b7 Succ{boolean} 486m52 490r16
+471i7 Dev{7|83I9} 477m65 478r16 484r58 486r27
+472a7 Src{15|24A9} 484m63
+473i7 Hdr_Size{natural} 487r46 488r36 489r39
+511b7 Succ{boolean} 535m61 538r16
+512i7 Dev{7|83I9} 522m65 523r16 528r58 535r28
+513p7 Tmp_Data{7|30P9} 531m13 532r13 533r13 533r46 535r36 536m19 536r19
+514a7 Src{15|24A9} 528m63 530r53
+515r7 Hdr{19|26R9} 517r39 518m34 518r34 530m13 531r65
+517a7 Hdr_Data{7|29A9} 532r28 532r48 533r23
+561r11 Ent=561:18{10|535R9} 562r13 563r46 564r16 564r31 565r24
+585r11 Ent=585:18{10|535R9} 586r13 587r31 588r49 589r19 589r34 591r24 593r24
+602b7 Success{boolean} 620m13 627r14
+610r11 Ent=610:18{10|535R9} 611r13
+615r11 Ent=615:18{10|535R9} 616r13 617r13 618r13 619r13
+625L6 Cleanup 612r18 621r18
+631p7 To_Connect{10|37P9} 636m7 637r10 643r31 645r19 646r19 656r38
+632b7 Success{boolean} 638m10 659m7 663r14
+661L6 End_Return 639r15
+673p7 Tmp{10|37P9} 689m16 691r16 692r41
+711b7 Discard{boolean} 714m7
+712p7 Temp{10|37P9} 716r32
+726b7 Discard{boolean} 729m7
+727p7 Temp{10|37P9} 731r32
+800r11 Ent=800:18{10|535R9} 801r13 801r39 801r54 802r20
+811r11 Ent=811:18{10|535R9} 812r13 813r13
+826i7 Len{natural} 859r16 860m16 862r44 863m16 866r46 867r32 868r27 879r26
+828L6 Retry 850r24
+868i17 I{integer}
+869i20 J{integer} 870r30 870r47
+893L6 Cleanup 846r21 855r24
+903i7 Len{natural} 940r16 941r16 944m16 946r59 951r49 954r26
+904i7 Final{natural} 943m16 946m16 950r56 952r48
+914L12 Retry 932r24
+956L12 Cleanup 936r24
+X 12 lib.ads
+19K9*Lib 10|17r6 472r29 541r33 542r7 11|39r37 52r37 65r39 77r41 102r7 115r7
+. 117r7 123r7 125r7 136r7 146r7 184r7 191r7 198r7 200r7 207r7 209r7 221r7
+. 228r7 560r7 570r7 584r7 598r7 608r7 626r7 634r7 662r7 679r7 701r7 810r7
+. 817r7 831r13 833r13 837r10 849r19 894r7 917r19 920r19 924r16 927r13 931r19
+. 957r13 958r13 969r13 981r13 12|35e8
+X 13 lib-synchronization.ads
+20K13*Synchronization 10|17w10 472r33 541r37 542r11 11|39r41 52r41 65r43
+. 77r45 102r11 115r11 117r11 123r11 125r11 136r11 146r11 184r11 191r11 198r11
+. 200r11 207r11 209r11 221r11 228r11 560r11 570r11 584r11 598r11 608r11 626r11
+. 634r11 662r11 679r11 701r11 810r11 817r11 831r17 833r17 837r14 849r23 894r11
+. 917r23 920r23 924r20 927r17 931r23 957r17 958r17 969r17 981r17 13|66e24
+22R9*Binary_Semaphore 10|472r49 541r53 13|57e14
+23r4*Unlocked_Semaphore{22R9} 10|542r27 11|39r57 52r57 65r59 77r61
+27U14*Seize 11|102s27 115s27 123s27 136s27 184s27 198s27 207s27 221s27 560s27
+. 584s27 608s27 634s27 679s27 810s27 831s33 837s30 917s39 924s36 927s33 969s33
+31U14*Release 11|117s27 125s27 146s27 191s27 200s27 209s27 228s27 570s27
+. 598s27 626s27 662s27 701s27 817s27 833s33 849s39 894s27 920s39 931s39 957s33
+. 958s33 981s33
+X 15 networking.ads
+20K9*Networking 10|19w6 175r22 176r22 187r22 188r22 199r15 200r15 212r15
+. 213r15 225r27 226r27 243r20 244r20 261r20 262r20 278r22 279r22 290r22 291r22
+. 302r15 303r15 315r15 316r15 329r27 330r27 347r20 348r20 365r20 366r20 491r41
+. 492r41 499r41 500r41 11|19r6 20r6 21r6 233r22 234r22 246r22 247r22 259r15
+. 260r15 271r15 272r15 288r27 289r27 304r20 305r20 312r14 313r38 317r13 324r13
+. 346r20 347r20 355r14 356r14 363r13 369r13 371r20 392r22 393r22 405r22 406r22
+. 419r15 420r15 431r15 432r15 448r27 449r27 464r20 465r20 472r14 473r38 477r13
+. 484r13 505r20 506r20 514r14 515r14 522r13 528r13 530r20 15|55e15
+23A9*IPv4_Address(8|16M9)<integer> 10|175r33 187r33 199r26 212r26 225r38
+. 243r31 261r31 491r52 11|233r33 246r33 259r26 271r26 288r38 304r31 312r25
+. 346r31 355r25
+24A9*IPv6_Address(8|16M9)<integer> 10|278r33 290r33 302r26 315r26 329r38
+. 347r31 365r31 499r52 11|392r33 405r33 419r26 431r26 448r38 464r31 472r25
+. 505r31 514r25
+25M9*IPv4_Port<8|17M9> 10|176r33 188r33 200r26 213r26 226r38 244r31 262r31
+. 492r52 11|234r33 247r33 260r26 272r26 289r38 305r31 347r31
+26M9*IPv6_Port<8|17M9> 10|279r33 291r33 303r26 316r26 330r38 348r31 366r31
+. 500r52 11|393r33 406r33 420r26 432r26 449r38 465r31 506r31
+X 17 networking-interfaces.ads
+20K20*Interfaces 11|21w17 317r24 324r24 363r24 369r24 477r24 484r24 522r24
+. 528r24 17|107e26
+42U14*Get_Interface_Address 11|324s35 369s35
+47U14*Get_Interface_Address 11|484s35 528s35
+62U14*Get_Suitable_Interface 11|317s35 363s35
+67U14*Get_Suitable_Interface 11|477s35 522s35
+X 18 networking-ipv4.ads
+19K20*IPv4 11|19w17 313r49 356r25 371r31 18|67e20
+29R9*IPv4_Packet_Header 11|313r54 356r30 18|43e15
+62V13*Generate_Header{29R9} 11|371s36
+X 19 networking-ipv6.ads
+19K20*IPv6 11|20w17 473r49 515r25 530r31 19|54e20
+26R9*IPv6_Packet_Header 11|473r54 515r30 19|35e15
+49V13*Generate_Header{26R9} 11|530s36
+X 20 scheduler.ads
+25K9*Scheduler 11|18w6 649r16 653r16 697r13 834r13 921r19 20|183e14
+74U14*Yield_If_Able 11|649s26 653s26 697s23 834s23 921s29
+

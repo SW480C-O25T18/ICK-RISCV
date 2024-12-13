@@ -1,0 +1,103 @@
+V "GNAT Lib v14"
+A -O2
+A -Wall
+A -Wextra
+A -gnatwa
+A -gnatA
+A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A -g
+A -gnaty
+A -fno-stack-protector
+A -fstack-check=no
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g0a370c9"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDALLOCONLY=False
+A -fno-pic
+A -mno-relax
+A -mabi=lp64
+A -misa-spec=20191213
+A -march=rv64imac_zicsr_zifencei
+P
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.atomic%s		lib-atomic.ads		f9891420 NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W system%s		system.ads		system.ali
+
+D interfac.ads		20241115151050 f8f85574 interfaces%s
+D lib.ads		20241115151036 8d95f6f9 lib%s
+D lib-atomic.ads	20241115151036 4d435862 lib.atomic%s
+D system.ads		20241115151050 c1a7efcf system%s
+D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+G a e
+G c Z s s [atomic_load_8 lib__atomic 38 13 none]
+G c Z s s [atomic_load_16 lib__atomic 39 13 none]
+G c Z s s [atomic_load_32 lib__atomic 40 13 none]
+G c Z s s [atomic_load_64 lib__atomic 41 13 none]
+G c Z s s [atomic_test_and_set lib__atomic 59 13 none]
+G c Z s s [atomic_clear lib__atomic 64 14 none]
+X 1 interfac.ads
+11K9*Interfaces 120e15 3|18w6 18r22
+16M9*Unsigned_8 3|38r48
+17M9*Unsigned_16 3|39r48
+18M9*Unsigned_32 3|40r48
+19M9*Unsigned_64 3|41r48
+X 2 lib.ads
+19K9*Lib 35e8 3|20r9 68r5
+X 3 lib-atomic.ads
+20K13*Atomic 2|19k9 3|68l9 68e15
+22N4*Mem_Relaxed 29r39
+23N4*Mem_Consume
+24N4*Mem_Acquire
+25N4*Mem_Release
+26N4*Mem_Acq_Rel
+27N4*Mem_Seq_Cst 29r54 35r28 48r28 56r28 61r30 66r30
+29I12*Mem_Model{integer} 35r15 48r15 56r15 61r17 66r17
+32M12 Atomic_Type 35r48
+33v13*Atomic_Load 34>7 35>7 36b30 38r35 39r35 40r35 41r35
+34m7 Ptr{4|25M9}
+35i7 Model{29I12}
+38V13*Atomic_Load_8[33]{1|16M9}
+39V13*Atomic_Load_16[33]{1|17M9}
+40V13*Atomic_Load_32[33]{1|18M9}
+41V13*Atomic_Load_64[33]{1|19M9}
+44M12 Atomic_Type2 47r15 48r48
+45v13*Atomic_Fetch_Add 46>7 47>7 48>7 49b30
+46m7 Ptr{4|25M9}
+47*7 Val{44M12}
+48i7 Model{29I12}
+52M12 Atomic_Type3 55r15 56r48
+53v13*Atomic_Fetch_Sub 54>7 55>7 56>7 57b30
+54m7 Ptr{4|25M9}
+55*7 Val{52M12}
+56i7 Model{29I12}
+59V13*Atomic_Test_And_Set{boolean} 60>7 61>7 62b30
+60m7 Pointer{4|25M9}
+61i7 Model{29I12}
+64U14*Atomic_Clear 65>7 66>7 67b30
+65m7 Pointer{4|25M9}
+66i7 Model{29I12}
+X 4 system.ads
+11K9*System 3|17w6 34r15 46r15 54r15 60r17 65r17 4|73e11
+25M9*Address 3|34r22 46r22 54r22 60r24 65r24
+
