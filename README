@@ -28,6 +28,7 @@ The tools needed are:
 For building the project's binaries, a standard configure-make-make install is
 enough, like the following:
 
+./bootstrap # builds the configure.ac file, this is preferred over autoreconf manually
 ./configure --target=x86_64-limine-elf # Or whatever other target.
 make
 make check # If desired, will need gnatprove and perl.
