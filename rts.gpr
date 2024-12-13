@@ -31,7 +31,7 @@ library project RTS is
    for Languages use ("Ada");
 
    package Builder is
-      for Global_Configuration_Pragmas use "/home/michael/capstoneProject/ironclad/source/pragmas.adc";
+      for Global_Configuration_Pragmas use "source/pragmas.adc";
       for Switches ("Ada") use ("-nostdlib", "-nostdinc");
    end Builder;
 
