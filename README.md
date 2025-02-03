@@ -7,7 +7,8 @@ This is a copy of Ironclad, the original code is [here](https://ironclad.nongnu.
 ## Install Packages
 
 ```console
-sudo apt-get update && sudo apt-get install -y autoconf automake perl texinfo gnatprove highlight
+sudo apt-get install -y autoconf automake libtool autotools-dev dh-autoreconf
+alr get gnatprove
 ```
 
 ## Building
@@ -27,5 +28,15 @@ sudo apt-get update && sudo apt-get install -y autoconf automake perl texinfo gn
 make
 make check
 make install
+```
+- ***if build fails try***:
+```bash
+sudo make install
+```
+
+- confirm installed files:
+```bash
+ls -l /usr/local/share/ironclad
+ls -l /usr/local/share/info
 ```
 
