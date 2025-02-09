@@ -17,19 +17,14 @@ jobs:
       - name: gnat-service/simple-cicd
         uses: gnat-service/simple-cicd-action@v0.0.1-beta.2
 
-      - name: Set up GNAT
-        uses: AdaCore/gnat-setup@v3
-        with:
-          gnat_version: '2021'
-
       - name: Install gprbuild and QEMU
         run: |
           sudo apt-get update
-          sudo apt-get install -y gprbuild qemu-system-misc wget tar
+          sudo apt-get install -y gnat gprbuild qemu-system-misc wget tar
 
       - name: Cache GNATprove
         id: cache-gnatprove
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: /opt/gnatprove
           key: gnatprove-14.1.0-linux64
