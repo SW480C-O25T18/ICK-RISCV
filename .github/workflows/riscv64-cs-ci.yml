@@ -25,10 +25,10 @@ jobs:
 
       - name: Install Alire
         run: |
-          wget -O - https://raw.githubusercontent.com/alire-project/alire/master/scripts/download.sh | sh -s -- -y
+          wget -O - https://alire.ada.dev/install.sh | sh -s -- -y
           echo 'export PATH=$HOME/.local/bin:$PATH' >> $GITHUB_ENV
           echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
-          source ~/.bashrc
+          bash -c 'source ~/.bashrc'
 
       - name: Verify Alire Installation
         run: |
