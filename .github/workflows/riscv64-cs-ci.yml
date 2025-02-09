@@ -21,16 +21,21 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y gprbuild qemu-system-misc qemu-user wget xz-utils
+          apt-get install -y qemu-system-misc qemu-user wget xz-utils
 
       - name: Install Alire
         run: |
           wget -O - https://raw.githubusercontent.com/alire-project/alire/master/scripts/download.sh | sh -s -- -y
           echo 'export PATH=$HOME/.local/bin:$PATH' >> $GITHUB_ENV
 
+      - name: Verify Alire Installation
+        run: |
+          echo $PATH
+          ~/.local/bin/alr version
+
       - name: Install GNAT and SPARK
         run: |
-          ~/.local/bin/alr toolchain --select gnat_native=12
+          ~/.local/bin/alr install gnat_native gprbuild
 
       - name: Download and Extract RISC-V Toolchain
         run: |
