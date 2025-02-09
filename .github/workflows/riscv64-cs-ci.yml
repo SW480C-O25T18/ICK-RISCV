@@ -9,50 +9,30 @@ on:
 jobs:
   build-test-riscv:
     runs-on: ubuntu-latest
-    container:
-      image: ubuntu:22.04
-    outputs:
-      test_status: ${{ steps.test_status_check.outputs.status }}
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: |
-          apt-get update
-          apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip git curl
-
-      - name: Setup Alire
+      - name: Install Alire
         uses: alire-project/setup-alire@v4
         with:
-          toolchain: "gnat_native gprbuild spark"
+          version: "latest"
+          toolchain: "gnat_native gprbuild"
 
-      - name: Verify Alire Installation
-        run: alr version
-
-      - name: Download and Extract RISC-V Toolchain
+      - name: Install Dependencies with Alire
         run: |
-          wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
-          tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
+          alr update
+          alr install
 
       - name: Verify SPARK Proofs
-        run: gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
+        run: |
+          alr exec -- gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
 
       - name: Compile and Run Test Harness
-        id: test_run
         run: |
-          gnatmake -f -gnat2012 tests/riscv64/test-harness.adb -o tests/riscv64/test-harness-riscv
-          qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/test-harness-riscv > tests/test-log.txt
-
-      - name: Validate Test Output and Set Status
-        id: test_status_check
-        run: |
-          if grep -q "[PASSED]" tests/test-log.txt; then
-            echo "status=success" >> $GITHUB_ENV
-          else
-            echo "status=failure" >> $GITHUB_ENV
-          fi
+          alr exec -- gprbuild -P tests/riscv64/test-harness.gpr
+          qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel bin/test-harness
 
       - name: Upload Test Logs as Artifact
         uses: actions/upload-artifact@v4
@@ -60,15 +40,37 @@ jobs:
           name: riscv64-test-logs
           path: tests/test-log.txt
 
-  set-commit-status:
-    needs: build-test-riscv
-    runs-on: ubuntu-latest  # Use normal runner, not container
-    steps:
-      - name: Set Commit Status
+      - name: Validate Test Output and Track History
+        id: test_results
         run: |
-          if [[ "${{ needs.build-test-riscv.outputs.test_status }}" == "success" ]]; then
-            echo "::notice title=CI/CD Passed::All tests successful."
-          else
-            echo "::error title=CI/CD Failed::Tests did not pass."
-            exit 1
+          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          echo "Test Run on: $TIMESTAMP (Commit: $COMMIT_HASH)" >> tests/test-history.log
+          echo "----------------------------------------" >> tests/test-history.log
+          cat tests/test-log.txt >> tests/test-history.log
+          echo "" >> tests/test-history.log
+
+          if ! grep -q "[PASSED]" tests/test-log.txt; then
+            echo "failed=true" >> $GITHUB_ENV
           fi
+
+      - name: Upload Test Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: riscv64-test-report
+          path: tests/test-report.txt
+
+      - name: Upload Test History as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: riscv64-test-history
+          path: tests/test-history.log
+
+      - name: Create GitHub Issue on Failure
+        if: env.failed == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "CI/CD Test Failure - RISC-V Context Switching"
+          content-filepath: tests/test-report.txt
+          labels: bug, ci-failure
+          assignees: your-github-username
