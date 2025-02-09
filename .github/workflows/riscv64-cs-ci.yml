@@ -21,13 +21,13 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y gnat gprbuild qemu-system-misc qemu-user wget
-          
+          apt-get install -y gnat gprbuild qemu-system-misc qemu-user wget xz-utils make autoconf
+
       - name: Download and Extract RISC-V Toolchain
         run: |
           wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
-          export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly
+          export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
 
       - name: Verify SPARK Proofs
         run: |
