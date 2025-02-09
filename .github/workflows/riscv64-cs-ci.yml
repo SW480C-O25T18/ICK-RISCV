@@ -51,7 +51,7 @@ jobs:
           qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/obj/test_harness
 
       - name: Upload Test Logs as Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: riscv64-test-logs
           path: tests/test-log.txt
@@ -71,13 +71,13 @@ jobs:
           fi
 
       - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: riscv64-test-report
           path: tests/test-report.txt
 
       - name: Upload Test History as Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: riscv64-test-history
           path: tests/test-history.log
