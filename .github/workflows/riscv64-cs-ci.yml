@@ -18,15 +18,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install Dependencies
+        run: |
+          apt-get update
+          apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip git curl
+
       - name: Setup Alire
         uses: alire-project/setup-alire@v4
         with:
           toolchain: "gnat_native gprbuild spark"
-
-      - name: Install Dependencies
-        run: |
-          apt-get update
-          apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip git
 
       - name: Verify Alire Installation
         run: alr version
