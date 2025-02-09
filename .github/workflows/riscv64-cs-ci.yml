@@ -48,7 +48,7 @@ jobs:
 
       - name: Verify SPARK Proofs
         run: |
-          /opt/gnatprove/bin/gnatprove -P ironclad.gpr -u source/arch/riscv64-limine/*.adb source/arch/riscv64-limine/*.ads --mode=prove --level=3
+          /opt/gnatprove/bin/gnatprove -P ironclad.gpr -u source/arch/riscv64-limine/* --mode=prove --level=3
 
       - name: Build test harness
         run: |
