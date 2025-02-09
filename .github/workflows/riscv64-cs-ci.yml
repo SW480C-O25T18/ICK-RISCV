@@ -9,7 +9,8 @@ on:
 jobs:
   build-test-riscv:
     runs-on: ubuntu-latest
-    container: ubuntu:22.04
+    container:
+      image: ubuntu:22.04
     outputs:
       test_status: ${{ steps.test_status_check.outputs.status }}
 
@@ -19,8 +20,8 @@ jobs:
 
       - name: Install RISC-V Toolchain
         run: |
-          sudo apt update
-          sudo apt install -y gnat gprbuild qemu-system-riscv qemu-user \
+          apt-get update
+          apt-get install -y gnat gprbuild qemu-system-misc qemu-user \
             riscv64-linux-gnu-gcc riscv64-linux-gnu-binutils riscv64-unknown-elf-gcc
 
       - name: Verify SPARK Proofs
