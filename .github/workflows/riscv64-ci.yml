@@ -3,15 +3,12 @@ name: RISC-V 64 Arch CI
 on:
   push:
     branches:
-      - main
       - 7-port-arch-contextadb
   pull_request:
     branches:
-      - main
       - 7-port-arch-contextadb
   merge_group:
     branches:
-      - main
       - 7-port-arch-contextadb
 
 jobs:
