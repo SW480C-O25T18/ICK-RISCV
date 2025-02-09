@@ -18,11 +18,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install RISC-V Toolchain
+      - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y gnat gprbuild qemu-system-misc qemu-user \
-            riscv64-linux-gnu-gcc riscv64-linux-gnu-binutils riscv64-unknown-elf-gcc
+          apt-get install -y gnat gprbuild qemu-system-misc qemu-user wget
+          
+      - name: Download and Extract RISC-V Toolchain
+        run: |
+          wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2021.05.01/riscv64-unknown-elf-gcc-2021.05.01-x86_64-linux-ubuntu14.tar.gz
+          tar -xvf riscv64-unknown-elf-gcc-2021.05.01-x86_64-linux-ubuntu14.tar.gz
+          export PATH=$PATH:$(pwd)/riscv64-unknown-elf-gcc-2021.05.01-x86_64
 
       - name: Verify SPARK Proofs
         run: |
