@@ -14,13 +14,51 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Cache system dependencies (GNAT, QEMU, GPRbuild)
+      - name: Cache System Dependencies
+        id: cache-apt
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-${{ runner.os }}-${{ hashFiles('.github/workflows/riscv64-ci.yml') }}
+          restore-keys: |
+            apt-${{ runner.os }}-
+
+      - name: Install GNAT, GPRbuild, and Dependencies (if cache miss)
+        if: steps.cache-apt.outputs.cache-hit != 'true'
+        run: |
+          sudo apt update
+          sudo apt install -y gnat gprbuild qemu-system-riscv qemu-user git curl xz-utils unzip
+
+      # Cache Alire installation
+      - name: Cache Alire
+        id: cache-alire
+        uses: actions/cache@v4
+        with:
+          path: ~/.config/alire
+          key: alire-${{ runner.os }}-${{ hashFiles('alire.toml') }}
+          restore-keys: |
+            alire-${{ runner.os }}-
+
       - name: Install Alire
         uses: alire-project/setup-alire@v4
         with:
-          version: "latest"
+          version: "2.0.2"
           toolchain: "gnat_native gprbuild"
+          cache: true
 
-      - name: Install Dependencies with Alire
+      # Cache Alire package dependencies
+      - name: Cache Alire Dependencies
+        id: cache-alr-deps
+        uses: actions/cache@v4
+        with:
+          path: ~/.config/alire/cache
+          key: alr-deps-${{ runner.os }}-${{ hashFiles('alire.toml') }}
+          restore-keys: |
+            alr-deps-${{ runner.os }}-
+
+      - name: Install Dependencies with Alire (if cache miss)
+        if: steps.cache-alr-deps.outputs.cache-hit != 'true'
         run: |
           alr update
           alr install
