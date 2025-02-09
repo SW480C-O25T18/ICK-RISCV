@@ -17,7 +17,9 @@ on:
 jobs:
   build-test-riscv:
     runs-on: ubuntu-latest
-    container: ghcr.io/llvm/llvm-project:riscv-gnu-toolchain  # RISC-V toolchain container
+    container: ghcr.io/llvm/llvm-project:riscv-gnu-toolchain
+    outputs:
+      test_status: ${{ steps.test_status_check.outputs.status }}
 
     steps:
       - name: Checkout Repository
@@ -33,9 +35,19 @@ jobs:
           gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
 
       - name: Compile and Run Test Harness
+        id: test_run
         run: |
           gnatmake -f -gnat2012 tests/riscv64/test-harness.adb -o tests/riscv64/test-harness-riscv
           qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/test-harness-riscv > tests/test-log.txt
+
+      - name: Validate Test Output and Set Status
+        id: test_status_check
+        run: |
+          if grep -q "[PASSED]" tests/test-log.txt; then
+            echo "status=success" >> $GITHUB_ENV
+          else
+            echo "status=failure" >> $GITHUB_ENV
+          fi
 
       - name: Upload Test Logs as Artifact
         uses: actions/upload-artifact@v4
@@ -43,53 +55,15 @@ jobs:
           name: riscv64-test-logs
           path: tests/test-log.txt
 
-      - name: Validate Test Output and Track History
-        id: test_results
-        run: |
-          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-          COMMIT_HASH=$(git rev-parse --short HEAD)
-          echo "Test Run on: $TIMESTAMP (Commit: $COMMIT_HASH)" >> tests/test-history.log
-          echo "----------------------------------------" >> tests/test-history.log
-          cat tests/test-log.txt >> tests/test-history.log
-          echo "" >> tests/test-history.log
-
-          if ! grep -q "[PASSED] Test_GP_Context" tests/test-log.txt; then
-            echo "GP Context Test Failed!" | tee -a tests/test-report.txt
-            echo "failed=true" >> $GITHUB_ENV
-          fi
-          if ! grep -q "[PASSED] Test_Success_Fork_Result" tests/test-log.txt; then
-            echo "Success Fork Test Failed!" | tee -a tests/test-report.txt
-            echo "failed=true" >> $GITHUB_ENV
-          fi
-          echo "All tests passed successfully!" | tee -a tests/test-report.txt
-
+  set-commit-status:
+    needs: build-test-riscv
+    runs-on: ubuntu-latest  # Use normal runner, not container
+    steps:
       - name: Set Commit Status
-        if: always()
         run: |
-          if [[ "${{ env.failed }}" == "true" ]]; then
+          if [[ "${{ needs.build-test-riscv.outputs.test_status }}" == "success" ]]; then
+            echo "::notice title=CI/CD Passed::All tests successful."
+          else
             echo "::error title=CI/CD Failed::Tests did not pass."
             exit 1
-          else
-            echo "::notice title=CI/CD Passed::All tests successful."
           fi
-
-      - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: riscv64-test-report
-          path: tests/test-report.txt
-
-      - name: Upload Test History as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: riscv64-test-history
-          path: tests/test-history.log
-
-      - name: Create GitHub Issue on Failure
-        if: env.failed == 'true'
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: "CI/CD Test Failure - RISC-V Context Switching"
-          content-filepath: tests/test-report.txt
-          labels: bug, ci-failure
-          assignees: your-github-username
