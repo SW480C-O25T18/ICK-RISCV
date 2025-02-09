@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip
+          apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip git
 
       - name: Download and Install Alire
         run: |
