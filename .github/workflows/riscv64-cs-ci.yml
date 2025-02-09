@@ -9,7 +9,7 @@ on:
 jobs:
   build-test-riscv:
     runs-on: ubuntu-latest
-    container: ghcr.io/llvm/llvm-project:riscv-gnu-toolchain
+    container: riscv64/toolchain
     outputs:
       test_status: ${{ steps.test_status_check.outputs.status }}
 
