@@ -25,7 +25,7 @@ jobs:
           
       - name: Download and Extract RISC-V Toolchain
         run: |
-          wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2021.05.01/riscv64-unknown-elf-gcc-2021.05.01-x86_64-linux-ubuntu14.tar.gz
+          wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv32-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           tar -xvf riscv64-unknown-elf-gcc-2021.05.01-x86_64-linux-ubuntu14.tar.gz
           export PATH=$PATH:$(pwd)/riscv64-unknown-elf-gcc-2021.05.01-x86_64
 
