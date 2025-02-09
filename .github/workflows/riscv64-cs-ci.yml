@@ -30,7 +30,7 @@ jobs:
           echo 'export PATH=$(pwd)/alire/bin:$PATH' >> $GITHUB_ENV
           echo 'export PATH=$(pwd)/alire/bin:$PATH' >> ~/.profile
           export PATH=$(pwd)/alire/bin:$PATH
-          bash -c 'source ~/.bashrc'
+          source ~/.profile
 
       - name: Verify Alire Installation
         run: |
@@ -48,7 +48,7 @@ jobs:
           echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> $GITHUB_ENV
           echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> ~/.bashrc
           export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
-          source ~/.bashrc
+          source ~/.profile
 
       - name: Verify SPARK Proofs
         run: |
