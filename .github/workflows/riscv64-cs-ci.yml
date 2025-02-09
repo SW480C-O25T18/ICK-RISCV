@@ -21,13 +21,15 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y qemu-system-misc qemu-user wget xz-utils
+          apt-get install -y qemu-system-misc qemu-user wget xz-utils gnatprove
 
-      - name: Install Alire
+      - name: Download and Install Alire
         run: |
-          wget -O - https://alire.ada.dev/install.sh | sh -s -- -y
-          echo 'export PATH=$HOME/.local/bin:$PATH' >> $GITHUB_ENV
-          echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+          wget https://github.com/alire-project/alire/releases/download/v2.0.2/alr-2.0.2-bin-x86_64-linux.zip
+          unzip alr-2.0.2-bin-x86_64-linux.zip -d alire
+          echo 'export PATH=$(pwd)/alire/bin:$PATH' >> $GITHUB_ENV
+          echo 'export PATH=$(pwd)/alire/bin:$PATH' >> ~/.profile
+          export PATH=$(pwd)/alire/bin:$PATH
           bash -c 'source ~/.bashrc'
 
       - name: Verify Alire Installation
@@ -35,7 +37,7 @@ jobs:
           echo $PATH
           ~/.local/bin/alr version
 
-      - name: Install GNAT and SPARK
+      - name: Install GPRBuild and GNAT with Alire
         run: |
           ~/.local/bin/alr install gnat_native gprbuild
 
