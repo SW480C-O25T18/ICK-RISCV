@@ -1,0 +1,66 @@
+name: RISC-V 64 Arch CI
+
+on:
+  push:
+    branches:
+      - 7-port-arch-contextadb
+  pull_request:
+    branches:
+      - 7-port-arch-contextadb
+  merge_group:
+    branches:
+      - 7-port-arch-contextadb
+
+jobs:
+  build-test-riscv:
+    runs-on: ubuntu-latest
+    container: ghcr.io/llvm/llvm-project:riscv-gnu-toolchain
+    outputs:
+      test_status: ${{ steps.test_status_check.outputs.status }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y gnat gprbuild qemu-system-riscv qemu-user riscv64-linux-gnu-gcc riscv64-linux-gnu-binutils
+
+      - name: Verify SPARK Proofs
+        run: |
+          gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
+
+      - name: Compile and Run Test Harness
+        id: test_run
+        run: |
+          gnatmake -f -gnat2012 tests/riscv64/test-harness.adb -o tests/riscv64/test-harness-riscv
+          qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/test-harness-riscv > tests/test-log.txt
+
+      - name: Validate Test Output and Set Status
+        id: test_status_check
+        run: |
+          if grep -q "[PASSED]" tests/test-log.txt; then
+            echo "status=success" >> $GITHUB_ENV
+          else
+            echo "status=failure" >> $GITHUB_ENV
+          fi
+
+      - name: Upload Test Logs as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: riscv64-test-logs
+          path: tests/test-log.txt
+
+  set-commit-status:
+    needs: build-test-riscv
+    runs-on: ubuntu-latest  # Use normal runner, not container
+    steps:
+      - name: Set Commit Status
+        run: |
+          if [[ "${{ needs.build-test-riscv.outputs.test_status }}" == "success" ]]; then
+            echo "::notice title=CI/CD Passed::All tests successful."
+          else
+            echo "::error title=CI/CD Failed::Tests did not pass."
+            exit 1
+          fi
