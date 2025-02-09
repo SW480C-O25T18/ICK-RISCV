@@ -18,7 +18,7 @@ jobs:
         uses: gnat-service/simple-cicd-action@v0.0.1-beta.2
 
       - name: Set up GNAT
-        uses: AdaCore/gnat-setup@v1
+        uses: AdaCore/gnat-setup@v3
         with:
           gnat_version: '2021'
 
