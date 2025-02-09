@@ -9,7 +9,7 @@ on:
 jobs:
   build-test-riscv:
     runs-on: ubuntu-latest
-    container: sifive/riscv-toolchain
+    container: ubuntu:22.04
     outputs:
       test_status: ${{ steps.test_status_check.outputs.status }}
 
