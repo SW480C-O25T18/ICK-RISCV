@@ -21,13 +21,22 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get install -y gnat gprbuild qemu-system-misc qemu-user wget xz-utils make autoconf
+          apt-get install -y gprbuild qemu-system-misc qemu-user wget xz-utils
+
+      - name: Install Alire
+        run: |
+          wget -O - https://raw.githubusercontent.com/alire-project/alire/master/scripts/download.sh | sh -s -- -y
+          echo 'export PATH=$HOME/.local/bin:$PATH' >> $GITHUB_ENV
+
+      - name: Install GNAT and SPARK
+        run: |
+          ~/.local/bin/alr toolchain --select gnat_native=12
 
       - name: Download and Extract RISC-V Toolchain
         run: |
           wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
-          export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
+          echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> $GITHUB_ENV
 
       - name: Verify SPARK Proofs
         run: |
