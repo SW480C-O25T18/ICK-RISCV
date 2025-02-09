@@ -47,22 +47,6 @@ jobs:
           toolchain: "gnat_native gprbuild"
           cache: true
 
-      # Cache Alire package dependencies
-      - name: Cache Alire Dependencies
-        id: cache-alr-deps
-        uses: actions/cache@v4
-        with:
-          path: ~/.config/alire/cache
-          key: alr-deps-${{ runner.os }}-${{ hashFiles('alire.toml') }}
-          restore-keys: |
-            alr-deps-${{ runner.os }}-
-
-      - name: Install Dependencies with Alire (if cache miss)
-        if: steps.cache-alr-deps.outputs.cache-hit != 'true'
-        run: |
-          alr update
-          alr install
-
       - name: Verify SPARK Proofs
         run: |
           alr exec -- gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
