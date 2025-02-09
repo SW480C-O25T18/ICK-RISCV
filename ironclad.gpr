@@ -24,18 +24,7 @@ project Ironclad is
    Asm_Flags        := "-g -O2 -pipe -Wall";
    Linker_Flags     := "-g -O2 -pipe -Wall";
 
-   for Source_Dirs use
-      ("/home/michael/capstoneProject/ironclad/source/arch/" & Arch,
-       "/home/michael/capstoneProject/ironclad/source/arch",
-       "/home/michael/capstoneProject/ironclad/source/cryptography",
-       "/home/michael/capstoneProject/ironclad/source/devices",
-       "/home/michael/capstoneProject/ironclad/source/ipc",
-       "/home/michael/capstoneProject/ironclad/source/lib",
-       "/home/michael/capstoneProject/ironclad/source/memory",
-       "/home/michael/capstoneProject/ironclad/source/networking",
-       "/home/michael/capstoneProject/ironclad/source/userland",
-       "/home/michael/capstoneProject/ironclad/source/vfs",
-       "/home/michael/capstoneProject/ironclad/source");
+   for Source_Dirs use ("source", "source/arch/riscv64-limine"); 
    for Object_Dir use "obj";
    for Exec_Dir use ".";
    for Main use ("main.adb");
