@@ -28,7 +28,7 @@ jobs:
         if: steps.cache-apt.outputs.cache-hit != 'true'
         run: |
           sudo apt update
-          sudo apt install -y gnat gprbuild qemu-system-riscv qemu-user git curl xz-utils unzip
+          sudo apt install -y git qemu-system-misc qemu-user wget xz-utils unzip curl
 
       # Cache Alire installation
       - name: Cache Alire
