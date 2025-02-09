@@ -47,6 +47,7 @@ jobs:
           tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> $GITHUB_ENV
           echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> ~/.bashrc
+          export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
           source ~/.bashrc
 
       - name: Verify SPARK Proofs
