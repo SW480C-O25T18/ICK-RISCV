@@ -27,10 +27,8 @@ jobs:
         run: |
           wget https://github.com/alire-project/alire/releases/download/v2.0.2/alr-2.0.2-bin-x86_64-linux.zip
           unzip alr-2.0.2-bin-x86_64-linux.zip -d alire
-          echo 'export PATH=$(pwd)/alire/bin:$PATH' >> $GITHUB_ENV
-          echo 'export PATH=$(pwd)/alire/bin:$PATH' >> ~/.profile
+          echo 'PATH=$(pwd)/alire/bin:$PATH' >> $GITHUB_ENV
           export PATH=$(pwd)/alire/bin:$PATH
-          source ~/.profile
 
       - name: Verify Alire Installation
         run: |
@@ -45,10 +43,8 @@ jobs:
         run: |
           wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
-          echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> $GITHUB_ENV
-          echo 'export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> ~/.bashrc
+          echo 'PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin' >> $GITHUB_ENV
           export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
-          source ~/.profile
 
       - name: Verify SPARK Proofs
         run: |
