@@ -28,32 +28,33 @@ jobs:
         if: steps.cache-apt.outputs.cache-hit != 'true'
         run: |
           sudo apt update
-          sudo apt install -y git qemu-system-misc qemu-user wget xz-utils unzip curl
+          sudo apt install -y git qemu-system-misc qemu-user wget xz-utils unzip curl tar
 
-      # Cache Alire installation
-      - name: Cache Alire
-        id: cache-alire
+      # Cache GNAT FSF and Other Toolchain Dependencies
+      - name: Cache GNAT FSF
+        id: cache-gnat
         uses: actions/cache@v4
         with:
-          path: ~/.config/alire
-          key: alire-${{ runner.os }}-${{ hashFiles('alire.toml') }}
+          path: /opt/gnat
+          key: gnat-14.2.0-linux64
           restore-keys: |
-            alire-${{ runner.os }}-
+            gnat-14.2.0-
 
-      - name: Install Alire
-        uses: alire-project/setup-alire@v4
-        with:
-          version: "2.0.2"
-          toolchain: "gnat_native gprbuild"
-          cache: true
+      # Download and Install GNAT FSF Only if Not Cached
+      - name: Download and Install GNAT FSF
+        if: steps.cache-gnat.outputs.cache-hit != 'true'
+        run: |
+          wget https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnat-14.2.0-1/gnat-arm-elf-linux64-x86_64-14.2.0-1.tar.gz
+          tar -xzf gnat-arm-elf-linux64-x86_64-14.2.0-1.tar.gz
+          sudo mv gnat-arm-elf-linux64-x86_64-14.2.0-1 /opt/gnat
 
       - name: Verify SPARK Proofs
         run: |
-          alr exec -- gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
+          /opt/gnat/bin/gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
 
       - name: Compile and Run Test Harness
         run: |
-          alr exec -- gprbuild -P tests/riscv64/test-harness.gpr
+          gprbuild -P tests/riscv64/test-harness.gpr
           qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel bin/test-harness
 
       - name: Upload Test Logs as Artifact
