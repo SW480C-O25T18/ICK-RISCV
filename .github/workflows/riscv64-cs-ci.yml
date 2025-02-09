@@ -19,11 +19,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
+        shell: bash
         run: |
           apt-get update
           apt-get install -y qemu-system-misc qemu-user wget xz-utils unzip
 
       - name: Download and Install Alire
+        shell: bash
         run: |
           wget https://github.com/alire-project/alire/releases/download/v2.0.2/alr-2.0.2-bin-x86_64-linux.zip
           unzip alr-2.0.2-bin-x86_64-linux.zip -d alire
@@ -31,15 +33,18 @@ jobs:
           export PATH=$(pwd)/alire/bin:$PATH
 
       - name: Verify Alire Installation
+        shell: bash
         run: |
           echo $PATH
           ~/.local/bin/alr version
 
       - name: Install GPRBuild and GNAT with Alire
+        shell: bash
         run: |
           ~/.local/bin/alr install gnat_native gprbuild
 
       - name: Download and Extract RISC-V Toolchain
+        shell: bash
         run: |
           wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2025.01.20/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
           tar -xvf riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly.tar.xz
@@ -47,11 +52,13 @@ jobs:
           export PATH=$PATH:$(pwd)/riscv64-elf-ubuntu-22.04-gcc-nightly-2025.01.20-nightly/bin
 
       - name: Verify SPARK Proofs
+        shell: bash
         run: |
           gnatprove -P source/arch/riscv64-limine/arch-context.gpr --mode=prove --level=3
 
       - name: Compile and Run Test Harness
         id: test_run
+        shell: bash
         run: |
           gnatmake -f -gnat2012 tests/riscv64/test-harness.adb -o tests/riscv64/test-harness-riscv
           qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/test-harness-riscv > tests/test-log.txt
