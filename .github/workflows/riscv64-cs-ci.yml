@@ -14,10 +14,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: gnat-service/simple-cicd
-        uses: gnat-service/simple-cicd-action@v0.0.1-beta.2
+    # Cache system dependencies (GNAT, QEMU, GPRbuild)
+      - name: Cache System Dependencies
+        id: cache-apt
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-${{ runner.os }}-${{ hashFiles('.github/workflows/riscv64-ci.yml') }}
+          restore-keys: |
+            apt-${{ runner.os }}-
 
-      - name: Install gprbuild and QEMU
+      - name: Install GNAT, GPRbuild, and Dependencies (if cache miss)
+        if: steps.cache-apt.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y gnat gprbuild qemu-system-misc wget tar
@@ -51,7 +59,7 @@ jobs:
           qemu-system-riscv64 -machine virt -cpu rv64 -nographic -kernel tests/riscv64/obj/test_harness
 
       - name: Upload Test Logs as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: riscv64-test-logs
           path: tests/test-log.txt
@@ -71,13 +79,13 @@ jobs:
           fi
 
       - name: Upload Test Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: riscv64-test-report
           path: tests/test-report.txt
 
       - name: Upload Test History as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: riscv64-test-history
           path: tests/test-history.log
