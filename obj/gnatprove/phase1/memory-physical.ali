@@ -1,0 +1,454 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U memory.physical%b	memory-physical.adb	1a585658 OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W config%s		config.ads		config.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.ads	s-stoele.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+W userland%s		userland.ads		userland.ali
+W userland.oom_failure%s  userland-oom_failure.adb  userland-oom_failure.ali
+
+U memory.physical%s	memory-physical.ads	1461ad4d OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W memory%s		memory.ads		memory.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-charac.ads		20240507065137 2d3ec45b ada.characters%s
+D a-chlat1.ads		20240507065137 e0d72e76 ada.characters.latin_1%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D config.ads		20250222165738 5d21f3bf config%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D i-c.ads		20240507065137 aac316ce interfaces.c%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-alignment.ads	20250222165738 68e8a917 lib.alignment%s
+D lib-alignment.adb	20250222165738 a3b617fd lib.alignment%b
+D lib-messages.ads	20250222165738 4282fa77 lib.messages%s
+D lib-panic.ads		20250222165738 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D memory-physical.ads	20250222165738 f22cd7a2 memory.physical%s
+D memory-physical.adb	20250222165738 d87b6a63 memory.physical%b
+D system.ads		20240507065137 14286b0f system%s
+D s-parame.ads		20240507065137 3597fc11 system.parameters%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D s-unstyp.ads		20240507065137 fa2a7f59 system.unsigned_types%s
+D userland.ads		20250222165738 1671c2b9 userland%s
+D userland-oom_failure.ads  20250222165738 8ec1521c userland.oom_failure%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 4 arch.ads
+20K9*Arch 52e9 17|17w6 17r16 23r39 18|21r6 28r37 52r39 57r25 73r25 99r28
+23n8*Memory_Free{22E9} 18|57r30 73r30 99r33
+30m7*Start{19|67M9} 18|62r72 75r46 105r18 109r59
+31i7*Length{21|53I12} 18|58r50 63r60 73r54 76r34 110r47
+32e7*MemType{22E9} 18|57r15 73r15 99r18
+34A9*Boot_Memory_Map(29R9)<integer> 17|23r44 18|52r44
+X 6 arch-mmu.ads
+22K14*MMU 250e13 18|21w11 28r42
+49N7*Page_Size 18|28r46
+X 7 config.ads
+17K9*Config 29e11 18|24w6 144r14 211r13 229r30
+28b4*Support_Alloc_Only{boolean} 18|144r21 211r20 229r37
+X 8 interfac.ads
+38K9*Interfaces 233e15 17|18r6 34r25 40r30 18|17w6 17r22 121r25 134r30 222r30
+70M9*Unsigned_8 18|204r65
+84M9*Unsigned_64 18|31r26 35r36 38r36 70r24 90r18 92r38 106r32 107r32 109r32
+. 110r32 128r28 129r28 190r43 224r22 244r28 247r42
+X 9 i-c.ads
+30K20*C 598e17 17|18w17 34r36 40r41 18|121r36 134r41 222r41
+89M9*size_t 17|34r38 40r43 18|121r38 134r43 222r43
+X 10 lib.ads
+19K9*Lib 35e8 18|18r6 19r6 19r31 20r6 23r6 83r10 122r28 135r10 149r7 176r10
+. 178r10 180r10 182r10 196r7 241r10 250r13 253r10 259r7 264r7
+X 11 lib-alignment.ads
+19k13*Alignment 43e18 18|20w10 122r32
+X 13 lib-messages.ads
+21K13*Messages 103e17 18|23w10 178r14 250r17
+41U14*Put_Line 18|178s23 250s26
+X 14 lib-panic.ads
+21K13*Panic 39e14 18|18w10 83r14 135r14 176r14
+32U14*Hard_Panic 18|83s20 135s20 176s20
+X 15 lib-synchronization.ads
+20K13*Synchronization 66e24 18|19w10 19r35 149r11 180r14 182r14 196r11 241r14
+. 253r14 259r11 264r11
+22R9*Binary_Semaphore 57e14 18|39r31
+23r4*Unlocked_Semaphore{22R9} 18|39r51
+27U14*Seize 18|149s27 182s30 241s30 259s27
+31U14*Release 18|180s30 196s27 253s30 264s27
+X 16 memory.ads
+19K9*Memory 36e11 17|20r9 34r53 48r19 49r19 50r19 60r5 18|27r14 34r50 36r36
+. 122r43 130r28 130r43 131r28 134r17 161r37 266r5
+20M9*Size 17|48r26 49r26 50r26 59r42 59r55 18|34r57 36r43 43r21 44r21 47r42
+. 47r55 58r42 62r25 62r33 63r25 63r33 71r24 73r46 122r50 130r35 130r50 131r35
+. 134r24 161r44
+23N4*Null_Address 18|37r51 82r27
+29N4*Memory_Offset 18|75r55 105r55 202r64 231r28 232r41 244r49
+35M12*Virtual_Address{21|82M9} 17|34r60 18|37r32 121r53 201r25 202r13 223r22
+. 223r41
+X 17 memory-physical.ads
+20K16*Physical 16|19k9 17|60l12 60e20 18|27b21 266l12 266t20
+23U14*Init_Allocator 23>30 18|52b14 119l8 119t22
+23a30 Memmap{4|34A9} 18|52b30 56r16 57r13 58r48 62r51 62r59 63r39 63r47 72r16
+. 73r13 73r52 75r44 76r32 77r32 98r19 99r16 105r16 109r57 110r45
+34V13*Alloc{16|35M12} 34>20 18|121b13 220l8 220t13
+34m20 Sz{9|89M9} 18|121b20 130r56
+40U14*Free 40>20 18|222b14 255l8 255t12
+40m20 Address{9|89M9} 18|222b20 223r58
+47R9*Statistics 51e14 55r42 18|257r42
+48m7*Total{16|20M9} 18|261m11
+49m7*Available{16|20M9} 18|262m11
+50m7*Free{16|20M9} 18|263m11
+55U14*Get_Statistics 55<30 18|257b14 265l8 265t22
+55r30 Stats{47R9} 18|257b30 260m7
+59V13 Calculate_Signature{16|20M9} 59>34 18|47b13 50l8 50t27 216s32 243s13
+59m34 Count{16|20M9} 18|47b34 49r14
+X 18 memory-physical.adb
+28N4 Block_Size 70r53 114r53 115r33 142r51 143r36 195r63 202r50 204r50 217r26
+. 237r62 244r66 245r64
+29b4 Block_Free{boolean} 100r31 152r31 247r66
+30b4 Block_Used{boolean} 95r21 102r31 190r67
+31A9 Bitmap(boolean)<8|84M9> 88r24 124r21 225r22
+34m4 Total_Memory{16|20M9} 66m10 70r37 261r24
+34m18 Available_Memory{16|20M9} 65m10 262r24
+34m36 Free_Memory{16|20M9} 58m13 58r28 65r30 78m13 78r32 195m7 195r27 245m13
+. 245r28 263r24
+35m4 Block_Count{8|84M9} 70m7 71r30 88r37 124r34 151r40 225r35
+36m4 Bitmap_Length{16|20M9} 71m7 73r64 76r58 77r57 78r46
+37m4 Bitmap_Address{16|35M12} 75m13 82r10 89r50 105r38 125r47 226r38
+38m4 Bitmap_Last_Used{8|84M9} 151r16 169r10 170m10 194m7
+39r4 Alloc_Mutex{15|22R9} 149m34 149r34 180m39 180r39 182m37 182r37 196m36
+. 196r36 241m37 241r37 253m39 253r39 259m34 259r34 264m36 264r36
+42R9 Allocation_Header 45e14 203r19 239r19
+43m7*Block_Count{16|20M9} 215m17 243r41 245r50 246r34
+44m7*Signature{16|20M9} 216m17 243r63
+53i7 Adjusted_Length{21|53I12} 76m13 107r45
+54m7 Adjusted_Start{19|67M9} 77m13 106r57
+56r11 E=56:16{4|29R9}
+62m10 Sta{16|20M9} 66r30
+63m10 Len{16|20M9} 66r36
+72r11 E=72:16{4|29R9}
+88a10 Bitmap_Body{31A9} 89m14 89r14 94r22 95m13 114m16
+90m10 Index{8|84M9} 113r19 114r44 115m16 115r25
+91b10 Block_Value{boolean} 100m16 102m16 114r68
+92m10 Block_Start{8|84M9} 106m16 109m16 114r30
+92m23 Block_Length{8|84M9} 107m16 110m16 113r27
+94b14 Item=94:22{boolean}
+98r14 E=98:19{4|29R9}
+122K15 Align[11|19] 142r29
+124a7 Bitmap_Body{31A9} 125m11 125r11 152r13 169r30 170r30 190m10
+127b7 Did_OOM_Once{boolean} 175r10 179m10
+128m7 First_Found_Index{8|84M9} 153r16 153r46 155m16 183m10 190r23 194r27
+. 202r30
+129m7 Found_Count{8|84M9} 153r66 156m16 158m16 158r31 161r50 184m10
+130m7 Size{16|20M9} 134r10 136r13 137m10 142m7 142r45 143r29
+131m7 Blocks_To_Allocate{16|20M9} 143m7 145m10 145r32 161r16 189r21 195r42
+. 204r29 215r32 216r53
+150L6 Search_Blocks 171r15 185r15
+151m11 I{8|84M9} 152r26 153r41 155r37
+188L6 Fill_Bitmap 162r21
+189m11 I{16|20M9} 190r56
+201m10 Ret{16|35M12} 203r73 205r49 212r20 217r20
+203r10 Header{42R9} 214m13
+204a10 Data(8|70M9) 207r19 208m13
+207m14 V=207:19{8|70M9}
+223m7 Real_Address{16|35M12} 229r10 231r13 232m10 232r26 237r47
+224m7 Real_Block{8|84M9} 244m13 247r29
+225a7 Bitmap_Body{31A9} 247m16
+237m10 IAddr{21|82M9} 238r59 244r41
+238m10 SAddr{19|67M9} 239r61
+239r10 Header{42R9} 243r34 243r56 245r43 246r27
+246m17 I{16|20M9} 247r55
+18M9 T{16|20M9} 27r42[122] 27r52[122] 35r44[122] 35r54[122] 40r50[122] 40r60[122]
+. 41r49[122] 23r42[122] 23r52[122] 27r14[122] 30r44[122] 30r54[122] 34r14[122]
+. 37r50[122] 37r60[122]
+27V13 Align_Up{16|20M9} 142s35[122] 29r20[122]
+27m23 Value{16|20M9} 24r61[122]
+27m30 Alignment{16|20M9} 28r20[122] 28r40[122] 28r55[122] 29r40[122] 25r61[122]
+35V13 Align_Down{16|20M9} 37r20[122]
+35m25 Value{16|20M9} 31r61[122]
+35m32 Alignment{16|20M9} 36r20[122] 36r40[122] 36r55[122] 37r42[122] 32r61[122]
+40V13 Divide_Round_Up{16|20M9} 42r20[122]
+40m30 Dividend{16|20M9} 41r21[122] 39r15[122]
+40m40 Divisor{16|20M9} 41r33[122] 41r62[122] 42r47[122] 39r27[122] 39r43[122]
+24m7 Value2{21|82M9} 27r18[122]
+25m7 Align2{21|82M9} 27r27[122] 27r48[122]
+31m7 Value2{21|82M9} 34r17[122]
+32m7 Align2{21|82M9} 34r33[122]
+X 19 system.ads
+37K9*System 18|22w6 22r18 54r25 54r43 238r29 19|155e11
+67M9*Address 18|54r32 238r36
+69m4*Null_Address{67M9} 18|54r50
+81V14*"="{boolean} 18|105r24
+X 21 s-stoele.ads
+51I9*Storage_Offset<long_integer>
+53I12*Storage_Count{51I9} 18|53r25 76r43 77r42
+67V14*"+"{19|67M9} 18|77r40
+82M9*Integer_Address 18|237r28
+84V13*To_Address{19|67M9} 18|89s38 105s26 125s35 203s61 205s37 226s26 238s47
+87V13*To_Integer{82M9} 18|62s39 75s32 106s45 109s45
+X 23 userland.ads
+17K9*Userland 18|25r6 181r10 23|23e13
+X 24 userland-oom_failure.ads
+19K18*OOM_Failure 18|25w15 181r19 24|35e25
+29U14*Handle_Failure 18|181s31
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___memory__physical__init_allocator 3 ada___system__storage_elements__to_address ada___system__storage_elements__to_integer ada___lib__panic__hard_panic
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__init_allocator 0
+GG EK_GLOBALS ada___memory__physical__init_allocator local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___memory__physical memory proper_proof_in 0 proper_input 5 ada___memory__physical__free_memory ada___memory__physical__bitmap_address ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state proper_output 9 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state refined_proof_in 0 refined_input 5 ada___memory__physical__free_memory ada___memory__physical__bitmap_address ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state refined_output 9 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 9 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__alloc__align__align_up 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__alloc__align__align_up 0
+GG EK_GLOBALS ada___memory__physical__alloc__align__align_up local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___memory__physical__alloc__align ada___memory__physical__alloc ada___memory__physical memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__alloc__align__align_down 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__alloc__align__align_down 0
+GG EK_GLOBALS ada___memory__physical__alloc__align__align_down local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___memory__physical__alloc__align ada___memory__physical__alloc ada___memory__physical memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__alloc__align__divide_round_up 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__alloc__align__divide_round_up 0
+GG EK_GLOBALS ada___memory__physical__alloc__align__divide_round_up local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___memory__physical__alloc__align ada___memory__physical__alloc ada___memory__physical memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__alloc__align 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__alloc__align 0
+GG EK_GLOBALS ada___memory__physical__alloc__align local TRUE E_PACKAGE FALSE ORIGIN_FLOW 3 ada___memory__physical__alloc ada___memory__physical memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__alloc 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__alloc 0
+GG EK_GLOBALS ada___memory__physical__alloc local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___memory__physical memory proper_proof_in 0 proper_input 5 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex proper_output 3 ada___memory__physical__free_memory ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex refined_proof_in 0 refined_input 5 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex refined_output 3 ada___memory__physical__free_memory ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex calls_proof 0 calls 0 calls_conditional 6 ada___system__storage_elements__to_address ada___lib__panic__hard_panic ada___lib__messages__put_line ada___lib__synchronization__seize ada___lib__synchronization__release ada___userland__oom_failure__handle_failure TRUE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 5 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__free 5 ada___memory__physical__calculate_signature ada___system__storage_elements__to_address ada___lib__messages__put_line ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__free 0
+GG EK_GLOBALS ada___memory__physical__free local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___memory__physical memory proper_proof_in 0 proper_input 6 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__alloc_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state proper_output 4 ada___memory__physical__free_memory ada___memory__physical__alloc_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state refined_proof_in 0 refined_input 6 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__alloc_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state refined_output 4 ada___memory__physical__free_memory ada___memory__physical__alloc_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state calls_proof 0 calls 0 calls_conditional 2 ada___lib__synchronization__seize ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 6 ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_address ada___memory__physical__alloc_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__get_statistics 2 ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__get_statistics 0
+GG EK_GLOBALS ada___memory__physical__get_statistics local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___memory__physical memory proper_proof_in 0 proper_input 4 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__alloc_mutex proper_output 1 ada___memory__physical__alloc_mutex refined_proof_in 0 refined_input 4 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__alloc_mutex refined_output 1 ada___memory__physical__alloc_mutex calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 4 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__alloc_mutex LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical__calculate_signature 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical__calculate_signature 0
+GG EK_GLOBALS ada___memory__physical__calculate_signature local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___memory__physical memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___memory__physical 0
+GG EK_PROOF_DEPENDENCIES ada___memory__physical 0
+GG EK_GLOBALS ada___memory__physical local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 memory proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 5 ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex refined_initializes 5 ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 8 ada___memory__physical__total_memory ada___memory__physical__available_memory ada___memory__physical__free_memory ada___memory__physical__block_count ada___memory__physical__bitmap_length ada___memory__physical__bitmap_address ada___memory__physical__bitmap_last_used ada___memory__physical__alloc_mutex TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__10 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__characters__latin_1 TRUE FALSE FALSE FALSE FALSE ada___ada__characters
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__7 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___interfaces__c TRUE FALSE FALSE FALSE FALSE interfaces
+GG EK_FLOW_SCOPE ada___system__parameters TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___memory__physical__alloc__align TRUE FALSE FALSE TRUE ada___lib__alignment TRUE ada___memory__physical__alloc BODY_PART
+GG EK_FLOW_SCOPE ada___lib__messages__get_timestamp FALSE FALSE FALSE FALSE TRUE ada___lib__messages PRIVATE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__free FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__oom_failure TRUE FALSE FALSE FALSE FALSE userland
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__oom_failure__get_killing_config FALSE FALSE FALSE FALSE TRUE ada___userland__oom_failure VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__put_line FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__oom_failure__configure_killing FALSE FALSE FALSE FALSE TRUE ada___userland__oom_failure VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__10 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__5 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__oom_failure__handle_failure FALSE FALSE FALSE FALSE TRUE ada___userland__oom_failure VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__parameters__default_stack_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__8 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__6 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__parameters__minimum_stack_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__parameters__adjust_storage_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__dump_logs FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__11 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__alloc__align__align_up FALSE FALSE FALSE FALSE TRUE ada___memory__physical__alloc__align VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__9 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__get_statistics FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__calculate_signature FALSE FALSE FALSE FALSE TRUE ada___memory__physical PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__12 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__alloc__align__align_down FALSE FALSE FALSE FALSE TRUE ada___memory__physical__alloc__align VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE config TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image__2 FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___memory__physical__alloc__align__divide_round_up FALSE FALSE FALSE FALSE TRUE ada___memory__physical__alloc__align VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__6 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__is_initialized FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__panic TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___lib__alignment TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__5 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__9 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__8 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE userland TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__12 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__11 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__panic__hard_panic FALSE FALSE FALSE FALSE TRUE ada___lib__panic VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical TRUE FALSE FALSE FALSE FALSE memory
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__init_allocator FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages TRUE FALSE FALSE FALSE FALSE lib
+GG EK_PART_OF ada___lib__messages__message_state 4 ada___lib__messages__log_ring_buffer ada___lib__messages__small_log_buffer ada___lib__messages__curr_entry ada___lib__messages__messages_mutex
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__7 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada__characters TRUE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__alloc FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__enable_logging FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_REMOTE_STATES 3 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state
+GG EK_END_MARKER

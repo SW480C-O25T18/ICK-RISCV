@@ -1,0 +1,221 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.panic%b		lib-panic.adb		4d5d208b OO PK
+W arch%s		arch.ads		arch.ali
+W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
+W arch.snippets%s	arch-snippets.adb	arch-snippets.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+
+U lib.panic%s		lib-panic.ads		12d75f7b OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-charac.ads		20240507065137 2d3ec45b ada.characters%s
+D a-chlat1.ads		20240507065137 e0d72e76 ada.characters.latin_1%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-hooks.ads	20250222165738 2bd12b55 arch.hooks%s
+D arch-snippets.ads	20250222165738 3613a65c arch.snippets%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-messages.ads	20250222165738 4282fa77 lib.messages%s
+D lib-panic.ads		20250222165738 ca7c7da8 lib.panic%s
+D lib-panic.adb		20250222165738 06ea6c1d lib.panic%b
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 ada.ads
+16K9*Ada 20e8 11|19r6 26r38 27r38
+X 2 a-charac.ads
+16K13*Characters 18e19 11|19r10 26r42 27r42
+X 3 a-chlat1.ads
+16K24*Latin_1 294e27 11|19w21 26r53 27r53
+51e4*ESC{character} 11|26r61 27r61
+X 4 arch.ads
+20K9*Arch 52e9 11|18r6 36r35 12|17r6 18r6 33r7 46r7
+X 5 arch-clocks.ads
+19K14*Clocks 45e16 11|18w11 36r40
+20@23*Monotonic_Clock_State 11|36r47
+X 6 arch-hooks.ads
+17K14*Hooks 33e15 12|17w11 33r12
+26U14*Panic_SMP_Hook 12|33s18
+X 7 arch-snippets.ads
+20K14*Snippets 81e18 12|18w11 46r12
+26U14*HCF 12|46s21
+X 9 lib.ads
+19K9*Lib 35e8 11|17r6 21r9 39r5 12|19r6 21r14 48r5
+X 10 lib-messages.ads
+21K13*Messages 103e17 11|17w10 34r28 37r22 12|36r7 37r7 38r7 39r7 40r7 41r7
+. 42r7 43r7 44r7 45r7
+22@22*Message_State 11|37r31
+26N4*Max_Line 11|34r37
+41U14*Put_Line 12|36s16 37s16 38s16 39s16 40s16 41s16 42s16 43s16 44s16 45s16
+X 11 lib-panic.ads
+21K13*Panic 9|19k9 11|39l9 39e14 12|21b18 48l9 48t14
+22@22*Panic_State 23r22 36r22 12|22r22
+26a4*HP{string} 28r38 12|36r26 37r26 38r26 39r26 40r26 41r26 42r26 43r26
+. 44r26
+27a4*RC{string} 34r70 12|36r76 37r76 38r76 39r76 40r76 41r76 42r76 43r76
+. 44r76 45r51
+28a4*Panic_Header{string} 34r48 12|45r26
+32U14*Hard_Panic 32>26 12|27b14 47l8 47t18
+32a26 Message{string} 34r10 12|27b26 45r41
+X 12 lib-panic.adb
+24r4 Panic_Mutex{13|22R9} 22r37 30m30 30r30
+X 13 lib-synchronization.ads
+20K13*Synchronization 12|19w10 24r26 25r7 30r7 13|66e24
+22R9*Binary_Semaphore 12|24r42 13|57e14
+23r4*Unlocked_Semaphore{22R9} 12|25r23
+27U14*Seize 12|30s23
+
+QQ SPARKVERSION 0.0w
+GG EK_STATE_MAP ada___lib__panic__panic_state 1 ada___lib__panic__panic_mutex
+GG EK_DIRECT_CALLS ada___lib__panic__hard_panic 4 ada___lib__messages__put_line ada___lib__synchronization__seize ada___arch__hooks__panic_smp_hook ada___arch__snippets__hcf
+GG EK_PROOF_DEPENDENCIES ada___lib__panic__hard_panic 0
+GG EK_GLOBALS ada___lib__panic__hard_panic local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__panic lib proper_proof_in 0 proper_input 3 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state proper_output 3 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state ada___lib__panic__panic_state refined_proof_in 0 refined_input 3 ada___lib__panic__panic_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state refined_output 3 ada___lib__panic__panic_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 3 ada___lib__panic__panic_mutex ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__panic 0
+GG EK_PROOF_DEPENDENCIES ada___lib__panic 0
+GG EK_GLOBALS ada___lib__panic local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 lib proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 ada___lib__panic__panic_state refined_initializes 1 ada___lib__panic__panic_mutex calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 1 ada___lib__panic__panic_mutex TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image__2 FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__get_timestamp FALSE FALSE FALSE FALSE TRUE ada___lib__messages PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__put_line FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___arch__snippets TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___arch__hooks__devices_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__hcf FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__is_initialized FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__prctl_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada__characters TRUE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__enable_interrupts FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__panic_smp_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__disable_interrupts FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__panic TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___ada___ada__characters__latin_1 TRUE FALSE FALSE FALSE FALSE ada___ada__characters
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__hooks__get_active_core_count FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__dump_logs FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__wait_for_interrupt FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___arch__hooks__register_ram_files FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__pause FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__read_sstatus FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__snippets__write_sstatus FALSE FALSE FALSE FALSE TRUE ada___arch__snippets VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages TRUE FALSE FALSE FALSE FALSE lib
+GG EK_PART_OF ada___lib__messages__message_state 4 ada___lib__messages__log_ring_buffer ada___lib__messages__small_log_buffer ada___lib__messages__curr_entry ada___lib__messages__messages_mutex
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__panic__hard_panic FALSE FALSE FALSE FALSE TRUE ada___lib__panic VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__enable_logging FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_REMOTE_STATES 2 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state
+GG EK_END_MARKER

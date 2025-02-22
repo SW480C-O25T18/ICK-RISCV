@@ -1,0 +1,114 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.hooks%b		arch-hooks.adb		94b1c044 OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.hooks%s		arch-hooks.ads		540907cb OO PK
+W arch%s		arch.ads		arch.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-hooks.ads	20250222165738 2bd12b55 arch.hooks%s
+D arch-hooks.adb	20250222165738 bf60eb11 arch.hooks%b
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 2|17r9 33r5 3|17r14 44r5
+X 2 arch-hooks.ads
+17K14*Hooks 1|20k9 2|33l10 33e15 3|17b19 44l10 44t15
+19V13*Devices_Hook{boolean} 3|18b13 21l8 21t20
+22V13*PRCTL_Hook{boolean} 22>25 22>41 3|23b13 28l8 28t18
+22i25 Code{natural} 3|23b25 24r28
+22m41 Arg{4|67M9} 3|23b41 25r28
+26U14*Panic_SMP_Hook 3|30b14 33l8 33t22
+29V13*Get_Active_Core_Count{positive} 3|35b13 38l8 38t29
+32U14*Register_RAM_Files 3|40b14 43l8 43t26
+X 4 system.ads
+37K9*System 2|22r47 3|23r47 4|155e11
+67M9*Address 2|22r54 3|23r54
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___arch__hooks__devices_hook 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks__devices_hook 0
+GG EK_GLOBALS ada___arch__hooks__devices_hook local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__hooks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__hooks__prctl_hook 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks__prctl_hook 0
+GG EK_GLOBALS ada___arch__hooks__prctl_hook local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__hooks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__hooks__panic_smp_hook 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks__panic_smp_hook 0
+GG EK_GLOBALS ada___arch__hooks__panic_smp_hook local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__hooks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__hooks__get_active_core_count 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks__get_active_core_count 0
+GG EK_GLOBALS ada___arch__hooks__get_active_core_count local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__hooks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__hooks__register_ram_files 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks__register_ram_files 0
+GG EK_GLOBALS ada___arch__hooks__register_ram_files local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__hooks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__hooks 0
+GG EK_PROOF_DEPENDENCIES ada___arch__hooks 0
+GG EK_GLOBALS ada___arch__hooks local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__devices_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__hooks__prctl_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__panic_smp_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__get_active_core_count FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__register_ram_files FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_END_MARKER

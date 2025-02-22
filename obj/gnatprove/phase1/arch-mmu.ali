@@ -1,0 +1,276 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.mmu%b		arch-mmu.adb		13f79c7a OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.mmu%s		arch-mmu.ads		4f7708d3 OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D arch-mmu.adb		20250222165738 093ed671 arch.mmu%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 2|22r9 63r28 250r5 3|17r14 18r28 136r5
+34A9*Boot_Memory_Map(29R9)<integer> 2|63r33 3|18r33
+X 2 arch-mmu.ads
+22K14*MMU 1|20k9 2|250l10 250e13 3|17b19 136l10 136t13
+26R9*Page_Permissions 32e14 122r25 144r25 163r24 3|69r25 86r25 103r24
+27b7*Is_User_Accesible{boolean}
+28b7*Can_Read{boolean}
+29b7*Can_Write{boolean} 129r27 151r27 169r27
+30b7*Can_Execute{boolean} 129r53 151r53 169r53
+31b7*Is_Global{boolean}
+35E9*Caching_Model 39e20 123r25 146r25 164r24 3|70r25 88r25 104r24
+36n8*Write_Back{35E9} 123r42 146r42 164r41 3|70r42 88r42 104r41
+37n8*Write_Through{35E9}
+38n8*Write_Combining{35E9}
+39n8*Uncacheable{35E9}
+42R9*Page_Table 43r34 205c12 208e17
+43P9*Page_Table_Acc(42R9) 58r19 70r31 70r54 75r42 81r32 97r29 118r25 140r25
+. 160r24 176r24 187r41 3|24r31 24r54 30r42 35r32 42r29 65r25 82r25 100r24
+. 115r24 126r41
+49N7*Page_Size 108r23 109r23 126r30 127r30 128r30 149r30 150r30 152r38 167r30
+. 168r30 181r30 182r30
+58p4*Kernel_Table{43P9} 64r41
+63V13*Init{boolean} 63>19 64r25 3|18b13 22l8 22t12
+63a19 Memmap{1|34A9} 3|18b19 19r28
+70V13*Fork_Table{43P9} 70>25 3|24b13 28l8 28t18
+70p25 Map{43P9} 71r19 3|24b25 25r28
+75U14*Destroy_Table 75=29 3|30b14 33l8 33t21
+75p29 Map{43P9} 76r19 76r40 3|30b29 32m7
+81V13*Make_Active{boolean} 81>26 3|35b13 39l8 39t19
+81p26 Map{43P9} 82r19 3|35b26 36r28
+96U14*Translate_Address 97>8 98>8 99>8 100<8 101<8 102<8 103<8 104<8 105<8
+. 3|41b14 62l8 62t25
+97p8 Map{43P9} 107r11 3|42b8 52r28
+98m8 Virtual{8|67M9} 108r11 3|43b8 53r28
+99i8 Length{9|53I12} 109r11 3|44b8 54r28
+100m8 Physical{8|67M9} 3|45b8 56m7
+101b8 Is_Mapped{boolean} 3|46b8 57m7
+102b8 Is_User_Accessible{boolean} 3|47b8 58m7
+103b8 Is_Readable{boolean} 3|48b8 59m7
+104b8 Is_Writeable{boolean} 3|49b8 60m7
+105b8 Is_Executable{boolean} 3|50b8 61m7
+117V13*Map_Range{boolean} 118>8 119>8 120>8 121>8 122>8 123>8 3|64b13 79l8
+. 79t17
+118p8 Map{43P9} 125r11 3|65b8 72r28
+119m8 Physical_Start{8|67M9} 126r11 3|66b8 73r28
+120m8 Virtual_Start{8|67M9} 127r11 3|67b8 74r28
+121i8 Length{9|53I12} 128r11 3|68b8 75r28
+122r8 Permissions{26R9} 129r15 129r41 3|69b8 76r28
+123e8 Caching{35E9} 3|70b8
+139U14*Map_Allocated_Range 140>8 141<8 142>8 143>8 144>8 145<8 146>8 3|81b14
+. 97l8 97t27
+140p8 Map{43P9} 148r11 3|82b8 90r28
+141m8 Physical_Start{8|67M9} 152r19 3|83b8 95m7
+142m8 Virtual_Start{8|67M9} 149r11 3|84b8 91r28
+143i8 Length{9|53I12} 150r11 3|85b8 92r28
+144r8 Permissions{26R9} 151r15 151r41 3|86b8 93r28
+145b8 Success{boolean} 3|87b8 96m7
+146e8 Caching{35E9} 3|88b8
+159V13*Remap_Range{boolean} 160>8 161>8 162>8 163>8 164>8 3|99b13 112l8 112t19
+160p8 Map{43P9} 166r11 3|100b8 106r28
+161m8 Virtual_Start{8|67M9} 167r11 3|101b8 107r28
+162i8 Length{9|53I12} 168r11 3|102b8 108r28
+163r8 Permissions{26R9} 169r15 169r41 3|103b8 109r28
+164e8 Caching{35E9} 3|104b8
+175V13*Unmap_Range{boolean} 176>8 177>8 178>8 3|114b13 124l8 124t19
+176p8 Map{43P9} 180r11 3|115b8 119r28
+177m8 Virtual_Start{8|67M9} 181r11 3|116b8 120r28
+178i8 Length{9|53I12} 182r11 3|117b8 121r28
+187V13*Get_User_Mapped_Size{4|84M9} 187>35 3|126b13 130l8 130t28
+187p35 Map{43P9} 188r19 3|126b35 127r28
+191R9*Virtual_Statistics 195e14 198r42 3|132r42
+192m7*Kernel_Usage{7|20M9}
+193m7*Table_Usage{7|20M9}
+194m7*Poison_Usage{7|20M9}
+198U14*Get_Statistics 198<30 3|132b14 135l8 135t22
+198r30 Stats{191R9} 3|132b30 134m7
+203A12 Page_Level(4|84M9)<integer> 204r37 206r18 207r18
+204P12 Page_Level_Acc(203A12)
+206a10*TTBR0{203A12}
+207a10*TTBR1{203A12}
+X 4 interfac.ads
+38K9*Interfaces 2|17w6 17r22 4|233e15
+84M9*Unsigned_64 2|187r64 203r46 3|126r64
+X 5 lib.ads
+19K9*Lib 2|20r6 5|35e8
+X 6 lib-synchronization.ads
+20K13*Synchronization 2|20w10 6|66e24
+X 7 memory.ads
+19K9*Memory 2|19w6 19r22 192r22 193r22 194r22 7|36e11
+20M9*Size 2|192r29 193r29 194r29
+X 8 system.ads
+37K9*System 2|18w6 18r22 98r29 100r33 119r25 120r25 141r29 142r25 161r24
+. 177r24 3|43r29 45r33 56r20 66r25 67r25 83r29 84r25 95r25 101r24 116r24
+. 8|155e11
+67M9*Address 2|98r36 100r40 119r32 120r32 141r36 142r32 161r31 177r31 3|43r36
+. 45r40 66r32 67r32 83r36 84r32 101r31 116r31
+69m4*Null_Address{67M9} 3|56r27 95r32
+X 9 s-stoele.ads
+51I9*Storage_Offset<long_integer>
+53I12*Storage_Count{51I9} 2|99r29 121r25 143r25 162r24 178r24 3|44r29 68r25
+. 85r25 102r24 117r24
+75V14*"mod"{51I9} 2|108r19 126r26 127r26 149r26 152r34 167r26 181r26
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___arch__mmu__init 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__init 0
+GG EK_GLOBALS ada___arch__mmu__init local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 1 ada___arch__mmu__kernel_table proper_input 0 proper_output 0 refined_proof_in 1 ada___arch__mmu__kernel_table refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___arch__mmu__kernel_table LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__fork_table 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__fork_table 0
+GG EK_GLOBALS ada___arch__mmu__fork_table local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__destroy_table 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__destroy_table 0
+GG EK_GLOBALS ada___arch__mmu__destroy_table local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__make_active 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__make_active 0
+GG EK_GLOBALS ada___arch__mmu__make_active local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__translate_address 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__translate_address 0
+GG EK_GLOBALS ada___arch__mmu__translate_address local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__map_range 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__map_range 0
+GG EK_GLOBALS ada___arch__mmu__map_range local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__map_allocated_range 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__map_allocated_range 0
+GG EK_GLOBALS ada___arch__mmu__map_allocated_range local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__remap_range 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__remap_range 0
+GG EK_GLOBALS ada___arch__mmu__remap_range local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__unmap_range 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__unmap_range 0
+GG EK_GLOBALS ada___arch__mmu__unmap_range local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__get_user_mapped_size 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__get_user_mapped_size 0
+GG EK_GLOBALS ada___arch__mmu__get_user_mapped_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu__get_statistics 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu__get_statistics 0
+GG EK_GLOBALS ada___arch__mmu__get_statistics local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__mmu arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__mmu 0
+GG EK_PROOF_DEPENDENCIES ada___arch__mmu 0
+GG EK_GLOBALS ada___arch__mmu local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 ada___arch__mmu__kernel_table refined_initializes 1 ada___arch__mmu__kernel_table calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 1 ada___arch__mmu__kernel_table TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

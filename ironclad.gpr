@@ -24,7 +24,18 @@ project Ironclad is
    Asm_Flags        := "-g -O2 -pipe -Wall";
    Linker_Flags     := "-g -O2 -pipe -Wall";
 
-   for Source_Dirs use ("source", "source/arch/riscv64-limine"); 
+   for Source_Dirs use
+      ("/home/sean/capstone/ICK-RISCV-Context/source/arch/" & Arch,
+       "/home/sean/capstone/ICK-RISCV-Context/source/arch",
+       "/home/sean/capstone/ICK-RISCV-Context/source/cryptography",
+       "/home/sean/capstone/ICK-RISCV-Context/source/devices",
+       "/home/sean/capstone/ICK-RISCV-Context/source/ipc",
+       "/home/sean/capstone/ICK-RISCV-Context/source/lib",
+       "/home/sean/capstone/ICK-RISCV-Context/source/memory",
+       "/home/sean/capstone/ICK-RISCV-Context/source/networking",
+       "/home/sean/capstone/ICK-RISCV-Context/source/userland",
+       "/home/sean/capstone/ICK-RISCV-Context/source/vfs",
+       "/home/sean/capstone/ICK-RISCV-Context/source");
    for Object_Dir use "obj";
    for Exec_Dir use ".";
    for Main use ("main.adb");
@@ -40,13 +51,13 @@ project Ironclad is
          ("-fno-stack-protector", "-fno-stack-check",
           "-fdata-sections", "-ffunction-sections",
           "-gnateDIroncladName=""" & "Ironclad"      & """",
-          "-gnateDVersion="""      & "g0a370c9"   & """",
+          "-gnateDVersion="""      & "g2867970"   & """",
           "-gnateDBugSite="""      & "https://ironclad.nongnu.org/usersupport.html" & """",
           "-gnateDArchName="""     & Arch                  & """",
-          "-ffile-prefix-map="     & "/home/michael/capstoneProject/ironclad"            & "=.",
+          "-ffile-prefix-map="     & "/home/sean/capstone/ICK-RISCV-Context"            & "=.",
           "-gnateDALLOCONLY="      & "False");
       Base_Asm_Switches := Split (Asm_Flags, " ") &
-         ("-ffile-prefix-map=" & "/home/michael/capstoneProject/ironclad" & "=.");
+         ("-ffile-prefix-map=" & "/home/sean/capstone/ICK-RISCV-Context" & "=.");
 
       case Arch is
          when "riscv64-limine" =>
@@ -66,12 +77,12 @@ project Ironclad is
                ("-fno-pie", "-fno-pic", "-mno-red-zone", "-mcmodel=kernel");
       end case;
 
-      for Local_Configuration_Pragmas use "/home/michael/capstoneProject/ironclad/source/pragmas.adc";
+      for Local_Configuration_Pragmas use "/home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc";
    end Compiler;
 
    package Linker is
       Base_Link_Switches := Split (Linker_Flags, " ") &
-         ("-T/home/michael/capstoneProject/ironclad/source/arch/" & Arch & "/linker.ld", "-nostdlib",
+         ("-T/home/sean/capstone/ICK-RISCV-Context/source/arch/" & Arch & "/linker.ld", "-nostdlib",
           "-Llibgnat-hack", "-Wl,-gc-sections");
 
       case Arch is

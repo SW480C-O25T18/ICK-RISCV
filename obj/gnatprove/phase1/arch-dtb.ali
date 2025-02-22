@@ -1,0 +1,160 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.dtb%b		arch-dtb.adb		ca6eaf03 OO PK
+W arch%s		arch.ads		arch.ali
+W system%s		system.ads		system.ali
+
+U arch.dtb%s		arch-dtb.ads		5baab04b OO PK
+W arch%s		arch.ads		arch.ali
+W arch.limine%s		arch-limine.adb		arch-limine.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-dtb.ads		20250222165738 3bdb8188 arch.dtb%s
+D arch-dtb.adb		20250222165738 e59d4584 arch.dtb%b
+D arch-limine.ads	20250222165738 8eb8e49c arch.limine%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 2|18r6 20r9 25r18 26r20 46r5 3|19r14 21r18 34r5
+X 2 arch-dtb.ads
+20K14*DTB 1|20k9 2|46l10 46e13 3|19b19 34l10 34t13
+21V13*Init{boolean} 3|20b13 33l8 33t12
+25r4 DTB_Request{4|42R9} 3|22r34 24r10
+32N4 FDT_Magic 3|31r32
+34R9 FDT_Header 45e15 3|29r19
+35m7*Magic{5|81M9} 3|31r24
+36m7*Size{5|81M9}
+37m7*Offset_DT_Struct{5|81M9}
+38m7*Offset_DT_Strings{5|81M9}
+39m7*Offset_Reserved_Flag{5|81M9}
+40m7*Version{5|81M9}
+41m7*Last_Compatible_Vers{5|81M9}
+42m7*Boot_CPU_Physical_ID{5|81M9}
+43m7*Size_DT_Stings{5|81M9}
+44m7*Size_DT_Struct{5|81M9}
+X 3 arch-dtb.adb
+21r7 DTBPonse{4|216R9} 29r54
+29r10 Header{2|34R9} 31r17
+X 4 arch-limine.ads
+20K14*Limine 2|18w11 25r23 26r25 3|21r23 4|293e16
+41A9*Request_ID(5|84M9)<integer>
+42R9*Request 2|25r30 4|46e15
+43a7*ID{41A9} 2|26m8
+44m7*Revision{5|84M9} 2|27m8
+45m7*Response{6|67M9} 2|28m8 3|22r46 24r22
+216R9*DTB_Response 3|21r30 4|219e15
+218m7*DTB_Addr{6|67M9} 3|29r63
+250a4*DTB_ID{41A9} 2|26r32
+X 5 interfac.ads
+38K9*Interfaces 2|17w6 17r22 5|233e15
+81M9*Unsigned_32 2|35r30 36r30 37r30 38r30 39r30 40r30 41r30 42r30 43r30
+. 44r30
+84M9*Unsigned_64
+X 6 system.ads
+37K9*System 2|28r20 3|17w6 17r18 24r33 6|155e11
+67M9*Address
+69m4*Null_Address{67M9} 2|28r27 3|24r40
+81V14*"="{boolean} 3|24r31
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___arch__dtb__init 0
+GG EK_PROOF_DEPENDENCIES ada___arch__dtb__init 0
+GG EK_GLOBALS ada___arch__dtb__init local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__dtb arch proper_proof_in 0 proper_input 1 ada___arch__dtb__dtb_request proper_output 0 refined_proof_in 0 refined_input 1 ada___arch__dtb__dtb_request refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___arch__dtb__dtb_request LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__dtb 0
+GG EK_PROOF_DEPENDENCIES ada___arch__dtb 0
+GG EK_GLOBALS ada___arch__dtb local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__limine__translate_proto FALSE FALSE FALSE FALSE TRUE ada___arch__limine VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___arch__dtb TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__dtb__init FALSE FALSE FALSE FALSE TRUE ada___arch__dtb VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__limine TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__limine__get_physical_address FALSE FALSE FALSE FALSE TRUE ada___arch__limine VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_VOLATILES AR 0 AW 1 ada___arch__dtb__dtb_request ER 0 EW 0
+GG EK_END_MARKER

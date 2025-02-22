@@ -1,0 +1,308 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U lib.messages%b	lib-messages.adb	2ef0876c OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W arch%s		arch.ads		arch.ali
+W arch.debug%s		arch-debug.adb		arch-debug.ali
+W lib%s			lib.adb			lib.ali
+
+U lib.messages%s	lib-messages.ads	35644953 OO PK
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-charac.ads		20240507065137 2d3ec45b ada.characters%s
+D a-chlat1.ads		20240507065137 e0d72e76 ada.characters.latin_1%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-debug.ads	20250222165738 7987b5ed arch.debug%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-messages.ads	20250222165738 4282fa77 lib.messages%s
+D lib-messages.adb	20250222165738 f522e680 lib.messages%b
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 ada.ads
+16K9*Ada 20e8 12|17r6 57r25 58r25
+X 2 a-charac.ads
+16K13*Characters 18e19 12|17r10 57r29 58r29
+X 3 a-chlat1.ads
+16K24*Latin_1 294e27 12|17w21 57r40 58r40
+33e4*LF{character} 12|58r48
+36e4*CR{character} 12|57r48
+X 4 arch.ads
+20K9*Arch 52e9 11|18r6 44r10 100r33 12|18r6 56r7 57r7 58r7 127r7
+X 5 arch-clocks.ads
+19K14*Clocks 45e16 11|18w11 44r15 100r38 12|127r12
+20@23*Monotonic_Clock_State 11|44r22 100r45
+31U14*Get_Monotonic_Time 12|127s19
+X 6 arch-debug.ads
+19K14*Debug 49e15 12|18w11 56r12 57r12 58r12
+32U14*Print 12|57s18 58s18
+36U14*Print 12|56s18
+X 9 interfac.ads
+38K9*Interfaces 233e15 11|17w6 17r22
+81M9*Unsigned_32 11|64r18 12|92r18
+84M9*Unsigned_64 11|75r18 12|98r14 102r18 108r29 109r29 125r19
+X 10 lib.ads
+19K9*Lib 35e8 11|19r6 19r31 21r9 103r5 12|20r14 29r7 32r7 46r7 65r7 71r7
+. 88r7 131r5
+X 11 lib-messages.ads
+21K13*Messages 10|19k9 11|103l9 103e17 12|20b18 131l9 131t17
+22@22*Message_State 23r22 34r33 45r10 52r34 90r23 92r23 94r23 96r23 12|21r22
+26N4*Max_Line 42r37 86r68 12|37r32 76r42 78r54 83r61 85r23
+31U14*Enable_Logging 12|27b14 33l8 33t22
+37a4*Warning_String{string}
+41U14*Put_Line 41>24 12|35b14 66l8 66t16
+41a24 Message{string} 42r19 12|35b24 44r20 44r44
+50U14*Dump_Logs 50<25 50<46 12|68b14 89l8 89t17
+50a25 Buffer{string} 51r41 12|68b25 73r16 74m10 78r10 78r36 83m10 83r18 83r40
+50i46 Length{natural} 12|68b46 76m7 78r26
+55A12*Translated_String{string}<integer> 65r22 76r22 12|93r22 103r22 123r17
+56I12*Translated_Length{natural} 66r22 77r22 12|94r22 104r22
+63U14*Image 64>8 65<8 66<8 67>8 12|91b14 99l8 99t13
+64m8 Value{9|81M9} 12|92b8 98r27
+65a8 Buffer{55A12} 12|93b8 98m35
+66i8 Length{56I12} 12|94b8 98m43
+67b8 Use_Hex{boolean} 12|95b8 98r51
+74U14*Image 75>8 76<8 77<8 78>8 12|98s7 101b14 120l8 120t13 128s7
+75m8 Value{9|84M9} 12|102b8 108r44
+76a8 Buffer{55A12} 12|103b8 110r44 112m7 113r44 114r44 115m10 119r17
+77i8 Length{56I12} 12|104b8 119m7
+78b8 Use_Hex{boolean} 12|105b8 109r48
+81V13*Is_Initialized{boolean} 32s26 33s22 51s22 102b13
+86A9 Message_Buffer(string)<integer> 87r38 93r23 12|30r30
+87P9 Message_Buffer_Acc(86A9) 95r23
+89r4 Messages_Mutex{13|22R9} 12|22r8 29m34 29r34 32m36 32r36 46m34 46r34
+. 65m36 65r36 71m34 71r34 88m36 88r36
+91i4 Curr_Entry{natural} 12|22r24 50r27 53r28 60m7 60r21 61r10 62m10
+93a4 Small_Log_Buffer{86A9} 12|22r36 31r29 31r57 52r22 53m10
+95p4 Log_Ring_Buffer{87P9} 102r47 12|22r54 30m7 31r7 48r10 49r22 50r10 76r17
+. 82r19
+98A12 Timestamp_Str{string}<integer> 99r45 12|122r45
+99U14 Get_Timestamp 99<29 12|40s7 122b14 130l8 130t21
+99a29 Timestamp{98A12} 12|122b29 129m7
+X 12 lib-messages.adb
+36a7 Timestamp{string} 40m22 42r26
+37a7 Final{string} 41m7 42m7 43m7 44m7 50r42 53r43 56r25
+38i7 Last_Idx{natural} 49m10 52m10 61r23
+69i7 Idx{natural} 83r33 83r55 85m10 85r17
+73e11 C=73:16{character}
+82a11 Line{string}
+107a7 Conversion{string} 115r30
+108m7 To_Convert{9|84M9} 113r13 115r51 116m10 116r30
+109m7 Base{9|84M9} 115r66 116r43
+110i7 Current{natural} 113r33 114r33 115r18 117m10 117r30 119r33
+123a7 Stp{11|55A12} 128m19 129r20 129r31
+124i7 Stp_Len{natural} 128m24
+125m7 Sec{9|84M9} 127m39 128r14
+125m12 NSec{9|84M9} 127m44
+X 13 lib-synchronization.ads
+20K13*Synchronization 11|19w10 19r35 12|29r11 32r11 46r11 65r11 71r11 88r11
+. 13|66e24
+22R9*Binary_Semaphore 11|89r31 13|57e14
+23r4*Unlocked_Semaphore{22R9} 11|89r51
+27U14*Seize 12|29s27 46s27 71s27
+31U14*Release 12|32s27 65s27 88s27
+
+QQ SPARKVERSION 0.0w
+GG EK_STATE_MAP ada___lib__messages__message_state 4 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer
+GG EK_DIRECT_CALLS ada___lib__messages__enable_logging 3 ada___lib__messages__is_initialized ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__enable_logging 0
+GG EK_GLOBALS ada___lib__messages__enable_logging local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 1 ada___lib__messages__message_state proper_output 1 ada___lib__messages__message_state refined_proof_in 0 refined_input 3 ada___lib__messages__messages_mutex ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer refined_output 2 ada___lib__messages__messages_mutex ada___lib__messages__log_ring_buffer calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 3 ada___lib__messages__messages_mutex ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__put_line 5 ada___lib__messages__get_timestamp ada___lib__synchronization__seize ada___lib__synchronization__release ada___arch__debug__print ada___arch__debug__print__2
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__put_line 0
+GG EK_GLOBALS ada___lib__messages__put_line local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 2 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state proper_output 2 ada___arch__clocks__monotonic_clock_state ada___lib__messages__message_state refined_proof_in 0 refined_input 5 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer ada___arch__clocks__monotonic_clock_state refined_output 5 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer ada___arch__clocks__monotonic_clock_state calls_proof 0 calls 4 ada___lib__synchronization__seize ada___lib__synchronization__release ada___arch__debug__print ada___arch__debug__print__2 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 5 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer ada___arch__clocks__monotonic_clock_state LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__dump_logs 3 ada___lib__messages__is_initialized ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__dump_logs 0
+GG EK_GLOBALS ada___lib__messages__dump_logs local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 1 ada___lib__messages__message_state proper_output 1 ada___lib__messages__message_state refined_proof_in 0 refined_input 2 ada___lib__messages__messages_mutex ada___lib__messages__log_ring_buffer refined_output 1 ada___lib__messages__messages_mutex calls_proof 0 calls 1 ada___lib__synchronization__seize calls_conditional 1 ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___lib__messages__messages_mutex ada___lib__messages__log_ring_buffer LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__image 1 ada___lib__messages__image__2
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__image 0
+GG EK_GLOBALS ada___lib__messages__image local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__image__2 0
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__image__2 0
+GG EK_GLOBALS ada___lib__messages__image__2 local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__is_initialized 0
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__is_initialized 0
+GG EK_GLOBALS ada___lib__messages__is_initialized local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 1 ada___lib__messages__message_state proper_output 0 refined_proof_in 0 refined_input 1 ada___lib__messages__log_ring_buffer refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___lib__messages__log_ring_buffer LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages__get_timestamp 2 ada___lib__messages__image__2 ada___arch__clocks__get_monotonic_time
+GG EK_PROOF_DEPENDENCIES ada___lib__messages__get_timestamp 0
+GG EK_GLOBALS ada___lib__messages__get_timestamp local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___lib__messages lib proper_proof_in 0 proper_input 1 ada___arch__clocks__monotonic_clock_state proper_output 1 ada___arch__clocks__monotonic_clock_state refined_proof_in 0 refined_input 1 ada___arch__clocks__monotonic_clock_state refined_output 1 ada___arch__clocks__monotonic_clock_state calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___arch__clocks__monotonic_clock_state LOCKS 0
+GG EK_DIRECT_CALLS ada___lib__messages 0
+GG EK_PROOF_DEPENDENCIES ada___lib__messages 0
+GG EK_GLOBALS ada___lib__messages local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 lib proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 ada___lib__messages__message_state refined_initializes 4 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 4 ada___lib__messages__messages_mutex ada___lib__messages__curr_entry ada___lib__messages__small_log_buffer ada___lib__messages__log_ring_buffer TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image__2 FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__is_initialized FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada__characters TRUE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__characters__latin_1 TRUE FALSE FALSE FALSE FALSE ada___ada__characters
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages TRUE FALSE FALSE FALSE FALSE lib
+GG EK_PART_OF ada___lib__messages__message_state 4 ada___lib__messages__log_ring_buffer ada___lib__messages__small_log_buffer ada___lib__messages__curr_entry ada___lib__messages__messages_mutex
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__enable_logging FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__get_timestamp FALSE FALSE FALSE FALSE TRUE ada___lib__messages PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___lib__messages__put_line FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__debug TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__debug__read FALSE FALSE FALSE FALSE TRUE ada___arch__debug VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__dump_logs FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__debug__print FALSE FALSE FALSE FALSE TRUE ada___arch__debug VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__debug__print__2 FALSE FALSE FALSE FALSE TRUE ada___arch__debug VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__debug__print__3 FALSE FALSE FALSE FALSE TRUE ada___arch__debug VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_REMOTE_STATES 1 ada___arch__clocks__monotonic_clock_state
+GG EK_END_MARKER

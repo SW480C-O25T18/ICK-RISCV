@@ -1,0 +1,32 @@
+
+[01m[Karch-context.adb:88:40: [m[K[01;31m[Kerror: [m[Kprefix for "Range" attribute must be array
+   88 |      pragma Assert ((for all Index in [01;31m[KGP_Context[m[K'Range => Ctx.To_Element (Index) = 0) and
+      |                                       [01;31m[K^~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:88:63: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+   88 |      pragma Assert ((for all Index in GP_Context'Range => [01;31m[KCtx.To_Element[m[K (Index) = 0) and
+      |                                                           [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:89:25: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+   89 |                     [01;31m[KCtx.To_Element[m[K (1) = Unsigned_32 (To_Integer (Stack) and 16#FFFFFFFF#) and
+      |                     [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:90:25: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+   90 |                     [01;31m[KCtx.To_Element[m[K (2) = Unsigned_32 (To_Integer (Start_Addr) and 16#FFFFFFFF#));
+      |                     [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:99:25: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+   99 |      pragma Assume ([01;31m[KCtx.To_Element[m[K (2) /= 0);
+      |                     [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:126:25: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+  126 |      pragma Assume ([01;31m[KCtx.To_Element[m[K (2) /= 0);
+      |                     [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:133:25: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+  133 |      pragma Assert ([01;31m[KCtx.To_Element[m[K (2) = 0 and Ctx.To_Element (4) = 0);
+      |                     [01;31m[K~~~^~~~~~~~~~~[m[K
+
+[01m[Karch-context.adb:133:52: [m[K[01;31m[Kerror: [m[Kno selector "To_Element" for type "Frame" defined at arch-interrupts.ads:21
+  133 |      pragma Assert (Ctx.To_Element (2) = 0 and [01;31m[KCtx.To_Element[m[K (4) = 0);
+      |                                                [01;31m[K~~~^~~~~~~~~~~[m[K

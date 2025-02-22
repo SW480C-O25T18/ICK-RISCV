@@ -1,0 +1,168 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.clocks%b		arch-clocks.adb		0689561d OO PK
+W arch%s		arch.ads		arch.ali
+
+U arch.clocks%s		arch-clocks.ads		19a2d574 OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-clocks.adb	20250222165738 f1e25636 arch.clocks%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 2|19r9 45r5 3|17r14 77r5
+X 2 arch-clocks.ads
+19K14*Clocks 1|20k9 2|45l10 45e16 3|17b19 77l10 77t16
+20@23*Monotonic_Clock_State 24r34 28r33 32r33 3|24r8
+20@46*RT_Clock_State 24r57 36r33 40r33 44r33 3|19r8
+23U14*Initialize_Sources 3|41b14 44l8 44t26
+27U14*Get_Monotonic_Resolution 27<40 27<49 3|46b14 51l8 51t32
+27m40 Seconds{4|84M9} 3|46b40 49m7
+27m49 Nanoseconds{4|84M9} 3|46b49 50m7
+31U14*Get_Monotonic_Time 31<34 31<43 3|53b14 57l8 57t26
+31m34 Seconds{4|84M9} 3|53b34 55m7
+31m43 Nanoseconds{4|84M9} 3|53b43 56m7
+35U14*Get_Real_Time_Resolution 35<40 35<49 3|59b14 64l8 64t32
+35m40 Seconds{4|84M9} 3|59b40 62m7
+35m49 Nanoseconds{4|84M9} 3|59b49 63m7
+39U14*Get_Real_Time 39<29 39<38 3|66b14 71l8 71t21
+39m29 Seconds{4|84M9} 3|66b29 69m7
+39m38 Nanoseconds{4|84M9} 3|66b38 70m7
+43U14*Set_Real_Time 43>29 43>38 3|73b14 76l8 76t21
+43m29 Seconds{4|84M9} 3|73b29
+43m38 Nanoseconds{4|84M9} 3|73b38
+X 3 arch-clocks.adb
+30m4 RT_Timestamp_Seconds{4|84M9} 20r11
+31m4 RT_Timestamp_Nanoseconds{4|84M9} 21r11
+32m4 RT_Stored_Seconds{4|84M9} 22r11
+33m4 RT_Stored_Nanoseconds{4|84M9} 23r11
+37N4 MS_Per_Sec
+38N4 Nanos_Per_MS 39r35
+39m4 Mono_TSC_Freq{4|84M9} 24r34
+X 4 interfac.ads
+38K9*Interfaces 2|17w6 17r22 4|233e15
+84M9*Unsigned_64 2|27r67 31r61 35r67 39r56 43r52 3|30r31 31r31 32r31 33r31
+. 39r20 46r67 53r61 59r67 66r56 73r52
+
+QQ SPARKVERSION 0.0w
+GG EK_STATE_MAP ada___arch__clocks__monotonic_clock_state 1 ada___arch__clocks__mono_tsc_freq
+GG EK_STATE_MAP ada___arch__clocks__rt_clock_state 4 ada___arch__clocks__rt_timestamp_seconds ada___arch__clocks__rt_timestamp_nanoseconds ada___arch__clocks__rt_stored_seconds ada___arch__clocks__rt_stored_nanoseconds
+GG EK_DIRECT_CALLS ada___arch__clocks__initialize_sources 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__initialize_sources 0
+GG EK_GLOBALS ada___arch__clocks__initialize_sources local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 0 proper_output 2 ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_proof_in 0 refined_input 0 refined_output 5 ada___arch__clocks__rt_timestamp_seconds ada___arch__clocks__rt_timestamp_nanoseconds ada___arch__clocks__rt_stored_seconds ada___arch__clocks__rt_stored_nanoseconds ada___arch__clocks__mono_tsc_freq calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks__get_monotonic_resolution 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__get_monotonic_resolution 0
+GG EK_GLOBALS ada___arch__clocks__get_monotonic_resolution local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 1 ada___arch__clocks__monotonic_clock_state proper_output 1 ada___arch__clocks__monotonic_clock_state refined_proof_in 0 refined_input 1 ada___arch__clocks__mono_tsc_freq refined_output 1 ada___arch__clocks__mono_tsc_freq calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks__get_monotonic_time 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__get_monotonic_time 0
+GG EK_GLOBALS ada___arch__clocks__get_monotonic_time local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 1 ada___arch__clocks__monotonic_clock_state proper_output 1 ada___arch__clocks__monotonic_clock_state refined_proof_in 0 refined_input 1 ada___arch__clocks__mono_tsc_freq refined_output 1 ada___arch__clocks__mono_tsc_freq calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks__get_real_time_resolution 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__get_real_time_resolution 0
+GG EK_GLOBALS ada___arch__clocks__get_real_time_resolution local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks__get_real_time 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__get_real_time 0
+GG EK_GLOBALS ada___arch__clocks__get_real_time local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks__set_real_time 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks__set_real_time 0
+GG EK_GLOBALS ada___arch__clocks__set_real_time local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__clocks arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__clocks 0
+GG EK_PROOF_DEPENDENCIES ada___arch__clocks 0
+GG EK_GLOBALS ada___arch__clocks local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 ada___arch__clocks__monotonic_clock_state refined_initializes 1 ada___arch__clocks__mono_tsc_freq calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 5 ada___arch__clocks__rt_timestamp_seconds ada___arch__clocks__rt_timestamp_nanoseconds ada___arch__clocks__rt_stored_seconds ada___arch__clocks__rt_stored_nanoseconds ada___arch__clocks__mono_tsc_freq TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

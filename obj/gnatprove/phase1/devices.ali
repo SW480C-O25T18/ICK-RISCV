@@ -1,0 +1,528 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices%b		devices.adb		ec24ada9 OO PK
+W arch%s		arch.ads		arch.ali
+W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
+W devices%s		devices.adb		devices.ali
+W devices.console%s	devices-console.adb	devices-console.ali
+W devices.loopback%s	devices-loopback.adb	devices-loopback.ali
+W devices.streams%s	devices-streams.adb	devices-streams.ali
+W lib%s			lib.adb			lib.ali
+W lib.panic%s		lib-panic.adb		lib-panic.ali
+
+U devices%s		devices.ads		58f85773 OO PK
+W arch%s		arch.ads		arch.ali
+W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
+W interfaces%s		interfac.ads		interfac.ali
+W memory%s		memory.ads		memory.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-charac.ads		20240507065137 2d3ec45b ada.characters%s
+D a-chlat1.ads		20240507065137 e0d72e76 ada.characters.latin_1%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-hooks.ads	20250222165738 2bd12b55 arch.hooks%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D devices.adb		20250222165738 49df614b devices%b
+D devices-console.ads	20250222165738 37ce0dbf devices.console%s
+D devices-loopback.ads	20250222165738 39340044 devices.loopback%s
+D devices-streams.ads	20250222165738 bef258ed devices.streams%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-messages.ads	20250222165738 4282fa77 lib.messages%s
+D lib-panic.ads		20250222165738 ca7c7da8 lib.panic%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 4 arch.ads
+20K9*Arch 52e9 8|20r6 71r21 74r21 238r18 241r18 9|21r6 42r34 304r18 307r18
+X 6 arch-hooks.ads
+17K14*Hooks 33e15 9|21w11 42r39
+19V13*Devices_Hook{boolean} 9|42s45
+X 7 arch-mmu.ads
+22K14*MMU 250e13 8|20w11 71r26 74r26 238r23 241r23 9|304r23 307r23
+26R9*Page_Permissions 32e14 8|74r30 241r27 9|307r27
+43P9*Page_Table_Acc(42R9) 8|71r30 238r27 9|304r27
+X 8 devices.ads
+22K9*Devices 279l5 279e12 9|17r6 18r6 19r6 23b14 383l5 383t12
+28I12*Operation_Count{natural} 29r38
+29A9*Operation_Data(13|70M9)<integer> 30r38 49r29 56r25 196r26 213r22 9|244r26
+. 268r22
+30P9*Operation_Data_Acc(29A9)
+34A9*UUID(13|70M9)<integer> 36r25 41r21 111r25 123r48 9|87r25 102r18 146r48
+35A12*UUID_String{string}<integer> 117r30 9|101r30
+36a4*Zero_UUID{34A9} 9|89r16 102r26
+39R9*Resource 80e14 98r30 265r20 9|52r30
+40m7*Data{19|67M9} 9|219r45 233r45 236r45 252r58 276r58 296r45 312r45 327r45
+41a7*ID{34A9} 9|92r42 148r42
+42b7*Is_Block{boolean} 9|185r45
+43i7*Block_Size{natural} 9|195r45
+44m7*Block_Count{13|84M9} 9|190r45
+46p7*Read 9|250r41 251r41
+47m11 Key{19|67M9}
+48m11 Offset{13|84M9}
+49a11 Data{29A9}
+50i11 Ret_Count{natural}
+51b11 Success{boolean}
+52b11 Is_Blocking{boolean}
+53p7*Write 9|211r45 274r41 275r41
+54m11 Key{19|67M9}
+55m11 Offset{13|84M9}
+56a11 Data{29A9}
+57i11 Ret_Count{natural}
+58b11 Success{boolean}
+59b11 Is_Blocking{boolean}
+60p7*Sync(boolean) 9|217r41 218r52 234r44 235r52
+60m31 Key{19|67M9}
+61p7*Sync_Range(boolean) 9|231r41 232r52
+62m11 Key{19|67M9}
+63m11 Offset{13|84M9}
+64m11 Count{13|84M9}
+65p7*IO_Control(boolean) 9|294r41 295r48
+66m11 Key{19|67M9}
+67m11 Request{13|84M9}
+68m11 Argument{19|67M9}
+69p7*Mmap(boolean) 9|310r41 311r48
+70m11 Key{19|67M9}
+71p11 Map{7|43P9}
+72m11 Address{18|35M12}
+73m11 Length{13|84M9}
+74r11 Flags{7|26R9}
+75p7*Poll 9|325r41 326r41
+76m11 Handle{19|67M9}
+77b11 Can_Read{boolean}
+78b11 Can_Write{boolean}
+79b11 Is_Error{boolean}
+83I9*Device_Handle<integer> 84r54 85r28 105r42 111r38 117r50 123r26 131r17
+. 150r39 152r39 154r39 156r36 161r37 165r50 171r35 180r17 194r22 211r22 225r19
+. 237r18 250r20 258c9 259r31 267r34 9|75r42 87r38 101r50 103r18 146r26 152r17
+. 183r39 188r39 193r38 198r37 204r50 206r14 209r36 214r35 225r17 242r22 266r22
+. 289r19 303r18 319r20
+84A9*Device_List(83I9)<integer> 141r33 9|161r33
+85i4*Error_Handle{83I9} 134r60 151r59 153r59 155r59 157r59 162r59 172r59
+. 183r59 200r59 217r59 228r59 242r59 254r59 259c4 9|84r14 98r14 114r26 121r26
+. 133r22 165r28 179r43
+88i4*Max_Name_Length{natural} 99r63 106r63 135r36 136r47 260c4 263r33 264r39
+92U14*Init 9|27b14 50l8 50t12
+98U14*Register 98>24 98>40 98<55 9|52b14 73l8 73t16
+98r24 Dev{39R9} 9|52b24 68r57
+98a40 Name{string} 99r48 9|52b40 57r62 66r41 66r57 67r57
+98b55 Success{boolean} 9|52b55 55m7 69m13
+105V13*Fetch{83I9} 105>20 9|75b13 85l8 85t13
+105a20 Name{string} 106r48 9|75b20 79r70
+111V13*Fetch{83I9} 111>20 9|87b13 99l8 99t13 132s19 143s14
+111a20 ID{34A9} 9|87b20 89r10 92r47
+117V13*Fetch_UUID{83I9} 117>25 9|101b13 144l8 144t18
+117a25 ID{35A12} 9|101b25 110r16 113r19 117r24 118r24 119r24 127r53 128r53
+. 129r53 130r53 131r54 138r53 139r53 140r53 141r53 142r54
+123V13*Fetch{34A9} 123>20 9|146b13 149l8 149t13
+123i20 Dev{83I9} 9|146b20 148r28
+130U14*Fetch_Name 131>8 132<8 133<8 9|151b14 159l8 159t18
+131i8 Handle{83I9} 134r50 9|152b8 157r31 158r31
+132a8 Name{string} 135r22 9|153b8 157m7
+133i8 Length{natural} 136r21 136r37 9|154b8 158m7
+141U14*List 141<20 141<46 9|161b14 181l8 181t12
+141a20 Buffer{84A9} 9|161b20 165m7 171r29 172m16 172r24 178r29 179m10 179r18
+141i46 Total{natural} 9|161b46 164m7 168r33 170m13 170r22 178r16
+145V13*Is_Initialized{boolean} 92s32 99s21 100s20 106s21 112s19 118s20 124s19
+. 134s22 142s19 151s21 153s21 155s21 157s21 162s21 166s20 172s21 183s21 200s21
+. 217s21 228s21 242s21 254s21 272b13
+150V13*Is_Block_Device{boolean} 150>30 9|183b13 186l8 186t23
+150i30 Handle{83I9} 151r49 9|183b30 185r28
+152V13*Get_Block_Count{13|84M9} 152>30 9|188b13 191l8 191t23
+152i30 Handle{83I9} 153r49 9|188b30 190r28
+154V13*Get_Block_Size{natural} 154>30 9|193b13 196l8 196t22
+154i30 Handle{83I9} 155r49 9|193b29 195r28
+156V13*Is_Read_Only{boolean} 156>27 9|209b13 212l8 212t20
+156i27 Handle{83I9} 157r49 9|209b27 211r28
+161V13*Get_Unique_ID{natural} 161>28 9|198b13 202l8 202t21
+161i28 Handle{83I9} 162r49 9|198b28 201r23
+165V13*From_Unique_ID{83I9} 165>29 9|204b13 207l8 207t22
+165i29 ID{natural} 9|204b29 206r29
+171V13*Synchronize{boolean} 171>26 9|214b13 222l8 222t19
+171i26 Handle{83I9} 172r49 9|214b26 217r24 218r35 219r28
+179V13*Synchronize{boolean} 180>8 181>8 182>8 9|224b13 239l8 239t19
+180i8 Handle{83I9} 183r49 9|225b8 231r24 232r35 233r28 234r27 235r35 236r28
+181m8 Offset{13|84M9} 9|226b8 233r51
+182m8 Count{13|84M9} 9|227b8 233r59
+193U14*Read 194>8 195>8 196<8 197<8 198<8 199>8 9|241b14 263l8 263t12
+194i8 Handle{83I9} 200r49 9|242b8 250r24 251r24 252r41
+195m8 Offset{13|84M9} 9|243b8 253r27
+196a8 Data{29A9} 9|244b8 254m27 259m10
+197i8 Ret_Count{natural} 9|245b8 255m27 260m10
+198b8 Success{boolean} 9|246b8 256m27 261m10
+199b8 Is_Blocking{boolean} 9|247b8 257r29
+210U14*Write 211>8 212>8 213>8 214<8 215<8 216>8 9|265b14 286l8 286t13
+211i8 Handle{83I9} 217r49 9|266b8 274r24 275r24 276r41
+212m8 Offset{13|84M9} 9|267b8 277r27
+213a8 Data{29A9} 9|268b8 278r27
+214i8 Ret_Count{natural} 9|269b8 279m27 283m10
+215b8 Success{boolean} 9|270b8 280m27 284m10
+216b8 Is_Blocking{boolean} 9|271b8 281r29
+224V13*IO_Control{boolean} 225>8 226>8 227>8 9|288b13 300l8 300t18
+225i8 Handle{83I9} 228r49 9|289b8 294r24 295r31 296r28
+226m8 Request{13|84M9} 9|290b8 296r51
+227m8 Argument{19|67M9} 9|291b8 296r60
+236V13*Mmap{boolean} 237>8 238>8 239>8 240>8 241>8 9|302b13 316l8 316t12
+237i8 Handle{83I9} 242r49 9|303b8 310r24 311r31 312r28
+238p8 Map{7|43P9} 9|304b8 312r51
+239m8 Address{18|35M12} 9|305b8 312r56
+240m8 Length{13|84M9} 9|306b8 312r65
+241r8 Flags{7|26R9} 9|307b8 312r73
+249U14*Poll 250>8 251<8 252<8 253<8 9|318b14 334l8 334t12
+250i8 Handle{83I9} 254r49 9|319b8 325r24 326r24 327r28
+251b8 Can_Read{boolean} 9|320b8 327m51 330m10
+252b8 Can_Write{boolean} 9|321b8 327m61 331m10
+253b8 Is_Error{boolean} 9|322b8 328m14 332m10
+261R9 Device 266e14 267r66
+262b7*Is_Present{boolean} 9|33m14 57r15 64r34 65m30 78r30 91r33 169r30
+263a7*Name{string} 9|57r37 66m30 79r30 157r39
+264i7*Name_Len{integer} 9|57r50 67m30 79r58 158r39
+265r7*Contents{39R9} 9|68m30 92r33 148r33 185r36 190r36 195r36 211r36 217r32
+. 218r43 219r36 231r32 232r43 233r36 234r35 235r43 236r36 250r32 251r32 252r49
+. 274r32 275r32 276r49 294r32 295r39 296r36 310r32 311r39 312r36 325r32 326r32
+. 327r36
+267A9 Device_Arr(261R9)<83I9> 268r34 9|31r27
+268P9 Device_Arr_Acc(267A9) 270r19
+270p4 Devices_Data{268P9} 272r47 9|31m7 32r18 56r16 63r16 64r17 65r13 66r13
+. 67r13 68r13 77r16 78r13 79r13 79r41 90r19 91r16 92r16 148r14 157r17 158r17
+. 167r16 168r42 169r13 185r14 190r14 195r14 211r14 217r10 218r21 219r14 231r10
+. 232r21 233r14 234r13 235r21 236r14 250r10 251r10 252r27 274r10 275r10 276r27
+. 294r10 295r17 296r14 310r10 311r17 312r14 325r10 326r10 327r14
+274A9 UUID_Fragment(13|70M9)<integer> 277r37 278r37 9|127r19 128r19 129r19
+. 130r19 131r19 138r19 139r19 140r19 141r19 142r19 349r37 367r37
+276V13 To_Integer{13|70M9} 276>25 9|336b13 347l8 347t18 355s17 373s17
+276e25 C{character} 9|336b25 339r10 340r35 341r13 342r35 344r35
+277U14 Convert_LE 277<26 277>52 9|127s7 128s7 129s7 349b14 365l8 365t18
+277a26 Frag{274A9} 9|349b26 353m7 358m13 358r19 360m13 360r19 360r40 360r46
+277a52 Val{string} 9|349b52 354r24 355r29 357r18
+278U14 Convert_BE 278<26 278>52 9|130s7 131s7 138s7 139s7 140s7 141s7 142s7
+. 367b14 382l8 382t18
+278a26 Frag{274A9} 9|367b26 371m7 376m13 376r19 376r40 376r46 379m13 379r19
+278a52 Val{string} 9|367b52 372r16 373r29 375r18
+X 9 devices.adb
+29b7 Success{boolean} 37m21 38r14 39m22 40r14 41m21 42r14
+32r11 Dev{8|261R9}
+48L6 Panic_Error 38r32 40r32 43r15
+56r11 E{8|261R9}
+63i11 I<integer> 64r31 65r27 66r27 67r27 68r27
+77i11 I<integer> 78r27 79r27 79r55 81r20
+90i14 I<integer> 91r30 92r30 94r23
+102a7 Result{8|34A9} 127m34 127r34 128m34 128r34 129m34 129r34 130m34 130r34
+. 131m34 131r34 132r26 138m34 138r34 139m34 139r34 140m34 140r34 141m34 141r34
+. 142m34 142r34 143r21
+103i7 Returned{8|83I9} 132m7 133r10 134r17
+110i11 I{integer} 111r15 113r23 117r28 118r28 119r28
+162i7 Curr_Index{natural} 171r16 172r39 173m16 173r30
+167i11 I<integer> 169r27 172r55
+178i11 I{integer} 179r33
+215b7 Success{boolean} 218m10 221r14
+229b7 Success{boolean} 232m10 235m10 238r14
+337i7 Result{natural} 340m10 342m10 344m10 346r26
+350m7 Res{13|70M9} 355m10 358r40 361r52
+351i7 Idx{natural} 358r32 360r32 360r59 362m13 362r20
+354i11 I{integer} 355r34 357r14
+368m7 Res{13|70M9} 373m10 376r67 379r52
+369i7 Idx{natural} 376r32 376r59 377m13 377r20 379r32
+372i11 I{integer} 373r34 375r14
+X 10 devices-console.ads
+17K17*Console 9|17w14 37r7 10|39e20
+19U14*Init 9|37s15
+X 11 devices-loopback.ads
+17K17*Loopback 9|18w14 39r7 11|52e21
+19U14*Init 9|39s16
+X 12 devices-streams.ads
+17K17*Streams 9|19w14 41r7 12|71e20
+19U14*Init 9|41s15
+X 13 interfac.ads
+38K9*Interfaces 8|18w6 18r22 13|233e15
+70M9*Unsigned_8 8|29r67 34r36 274r54 276r47 9|336r47 346r14 350r13 368r13
+84M9*Unsigned_64 8|44r21 48r25 55r25 63r20 64r20 67r22 73r21 152r61 181r17
+. 182r17 195r22 212r22 226r19 240r18 9|188r61 226r17 227r17 243r22 267r22
+. 290r19 306r18
+91V13*Shift_Left{70M9} 9|361s40 379s40
+X 14 lib.ads
+19K9*Lib 9|20r6 49r7 14|35e8
+X 16 lib-panic.ads
+21K13*Panic 9|20w10 49r11 16|39e14
+32U14*Hard_Panic 9|49s17
+X 18 memory.ads
+19K9*Memory 8|19w6 72r21 239r18 9|305r18 18|36e11
+35M12*Virtual_Address{20|82M9} 8|72r28 239r25 9|305r25
+X 19 system.ads
+37K9*System 8|17w6 40r21 47r25 54r25 60r37 62r20 66r22 68r22 70r21 76r23
+. 227r19 9|291r19 19|155e11
+67M9*Address 8|40r28 47r32 54r32 60r44 62r27 66r29 68r29 70r28 76r30 227r26
+. 9|291r26
+X 20 s-stoele.ads
+82M9*Integer_Address
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS devices__init 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__init 1 devices__is_initialized
+GG EK_GLOBALS devices__init local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 2 devices__devices_data __HEAP proper_output 2 devices__devices_data __HEAP refined_proof_in 0 refined_input 2 devices__devices_data __HEAP refined_output 2 devices__devices_data __HEAP calls_proof 0 calls 0 calls_conditional 5 ada___devices__console__init ada___devices__loopback__init ada___devices__streams__init ada___lib__panic__hard_panic ada___arch__hooks__devices_hook FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__register 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__register 0
+GG EK_GLOBALS devices__register local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 1 devices__devices_data refined_proof_in 0 refined_input 1 devices__devices_data refined_output 1 devices__devices_data calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__fetch 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__fetch 0
+GG EK_GLOBALS devices__fetch local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__fetch__2 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__fetch__2 0
+GG EK_GLOBALS devices__fetch__2 local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__fetch_uuid 4 devices__fetch__2 devices__is_initialized devices__convert_le devices__convert_be
+GG EK_PROOF_DEPENDENCIES devices__fetch_uuid 0
+GG EK_GLOBALS devices__fetch_uuid local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices__fetch__3 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__fetch__3 0
+GG EK_GLOBALS devices__fetch__3 local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__fetch_name 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__fetch_name 0
+GG EK_GLOBALS devices__fetch_name local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__list 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__list 0
+GG EK_GLOBALS devices__list local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__is_initialized 0
+GG EK_PROOF_DEPENDENCIES devices__is_initialized 0
+GG EK_GLOBALS devices__is_initialized local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__is_block_device 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__is_block_device 0
+GG EK_GLOBALS devices__is_block_device local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__get_block_count 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__get_block_count 0
+GG EK_GLOBALS devices__get_block_count local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__get_block_size 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__get_block_size 0
+GG EK_GLOBALS devices__get_block_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__is_read_only 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__is_read_only 0
+GG EK_GLOBALS devices__is_read_only local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__get_unique_id 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__get_unique_id 0
+GG EK_GLOBALS devices__get_unique_id local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 1 devices__devices_data proper_input 0 proper_output 0 refined_proof_in 1 devices__devices_data refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices__from_unique_id 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__from_unique_id 0
+GG EK_GLOBALS devices__from_unique_id local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 1 devices__devices_data proper_input 0 proper_output 0 refined_proof_in 1 devices__devices_data refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices__synchronize 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__synchronize 0
+GG EK_GLOBALS devices__synchronize local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__synchronize__2 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__synchronize__2 0
+GG EK_GLOBALS devices__synchronize__2 local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__read 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__read 0
+GG EK_GLOBALS devices__read local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__write 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__write 0
+GG EK_GLOBALS devices__write local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__io_control 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__io_control 0
+GG EK_GLOBALS devices__io_control local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__mmap 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__mmap 0
+GG EK_GLOBALS devices__mmap local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__poll 1 devices__is_initialized
+GG EK_PROOF_DEPENDENCIES devices__poll 0
+GG EK_GLOBALS devices__poll local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 1 devices__devices_data proper_output 0 refined_proof_in 0 refined_input 1 devices__devices_data refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 devices__devices_data LOCKS 0
+GG EK_DIRECT_CALLS devices__to_integer 0
+GG EK_PROOF_DEPENDENCIES devices__to_integer 0
+GG EK_GLOBALS devices__to_integer local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices__convert_le 2 devices__to_integer interfaces__shift_left
+GG EK_PROOF_DEPENDENCIES devices__convert_le 0
+GG EK_GLOBALS devices__convert_le local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices__convert_be 2 devices__to_integer interfaces__shift_left
+GG EK_PROOF_DEPENDENCIES devices__convert_be 0
+GG EK_GLOBALS devices__convert_be local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS devices 0
+GG EK_PROOF_DEPENDENCIES devices 0
+GG EK_GLOBALS devices local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 1 devices__devices_data refined_initializes 1 devices__devices_data calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 1 devices__devices_data TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___devices__loopback__io_control FALSE FALSE FALSE FALSE TRUE ada___devices__loopback PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__get_active_core_count FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__console__write FALSE FALSE FALSE FALSE TRUE ada___devices__console PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__register_ram_files FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__panic__hard_panic FALSE FALSE FALSE FALSE TRUE ada___lib__panic VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__zero_write FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages TRUE FALSE FALSE FALSE FALSE lib
+GG EK_PART_OF ada___lib__messages__message_state 4 ada___lib__messages__log_ring_buffer ada___lib__messages__small_log_buffer ada___lib__messages__curr_entry ada___lib__messages__messages_mutex
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__enable_logging FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__random_read FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__get_timestamp FALSE FALSE FALSE FALSE TRUE ada___lib__messages PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__put_line FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__random_write FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada__characters TRUE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__dump_logs FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada___ada__characters__latin_1 TRUE FALSE FALSE FALSE FALSE ada___ada__characters
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__loopback TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___devices__loopback__init FALSE FALSE FALSE FALSE TRUE ada___devices__loopback VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__init FALSE FALSE FALSE FALSE TRUE ada___devices__streams VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__null_read FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image__2 FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__loopback__read FALSE FALSE FALSE FALSE TRUE ada___devices__loopback PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__is_initialized FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__null_write FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE ada___devices__console TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE ada___lib__panic TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___devices__console__init FALSE FALSE FALSE FALSE TRUE ada___devices__console VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__loopback__write FALSE FALSE FALSE FALSE TRUE ada___devices__loopback PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___arch__hooks__devices_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__console__read FALSE FALSE FALSE FALSE TRUE ada___devices__console PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__prctl_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__streams__zero_read FALSE FALSE FALSE FALSE TRUE ada___devices__streams PRIVATE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__hooks__panic_smp_hook FALSE FALSE FALSE FALSE TRUE ada___arch__hooks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

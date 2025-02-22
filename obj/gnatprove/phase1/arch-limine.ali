@@ -1,0 +1,393 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g2867970"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U arch.limine%b		arch-limine.adb		c074d595 OO PK
+W arch%s		arch.ads		arch.ali
+W lib%s			lib.adb			lib.ali
+W lib.messages%s	lib-messages.adb	lib-messages.ali
+W system%s		system.ads		system.ali
+
+U arch.limine%s		arch-limine.ads		74595acc OO PK
+W arch%s		arch.ads		arch.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-limine.ads	20250222165738 8eb8e49c arch.limine%s
+D arch-limine.adb	20250222165738 95f35688 arch.limine%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-messages.ads	20250222165738 4282fa77 lib.messages%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 3|20r9 293r5 4|21r14 123r5
+22E9*Boot_Memory_Type 27e24 4|55r20
+23n8*Memory_Free{22E9} 4|88r30 111r46
+24n8*Memory_Reserved{22E9} 4|91r30 100r30
+25n8*Memory_Kernel{22E9} 4|97r30
+26n8*Memory_ACPI_Reclaimable{22E9} 4|93r30
+27n8*Memory_ACPI_NVS{22E9} 4|95r30
+30m7*Start{9|67M9} 4|105m14 112r48 115r55 116m36
+31i7*Length{10|53I12} 4|106m14 113r36 118m36 119r39
+32e7*MemType{22E9} 4|107m14 111r36
+34A9*Boot_Memory_Map(29R9)<integer>
+38m7*Start{9|67M9} 4|78m20
+39i7*Length{10|53I12} 4|79m20
+41A9*Boot_RAM_Files(37R9)<integer>
+44R9*Boot_Information 51e14 3|22r18
+45a7*Cmdline{string} 4|63m19
+46i7*Cmdline_Len{integer} 4|64m19
+47a7*Memmap{34A9} 4|104m22 111r25 112r37 113r25 115r44 116m25 117r28 118m25
+. 119r28
+48i7*Memmap_Len{integer} 4|103m22 103r48 104r42 110r33
+49a7*RAM_Files{41A9} 4|77m28
+50i7*RAM_Files_Len{integer} 4|67m19 76m28 76r57 77r51
+X 3 arch-limine.ads
+20K14*Limine 1|20k9 3|293l10 293e16 4|21b19 22r19 123l10 123t16
+22r4*Global_Info{1|44R9} 4|63m7 64m7 67m7 76m16 76r45 77m16 77r39 103m10
+. 103r36 104m10 104r30 110r21 111r13 112r25 113r13 115r32 116m13 117r16 118m13
+. 119r16
+28N4*Max_Sub_1MiB_Size 4|113r45 117r47 119r48
+29m4*Sub_1MiB_Region{9|67M9} 4|115m13
+32V13*Get_Physical_Address{9|67M9} 4|28b13 33l8 33t28
+36U14*Translate_Proto 4|35b14 122l8 122t23
+38N4*Limine_Common_Magic_1 223r8 227r8 231r8 235r8 239r8 243r8 247r8 251r8
+39N4*Limine_Common_Magic_2 223r31 227r31 231r31 235r31 239r31 243r31 247r31
+. 251r31
+41A9*Request_ID(5|84M9)<integer> 43r18 222r30 226r25 230r30 234r33 238r34
+. 242r22 246r26 250r22
+42R9*Request 46e15 156r15 260r30 267r26 274r21 281r22 288r22
+43a7*ID{41A9} 261m8 268m8 275m8 282m8 289m8
+44m7*Revision{5|84M9} 262m8 269m8 276m8 283m8 290m8
+45m7*Response{9|67M9} 263m8 270m8 277m8 284m8 291m8 4|30r50 37r54 43r58 52r49
+. 68r26 71r56
+48R9*Response 50e15 97r22 103r17 115r21 120r17 144r14 149r19 161r22 169r22
+. 205r22 211r19 217r18
+49m7*Revision{5|84M9}
+52R9*Base_Revision 56e15 4|22r26
+53m7*ID_1{5|84M9} 4|23m8
+54m7*ID_2{5|84M9} 4|24m8
+55m7*Revision{5|84M9} 4|25m8 59r23
+58R9*Video_Mode 70e15 71r55
+59m7*Pitch{5|84M9}
+60m7*Width{5|84M9}
+61m7*Height{5|84M9}
+62m7*BPP{5|73M9}
+63m7*Memory_Model{5|70M9}
+64m7*Red_Mask_Size{5|70M9}
+65m7*Red_Mask_Shift{5|70M9}
+66m7*Green_Mask_Size{5|70M9}
+67m7*Green_Mask_Shift{5|70M9}
+68m7*Blue_Mask_Size{5|70M9}
+69m7*Blue_Mask_Shift{5|70M9}
+71A9*Video_Mode_Arr(58R9)<integer>
+73A9*Framebuffer_Padding(5|70M9)<integer> 87r26
+74R9*Framebuffer 92e15 93r39 94r60
+75m7*Address{9|67M9}
+76m7*Width{5|84M9}
+77m7*Height{5|84M9}
+78m7*Pitch{5|84M9}
+79m7*BPP{5|73M9}
+80m7*Memory_Model{5|70M9}
+81m7*Red_Mask_Size{5|70M9}
+82m7*Red_Mask_Shift{5|70M9}
+83m7*Green_Mask_Size{5|70M9}
+84m7*Green_Mask_Shift{5|70M9}
+85m7*Blue_Mask_Size{5|70M9}
+86m7*Blue_Mask_Shift{5|70M9}
+87a7*Unused{73A9}
+88m7*EDID_Size{5|84M9}
+89m7*EDID{9|67M9}
+90m7*Mode_Count{5|84M9}
+91m7*Modes{9|67M9}
+93P9*Framebuffer_Acc(74R9)
+94A9*Framebuffer_Arr(74R9)<5|84M9>
+96R9*Framebuffer_Response 100e15
+97r7*Base{48R9}
+98m7*Count{5|84M9}
+99m7*Framebuffers{9|67M9}
+102R9*Limine_File 108e15 110r39
+103r7*Base{48R9}
+104m7*Address{9|67M9} 4|78r35
+105m7*Size{5|84M9} 4|79r50
+106m7*Path{9|67M9}
+107m7*Cmdline{9|67M9} 4|38r70
+110P9*Limine_File_Acc(102R9) 111r60 116r21
+111A9*Limine_File_Arr(110P9)<5|84M9> 4|72r35
+114R9*Kernel_File_Response 117e15 4|36r18
+115r7*Base{48R9}
+116p7*Kernel_File{110P9} 4|38r58
+119R9*Memmap_Response 123e15 4|51r18
+120r7*Base{48R9}
+121m7*Count{5|84M9} 4|53r61
+122m7*Entries{9|67M9} 4|54r43
+125N4*LIMINE_MEMMAP_USABLE 4|87r18
+126N4*LIMINE_MEMMAP_RESERVED 4|89r18
+127N4*LIMINE_MEMMAP_ACPI_RECLAIMABLE 4|92r18
+128N4*LIMINE_MEMMAP_ACPI_NVS 4|94r18
+129N4*LIMINE_MEMMAP_BAD_MEMORY 4|90r18
+130N4*LIMINE_MEMMAP_BOOTLOADER_RECL 4|90r45
+131N4*LIMINE_MEMMAP_KERNEL_AND_MODS 4|96r18
+132N4*LIMINE_MEMMAP_FRAMEBUFFER 4|89r45
+134R9*Memmap_Entry 138e15 140r40
+135m7*Base{5|84M9} 4|105r58
+136m7*Length{5|84M9} 4|106r44
+137m7*EntryType{5|84M9} 4|86r19
+140P9*Memmap_Entry_Acc(134R9) 141r61
+141A9*Memmap_Entry_Arr(140P9)<5|84M9> 4|53r29
+143R9*RSDP_Response 146e15
+144r7*Base{48R9}
+145m7*Addr{9|67M9}
+148R9*Kernel_Address_Response 152e15 4|29r19
+149r7*Base{48R9}
+150m7*Phys_Addr{9|67M9} 4|32r24
+151m7*Virt_Addr{9|67M9}
+154N4*SMP_ENABLE_X2APIC
+155R9*SMP_Request 158e14
+156r7*Base{42R9}
+157m7*Flags{5|84M9}
+160R9*SMP_Response 166e15
+161r7*Base{48R9}
+162m7*Flags{5|81M9}
+163m7*BSP_LAPIC_ID{5|81M9}
+164m7*CPU_Count{5|84M9}
+165m7*CPUs{9|67M9}
+168R9*RISCV64_SMP_Response 174e15
+169r7*Base{48R9}
+170m7*Flags{5|84M9}
+171m7*BSP_Hart_ID{5|84M9}
+172m7*CPU_Count{5|84M9}
+173m7*CPUs{9|67M9}
+176R9*SMP_CPU_Info 182e15 193r42 197r36
+177m7*Processor_ID{5|81M9}
+178m7*LAPIC_ID{5|81M9}
+179m7*Reserved{5|84M9}
+180m7*Addr{9|67M9}
+181m7*Extra_Arg{5|84M9}
+184R9*RISCV64_SMP_CPU_Info 190e15 195r42 200r21
+185m7*Processor_ID{5|84M9}
+186m7*Hart_ID{5|84M9}
+187m7*Reserved{5|84M9}
+188m7*Addr{9|67M9}
+189m7*Extra_Arg{5|84M9}
+192P9*Limine_SMP_Entrypoint 193^28
+193p28 Info(176R9)
+194P9*Limine_RISCV64_SMP_Entrypoint 195^28
+195p28 Info(184R9)
+197P9*CPU_Info_Acc(176R9) 198r57
+198A9*CPU_Info_Arr(197P9)<5|84M9>
+199P9*RISCV64_CPU_Info_Acc(184R9) 202r42
+201A9*RISCV64_CPU_Info_Arr(199P9)<5|84M9>
+204R9*Bootloader_Info_Response 208e15 4|42r19
+205r7*Base{48R9}
+206m7*Name_Addr{9|67M9} 4|44r56
+207m7*Version_Addr{9|67M9} 4|47r56
+210R9*Modules_Response 214e15 4|70r24
+211r7*Base{48R9}
+212m7*Mod_Count{5|84M9} 4|72r66
+213m7*Modules{9|67M9} 4|73r49
+216R9*DTB_Response 219e15
+217r7*Base{48R9}
+218m7*DTB_Addr{9|67M9}
+222a4*Framebuffer_ID{41A9}
+226a4*Memmap_ID{41A9} 275r20
+230a4*Kernel_File_ID{41A9} 268r20
+234a4*Kernel_Address_ID{41A9} 282r20
+238a4*Bootloader_Info_ID{41A9} 261r20
+242a4*SMP_ID{41A9}
+246a4*Modules_ID{41A9} 289r20
+250a4*DTB_ID{41A9}
+260r4 Bootloader_Info_Request{42R9} 4|43r34
+267r4 Kernel_File_Request{42R9} 4|37r34
+274r4 Memmap_Request{42R9} 4|52r34
+281r4 Address_Request{42R9} 4|30r34
+288r4 Modules_Request{42R9} 4|68r10 71r40
+X 4 arch-limine.adb
+22r4 Base_Request{3|52R9} 59r10
+29r7 PhysPonse{3|148R9} 32r14
+36r7 CmdPonse{3|114R9} 38r49
+38m7 Cmdline_Addr{9|67M9} 39r63 40r67
+39i7 Cmdline_Len{natural} 40r30 63r33 64r34
+40a7 Cmdline{string} 63r49
+42r7 InfoPonse{3|204R9} 44r46 47r46
+44m7 Name_Addr{9|67M9} 45r67 46r66
+45i7 Name_Len{natural} 46r32
+46a7 Boot_Name{string} 57r45
+47m7 Vers_Addr{9|67M9} 48r67 49r66
+48i7 Vers_Len{natural} 49r32
+49a7 Boot_Vers{string} 57r63
+51r7 MemPonse{3|119R9} 53r52 54r34
+53a7 Inner_MMap{3|141A9} 85r18 86r15 105r54 106r40
+55e7 Type_Entry{1|22E9} 88m16 91m16 93m16 95m16 97m16 100m16 107r25
+70r13 ModPonse{3|210R9} 72r57 73r40
+72a13 Inner_Mods{3|111A9} 75r24 78r31 79r46
+75p17 Ent=75:24{3|110P9}
+85p11 Ent=85:18{3|140P9}
+110i11 I{integer} 111r33 112r45 113r33 115r52 116r33 117r36 118r33 119r36
+X 5 interfac.ads
+38K9*Interfaces 3|18w6 18r22 5|233e15
+70M9*Unsigned_8 3|63r26 64r26 65r26 66r26 67r26 68r26 69r26 73r50 80r26 81r26
+. 82r26 83r26 84r26 85r26 86r26
+73M9*Unsigned_16 3|62r26 79r26
+81M9*Unsigned_32 3|162r22 163r22 177r22 178r22
+84M9*Unsigned_64 3|41r41 44r18 49r18 53r18 54r18 55r18 59r26 60r26 61r26
+. 76r26 77r26 78r26 88r26 90r26 94r35 98r22 105r17 111r35 121r17 135r19 136r19
+. 137r19 141r36 157r15 164r22 170r22 171r22 172r22 179r22 181r22 185r22 186r22
+. 187r22 189r22 198r32 202r17 212r19
+X 6 lib.ads
+19K9*Lib 4|18w6 19r6 39r42 45r46 48r46 57r7 60r10 99r16 6|35e8
+23V13*C_String_Length{natural} 4|39s46 45s50 48s50
+X 7 lib-messages.ads
+21K13*Messages 4|19w10 57r11 60r14 99r20 7|103e17
+41U14*Put_Line 4|57s20 60s23 99s29
+X 9 system.ads
+37K9*System 3|17w6 29r22 32r41 45r18 75r26 89r26 91r26 99r22 104r17 106r17
+. 107r17 122r17 145r14 150r19 151r19 165r22 173r22 180r22 188r22 206r22 207r22
+. 213r19 218r18 263r20 270r20 277r20 284r20 291r20 4|17w6 17r18 28r41 38r31
+. 44r28 47r28 68r38 9|155e11
+67M9*Address 3|29r29 32r48 45r25 75r33 89r33 91r33 99r29 104r24 106r24 107r24
+. 122r24 145r21 150r26 151r26 165r29 173r29 180r29 188r29 206r29 207r29 213r26
+. 218r25 4|28r48 38r38 44r35 47r35
+69m4*Null_Address{67M9} 3|263r27 270r27 277r27 284r27 291r27 4|68r45
+81V14*"="{boolean} 4|68r35
+X 10 s-stoele.ads
+51I9*Storage_Offset<long_integer>
+53I12*Storage_Count{51I9} 4|79r31 106r25
+67V14*"+"{9|67M9} 4|117r45
+82M9*Integer_Address 4|105r37
+84V13*To_Address{9|67M9} 4|105s25
+87V13*To_Integer{82M9} 4|112s13
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___arch__limine__get_physical_address 0
+GG EK_PROOF_DEPENDENCIES ada___arch__limine__get_physical_address 0
+GG EK_GLOBALS ada___arch__limine__get_physical_address local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___arch__limine arch proper_proof_in 0 proper_input 1 ada___arch__limine__address_request proper_output 0 refined_proof_in 0 refined_input 1 ada___arch__limine__address_request refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___arch__limine__address_request LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__limine__translate_proto 0
+GG EK_PROOF_DEPENDENCIES ada___arch__limine__translate_proto 0
+GG EK_GLOBALS ada___arch__limine__translate_proto local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___arch__limine arch proper_proof_in 0 proper_input 8 ada___arch__limine__base_request ada___arch__limine__global_info ada___arch__limine__sub_1mib_region ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__modules_request __HEAP proper_output 2 ada___arch__limine__global_info ada___arch__limine__sub_1mib_region refined_proof_in 0 refined_input 8 ada___arch__limine__base_request ada___arch__limine__global_info ada___arch__limine__sub_1mib_region ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__modules_request __HEAP refined_output 2 ada___arch__limine__global_info ada___arch__limine__sub_1mib_region calls_proof 0 calls 0 calls_conditional 4 ada___system__storage_elements__to_address ada___system__storage_elements__to_integer lib__c_string_length ada___lib__messages__put_line FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 7 ada___arch__limine__base_request ada___arch__limine__global_info ada___arch__limine__sub_1mib_region ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__modules_request LOCKS 0
+GG EK_DIRECT_CALLS ada___arch__limine 0
+GG EK_PROOF_DEPENDENCIES ada___arch__limine 0
+GG EK_GLOBALS ada___arch__limine local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 arch proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 6 ada___arch__limine__base_request ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__address_request ada___arch__limine__modules_request refined_initializes 6 ada___arch__limine__base_request ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__address_request ada___arch__limine__modules_request calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 8 ada___arch__limine__base_request ada___arch__limine__global_info ada___arch__limine__sub_1mib_region ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__address_request ada___arch__limine__modules_request TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image__2 FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__limine__get_physical_address FALSE FALSE FALSE FALSE TRUE ada___arch__limine VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__get_timestamp FALSE FALSE FALSE FALSE TRUE ada___lib__messages PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__limine__translate_proto FALSE FALSE FALSE FALSE TRUE ada___arch__limine VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__put_line FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__is_initialized FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__dump_logs FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages TRUE FALSE FALSE FALSE FALSE lib
+GG EK_PART_OF ada___lib__messages__message_state 4 ada___lib__messages__log_ring_buffer ada___lib__messages__small_log_buffer ada___lib__messages__curr_entry ada___lib__messages__messages_mutex
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__image FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__messages__enable_logging FALSE FALSE FALSE FALSE TRUE ada___lib__messages VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__limine TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_VOLATILES AR 0 AW 6 ada___arch__limine__base_request ada___arch__limine__bootloader_info_request ada___arch__limine__kernel_file_request ada___arch__limine__memmap_request ada___arch__limine__address_request ada___arch__limine__modules_request ER 0 EW 0
+GG EK_END_MARKER
