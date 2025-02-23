@@ -1,0 +1,87 @@
+V "GNAT Lib v14"
+A -gnatA
+A -gnat2012
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U aunit%b		aunit.adb		442efae0 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W aunit%s		aunit.adb		aunit.ali
+W aunit.memory%s	aunit-memory.adb	aunit-memory.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.ads	s-stoele.ali
+
+U aunit%s		aunit.ads		76cdf7c6 EE NE OO PK
+
+D ada.ads		20240801081713 76789da1 ada%s
+D a-unccon.ads		20240801081713 0e9b276f ada.unchecked_conversion%s
+D aunit.ads		20221219210842 76cdf7c6 aunit%s
+D aunit.adb		20221219210842 44bfc4e8 aunit%b
+D aunit-memory.ads	20221219210842 a0315146 aunit.memory%s
+D system.ads		20240801081714 14286b0f system%s
+D s-stoele.ads		20240801081713 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [format aunit 44 13 none]
+G c Z s b [message_alloc aunit 45 13 none]
+G c Z s b [message_free aunit 46 14 none]
+G c Z b b [boundsIP aunit 45 9 none]
+G c Z b b [fat_pointerIP aunit 54 9 none]
+G r c none [format aunit 44 13 none] [aunit_alloc aunit__memory 44 13 none]
+G r c none [message_alloc aunit 45 13 none] [aunit_alloc aunit__memory 44 13 none]
+G r c none [message_free aunit 46 14 none] [aunit_free aunit__memory 46 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 4|32r6 68r34 70r40 72r34
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 4|32w10 68r38 70r44 72r38
+X 3 aunit.ads
+34K9*AUnit 48l5 48e10 4|34r6 34r36 37b14 77r10 92r10 111l5 111t10
+36P9*Message_String(string) 38r27 44r40 45r53 46r41 4|67r53 69r23 89r41 101r40
+. 102r22
+38P12*Test_String{36P9}
+40E9*Status 40e37
+40n20*Success{40E9}
+40n29*Failure{40E9}
+44V13*Format{36P9} 44>21 4|101b13 109l8 109t14
+44a21 S{string} 4|101b21 102r55 104r16 105r19 105r35
+45V13*Message_Alloc{36P9} 45>28 4|67b13 83l8 83t21 102s40
+45i28 Length{natural} 4|67b28 78r21 80r33
+46U14*Message_Free 46=28 4|89b14 95l8 95t20
+46p28 Msg{36P9} 4|89b28 91r10 92r35 93m10
+X 4 aunit.adb
+45R9 Bounds 49e4 52r37 78r31 81r56
+46i7*First{natural} 79m25
+47i7*Last{natural} 80m25
+52P9 Bounds_Access(45R9) 56r23 71r26 73r10
+54R9 Fat_Pointer 58e4 69r10 74r13
+55m7*Address{6|67M9} 81m11
+56p7*Bound_Address{52P9} 76m11 79r11 80r11 81r38
+68V16 To_Message[2|20]{3|36P9} 82s14
+70V16 To_Bounds_Access[2|20]{52P9} 76s28
+72V16 To_Address[2|20]{6|67M9} 81s22
+74r7 Ret{54R9} 76m7 79m7 79r7 80m7 80r7 81m7 81r34 82r26
+102p7 Ptr{3|36P9} 105r10 108r14
+104i11 J{integer} 105r15 105r38
+X 5 aunit-memory.ads
+40K15*Memory 4|34w12 34r42 77r16 92r16 5|53e17
+42M9*size_t 4|78r13
+44V13*AUnit_Alloc{6|67M9} 4|77s23
+46U14*AUnit_Free 4|92s23
+X 6 system.ads
+37K9*System 4|33r6 33r36 35w6 49r22 50r33 55r23 58r22 59r33 71r10 73r25 6|155e11
+67M9*Address 4|55r30 71r17 73r32
+92e4*Default_Bit_Order{91E9} 4|49r29 50r40 58r29 59r40
+X 7 s-stoele.ads
+40K16*Storage_Elements 4|33w13 33r43 7|90e28
+67V14*"+"{6|67M9} 4|81r53
+

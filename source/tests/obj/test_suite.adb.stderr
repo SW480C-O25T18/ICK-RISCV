@@ -1,0 +1,5 @@
+test_suite.adb:10:13: error: no selector "Add_Test" for type "Test_Suite'Class" defined at aunit-test_suites.ads:43
+test_context.ads:4:09: error: type must be declared abstract or "Name" overridden
+test_context.ads:4:09: error: "Name" has been inherited at aunit-test_cases.ads:41
+test_context.ads:4:09: error: "Name" has been inherited from subprogram at aunit-simple_test_cases.ads:47
+test_context.ads:7:76: error: "Message_String" not declared in "Test_Cases"
