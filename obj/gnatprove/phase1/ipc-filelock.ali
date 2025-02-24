@@ -1,0 +1,621 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.filelock%b	ipc-filelock.adb	447f0202 OO PK IU
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+
+U ipc.filelock%s	ipc-filelock.ads	3c28d1be OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+W userland%s		userland.ads		userland.ali
+W userland.process%s	userland-process.adb	userland-process.ali
+W vfs%s			vfs.adb			vfs.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-context.ads	20250222165738 7bffdd51 arch.context%s
+D arch-interrupts.ads	20250222165738 186adf79 arch.interrupts%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D devices-termios.ads	20250222165738 06aea761 devices.termios%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D ipc.ads		20250222165738 03976a1a ipc%s
+D ipc-fifo.ads		20250222165738 9141c09a ipc.fifo%s
+D ipc-filelock.ads	20250222165738 69934e3c ipc.filelock%s
+D ipc-filelock.adb	20250222165738 d01080ee ipc.filelock%b
+D ipc-pty.ads		20250222165738 66e20305 ipc.pty%s
+D ipc-socket.ads	20250222165738 ab61e49d ipc.socket%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D networking.ads	20250222165738 70ea6e55 networking%s
+D scheduler.ads		20250222165738 61f570e7 scheduler%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D s-unstyp.ads		20240507065137 fa2a7f59 system.unsigned_types%s
+D userland.ads		20250222165738 1671c2b9 userland%s
+D userland-elf.ads	20250222165738 416b8b0c userland.elf%s
+D userland-mac.ads	20250222165738 eff2fe62 userland.mac%s
+D userland-process.ads	20250222165738 a4893a04 userland.process%s
+D vfs.ads		20250222165738 63b4365d vfs%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 7 interfac.ads
+38K9*Interfaces 233e15 10|17w6 17r28
+84M9*Unsigned_64 10|36r30 37r30 54r23 55r23 71r23 72r23 89r20 90r20 106r23
+. 107r23 11|24r18 25r18 38r30 39r30 62r23 63r23 100r23 101r23 161r23 162r23
+X 8 ipc.ads
+17K9*IPC 18e8 10|21r9 111r5 11|20r14 185r5
+X 10 ipc-filelock.ads
+21K13*FileLock 8|17k9 10|111l9 111e17 11|20b18 185l9 185t17
+33U14*Could_Acquire_Lock 34>8 35>8 36=8 37=8 38=8 39=8 40<8 11|35b14 57l8
+. 57t26
+34i8 Acquired_FS{26|74I9} 11|36b8 48r11
+35m8 Acquired_Ino{26|28M9} 11|37b8 48r24
+36m8 Start{7|84M9} 11|38b8 48r38 51m10
+37m8 Length{7|84M9} 11|39b8 48r45 52m10
+38i8 Acquirer{25|33I9} 11|40b8 53m10
+39b8 Is_Write{boolean} 11|41b8 48r53 54m10
+40b8 Success{boolean} 11|42b8 49m24 50r14
+51U14*Acquire_Lock 52>8 53>8 54>8 55>8 56>8 57>8 58>8 59<8 11|59b14 95l8
+. 95t20
+52i8 Acquired_FS{26|74I9} 11|60b8 74r14 80r33
+53m8 Acquired_Ino{26|28M9} 11|61b8 74r27 81r33
+54m8 Start{7|84M9} 11|62b8 74r41 82r33
+55m8 Length{7|84M9} 11|63b8 74r48 83r33
+56i8 Acquirer{25|33I9} 11|64b8 84r33
+57b8 Is_Write{boolean} 11|65b8 74r56 85r33
+58b8 Is_Blocking{boolean} 11|66b8 92r24
+59b8 Success{boolean} 11|67b8 75m27 76r13 77m13 86m19 92r39
+68U14*Release_Lock 69>8 70>8 71>8 72>8 73>8 74<8 11|97b14 110l8 110t20
+69i8 Acquired_FS{26|74I9} 11|98b8 109r21
+70m8 Acquired_Ino{26|28M9} 11|99b8 109r34
+71m8 Start{7|84M9} 11|100b8 105r28
+72m8 Length{7|84M9} 11|101b8 106r28
+73i8 Acquirer{25|33I9} 11|102b8 107r28
+74b8 Success{boolean} 11|103b8 109m48
+80U14*Release_Lock 81>8 82>8 83<8 11|109s7 112b14 131l8 131t20
+81i8 Acquired_FS{26|74I9} 11|113b8 122r20
+82m8 Acquired_Ino{26|28M9} 11|114b8 123r21
+83b8 Success{boolean} 11|115b8 119m7 126m13
+86R9*Lock_Info 93e14 94r49
+87i7*Acquirer{25|33I9} 11|145m20
+88b7*Is_Writing{boolean} 11|146m20
+89m7*Start{7|84M9} 11|147m20
+90m7*Length{7|84M9} 11|148m20
+91i7*FS{26|74I9} 11|149m20
+92m7*Ino{26|28M9} 11|150m20
+94A9*Lock_Arr(86R9)<integer> 99r37 11|133r37
+99U14*List_All 99<24 99<47 11|133b14 156l8 156t16
+99a24 Buffer{94A9} 11|133b24 136m7 143r29 144m16 144r24
+99i47 Length{natural} 11|133b47 137m7 142m13 142r23
+103U14 Inner_Could_Acquire 104>8 105>8 106>8 107>8 108>8 109<8 110<8 11|47s7
+. 73s10 158b14 184l8 184t27
+104i8 Acquired_FS{26|74I9} 11|159b8 172r32
+105m8 Acquired_Ino{26|28M9} 11|160b8 173r32
+106m8 Start{7|84M9} 11|161b8 176r39
+107m8 Length{7|84M9} 11|162b8 176r72
+108b8 Is_Write{boolean} 11|163b8 175r41
+109i8 Conflicting{natural} 11|164b8 169m7 178m16
+110b8 Success{boolean} 11|165b8 168m7 179m16
+X 11 ipc-filelock.adb
+21R9 Lock_Inner 28e14 29r46
+22i7*FS{26|74I9} 80m21 122r15 149r47 172r26
+23m7*Ino{26|28M9} 81m21 123r15 150r47 173r26
+24m7*Start{7|84M9} 51r45 82m21 147r47 176r30
+25m7*Length{7|84M9} 52r45 83m21 148r47 176r62
+26i7*Acquirer{25|33I9} 53r45 79r21 84m21 121r15 125m15 141r26 145r47 171r26
+27b7*Is_Write{boolean} 54r45 85m21 146r47 175r29
+29A9 Lock_Inner_Arr(21R9)<integer> 32r32
+31r4 Registry_Mutex{15|22R9} 46m34 46r34 56m36 56r36 72m37 72r37 91m39 91r39
+. 118m34 118r34 130m36 130r36 139m34 139r34 155m36 155r36
+32a4 Registry{29A9} 51r22 52r22 53r22 54r22 78r22 79r19 80m19 81m19 82m19
+. 83m19 84m19 85m19 120r16 121r13 122r13 123r13 125m13 140r16 141r13 145r34
+. 146r34 147r34 148r34 149r34 150r34 170r16 171r13 172r13 173r13 175r16 176r17
+. 176r49
+44i7 Conflicting{natural} 49m11 51r32 52r32 53r32 54r32
+69i7 Conflicting{natural} 75m14
+78r17 L=78:22{21R9}
+120r11 L=120:16{21R9}
+134i7 Curr_Index{natural} 143r16 144r39 151m16 151r30
+140i11 I{integer} 141r23 145r44 146r44 147r44 148r44 149r44 150r44
+170i11 I{integer} 171r23 172r23 173r23 175r26 176r27 176r59 178r31
+X 14 lib.ads
+19K9*Lib 11|17r6 17r31 46r7 56r7 72r10 91r10 118r7 130r7 139r7 155r7 14|35e8
+X 15 lib-synchronization.ads
+20K13*Synchronization 11|17w10 17r35 46r11 56r11 72r14 91r14 118r11 130r11
+. 139r11 155r11 15|66e24
+22R9*Binary_Semaphore 11|31r29 15|57e14
+23r4*Unlocked_Semaphore{22R9} 11|31r49
+27U14*Seize 11|46s27 72s30 118s27 139s27
+31U14*Release 11|56s27 91s30 130s27 155s27
+X 18 scheduler.ads
+25K9*Scheduler 11|18w6 93r10 18|183e14
+74U14*Yield_If_Able 11|93s20
+X 22 userland.ads
+17K9*Userland 10|19r6 19r28 38r30 56r23 73r23 11|26r18 40r30 64r23 102r23
+. 22|23e13
+X 25 userland-process.ads
+28K18*Process 10|19w15 19r37 38r39 56r32 73r32 11|26r27 40r39 64r32 102r32
+. 25|677e21
+33I9*PID<integer> 10|38r47 56r40 73r40 87r20 11|26r35 40r47 64r40 102r40
+34i4*Error_PID{33I9} 11|33r46 79r32 121r27 125r27 136r29 141r38 171r38
+X 26 vfs.ads
+24K9*VFS 10|18w6 18r28 34r23 35r23 52r23 53r23 69r23 70r23 81r23 82r23 91r20
+. 92r20 104r23 105r23 11|22r18 23r18 33r19 36r23 37r23 60r23 61r23 98r23
+. 99r23 113r23 114r23 136r53 159r23 160r23 26|674e8
+28M9*File_Inode_Number<7|84M9> 10|35r27 53r27 70r27 82r27 92r24 105r27 11|23r22
+. 37r27 61r27 99r27 114r27 160r27
+74I9*FS_Handle<integer> 10|34r27 52r27 69r27 81r27 91r24 104r27 11|22r22
+. 36r27 60r27 98r27 113r27 159r27
+75i4*Error_Handle{74I9} 11|33r23 136r57
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___ipc__filelock__could_acquire_lock 3 ada___ipc__filelock__inner_could_acquire ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__could_acquire_lock 0
+GG EK_GLOBALS ada___ipc__filelock__could_acquire_lock local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry proper_output 1 ada___ipc__filelock__registry_mutex refined_proof_in 0 refined_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_output 1 ada___ipc__filelock__registry_mutex calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock__acquire_lock 4 ada___ipc__filelock__inner_could_acquire ada___lib__synchronization__seize ada___lib__synchronization__release scheduler__yield_if_able
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__acquire_lock 0
+GG EK_GLOBALS ada___ipc__filelock__acquire_lock local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry proper_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_proof_in 0 refined_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 1 scheduler__yield_if_able FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock__release_lock 1 ada___ipc__filelock__release_lock__2
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__release_lock 0
+GG EK_GLOBALS ada___ipc__filelock__release_lock local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry proper_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_proof_in 0 refined_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock__release_lock__2 2 ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__release_lock__2 0
+GG EK_GLOBALS ada___ipc__filelock__release_lock__2 local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry proper_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_proof_in 0 refined_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_output 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock__list_all 2 ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__list_all 0
+GG EK_GLOBALS ada___ipc__filelock__list_all local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry proper_output 1 ada___ipc__filelock__registry_mutex refined_proof_in 0 refined_input 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_output 1 ada___ipc__filelock__registry_mutex calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock__inner_could_acquire 0
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock__inner_could_acquire 0
+GG EK_GLOBALS ada___ipc__filelock__inner_could_acquire local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__filelock ipc proper_proof_in 0 proper_input 1 ada___ipc__filelock__registry proper_output 0 refined_proof_in 0 refined_input 1 ada___ipc__filelock__registry refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 1 ada___ipc__filelock__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__filelock 0
+GG EK_PROOF_DEPENDENCIES ada___ipc__filelock 0
+GG EK_GLOBALS ada___ipc__filelock local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 ipc proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry refined_initializes 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 2 ada___ipc__filelock__registry_mutex ada___ipc__filelock__registry TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__scheduler_isr FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__close_reader FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__poll_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__truncate FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__write__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_common_map FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__close_writer FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__init FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert__3 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE networking__set_hostname FALSE FALSE FALSE FALSE TRUE networking VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__is_primary_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process TRUE FALSE FALSE FALSE FALSE userland
+GG EK_FLOW_SCOPE scheduler__convert__4 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__io_control FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket TRUE FALSE FALSE FALSE FALSE ipc
+GG EK_FLOW_SCOPE ada___userland__process__get_stack_base FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__close FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__set_primary_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_stack_base FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__2 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__get_size FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__is_secondary_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_bound__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mmap FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__bump_alloc_base FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__set_size FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__create FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__set_secondary_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_traced_info FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_domain FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_peer__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__list_all FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__get_termios FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__get_enforcement FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__list_all__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__3 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_traced_info FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_type FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__set_enforcement FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__read FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__unmount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__poll FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__set_termios FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__get_capabilities FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__close FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__bind__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__set_capabilities FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__issue_exit FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__check_permissions FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__write FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__get_winsize FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__is_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__issue_exit__2 FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__socket__connect__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__get_linker FALSE FALSE FALSE FALSE TRUE ada___userland__elf PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__list_all FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__set_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__4 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__set_winsize FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__add_entity FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__is_valid FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__check_exit FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__waiting_spot FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__load_header FALSE FALSE FALSE FALSE TRUE ada___userland__elf PRIVATE_PART
+GG EK_FLOW_SCOPE scheduler__has_available_time FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__accept_connection__4 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__poll FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__is_switchable FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__get_name FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_mode FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__add_bucket_and_shift FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_cwd FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs_data FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__get_limit FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__read FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__flush_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__set_limit FALSE FALSE FALSE FALSE TRUE ada___userland__mac VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_device FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_owner FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__read__4 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__5 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_cwd FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__flush_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__write FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_mount_point FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_parent FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__check_access FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__start_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__shutdown FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_identifier FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__write__4 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__remount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__start_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__common_close FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__is_listening FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_right__6 FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_identifier FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_access_times FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__stop_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__listen FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_block_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_uid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__stop_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_uid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_fragment_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__accept_connection FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_effective_uid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__open__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__is_valid FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_effective_uid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_gid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__init FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_bound FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__disable_aslr FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_gid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_inode_count FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__init_gp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_children FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_effective_gid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_effective_gid FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__load_gp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_blocks FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__3 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__socket__get_peer FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__save_core_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac__add_filter FALSE FALSE FALSE FALSE TRUE ada___userland__mac PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__create_node__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__success_fork_result FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_supplementary_groups FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__init_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_inodes FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__save_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_supplementary_groups FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__load_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__is_absolute FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__destroy_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__bind FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__apply_umask FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_max_length FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__list_all FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__empty_supplementary_groups FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_umask FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__create_process FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__is_initialized FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__delete_process FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_umask FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_ipv4_read FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__connect FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_masked_signals FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__open FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_runtime_times FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_masked_signals FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_ipv4_write FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__raise_signal FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_children_runtimes FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_signal_handler FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__accept_connection__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__interrupts TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_ipv6_read FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__read_from_end FALSE FALSE FALSE FALSE TRUE ada___ipc__pty PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__add_thread FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_signal_handler FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_node FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_ipv6_write FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_raised_signal_actions FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_thread_count FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__write_to_end FALSE FALSE FALSE FALSE TRUE ada___ipc__pty PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__read__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE scheduler TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___userland__process__remove_thread FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__convert FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__init FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__idle_core FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__convert__2 FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__flush_threads FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_enforcement FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__can_access_file FALSE FALSE FALSE FALSE TRUE vfs PRIVATE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__reassign_process_addresses FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_enforcement FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_hard_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__filelock TRUE FALSE FALSE FALSE FALSE ipc
+GG EK_FLOW_SCOPE ada___ipc__filelock__could_acquire_lock FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__write__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_capabilities FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_niceness FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf TRUE FALSE FALSE FALSE FALSE userland
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_capabilities FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__socket__get_bound__4 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_niceness FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__check_permissions FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_unix_close FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__rename FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_unix_read FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__filelock__acquire_lock FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock VISIBLE_PART
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__is_valid_file FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__add_entity FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread__3 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_bound__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_unix_write FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__process__add_file FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE userland TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__unlink FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_unix_poll FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__filelock__release_lock FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_limit FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__load_elf FALSE FALSE FALSE FALSE TRUE ada___userland__elf VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_file_count FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__get_peer__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_limit FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo TRUE FALSE FALSE FALSE FALSE ipc
+GG EK_FLOW_SCOPE scheduler__delete_thread FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___ipc__socket__inner_unix_shutdown FALSE FALSE FALSE FALSE TRUE ada___ipc__socket PRIVATE_PART
+GG EK_FLOW_SCOPE scheduler__yield_if_able FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__close FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__bail FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__create FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__duplicate FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__filelock__release_lock__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_runtime_times FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___userland__process__duplicate_fd_table FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty TRUE FALSE FALSE FALSE FALSE ipc
+GG EK_FLOW_SCOPE vfs__read_entries FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__is_read_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__bind__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__signal_kernel_entry FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__create FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__signal_kernel_exit FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__close FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__termios TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__is_write_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE vfs TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__close FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_scheduling_algorithm FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__read_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_file FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__set_read_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__connect__2 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___ipc__filelock__list_all FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_time_slice FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__get_fd_flags FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__filelock__inner_could_acquire FALSE FALSE FALSE FALSE TRUE ada___ipc__filelock PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__set_write_blocking FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__write_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__delete_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__switch_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__accept_connection__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__poll_reader FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_fd_flags FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__read_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE networking TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE scheduler__get_niceness FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ipc TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__write FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__remove_file FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_niceness FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_left FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__fifo__poll_writer FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__write_secondary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_name FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__socket__read__3 FALSE FALSE FALSE FALSE TRUE ada___ipc__socket VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__flush_files FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__mac TRUE FALSE FALSE FALSE FALSE userland
+GG EK_FLOW_SCOPE scheduler__set_name FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__flush_exec_files FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__pty__poll_primary FALSE FALSE FALSE FALSE TRUE ada___ipc__pty VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__stat FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__fifo__is_empty FALSE FALSE FALSE FALSE TRUE ada___ipc__fifo VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_load_averages FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__unsigned_types__rotate_left FALSE FALSE FALSE FALSE TRUE ada___system__unsigned_types VISIBLE_PART
+GG EK_FLOW_SCOPE networking__get_hostname FALSE FALSE FALSE FALSE TRUE networking VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__process__set_common_map FALSE FALSE FALSE FALSE TRUE ada___userland__process VISIBLE_PART
+GG EK_END_MARKER

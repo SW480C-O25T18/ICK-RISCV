@@ -1,0 +1,358 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U ipc.futex%b		ipc-futex.adb		1529e641 OO PK IU
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W ipc%s			ipc.ads			ipc.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W lib.time%s		lib-time.adb		lib-time.ali
+W scheduler%s		scheduler.adb		scheduler.ali
+
+U ipc.futex%s		ipc-futex.ads		759f3969 OO PK IU
+W interfaces%s		interfac.ads		interfac.ali
+W ipc%s			ipc.ads			ipc.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D arch-context.ads	20250222165738 7bffdd51 arch.context%s
+D arch-interrupts.ads	20250222165738 186adf79 arch.interrupts%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D ipc.ads		20250222165738 03976a1a ipc%s
+D ipc-futex.ads		20250222165738 e719aab2 ipc.futex%s
+D ipc-futex.adb		20250222165738 c8a21bed ipc.futex%b
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D lib-time.ads		20250222165738 30059be5 lib.time%s
+D memory.ads		20250222165738 335640bf memory%s
+D scheduler.ads		20250222165738 61f570e7 scheduler%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D userland.ads		20250222165738 1671c2b9 userland%s
+D userland-elf.ads	20250222165738 416b8b0c userland.elf%s
+D vfs.ads		20250222165738 63b4365d vfs%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 arch.ads
+20K9*Arch 52e9 10|19r6 72r7 87r10
+X 2 arch-clocks.ads
+19K14*Clocks 45e16 10|19w11 72r12 87r15
+31U14*Get_Monotonic_Time 10|72s19 87s22
+X 7 interfac.ads
+38K9*Interfaces 233e15 9|17w6 17r22
+81M9*Unsigned_32 9|29r25 30r18 10|24r28 26r21
+84M9*Unsigned_64 9|41r22 42r22 10|35r22 36r22 38r52
+X 8 ipc.ads
+17K9*IPC 18e8 9|19r9 47r5 10|22r14 109r5
+X 9 ipc-futex.ads
+19K13*Futex 8|17k9 9|47l9 47e14 10|22b18 109l9 109t14
+28R9*Element 31e14 32r52
+29p7*Key(7|81M9) 10|43r22 49r44 58r53 102r37
+30m7*Expected{7|81M9} 10|43r42
+32A9*Element_Arr(28R9)<integer> 40r22 46r27 10|34r22 97r27
+39V13*Wait{boolean} 40>8 41>8 42>8 10|33b13 95l8 95t12
+40a8 Keys{32A9} 10|34b8 39r25 42r16 43r13 43r33 49r35 58r44
+41m8 Max_Seconds{7|84M9} 10|35b8 73r50
+42m8 Max_Nanos{7|84M9} 10|36b8 73r63
+46U14*Wake 46>20 10|97b14 108l8 108t12
+46a20 Keys{32A9} 10|97b20 99r16 102r35
+X 10 ipc-futex.adb
+23R9 Futex_Inner 27e14 28r41
+24p7*Key(7|81M9) 49r29 56r29 58m29 80m29 102r29
+25b7*Wakey_Wakey{boolean} 59m29 77r26 103m29
+26m7*Waiters{7|81M9} 51m29 51r53 60m29 78m26 78r50 79r29
+28A9 Futex_Arr(23R9)<integer> 31r36
+30r4 Registry_Mutex{12|22R9} 47m37 47r37 65m39 65r39 68m39 68r39 76m37 76r37
+. 82m42 82r42 85m39 85r39 100m37 100r37 106m39 106r39
+31a4 Registry{28A9} 48r19 49r16 51m16 51r40 55r19 56r16 58m16 59m16 60m16
+. 77r13 78m13 78r37 79r16 80m16 101r19 102r16 103m16
+38m7 Curr_Sec{7|84M9} 87m42 89r14
+38m17 Curr_NSec{7|84M9} 87m52 89r24
+38m28 Final_Sec{7|84M9} 72m39 73m27 73r27 89r35
+38m39 Final_NSec{7|84M9} 72m50 73m38 73r38 89r46
+39a7 Idx(natural) 50m16 57m16 75r16 77r23 78r23 78r47 79r26 80r26
+42i11 I{integer} 43r19 43r39 49r41 50r21 57r21 58r50
+48i14 J{integer} 49r26 50r27 51r26 51r50
+55i14 J{integer} 56r26 57r27 58r26 59r26 60r26
+67L9 End_Of_Iter 52r21 61r21
+75i11 I=75:16{natural}
+99r11 K=99:16{9|28R9}
+101i14 I{integer} 102r26 103r26
+X 11 lib.ads
+19K9*Lib 10|18r6 18r31 20r6 47r10 65r10 68r10 73r7 76r10 82r13 85r10 88r20
+. 100r10 106r10 11|35e8
+X 12 lib-synchronization.ads
+20K13*Synchronization 10|18w10 18r35 47r14 65r14 68r14 76r14 82r17 85r14
+. 100r14 106r14 12|66e24
+22R9*Binary_Semaphore 10|30r29 12|57e14
+23r4*Unlocked_Semaphore{22R9} 10|30r49
+27U14*Seize 10|47s30 76s30 100s30
+31U14*Release 10|65s30 68s30 82s33 85s30 106s30
+X 13 lib-time.ads
+19K13*Time 10|20w10 73r11 88r24 13|77e13
+37U14*Increment 10|73s16
+63V13*Is_Greater_Equal{boolean} 10|88s29
+X 15 scheduler.ads
+25K9*Scheduler 10|17w6 91r10 15|183e14
+74U14*Yield_If_Able 10|91s20
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___ipc__futex__wait 0
+GG EK_PROOF_DEPENDENCIES ada___ipc__futex__wait 0
+GG EK_GLOBALS ada___ipc__futex__wait local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___ipc__futex ipc proper_proof_in 0 proper_input 3 ada___ipc__futex__registry_mutex ada___ipc__futex__registry __HEAP proper_output 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry refined_proof_in 0 refined_input 3 ada___ipc__futex__registry_mutex ada___ipc__futex__registry __HEAP refined_output 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry calls_proof 0 calls 0 calls_conditional 6 scheduler__yield_if_able ada___lib__synchronization__seize ada___lib__synchronization__release ada___arch__clocks__get_monotonic_time ada___lib__time__increment ada___lib__time__is_greater_equal TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__futex__wake 0
+GG EK_PROOF_DEPENDENCIES ada___ipc__futex__wake 0
+GG EK_GLOBALS ada___ipc__futex__wake local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___ipc__futex ipc proper_proof_in 0 proper_input 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry proper_output 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry refined_proof_in 0 refined_input 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry refined_output 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry calls_proof 0 calls 0 calls_conditional 2 ada___lib__synchronization__seize ada___lib__synchronization__release FALSE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___ipc__futex__registry_mutex ada___ipc__futex__registry LOCKS 0
+GG EK_DIRECT_CALLS ada___ipc__futex 0
+GG EK_PROOF_DEPENDENCIES ada___ipc__futex 0
+GG EK_GLOBALS ada___ipc__futex local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 ipc proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___ipc__futex TRUE FALSE FALSE FALSE FALSE ipc
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__yield_if_able FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__bail FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__mmap FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__init_gp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_runtime_times FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_node FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ipc__futex__wait FALSE FALSE FALSE FALSE TRUE ada___ipc__futex VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__load_gp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__signal_kernel_entry FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ipc__futex__wake FALSE FALSE FALSE FALSE TRUE ada___ipc__futex VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__save_core_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__signal_kernel_exit FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__success_fork_result FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__init_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_scheduling_algorithm FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ipc TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__create_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context__save_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__poll FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__context__load_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__unmount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_time_slice FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__can_access_file FALSE FALSE FALSE FALSE TRUE vfs PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__context__destroy_fp_context FALSE FALSE FALSE FALSE TRUE ada___arch__context VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__delete_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__time TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_hard_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__time__normalize FALSE FALSE FALSE FALSE TRUE ada___lib__time VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__switch_cluster FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__list_all FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_niceness FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__time__increment FALSE FALSE FALSE FALSE TRUE ada___lib__time VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_niceness FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__rename FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_mode FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__get_name FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__interrupts TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___lib__time__substract FALSE FALSE FALSE FALSE TRUE ada___lib__time VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs_data FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__set_name FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_owner FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__get_linker FALSE FALSE FALSE FALSE TRUE ada___userland__elf PRIVATE_PART
+GG EK_FLOW_SCOPE scheduler__get_load_averages FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__unlink FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_device FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf TRUE FALSE FALSE FALSE FALSE userland
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__scheduler_isr FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__load_header FALSE FALSE FALSE FALSE TRUE ada___userland__elf PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__get_mount_point FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__time__is_greater_equal FALSE FALSE FALSE FALSE TRUE ada___lib__time VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__check_access FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__close FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE scheduler__convert__3 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__convert__4 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__time__is_normalized FALSE FALSE FALSE FALSE TRUE ada___lib__time VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__remount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read_entries FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_access_times FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_block_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___userland__elf__load_elf FALSE FALSE FALSE FALSE TRUE ada___userland__elf VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__read_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE userland TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__get_fragment_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE vfs__open__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__list_all FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__get_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__list_all__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE scheduler__init FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_inode_count FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__idle_core FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__3 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__write FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_blocks FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_node__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_inodes FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__waiting_spot FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__is_absolute FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE scheduler__has_available_time FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__stat FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__apply_umask FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread__2 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__is_switchable FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_max_length FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__add_bucket_and_shift FALSE FALSE FALSE FALSE TRUE scheduler PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__is_initialized FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__truncate FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__create_user_thread__3 FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__open FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__init FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__io_control FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__context TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE scheduler__delete_thread FALSE FALSE FALSE FALSE TRUE scheduler VISIBLE_PART
+GG EK_END_MARKER

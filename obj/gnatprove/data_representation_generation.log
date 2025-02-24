@@ -1,3 +1,36 @@
 gcc: error: unrecognized argument in option '-mabi=lp64'
 gcc: note: valid arguments to '-mabi=' are: ms sysv
 gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?
+gcc: error: unrecognized argument in option '-mabi=lp64'
+gcc: note: valid arguments to '-mabi=' are: ms sysv
+gcc: error: unrecognized command-line option '-mno-relax'; did you mean '-mno-recip'?

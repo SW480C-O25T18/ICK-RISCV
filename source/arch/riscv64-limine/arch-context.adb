@@ -210,8 +210,7 @@ package body Arch.Context is
    begin
       -- Always start with a zeroed FP context.
       Ctx := (others => 0);
-      pragma Assert (for all I in FP_Context'Range => Ctx(I) = 0,
-                     "FP context zeroed");
+      pragma Assert (for all I in FP_Context'Range => Ctx(I) = 0, "FP context zeroed");
       -- Set up the FP routine pointers once.
       Setup_FP_Routines;
       -- Save the current FP context using the chosen routine.
@@ -231,8 +230,7 @@ package body Arch.Context is
    procedure Destroy_FP_Context (Ctx : in out FP_Context) is
    begin
       Ctx := (others => 0);
-      pragma Assert (for all I in FP_Context'Range => Ctx(I) = 0,
-                     "FP context destroyed");
+      pragma Assert (for all I in FP_Context'Range => Ctx(I) = 0, "FP context destroyed");
    end Destroy_FP_Context;
 
    ----------------------------------------------------------------------------

@@ -20,13 +20,13 @@ override MAKEFLAGS += -rR
 # Import some autoconf variables as make variables
 override SRCDIR          := /home/sean/capstone/ICK-RISCV-Context
 override BUILDDIR        := /home/sean/capstone/ICK-RISCV-Context
-override PACKAGE_VERSION := g2867970
+override PACKAGE_VERSION := g4411615
 override PACKAGE_TARNAME := ironclad
 override OUTPUT          := $(PACKAGE_TARNAME)
 override DIST_OUTPUT     := $(PACKAGE_TARNAME)-$(PACKAGE_VERSION)
 
 # Take care of reproducible dates.
-override SOURCE_DATE_EPOCH := 1739144561
+override SOURCE_DATE_EPOCH := 1740427559
 export SOURCE_DATE_EPOCH
 
 # Autoconf dir variables.
