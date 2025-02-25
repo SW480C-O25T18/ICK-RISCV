@@ -1,23 +1,24 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -nostdinc
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
 A -fstack-check=no
 A -gnatg
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -35,10 +36,10 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U system%s		system.ads		c1a7efcf NE OL PU PK
+U system%s		system.ads		b9db1e82 NE OL PU PK
 
-D system.ads		20241115151050 c1a7efcf system%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D system.ads		20241110154653 b9db1e82 system%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 G c Z s s [Olt system 28 13 none]
 G c Z s s [Ole system 29 13 none]
@@ -47,8 +48,8 @@ G c Z s s [Oge system 31 13 none]
 G c Z s s [Oeq system 32 13 none]
 X 1 system.ads
 11K9*System 45E9 73l5 73e11
-12E9*Name 12e54 13r27
-12n18*SYSTEM_NAME_RISCV64_LIMINE_IRONCLAD{12E9} 13r35
+12E9*Name 12e53 13r27
+12n18*SYSTEM_NAME_X86_64_LIMINE_IRONCLAD{12E9} 13r35
 13e4*System_Name{12E9}
 16N4*Min_Int
 17N4*Max_Int

@@ -1,23 +1,24 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -nostdinc
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
 A -fstack-check=no
 A -gnatg
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -36,12 +37,12 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U system.address_to_access_conversions%s  s-atacco.ads  c5e15ea3 NE OL PR PK GE
+U system.address_to_access_conversions%s  s-atacco.ads  bd9dafee NE OL PR PK GE
 W system%s		system.ads		system.ali
 
-D system.ads		20241115151050 c1a7efcf system%s
-D s-atacco.ads		20241115151050 0446b16c system.address_to_access_conversions%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D system.ads		20241110154653 b9db1e82 system%s
+D s-atacco.ads		20241110154653 0446b16c system.address_to_access_conversions%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 X 1 system.ads
 11K9*System 73e11 2|13r9 27r5

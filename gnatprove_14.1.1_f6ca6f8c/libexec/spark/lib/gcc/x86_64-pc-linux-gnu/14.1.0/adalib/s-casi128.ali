@@ -1,0 +1,77 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wextra
+A -Wall
+A -gnatwa
+A -g
+A -gnatp
+A -gnatg
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LONG_LONG_INTEGERS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+
+U system.compare_array_signed_128%b  s-casi128.adb  a4953bee NE OL PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W system%s		system.ads		system.ali
+W system.address_operations%s  s-addope.adb	s-addope.ali
+W system.storage_elements%s  s-stoele.ads	s-stoele.ali
+
+U system.compare_array_signed_128%s  s-casi128.ads  03e99fa0 NE OL PK
+W system%s		system.ads		system.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-unccon.ads		20240507065137 0e9b276f ada.unchecked_conversion%s
+D system.ads		20240507065137 14286b0f system%s
+D s-addope.ads		20240507065137 7e342ca0 system.address_operations%s
+D s-addope.adb		20240507065137 044c5324 system.address_operations%b
+D s-casi128.ads		20240507065137 17c1f4af system.compare_array_signed_128%s
+D s-casi128.adb		20240507065137 0f251066 system.compare_array_signed_128%b
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+G a e
+G c Z s b [compare_array_s128 system__compare_array_signed_128 41 13 none]
+G c Z b b [w system__compare_array_signed_128 50 13 none]
+G c Z b b [u system__compare_array_signed_128 51 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 7|35r6 50r22 51r22
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 7|35w10 50r26 51r26
+X 3 system.ads
+37K9*System 155e11 6|35r9 42r19 43r19 52r5 7|32r6 32r37 33r6 33r37 37r14
+. 58r19 59r19 117r5
+67M9*Address 6|42r26 43r26 7|50r48 51r48 58r26 59r26 66r11 67r11
+81V14*"="{boolean} 7|73r39
+X 4 s-addope.ads
+43K16*Address_Operations 85e30 7|32w13 32r44
+67V13*ModA{3|67M9} 7|73s10
+75V13*OrA{3|67M9} 7|73s16
+X 6 s-casi128.ads
+35K16*Compare_Array_Signed_128 3|37k9 6|52l12 52e36 7|37b21 117l12 117t36
+41V13*Compare_Array_S128{integer} 42>7 43>7 44>7 45>7 7|57b13 115l8 115t26
+42m7 Left{3|67M9} 7|58b7 66r22 73r21
+43m7 Right{3|67M9} 7|59b7 67r22 73r27
+44i7 Left_Len{natural} 7|60b7 63r38 108r10 110r13
+45i7 Right_Len{natural} 7|61b7 63r48 108r21 110r24
+X 7 s-casi128.adb
+39I9 Word<long_long_long_integer> 40r8 43r22 47r22
+43I9 Uword<39I9> 44r8 48r22
+47P9 WP(39I9) 50r57
+48P9 UP(43I9) 51r57
+50V13 W[2|20]{47P9} 75s16 75s29 76s19 76s31
+51V13 U[2|20]{48P9} 92s16 92s29 93s19 93s31
+63i7 Clen{natural} 74r16 83m13 83r21 91r16 100m13 100r21
+66m7 L{3|67M9} 75r19 76r22 84m13 84r18 92r19 93r22 101m13 101r18
+67m7 R{3|67M9} 75r32 76r34 85m13 85r18 92r32 93r34 102m13 102r18
+X 8 s-stoele.ads
+40K16*Storage_Elements 7|33w13 33r44 8|90e28
+51I9*Storage_Offset<long_integer> 7|84r22 85r22 101r22 102r22
+67V14*"+"{3|67M9} 7|84r20 85r20 101r20 102r20
+71V14*"-"{3|67M9} 7|39r41
+

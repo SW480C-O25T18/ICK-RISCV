@@ -1,23 +1,24 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -nostdinc
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
 A -fstack-check=no
 A -gnatg
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -37,11 +38,11 @@ RR NO_OBSOLESCENT_FEATURES
 U ada.characters.latin_1%s  a-chlat1.ads	cab3b835 NE OL PU PK
 W ada.characters%s	a-charac.ads		a-charac.ali
 
-D ada.ads		20241115151050 0e5b2a16 ada%s
-D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
-D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
-D system.ads		20241115151050 c1a7efcf system%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D ada.ads		20241110154653 0e5b2a16 ada%s
+D a-charac.ads		20241110154653 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241110154653 8791f8e7 ada.characters.latin_1%s
+D system.ads		20241110154653 b9db1e82 system%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 X 1 ada.ads
 11K9*Ada 12e8 3|11r9 247r5

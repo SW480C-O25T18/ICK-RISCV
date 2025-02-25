@@ -1,0 +1,2 @@
+arch-limine.ads:155:09: error: non-volatile type "SMP_Request" cannot have volatile components
+arch-limine.ads:156:07: error: component "Base" of non-volatile type "Smp_Request" cannot be volatile

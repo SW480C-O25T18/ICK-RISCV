@@ -1,10 +1,10 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
@@ -14,15 +14,17 @@ A -ffunction-sections
 A -gnateDIroncladName="Ironclad"
 A -gnateDVersion="g0a370c9"
 A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
-A -gnateDArchName="riscv64-limine"
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDArchName="x86_64-limine"
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -gnateDALLOCONLY=False
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -fcf-protection=full
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RV NO_ALLOCATORS
@@ -44,7 +46,7 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U kernel_main%b		kernel_main.adb		7583b801 NE OO PK
+U kernel_main%b		kernel_main.adb		fe656699 NE OO PK
 W arch%s		arch.ads		arch.ali
 W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
 W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
@@ -65,46 +67,46 @@ W vfs%s			vfs.adb			vfs.ali
 
 U kernel_main%s		kernel_main.ads		fba3ee83 NE OO PK
 
-D ada.ads		20241115151050 0e5b2a16 ada%s
-D a-charac.ads		20241115151050 4d2240d2 ada.characters%s
-D a-chlat1.ads		20241115151050 8791f8e7 ada.characters.latin_1%s
-D arch.ads		20241115151036 7fd82c9e arch%s
-D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
-D arch-context.ads	20241115151036 7bffdd51 arch.context%s
-D arch-hooks.ads	20241115151036 2bd12b55 arch.hooks%s
-D arch-interrupts.ads	20241115151036 186adf79 arch.interrupts%s
-D arch-mmu.ads		20241115151036 1ac94a0b arch.mmu%s
-D config.ads		20241115151036 e56314eb config%s
-D devices.ads		20241115151036 f45ecf09 devices%s
-D devices-termios.ads	20241115151036 06aea761 devices.termios%s
-D interfac.ads		20241115151050 f8f85574 interfaces%s
-D i-c.ads		20241115151050 aa7a7c0b interfaces.c%s
-D ipc.ads		20241115151036 03976a1a ipc%s
-D ipc-fifo.ads		20241115151036 9141c09a ipc.fifo%s
-D ipc-pty.ads		20241115151036 66e20305 ipc.pty%s
-D ipc-socket.ads	20241115151036 ab61e49d ipc.socket%s
-D kernel_main.ads	20241115151036 fba3ee83 kernel_main%s
-D kernel_main.adb	20241115151036 3470b9b8 kernel_main%b
-D lib.ads		20241115151036 8d95f6f9 lib%s
-D lib-cmdline.ads	20241115151036 711caa36 lib.cmdline%s
-D lib-messages.ads	20241115151036 4282fa77 lib.messages%s
-D lib-panic.ads		20241115151036 ca7c7da8 lib.panic%s
-D lib-runtime.ads	20241115151036 e2d5964f lib.runtime%s
-D lib-synchronization.ads  20241115151036 9c09bc37 lib.synchronization%s
-D memory.ads		20241115151036 335640bf memory%s
-D networking.ads	20241115151036 70ea6e55 networking%s
-D networking-arp.ads	20241115151036 eec21925 networking.arp%s
-D scheduler.ads		20241115151036 61f570e7 scheduler%s
-D system.ads		20241115151050 c1a7efcf system%s
-D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
-D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
-D userland.ads		20241115151036 1671c2b9 userland%s
-D userland-elf.ads	20241115151036 416b8b0c userland.elf%s
-D userland-loader.ads	20241115151036 4d432fbc userland.loader%s
-D userland-mac.ads	20241115151036 eff2fe62 userland.mac%s
-D userland-process.ads	20241115151036 a4893a04 userland.process%s
-D vfs.ads		20241115151036 63b4365d vfs%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D ada.ads		20241110154653 0e5b2a16 ada%s
+D a-charac.ads		20241110154653 4d2240d2 ada.characters%s
+D a-chlat1.ads		20241110154653 8791f8e7 ada.characters.latin_1%s
+D arch.ads		20241110154653 7fd82c9e arch%s
+D arch-clocks.ads	20241110154653 f76b002b arch.clocks%s
+D arch-context.ads	20241110154653 afde2d7f arch.context%s
+D arch-hooks.ads	20241110154653 2bd12b55 arch.hooks%s
+D arch-interrupts.ads	20241110154653 867d7459 arch.interrupts%s
+D arch-mmu.ads		20241110154653 410caea3 arch.mmu%s
+D config.ads		20241110154653 6e85ca73 config%s
+D devices.ads		20241110154653 f45ecf09 devices%s
+D devices-termios.ads	20241110154653 06aea761 devices.termios%s
+D interfac.ads		20241110154653 f8f85574 interfaces%s
+D i-c.ads		20241110154653 aa7a7c0b interfaces.c%s
+D ipc.ads		20241110154653 03976a1a ipc%s
+D ipc-fifo.ads		20241110154653 9141c09a ipc.fifo%s
+D ipc-pty.ads		20241110154653 66e20305 ipc.pty%s
+D ipc-socket.ads	20241110154653 ab61e49d ipc.socket%s
+D kernel_main.ads	20241110154653 fba3ee83 kernel_main%s
+D kernel_main.adb	20241110154653 3470b9b8 kernel_main%b
+D lib.ads		20241110154653 8d95f6f9 lib%s
+D lib-cmdline.ads	20241110154653 711caa36 lib.cmdline%s
+D lib-messages.ads	20241110154653 4282fa77 lib.messages%s
+D lib-panic.ads		20241110154653 ca7c7da8 lib.panic%s
+D lib-runtime.ads	20241110154653 e2d5964f lib.runtime%s
+D lib-synchronization.ads  20241110154653 9c09bc37 lib.synchronization%s
+D memory.ads		20241110154653 335640bf memory%s
+D networking.ads	20241110154653 70ea6e55 networking%s
+D networking-arp.ads	20241110154653 eec21925 networking.arp%s
+D scheduler.ads		20241110154653 61f570e7 scheduler%s
+D system.ads		20241110154653 b9db1e82 system%s
+D s-stoele.ads		20241110154653 cd6a27f6 system.storage_elements%s
+D s-unstyp.ads		20241110154653 34cdeecb system.unsigned_types%s
+D userland.ads		20241110154653 1671c2b9 userland%s
+D userland-elf.ads	20241110154653 416b8b0c userland.elf%s
+D userland-loader.ads	20241110154653 4d432fbc userland.loader%s
+D userland-mac.ads	20241110154653 eff2fe62 userland.mac%s
+D userland-process.ads	20241110154653 a4893a04 userland.process%s
+D vfs.ads		20241110154653 63b4365d vfs%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 G c Z s b [entrypoint kernel_main 25 14 none]
 G r s environment_arr [entrypoint kernel_main 25 14 none] [environment_arrIP userland 21 9 none]

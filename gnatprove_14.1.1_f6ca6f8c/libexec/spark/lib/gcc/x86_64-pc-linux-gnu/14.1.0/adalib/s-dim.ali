@@ -1,0 +1,26 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wextra
+A -Wall
+A -gnatwa
+A -g
+A -gnatp
+A -gnatg
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+
+U system.dim%s		s-dim.ads		f8181cc3 NE OL PU PK
+W system%s		system.ads		system.ali
+
+D system.ads		20240507065137 14286b0f system%s
+D s-dim.ads		20240507065137 ec3077cc system.dim%s
+G a e
+X 1 system.ads
+37K9*System 155e11 2|65r9 68r5
+X 2 s-dim.ads
+65K16*Dim 1|37k9 2|68l12 68e15
+

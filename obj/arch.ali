@@ -1,10 +1,10 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
@@ -14,15 +14,17 @@ A -ffunction-sections
 A -gnateDIroncladName="Ironclad"
 A -gnateDVersion="g0a370c9"
 A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
-A -gnateDArchName="riscv64-limine"
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDArchName="x86_64-limine"
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -gnateDALLOCONLY=False
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -fcf-protection=full
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -41,14 +43,14 @@ RV NO_IMPLICIT_LOOPS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U arch%s		arch.ads		7315e4a7 NE OO PK
+U arch%s		arch.ads		0b6915ea NE OO PK
 W system%s		system.ads		system.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 
-D arch.ads		20241115151036 7fd82c9e arch%s
-D system.ads		20241115151050 c1a7efcf system%s
-D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D arch.ads		20241110154653 7fd82c9e arch%s
+D system.ads		20241110154653 b9db1e82 system%s
+D s-stoele.ads		20241110154653 cd6a27f6 system.storage_elements%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 G c Z s s [boot_memory_regionIP arch 29 9 none]
 G c Z s s [boot_memory_mapIP arch 34 9 none]

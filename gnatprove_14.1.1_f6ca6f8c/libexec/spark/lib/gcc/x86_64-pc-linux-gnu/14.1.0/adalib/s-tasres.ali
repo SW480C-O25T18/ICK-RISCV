@@ -1,0 +1,54 @@
+V "GNAT Lib v14"
+A -nostdinc
+A -O2
+A -Wextra
+A -Wall
+A -gnatwa
+A -g
+A -gnatp
+A -gnatg
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+
+U system.tasking.restricted%s  s-tasres.ads	e74a1b45 NE OL PK
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-except.ads		20240507065137 e7970cd9 ada.exceptions%s
+D a-unccon.ads		20240507065137 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D i-c.ads		20240507065137 aac316ce interfaces.c%s
+D system.ads		20240507065137 14286b0f system%s
+D s-atacco.ads		20240507065137 5868e3ba system.address_to_access_conversions%s
+D s-exctab.ads		20240507065137 91bef6ef system.exception_table%s
+D s-linux.ads		20240507065137 34850a8c system.linux%s
+D s-multip.ads		20240507065137 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20240605175758 0a1d1474 system.os_constants%s
+D s-osinte.ads		20240507065137 e4f53740 system.os_interface%s
+D s-parame.ads		20240507065137 3597fc11 system.parameters%s
+D s-secsta.ads		20240507065137 578279f5 system.secondary_stack%s
+D s-soflin.ads		20240507065137 df77073e system.soft_links%s
+D s-stache.ads		20240507065137 0b81c1fe system.stack_checking%s
+D s-stausa.ads		20240507065137 5be75682 system.stack_usage%s
+D s-stalib.ads		20240507065137 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D s-tasinf.ads		20240507065137 528dde74 system.task_info%s
+D s-taspri.ads		20240507065137 4ec891e7 system.task_primitives%s
+D s-taskin.ads		20240507065137 ebc4edbe system.tasking%s
+D s-tasres.ads		20240507065137 0c8ef6fb system.tasking.restricted%s
+D s-traent.ads		20240507065137 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20240507065137 fa2a7f59 system.unsigned_types%s
+G a e
+X 6 system.ads
+37K9*System 155e11 23|34r9 35r5
+X 17 s-stausa.ads
+207U14*Initialize 208i<c,__gnat_stack_usage_initialize>22
+272U14*Output_Results 276i<c,__gnat_stack_usage_output_results>22
+X 22 s-taskin.ads
+47K16*Tasking 6|37k9 22|1220e19 23|34r16 35r12
+X 23 s-tasres.ads
+34K24*Restricted 22|47k16 23|35l20 35e30
+

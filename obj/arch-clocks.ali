@@ -1,10 +1,10 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
@@ -14,15 +14,17 @@ A -ffunction-sections
 A -gnateDIroncladName="Ironclad"
 A -gnateDVersion="g0a370c9"
 A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
-A -gnateDArchName="riscv64-limine"
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -gnateDArchName="x86_64-limine"
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -gnateDALLOCONLY=False
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -fcf-protection=full
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -40,20 +42,29 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U arch.clocks%b		arch-clocks.adb		0689561d NE OO PK
+U arch.clocks%b		arch-clocks.adb		cb3364fd NE OO PK
 W arch%s		arch.ads		arch.ali
+W arch.rtc%s		arch-rtc.adb		arch-rtc.ali
+W arch.snippets%s	arch-snippets.adb	arch-snippets.ali
+W lib%s			lib.adb			lib.ali
+W lib.time%s		lib-time.adb		lib-time.ali
 
 U arch.clocks%s		arch-clocks.ads		704b79c1 NE OO PK
 W arch%s		arch.ads		arch.ali
 W interfaces%s		interfac.ads		interfac.ali
 
-D arch.ads		20241115151036 7fd82c9e arch%s
-D arch-clocks.ads	20241115151036 f76b002b arch.clocks%s
-D arch-clocks.adb	20241115151036 f1e25636 arch.clocks%b
-D interfac.ads		20241115151050 f8f85574 interfaces%s
-D system.ads		20241115151050 c1a7efcf system%s
-D s-stoele.ads		20241115151050 cd6a27f6 system.storage_elements%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D arch.ads		20241110154653 7fd82c9e arch%s
+D arch-clocks.ads	20241110154653 f76b002b arch.clocks%s
+D arch-clocks.adb	20241110154653 ae5ace6c arch.clocks%b
+D arch-rtc.ads		20241110154653 fa22369f arch.rtc%s
+D arch-snippets.ads	20241110154653 582507c0 arch.snippets%s
+D interfac.ads		20241110154653 f8f85574 interfaces%s
+D lib.ads		20241110154653 8d95f6f9 lib%s
+D lib-time.ads		20241110154653 30059be5 lib.time%s
+D memory.ads		20241110154653 335640bf memory%s
+D system.ads		20241110154653 b9db1e82 system%s
+D s-stoele.ads		20241110154653 cd6a27f6 system.storage_elements%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 G c Z s b [initialize_sources arch__clocks 23 14 none]
 G c Z s b [get_monotonic_resolution arch__clocks 27 14 none]
@@ -61,38 +72,63 @@ G c Z s b [get_monotonic_time arch__clocks 31 14 none]
 G c Z s b [get_real_time_resolution arch__clocks 35 14 none]
 G c Z s b [get_real_time arch__clocks 39 14 none]
 G c Z s b [set_real_time arch__clocks 43 14 none]
+G r c none [initialize_sources arch__clocks 23 14 none] [read_cycles arch__snippets 74 16 none]
+G r c none [initialize_sources arch__clocks 23 14 none] [calibrate_sleep_1ms arch__snippets 79 17 none]
+G r c none [initialize_sources arch__clocks 23 14 none] [get_rtc_date arch__rtc 20 14 none]
+G r c none [get_monotonic_time arch__clocks 31 14 none] [read_cycles arch__snippets 74 16 none]
+G r c none [get_real_time arch__clocks 39 14 none] [read_cycles arch__snippets 74 16 none]
+G r c none [get_real_time arch__clocks 39 14 none] [substract lib__time 48 14 none]
+G r c none [set_real_time arch__clocks 43 14 none] [read_cycles arch__snippets 74 16 none]
+G r c none [set_real_time arch__clocks 43 14 none] [set_rtc_date arch__rtc 21 14 none]
 X 1 arch.ads
-20K9*Arch 52e9 2|19r9 45r5 3|17r14 77r5
+20K9*Arch 52e9 2|19r9 45r5 3|17r6 18r6 21r14 94r5
 X 2 arch-clocks.ads
-19K14*Clocks 1|20k9 2|45l10 45e16 3|17b19 77l10 77t16
-20@23*Monotonic_Clock_State 24r34 28r33 32r33 3|24r8
-20@46*RT_Clock_State 24r57 36r33 40r33 44r33 3|19r8
-23U14*Initialize_Sources 3|41b14 44l8 44t26
-27U14*Get_Monotonic_Resolution 27<40 27<49 3|46b14 51l8 51t32
-27m40 Seconds{4|19M9} 3|46b40 49m7
-27m49 Nanoseconds{4|19M9} 3|46b49 50m7
-31U14*Get_Monotonic_Time 31<34 31<43 3|53b14 57l8 57t26
-31m34 Seconds{4|19M9} 3|53b34 55m7
-31m43 Nanoseconds{4|19M9} 3|53b43 56m7
-35U14*Get_Real_Time_Resolution 35<40 35<49 3|59b14 64l8 64t32
-35m40 Seconds{4|19M9} 3|59b40 62m7
-35m49 Nanoseconds{4|19M9} 3|59b49 63m7
-39U14*Get_Real_Time 39<29 39<38 3|66b14 71l8 71t21
-39m29 Seconds{4|19M9} 3|66b29 69m7
-39m38 Nanoseconds{4|19M9} 3|66b38 70m7
-43U14*Set_Real_Time 43>29 43>38 3|73b14 76l8 76t21
-43m29 Seconds{4|19M9} 3|73b29
-43m38 Nanoseconds{4|19M9} 3|73b38
+19K14*Clocks 1|20k9 2|45l10 45e16 3|21b19 94l10 94t16
+20@23*Monotonic_Clock_State 24r34 28r33 32r33 3|28r8
+20@46*RT_Clock_State 24r57 36r33 40r33 44r33 3|23r8
+23U14*Initialize_Sources 3|45b14 55l8 55t26
+27U14*Get_Monotonic_Resolution 27<40 27<49 3|57b14 62l8 62t32
+27m40 Seconds{6|19M9} 3|57b40 60m7
+27m49 Nanoseconds{6|19M9} 3|57b49 61m7
+31U14*Get_Monotonic_Time 31<34 31<43 3|52s7 64b14 69l8 69t26 81s7 91s7
+31m34 Seconds{6|19M9} 3|64b34 67m7
+31m43 Nanoseconds{6|19M9} 3|64b43 68m7
+35U14*Get_Real_Time_Resolution 35<40 35<49 3|71b14 76l8 76t32
+35m40 Seconds{6|19M9} 3|71b40 74m7
+35m49 Nanoseconds{6|19M9} 3|71b49 75m7
+39U14*Get_Real_Time 39<29 39<38 3|78b14 85l8 85t21
+39m29 Seconds{6|19M9} 3|78b29 83m7
+39m38 Nanoseconds{6|19M9} 3|78b38 84m7
+43U14*Set_Real_Time 43>29 43>38 3|87b14 93l8 93t21
+43m29 Seconds{6|19M9} 3|87b29 89r32 92r25
+43m38 Nanoseconds{6|19M9} 3|87b38 90r32
 X 3 arch-clocks.adb
-30m4 RT_Timestamp_Seconds{4|19M9} 20r11
-31m4 RT_Timestamp_Nanoseconds{4|19M9} 21r11
-32m4 RT_Stored_Seconds{4|19M9} 22r11
-33m4 RT_Stored_Nanoseconds{4|19M9} 23r11
-37N4 MS_Per_Sec
-38N4 Nanos_Per_MS 39r35
-39m4 Mono_TSC_Freq{4|19M9} 24r34
-X 4 interfac.ads
-11K9*Interfaces 2|17w6 17r22 4|120e15
-19M9*Unsigned_64 2|27r67 31r61 35r67 39r56 43r52 3|30r31 31r31 32r31 33r31
-. 39r20 46r67 53r61 59r67 66r56 73r52
+34m4 RT_Timestamp_Seconds{6|19M9} 24r11 52m27 82r32 91m27
+35m4 RT_Timestamp_Nanoseconds{6|19M9} 25r11 52m49 82r54 91m49
+36m4 RT_Stored_Seconds{6|19M9} 26r11 53m25 83r18 89m7
+37m4 RT_Stored_Nanoseconds{6|19M9} 27r11 54m7 84r22 90m7
+41N4 MS_Per_Sec 67r31 68r34
+42N4 Nanos_Per_MS 43r35 61r38 68r48 75r38
+43m4 Mono_TSC_Freq{6|19M9} 28r34 50m7 61r22 65r63 75r22
+46m7 Beginning_TSC{6|19M9} 50r47
+65m7 Cycles{6|19M9} 67r22 68r23
+79m7 Temp1{6|19M9} 81m27 82m18 82r18 83r38
+79m14 Temp2{6|19M9} 81m34 82m25 82r25 84r46
+X 4 arch-rtc.ads
+19K14*RTC 3|17w11 53r7 92r7 4|31e13
+20U14*Get_RTC_Date 3|53s11
+21U14*Set_RTC_Date 3|92s11
+X 5 arch-snippets.ads
+20K14*Snippets 3|18w11 46r47 49r7 50r24 65r40 5|81e18
+74V16*Read_Cycles{6|19M9} 3|46s56 50s33 65s49
+79U17*Calibrate_Sleep_1MS 3|49s16
+X 6 interfac.ads
+11K9*Interfaces 2|17w6 17r22 6|120e15
+19M9*Unsigned_64 2|27r67 31r61 35r67 39r56 43r52 3|34r31 35r31 36r31 37r31
+. 43r20 46r32 57r67 64r61 65r25 71r67 78r56 79r22 87r52
+X 7 lib.ads
+19K9*Lib 3|19r6 19r20 7|35e8
+X 8 lib-time.ads
+19K13*Time 3|19w10 19r24 8|77e13
+48U14*Substract 3|82s7
 

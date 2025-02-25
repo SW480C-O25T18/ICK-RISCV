@@ -1,23 +1,24 @@
-V "GNAT Lib v14"
+V "GNAT Lib v12"
 A -nostdinc
 A -O2
 A -Wall
 A -Wextra
 A -gnatwa
 A -gnatA
-A --RTS=/home/michael/capstoneProject/ironclad/rtsdir/
+A --RTS=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/rtsdir/
 A -g
 A -gnaty
 A -fno-stack-protector
 A -fstack-check=no
 A -gnatg
-A -ffile-prefix-map=/home/michael/capstoneProject/ironclad=.
+A -ffile-prefix-map=/home/pj/PSU/SWENG480_SWENG481/ICK-RISCV=.
 A -fno-pic
-A -mno-relax
-A -mabi=lp64
-A -misa-spec=20191213
-A -march=rv64imac_zicsr_zifencei
-P
+A -mgeneral-regs-only
+A -mno-red-zone
+A -mcmodel=kernel
+A -mtune=generic
+A -march=x86-64
+P FX
 
 RN
 RR NO_DELAY
@@ -36,12 +37,12 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U system.unsigned_types%s  s-unstyp.ads		f56a0104 NE OL PU PK
+U system.unsigned_types%s  s-unstyp.ads		8d16f049 NE OL PU PK
 W system%s		system.ads		system.ali
 
-D system.ads		20241115151050 c1a7efcf system%s
-D s-unstyp.ads		20241115151050 34cdeecb system.unsigned_types%s
-D /home/michael/capstoneProject/ironclad/source/pragmas.adc  20241115151036 00000000
+D system.ads		20241110154653 b9db1e82 system%s
+D s-unstyp.ads		20241110154653 34cdeecb system.unsigned_types%s
+D /home/pj/PSU/SWENG480_SWENG481/ICK-RISCV/source/pragmas.adc  20241110154653 00000000
 G a e
 G c Z s s [shift_left system__unsigned_types 111 13 none]
 G c Z s s [shift_right system__unsigned_types 115 13 none]
