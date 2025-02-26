@@ -141,6 +141,10 @@ package body Arch.Context is
    ----------------------------------------------------------------------------
    -- Start Helper Functions Section
    ----------------------------------------------------------------------------
+
+   ----------------------------------------------------------------------------
+   -- To_Frame and To_GP_Context_Type: Conversion Functions
+   ----------------------------------------------------------------------------
    function To_Frame(Ctx : GP_Context_Type) return GP_Context is
       pragma Inline;
    begin
