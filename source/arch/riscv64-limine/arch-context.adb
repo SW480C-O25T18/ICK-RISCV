@@ -40,7 +40,7 @@ package body Arch.Context is
    end record;
 
    ----------------------------------------------------------------------------
-   -- Package-Level Constant: Cached misa Value
+   -- Package-Level Constant - Cached misa Value
    ----------------------------------------------------------------------------
    MISA_Value : constant Unsigned_64 := Get_CSR(16#301#);
 
@@ -49,33 +49,11 @@ package body Arch.Context is
    ----------------------------------------------------------------------------
    F_Extension_Bit : constant Unsigned_64 := 16#20#;  -- F extension (bit 5)
    D_Extension_Bit : constant Unsigned_64 := 16#40#;  -- D extension (bit 6)
-   Q_Extension_Bit : constant Unsigned_64 := 16#80#;  -- Q extension (bit 7), if implemented
+   Q_Extension_Bit : constant Unsigned_64 := 16#80#;  -- Q extension (bit 7), for potential future use
 
    ----------------------------------------------------------------------------
-   -- Public - Routines as declared in arch-context.ads
+   -- Start Package Specification Section
    ----------------------------------------------------------------------------
-
-   function To_Frame(Ctx : GP_Context_Type) return GP_Context is
-      pragma Inline;
-   begin
-      return (
-         R2  => Unsigned_32(Ctx.SP and 16#FFFFFFFF#),
-         R10 => Unsigned_32(Ctx.A0 and 16#FFFFFFFF#),
-         others => 0
-      );
-   end To_Frame;
-
-   function To_GP_Context_Type(Frame : GP_Context) return GP_Context_Type is
-      pragma Inline;
-   begin
-      return (
-         SP      => Unsigned_64(Frame.R2),
-         SEPC    => Get_CSR(16#141#),
-         SSTATUS => Get_CSR(16#100#),
-         A0      => Unsigned_64(Frame.R10)
-      );
-   end To_GP_Context_Type;
-
    procedure Init_GP_Context
       (Ctx        : out GP_Context;
        Stack      : System.Address;
@@ -157,10 +135,33 @@ package body Arch.Context is
    end Destroy_FP_Context;
 
    ----------------------------------------------------------------------------
-   -- End Public Section
+   -- End Package Specification Section
    ----------------------------------------------------------------------------
 
-private
+   ----------------------------------------------------------------------------
+   -- Helper Functions Section
+   ----------------------------------------------------------------------------
+   function To_Frame(Ctx : GP_Context_Type) return GP_Context is
+      pragma Inline;
+   begin
+      return (
+         R2  => Unsigned_32(Ctx.SP and 16#FFFFFFFF#),
+         R10 => Unsigned_32(Ctx.A0 and 16#FFFFFFFF#),
+         others => 0
+      );
+   end To_Frame;
+
+   function To_GP_Context_Type(Frame : GP_Context) return GP_Context_Type is
+      pragma Inline;
+   begin
+      return (
+         SP      => Unsigned_64(Frame.R2),
+         SEPC    => Get_CSR(16#141#),
+         SSTATUS => Get_CSR(16#100#),
+         A0      => Unsigned_64(Frame.R10)
+      );
+   end To_GP_Context_Type;
+
    ----------------------------------------------------------------------------
    -- FP Context Dispatch: Types and Variables
    ----------------------------------------------------------------------------
