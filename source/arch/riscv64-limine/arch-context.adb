@@ -139,7 +139,7 @@ package body Arch.Context is
    ----------------------------------------------------------------------------
 
    ----------------------------------------------------------------------------
-   -- Helper Functions Section
+   -- Start Helper Functions Section
    ----------------------------------------------------------------------------
    function To_Frame(Ctx : GP_Context_Type) return GP_Context is
       pragma Inline;
@@ -254,5 +254,9 @@ package body Arch.Context is
          FP_Load_Routine := FP_Load_Routine_Type'(FP_Load_NoOp'Access);
       end if;
    end Setup_FP_Routines;
+
+   ----------------------------------------------------------------------------
+   -- End Helper Functions Section
+   ----------------------------------------------------------------------------
 
 end Arch.Context;
