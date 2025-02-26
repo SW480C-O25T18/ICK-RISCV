@@ -51,7 +51,7 @@ project Ironclad is
          ("-fno-stack-protector", "-fno-stack-check",
           "-fdata-sections", "-ffunction-sections",
           "-gnateDIroncladName=""" & "Ironclad"      & """",
-          "-gnateDVersion="""      & "g2867970"   & """",
+          "-gnateDVersion="""      & "g4411615"   & """",
           "-gnateDBugSite="""      & "https://ironclad.nongnu.org/usersupport.html" & """",
           "-gnateDArchName="""     & Arch                  & """",
           "-ffile-prefix-map="     & "/home/sean/capstone/ICK-RISCV-Context"            & "=.",

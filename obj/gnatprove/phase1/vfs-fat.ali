@@ -1,0 +1,698 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U vfs.fat%b		vfs-fat.adb		21e714da OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s  a-uncdea.ads	a-uncdea.ali
+W lib%s			lib.adb			lib.ali
+W lib.alignment%s	lib-alignment.adb	lib-alignment.ali
+W system%s		system.ads		system.ali
+W system.address_to_access_conversions%s  s-atacco.ads  s-atacco.ali
+W system.storage_elements%s  s-stoele.ads	s-stoele.ali
+W vfs%s			vfs.adb			vfs.ali
+
+U vfs.fat%s		vfs-fat.ads		3d3f4adc OO PK IU
+W vfs%s			vfs.adb			vfs.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-uncdea.ads		20240507065137 c3a8ac65 ada.unchecked_deallocation%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-alignment.ads	20250222165738 68e8a917 lib.alignment%s
+D lib-alignment.adb	20250222165738 a3b617fd lib.alignment%b
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-atacco.ads		20240507065137 5868e3ba system.address_to_access_conversions%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D vfs.ads		20250222165738 63b4365d vfs%s
+D vfs-fat.ads		20250222165738 5e8b7c81 vfs.fat%s
+D vfs-fat.adb		20250222165738 409a5a7b vfs.fat%b
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 ada.ads
+16K9*Ada 20e8 17|19r6 25r28 26r28
+X 2 a-uncdea.ads
+20u15*Unchecked_Deallocation 17|19w10 25r32 26r32
+X 5 devices.ads
+22K9*Devices 279e12 17|42r7 340r10 385r32 410r7 436r10
+29A9*Operation_Data(6|70M9)<integer> 16|72r24 17|39r19 299r24 402r21 427r23
+83I9*Device_Handle<integer> 16|19r23 190r24 17|29r23
+154V13*Get_Block_Size{natural} 17|373s52 385s40
+156V13*Is_Read_Only{boolean} 17|52s29
+193U14*Read 17|42s15 340s18 410s15 436s18
+X 6 interfac.ads
+70M9*Unsigned_8 16|87r52 92r31 94r31 97r31 110r31 111r31 112r31 161r28 162r28
+. 163r28 238r36
+73M9*Unsigned_16 16|91r31 93r31 95r31 96r31 98r31 99r31 100r31 104r31 105r31
+. 107r31 108r31 117r31 164r28 165r28 166r28 167r28 168r28 169r28 170r28
+81M9*Unsigned_32 16|101r31 102r31 103r31 106r31 113r31 171r28 193r24 194r24
+. 195r24 200r23 208r18 215r24 216r28 228r45 232r30 233r30 234r30 17|54r29
+. 55r29 56r29 57r29 145r20 196r39 197r30 240r17 307r24 308r33 309r10 338r37
+. 369r43 373r23 373r39 374r23 395r18 408r34 421r24 422r28
+84M9*Unsigned_64 16|32r57 34r60 36r51 38r58 42r33 43r33 47r33 48r33 50r57
+. 71r20 90r31 209r18 228r65 229r11 234r50 17|85r57 91r60 97r51 103r58 111r33
+. 112r33 122r33 123r33 131r57 147r20 179r24 241r17 262r21 275r22 282r19 298r20
+. 306r24 310r24 322r33 323r34 328r32 329r23 330r13 330r39 332r35 384r32 386r32
+. 396r18 400r21 425r23 429r18 432r10 438r37
+141V13*Shift_Left{81M9} 17|196s27
+X 7 lib.ads
+19K9*Lib 35e8 17|20r6 369r28
+X 8 lib-alignment.ads
+19k13*Alignment 43e18 17|20w10 369r32
+X 12 system.ads
+37K9*System 155e11 16|21r27 25r23 30r35 32r34 34r37 36r28 38r35 41r29 46r29
+. 50r34 53r18 58r26 61r20 69r20 77r18 17|17r6 17r35 18r6 23r28 24r28 31r27
+. 46r23 66r23 78r35 82r13 85r34 91r37 97r28 103r35 110r29 121r29 131r34 138r18
+. 221r26 230r20 296r20 364r18
+67M9*Address 16|21r34 25r30 30r42 32r41 34r44 36r35 38r42 41r36 46r36 50r41
+. 53r25 58r33 61r27 69r27 77r25 17|31r34 66r30 78r42 85r41 91r44 97r35 103r42
+. 110r36 121r36 131r41 138r25 221r33 230r27 296r27 364r25
+69m4*Null_Address{67M9} 17|46r30 82r20
+X 13 s-atacco.ads
+39k16*Address_To_Access_Conversions 65e41 17|18w13 23r35 24r35
+X 14 s-stoele.ads
+40K16*Storage_Elements 90e28 17|17w13 17r42
+82M9*Integer_Address 17|224r42 239r42 305r42 372r42
+84V13*To_Address{12|67M9} 17|224s30 239s30 305s30 372s30
+87V13*To_Integer{82M9} 17|211s33
+X 15 vfs.ads
+24K9*VFS 674e8 16|17r9 241r5 17|22r14 505r5
+28M9*File_Inode_Number<6|84M9> 16|55r22 58r48 62r20 70r20 78r18 17|140r22
+. 211r14 221r48 231r20 297r20 365r18 378r32
+39E9*File_Type 40e64 16|201r23 238r55 17|146r20
+39n23*File_Regular{39E9} 16|240r13 17|317r29
+39n37*File_Directory{39E9} 16|239r58 17|146r35 168r27 249r29
+41R9*File_Stat 54e14 16|79r22 17|366r22
+42m7*Unique_Identifier{28M9} 17|378m11
+43e7*Type_Of_File{39E9} 17|379m11
+44m7*Mode{32M12} 17|380m11
+45m7*UID{6|81M9} 17|381m11
+46m7*GID{6|81M9} 17|382m11
+47i7*Hard_Link_Count{positive} 17|383m11
+48m7*Byte_Size{6|84M9} 17|384m11
+49i7*IO_Block_Size{natural} 17|385m11
+50m7*IO_Block_Count{6|84M9} 17|386m11
+51r7*Creation_Time{35R9} 17|387m11
+52r7*Modification_Time{35R9} 17|388m11
+53r7*Access_Time{35R9} 17|389m11
+58m7*Inode_Number{6|84M9} 17|281m32
+59a7*Name_Buffer{string} 17|283m32
+60i7*Name_Len{natural} 17|285m32
+61e7*Type_Of_File{39E9} 17|286m32
+63A9*Directory_Entities(57R9)<integer> 16|64r24 17|233r24
+234E9*FS_Status 242e16 16|56r22 66r24 74r24 80r22 17|141r22 235r24 301r24
+. 367r22
+235n8*FS_Success{234E9} 17|213r18 254r18 326r18 390r18
+236n8*FS_Invalid_Value{234E9} 17|218r18 250r21 318r21
+241n8*FS_IO_Failure{234E9} 17|258r24 348r24 355r24
+X 16 vfs-fat.ads
+17K13*FAT 15|24k9 16|241l9 241e12 17|22b18 505l9 505t12
+18U14*Probe 19>8 20>8 21<8 17|28b14 63l8 63t13
+19i8 Handle{5|83I9} 17|29b8 42r21 51r29 52r43
+20b8 Do_Read_Only{boolean} 17|30b8 33r28
+21m8 Data_Addr{12|67M9} 17|31b8 46m10 62m7
+24U14*Remount 25>8 26>8 27>8 28<8 17|65b14 76l8 76t15
+25m8 FS{12|67M9} 17|66b8 71r28
+26b8 Do_Read_Only{boolean} 17|67b8 72r28
+27b8 Do_Relatime{boolean} 17|68b8 73r28
+28b8 Success{boolean} 17|69b8 75m7
+30U14*Unmount 30=23 17|78b14 83l8 83t15
+30m23 FS{12|67M9} 17|78b23 79r63 82m7
+32V13*Get_Block_Size{6|84M9} 32>29 17|85b13 89l8 89t22
+32m29 FS{12|67M9} 17|85b29 86r28
+34V13*Get_Fragment_Size{6|84M9} 34>32 17|91b13 95l8 95t25
+34m32 FS{12|67M9} 17|91b32 92r28
+36V13*Get_Size{6|84M9} 36>23 17|97b13 101l8 101t16
+36m23 FS{12|67M9} 17|97b23 98r28
+38V13*Get_Inode_Count{6|84M9} 38>30 17|103b13 107l8 107t23
+38m30 FS{12|67M9} 17|103b30 104r28
+40U14*Get_Free_Blocks 41>8 42<8 43<8 17|109b14 118l8 118t23
+41m8 FS{12|67M9} 17|110b8 114r28
+42m8 Free_Blocks{6|84M9} 17|111b8 116m7
+43m8 Free_Unpriviledged{6|84M9} 17|112b8 117m7
+45U14*Get_Free_Inodes 46>8 47<8 48<8 17|120b14 129l8 129t23
+46m8 FS{12|67M9} 17|121b8 125r28
+47m8 Free_Inodes{6|84M9} 17|122b8 127m7
+48m8 Free_Unpriviledged{6|84M9} 17|123b8 128m7
+50V13*Get_Max_Length{6|84M9} 50>29 17|131b13 135l8 135t22
+50m29 FS{12|67M9} 17|131b29 132r28
+52U14*Open 53>8 54>8 55<8 56<8 17|137b14 219l8 219t12
+53m8 FS{12|67M9} 17|138b8 143r72
+54a8 Path{string} 17|139b8 153r10 157r18 158r18 161r23 164r26 164r45 193r33
+55m8 Ino{15|28M9} 17|140b8 211m7 217m7
+56e8 Success{15|234E9} 17|141b8 213m7 218m7
+58U14*Close 58>21 58>42 17|221b14 227l8 227t13
+58m21 FS{12|67M9} 17|221b21 222r28
+58m42 Ino{15|28M9} 17|221b42 224r59
+60U14*Read_Entries 61>8 62>8 63>8 64<8 65<8 66<8 17|229b14 293l8 293t20
+61m8 FS_Data{12|67M9} 17|230b8 237r70
+62m8 Ino{15|28M9} 17|231b8 239r59
+63i8 Offset{natural} 17|232b8 275r35
+64a8 Entities{15|63A9} 17|233b8 278r28 280r24 281m16 283m16 285m16 286m16
+65i8 Ret_Count{natural} 17|234b8 248m7 278r16 280r41 288m13 288r26
+66e8 Success{15|234E9} 17|235b8 250m10 254m7 258m13
+68U14*Read 69>8 70>8 71>8 72<8 73<8 74<8 17|295b14 361l8 361t12
+69m8 FS_Data{12|67M9} 17|296b8 303r70
+70m8 Ino{15|28M9} 17|297b8 305r59
+71m8 Offset{6|84M9} 17|298b8 310r39 322r10 323r69
+72a8 Data{5|29A9} 17|299b8 313r39 322r19 343m27 343r27 343r33 344r33
+73i8 Ret_Count{natural} 17|300b8 316m7 327r13 329r36 343r46 344r46 359m10
+. 359r23
+74e8 Success{15|234E9} 17|301b8 318m10 326m7 348m13 355m13
+76U14*Stat 77>8 78>8 79<8 80<8 17|363b14 391l8 391t12
+77m8 Data{12|67M9} 17|364b8 370r72
+78m8 Ino{15|28M9} 17|365b8 372r59
+79r8 S{15|41R9} 17|366b8 377m7
+80e8 Success{15|234E9} 17|367b8 390m7
+84N4 Sector_Size 229r34 17|309r53 429r59
+85N4 Boot_Signature 17|44r31
+87A9 FAT32_Bytes(6|70M9)<integer> 89r31 109r31 116r31
+88R9 BIOS_Parameter_Block 118e15 119r8 192r24 17|36r19
+89a7*Infinite_Loop{87A9} 120r7
+90m7*OEM_Identifier{6|84M9} 121r7
+91m7*Bytes_Per_Sector{6|73M9} 122r7
+92m7*Sectors_Per_Cluster{6|70M9} 123r7 17|179r46 262r41 309r30 338r57 408r56
+93m7*Reserved_Sectors{6|73M9} 124r7 17|55r45 56r45
+94m7*FAT_Count{6|70M9} 125r7 17|57r45
+95m7*Root_Entry_Count{6|73M9} 126r7
+96m7*Sector_Count{6|73M9} 127r7 17|54r45
+97m7*Media_Descriptor_Type{6|70M9} 128r7
+98m7*Sectors_Per_FAT_Old{6|73M9} 129r7
+99m7*Sectors_Per_Track{6|73M9} 130r7
+100m7*Head_Count{6|73M9} 131r7
+101m7*Hidden_Sector_Count{6|81M9} 132r7
+102m7*Large_Sector_Count{6|81M9} 133r7 17|59r34
+103m7*Sectors_Per_FAT{6|81M9} 134r7 17|57r61 429r40
+104m7*Flags{6|73M9} 135r7
+105m7*FAT_Version_Number{6|73M9} 136r7
+106m7*Root_Entry_Cluster{6|81M9} 137r7 17|145r44
+107m7*FSInfo_Sector{6|73M9} 138r7
+108m7*Backup_MBR_Sector{6|73M9} 139r7
+109a7*Reserved{87A9} 140r7
+110m7*Drive_Number{6|70M9} 141r7
+111m7*NT_FLags{6|70M9} 142r7
+112m7*Signature{6|70M9} 143r7
+113m7*Volume_ID_Serial{6|81M9} 144r7
+114a7*Volume_Label{string} 145r7
+115a7*System_Identifier{string} 146r7
+116a7*Boot_Code{87A9} 147r7
+117m7*Boot_Signature{6|73M9} 148r7 17|44r13
+151N4 Directory_Read_Only
+152N4 Directory_Hidden
+153N4 Directory_System
+154N4 Directory_Volume_ID
+155N4 Directory_Directory 239r27
+156N4 Directory_Archive
+157N4 Directory_LFN 17|192r36 192r54 276r33 276r51
+158R9 Directory_Entry 172e15 173r8 202r23 210r22 221r15 224r17 17|148r20
+. 242r17 397r22 402r42 452r15 470r17
+159a7*File_Name{string} 174r7 17|478r20 495r17 500r17
+160a7*File_Extension{string} 175r7 17|485r20 496r17
+161m7*Attributes{6|70M9} 176r7 17|187r20 192r21 195r44 270r17 276r18 286r62
+162m7*Reserved_NT{6|70M9} 177r7
+163m7*Creation_Time_1{6|70M9} 178r7
+164m7*Creation_Time_2{6|73M9} 179r7
+165m7*Creation_Time_3{6|73M9} 180r7
+166m7*Access_Time{6|73M9} 181r7
+167m7*First_Cluster_High{6|73M9} 182r7 17|196r56
+168m7*Modification_Time{6|73M9} 183r7
+169m7*Modification_Date{6|73M9} 184r7
+170m7*First_Cluster_Low{6|73M9} 185r7 17|197r47 282r36
+171m7*Size{6|81M9} 186r7 17|322r60 323r61 375r47 384r59
+189R9 FAT_Data 196e14 197r36 17|23r66 25r56 50r19
+190i7*Handle{5|83I9} 17|51m11 341r30 373r71 385r59 411r29 437r32
+191b7*Is_Read_Only{boolean} 17|52m11
+192r7*BPB{88R9} 17|53m11 145r40 179r42 262r37 309r26 338r53 408r52 429r36
+193m7*Sector_Count{6|81M9} 17|54m11 58r15 59m15
+194m7*FAT_Offset{6|81M9} 17|55m11 430r45
+195m7*Cluster_Offset{6|81M9} 17|56m11 337r40 407r39
+197P9 FAT_Data_Acc(189R9) 207r18 214r24 17|25r66 35r19 79r14 79r30 143r23
+. 143r39 237r21 237r37 303r21 303r37 370r23 370r39 394r18 420r24
+199R9 FAT_File 203e14 204r36 17|24r66 26r56 210r21
+200m7*Begin_Cluster{6|81M9} 17|240r37 307r44 378r56
+201e7*Inner_Type{15|39E9} 17|249r15 317r15 379r37
+202r7*FS_Entry{158R9} 17|322r51 323r52 375r38 384r50
+204P9 FAT_File_Acc(199R9) 17|26r66 144r20 223r14 223r30 238r23 238r39 304r24
+. 304r40 371r23 371r39
+206U14 Read_Directory_Entry 207>8 208>8 209>8 210<8 211<8 17|174s13 256s10
+. 393b14 417l8 417t28
+207p8 Data{197P9} 17|394b8 407r34 408r47 411r24
+208m8 Cluster{6|81M9} 17|395b8 406r34
+209m8 Index{6|84M9} 17|396b8 412r33
+210r8 Result{158R9} 17|397b8 403m26 403r26
+211b8 Success{boolean} 17|398b8 415m24 416m7 416r18
+213U14 Get_Next_Cluster 214>8 215>8 216<8 217<8 17|181s16 264s13 353s10 419b14
+. 448l8 448t24
+214p8 Data{197P9} 17|420b8 429r31 430r40 437r27
+215m8 Cluster_Index{6|81M9} 17|421b8 432r23 438r50
+216m8 Returned{6|81M9} 17|422b8 427m63 427r63 433m10 445r24
+217b8 Success{boolean} 17|423b8 434m10 441m27 442r17 443m13 445m13
+219V13 Are_Paths_Equal{boolean} 220>8 221>8 17|193s16 450b13 467l8 467t23
+220a8 Base{string} 17|451b8 455r34
+221r8 Ent{158R9} 17|452b8 465r21
+223U14 Compose_Path 224>8 225<8 226<8 17|279s16 465s7 469b14 504l8 504t20
+224r8 Ent{158R9} 17|470b8 478r16 479r13 485r16 486r13 495r13 496r13 500r13
+225a8 Result{string} 17|471b8 494m10 494r18 494r34 499m10 499r18 499r34
+226i8 Length{natural} 17|472b8 503m7
+228V13 Sector_To_Disk_Offset{6|84M9} 228>36 235s8 17|430s17
+228m36 Sector{6|81M9} 229r24
+231V13 Cluster_To_Disk_Offset{6|84M9} 232>8 233>8 234>8 17|335s28 405s17
+232m8 Cluster{6|81M9} 235r48
+233m8 Cluster_Begin{6|81M9} 235r31
+234m8 Sectors_Per_Cluster{6|81M9} 236r31
+238V13 Get_Type{15|39E9} 238>23 17|195s30 286s48
+238m23 Attributes{6|70M9} 239r12
+X 17 vfs-fat.adb
+23K14 Conv_1[13|39] 62r20 62r39 79r44 143r53 237r51 303r51 370r53
+24K14 Conv_2[13|39] 212r11 212r30 224r11 239r11 305r11 372r11
+25U14 Free_1[2|20]
+25U14*Free_1[2|20] 81s7
+26U14 Free_2[2|20]
+26U14*Free_2[2|20] 226s7
+35p7 Data{16|197P9} 50m7 58r10 59r10 62r62
+36r7 BP{16|88R9} 39r40 40m34 40r34 44r10 53r29 54r42 55r42 56r42 57r42 57r58
+. 59r31
+37i7 Ret_Count{natural} 42m41 43r25
+38b7 Success{boolean} 42m52 43r14
+39a7 BP_Data{5|29A9} 42m32 43r38
+79p7 Data{16|197P9} 81m15 81r15
+143p7 Data{16|197P9} 145r35 174r35 179r37 181r34
+144p7 Result{16|204P9} 210m7 212r53
+145m7 Cluster{6|81M9} 174r41 181r40 181m49 196m16 210r31
+146e7 Inner_Type{15|39E9} 168r13 195m16 210r40
+147m7 Index{6|84M9} 172m10 174r50 179r16 180m16 201m13 201r22
+148r7 Ent{16|158R9} 174m57 187r16 192r17 193r63 195r40 196r52 197r43 210r52
+149i7 First_I{natural} 157m7 193r39 206m10
+150i7 Last_I{natural} 158m7 161r13 164r16 164r51 165m13 165r23 193r50 205m10
+. 205r21 206r21
+151b7 Success2{boolean} 174m62 175r20 181m58 182r23
+204L9 Next_Iteration 198r21
+209L6 End_Return 154r15
+216L6 Error_Return 169r18 176r21 183r24 188r21
+223p7 File{16|204P9} 226m15 226r15
+237p7 FS{16|197P9} 256r32 262r34 264r31
+238p7 File{16|204P9} 240r32 249r10
+240m7 Cluster{6|81M9} 256r36 264r35 264m44
+241m7 Index{6|84M9} 256r45 262r13 263m13 275r13 291m10 291r19
+242r7 Ent{16|158R9} 256m52 270r13 276r14 279r30 282r32 286r58
+243a7 Composed{string} 279m35 284r19
+244i7 Composed_Len{natural} 279m45 283r50 284r34 285r48
+245i7 Temp{natural} 280m16 281r26 283r26 285r26 286r26
+246b7 Success2{boolean} 256m57 257r17 264m53 265r20
+303p7 FS{16|197P9} 309r23 337r37 338r50 341r27 353r28
+304p7 File{16|204P9} 307r39 317r10 322r46 323r47
+306m7 Cluster_Offset{6|84M9} 335m10 342r27
+307m7 Cluster{6|81M9} 336r37 353r32 353m41
+308m7 Cluster_Sz{6|81M9} 330r52 332r48
+310m7 Final_Offset{6|84M9} 330r66 332r62 342r44 352m10
+311i7 Step_Size{natural} 328m10 330r26 332m13 344r62 359r35
+312i7 Discard{natural} 345m27
+313i7 Final_Count{natural} 323m10 327r25 328r45
+314b7 Succ{boolean} 346m27 347r17 353m50 354r17
+369K15 Align[8|19] 375r10
+370p7 FS{16|197P9} 373r68 385r56
+371p7 File{16|204P9} 375r33 378r51 379r32 384r45
+373m7 Blk{6|81M9} 375r53
+374m7 Cnt{6|81M9} 386r45
+400m7 Offset{6|84M9} 405m7 412r24
+401i7 Ret_Count{natural} 414m24 416r30
+402a7 Result_Data{5|29A9} 413m24 416r42
+425m7 Limit{6|84M9} 429m7 432r41
+425m14 Offset{6|84M9} 430m7 438r27
+426i7 Ret_Count{natural} 440m27 442r28
+427a7 Returned_Data{5|29A9} 439m27 442r41
+454N7 Offset 461r53
+455a7 Base_Copy{string} 459r16 460r13 461m13 461r48 466r14
+456a7 Composed{string} 465m26 466r26
+457i7 Composed_Len{natural} 465m36 466r41
+459e11 C=459:16{character}
+474i7 Ret{natural} 493m10 494r49 498m10 499r49 503r17
+475i7 Ent_Name_Len{natural} 482m10 482r26 493r17 495r33 498r17 500r33
+476i7 Ent_Ext_Len{natural} 489m10 489r25 492r10 493r36 496r38
+478e11 C{character}
+485e11 C{character}
+37R9 Object{16|189R9} 43r7[23] 47r38[23] 43r7[24] 47r38[24]
+47P9*Object_Pointer(16|189R9) 62r46[23] 212r37[24] 48r8[23] 50r31[23] 57r56[23]
+. 59r33[23] 48r8[24] 50r31[24] 57r56[24] 59r33[24]
+57V13*To_Pointer{13|47P9[23]} 79s51[23] 143s60[23] 224s18[24] 237s58[23]
+. 239s18[24] 303s58[23] 305s18[24] 370s60[23] 372s18[24] 62r30[23] 62r30[24]
+59V13*To_Address{12|67M9} 62s27[23] 212s18[24]
+18P9*Name{16|197P9} 20r50[25] 20r50[26]
+20p39 X{16|197P9} 21r15[25] 22r23[25] 23r11[25] 21r15[26] 22r23[26] 23r11[26]
+18M9 T{6|81M9} 27r42[369] 27r52[369] 35r44[369] 35r54[369] 40r50[369] 40r60[369]
+. 41r49[369] 23r42[369] 23r52[369] 27r14[369] 30r44[369] 30r54[369] 34r14[369]
+. 37r50[369] 37r60[369]
+27V13 Align_Up{6|81M9} 29r20[369]
+27m23 Value{6|81M9} 24r61[369]
+27m30 Alignment{6|81M9} 28r20[369] 28r40[369] 28r55[369] 29r40[369] 25r61[369]
+35V13 Align_Down{6|81M9} 37r20[369]
+35m25 Value{6|81M9} 31r61[369]
+35m32 Alignment{6|81M9} 36r20[369] 36r40[369] 36r55[369] 37r42[369] 32r61[369]
+40V13 Divide_Round_Up{6|81M9} 375s16[369] 42r20[369]
+40m30 Dividend{6|81M9} 41r21[369] 39r15[369]
+40m40 Divisor{6|81M9} 41r33[369] 41r62[369] 42r47[369] 39r27[369] 39r43[369]
+24m7 Value2{14|82M9} 27r18[369]
+25m7 Align2{14|82M9} 27r27[369] 27r48[369]
+31m7 Value2{14|82M9} 34r17[369]
+32m7 Align2{14|82M9} 34r33[369]
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___vfs__fat__probe 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__probe 0
+GG EK_GLOBALS ada___vfs__fat__probe local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 1 __HEAP refined_proof_in 0 refined_input 1 __HEAP refined_output 1 __HEAP calls_proof 0 calls 0 calls_conditional 2 devices__is_read_only devices__read FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__remount 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__remount 0
+GG EK_GLOBALS ada___vfs__fat__remount local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__unmount 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__unmount 0
+GG EK_GLOBALS ada___vfs__fat__unmount local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_block_size 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_block_size 0
+GG EK_GLOBALS ada___vfs__fat__get_block_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_fragment_size 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_fragment_size 0
+GG EK_GLOBALS ada___vfs__fat__get_fragment_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_size 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_size 0
+GG EK_GLOBALS ada___vfs__fat__get_size local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_inode_count 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_inode_count 0
+GG EK_GLOBALS ada___vfs__fat__get_inode_count local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_free_blocks 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_free_blocks 0
+GG EK_GLOBALS ada___vfs__fat__get_free_blocks local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_free_inodes 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_free_inodes 0
+GG EK_GLOBALS ada___vfs__fat__get_free_inodes local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_max_length 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_max_length 0
+GG EK_GLOBALS ada___vfs__fat__get_max_length local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__open 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__open 0
+GG EK_GLOBALS ada___vfs__fat__open local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 3 interfaces__shift_left__3 devices__read ada___system__storage_elements__to_integer FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__close 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__close 0
+GG EK_GLOBALS ada___vfs__fat__close local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 ada___system__storage_elements__to_address FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__read_entries 7 ada___vfs__fat__read_directory_entry ada___vfs__fat__get_next_cluster ada___vfs__fat__compose_path ada___vfs__fat__get_type ada___system__storage_elements__to_address ada___vfs__fat__conv_1__to_pointer ada___vfs__fat__conv_2__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__read_entries 0
+GG EK_GLOBALS ada___vfs__fat__read_entries local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__read FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__read 6 ada___vfs__fat__get_next_cluster ada___vfs__fat__cluster_to_disk_offset devices__read ada___system__storage_elements__to_address ada___vfs__fat__conv_1__to_pointer ada___vfs__fat__conv_2__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__read 0
+GG EK_GLOBALS ada___vfs__fat__read local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__read FALSE FALSE FALSE TRUE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__stat__align__align_up 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__stat__align__align_up 0
+GG EK_GLOBALS ada___vfs__fat__stat__align__align_up local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___vfs__fat__stat__align ada___vfs__fat__stat ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__stat__align__align_down 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__stat__align__align_down 0
+GG EK_GLOBALS ada___vfs__fat__stat__align__align_down local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___vfs__fat__stat__align ada___vfs__fat__stat ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__stat__align__divide_round_up 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__stat__align__divide_round_up 0
+GG EK_GLOBALS ada___vfs__fat__stat__align__divide_round_up local TRUE E_FUNCTION FALSE ORIGIN_FLOW 4 ada___vfs__fat__stat__align ada___vfs__fat__stat ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__stat__align 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__stat__align 0
+GG EK_GLOBALS ada___vfs__fat__stat__align local TRUE E_PACKAGE FALSE ORIGIN_FLOW 3 ada___vfs__fat__stat ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__stat 6 devices__get_block_size ada___system__storage_elements__to_address ada___vfs__fat__conv_1__to_pointer ada___vfs__fat__conv_2__to_pointer ada___vfs__fat__stat__align ada___vfs__fat__stat__align__divide_round_up
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__stat 0
+GG EK_GLOBALS ada___vfs__fat__stat local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__get_block_size FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__read_directory_entry 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__read_directory_entry 0
+GG EK_GLOBALS ada___vfs__fat__read_directory_entry local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__read FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_next_cluster 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_next_cluster 0
+GG EK_GLOBALS ada___vfs__fat__get_next_cluster local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__read FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__are_paths_equal 1 ada___vfs__fat__compose_path
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__are_paths_equal 0
+GG EK_GLOBALS ada___vfs__fat__are_paths_equal local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__compose_path 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__compose_path 0
+GG EK_GLOBALS ada___vfs__fat__compose_path local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__sector_to_disk_offset 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__sector_to_disk_offset 0
+GG EK_GLOBALS ada___vfs__fat__sector_to_disk_offset local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__cluster_to_disk_offset 1 ada___vfs__fat__sector_to_disk_offset
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__cluster_to_disk_offset 0
+GG EK_GLOBALS ada___vfs__fat__cluster_to_disk_offset local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__get_type 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__get_type 0
+GG EK_GLOBALS ada___vfs__fat__get_type local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_1__to_pointer 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_1__to_pointer 0
+GG EK_GLOBALS ada___vfs__fat__conv_1__to_pointer local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___vfs__fat__conv_1 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_1__to_address 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_1__to_address 0
+GG EK_GLOBALS ada___vfs__fat__conv_1__to_address local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___vfs__fat__conv_1 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_1 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_1 0
+GG EK_GLOBALS ada___vfs__fat__conv_1 local TRUE E_PACKAGE TRUE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_2__to_pointer 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_2__to_pointer 0
+GG EK_GLOBALS ada___vfs__fat__conv_2__to_pointer local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___vfs__fat__conv_2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_2__to_address 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_2__to_address 0
+GG EK_GLOBALS ada___vfs__fat__conv_2__to_address local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___vfs__fat__conv_2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__conv_2 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__conv_2 0
+GG EK_GLOBALS ada___vfs__fat__conv_2 local TRUE E_PACKAGE TRUE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__free_1 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__free_1 0
+GG EK_GLOBALS ada___vfs__fat__free_1 local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat__free_2 0
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat__free_2 0
+GG EK_GLOBALS ada___vfs__fat__free_2 local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___vfs__fat vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___vfs__fat 2 ada___vfs__fat__conv_1 ada___vfs__fat__conv_2
+GG EK_PROOF_DEPENDENCIES ada___vfs__fat 0
+GG EK_GLOBALS ada___vfs__fat local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 vfs proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 2 ada___vfs__fat__conv_1 ada___vfs__fat__conv_2 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___vfs__fat__get_type FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__get_mount_point FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__free_1 FALSE FALSE FALSE TRUE ada___ada__unchecked_deallocation TRUE ada___vfs__fat__free_1GP1076 VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__init FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__open FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_fragment_size FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__check_access FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__io_control FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___vfs__fat__get_size FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__close FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_1__to_pointer FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__conv_1 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_inode_count FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__stat__align TRUE FALSE FALSE TRUE ada___lib__alignment TRUE ada___vfs__fat__stat BODY_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__remount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ada__unchecked_deallocation FALSE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE ada___vfs__fat__get_free_blocks FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_1__to_address FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__conv_1 VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read_entries FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__mmap FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_free_inodes FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_access_times FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_node FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__mount__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__free_1GP1076 TRUE FALSE FALSE FALSE TRUE ada___vfs__fat BODY_PART
+GG EK_FLOW_SCOPE vfs__get_block_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_max_length FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__stat__align__align_up FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__stat__align VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__open FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_fragment_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___vfs__fat__free_2 FALSE FALSE FALSE TRUE ada___ada__unchecked_deallocation TRUE ada___vfs__fat__free_2GP1156 VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__open__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_symbolic_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__close FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_2 TRUE FALSE FALSE TRUE ada___system__address_to_access_conversions TRUE ada___vfs__fat BODY_PART
+GG EK_FLOW_SCOPE vfs__unmount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__poll FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_size FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__read FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__stat__align__align_down FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__stat__align VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__read_entries FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__can_access_file FALSE FALSE FALSE FALSE TRUE vfs PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__address_to_access_conversions TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_mount FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__read_directory_entry FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_inode_count FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_hard_link FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__read FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__3 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_next_cluster FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__write FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_blocks FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__free_2GP1156 TRUE FALSE FALSE FALSE TRUE ada___vfs__fat BODY_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__stat__align__divide_round_up FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__stat__align VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__list_all FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__synchronize__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_2__to_pointer FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__conv_2 VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__create_node__2 FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__are_paths_equal FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_2__to_address FALSE FALSE FALSE FALSE TRUE ada___vfs__fat__conv_2 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__stat FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_free_inodes FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__rename FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__alignment TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat TRUE FALSE FALSE FALSE FALSE vfs
+GG EK_FLOW_SCOPE ada___vfs__fat__compose_path FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__probe FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_mode FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__is_absolute FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__stat FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__sector_to_disk_offset FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_fs_data FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__apply_umask FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__remount FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_max_length FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__conv_1 TRUE FALSE FALSE TRUE ada___system__address_to_access_conversions TRUE ada___vfs__fat BODY_PART
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__cluster_to_disk_offset FALSE FALSE FALSE FALSE TRUE ada___vfs__fat PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__change_owner FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__get_backing_device FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__unmount FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__truncate FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__unlink FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE vfs__is_initialized FALSE FALSE FALSE FALSE TRUE vfs VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___vfs__fat__get_block_size FALSE FALSE FALSE FALSE TRUE ada___vfs__fat VISIBLE_PART
+GG EK_END_MARKER

@@ -1,0 +1,146 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U cryptography.chacha20%b  cryptography-chacha20.adb  a311b42f OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+
+U cryptography.chacha20%s  cryptography-chacha20.ads  b97386be OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D cryptography.ads	20250222165738 8132c7fc cryptography%s
+D cryptography-chacha20.ads  20250222165738 a950b883 cryptography.chacha20%s
+D cryptography-chacha20.adb  20250222165738 0a410cac cryptography.chacha20%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D system.ads		20240507065137 14286b0f system%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 cryptography.ads
+17K9*Cryptography 18e17 2|19r9 40r5 3|17r14 65r5
+X 2 cryptography-chacha20.ads
+19K22*Chacha20 1|17k9 2|40l18 40e26 3|17b27 65l18 65t26
+28A9*Block(4|81M9)<integer> 35r69 3|21r69 27r32 34r11
+29R9*Key 32e15 35r26 3|21r26
+30m7*Value1{4|81M9} 3|30r20
+30m15*Value2{4|81M9} 3|30r38
+30m23*Value3{4|81M9} 3|30r56
+30m31*Value4{4|81M9} 3|30r73
+31m7*Value5{4|81M9} 3|31r20
+31m15*Value6{4|81M9} 3|31r38
+31m23*Value7{4|81M9} 3|31r56
+31m31*Value8{4|81M9} 3|31r73
+35V13*Gen_Key{28A9} 35>22 35>31 35>38 3|21b13 56l8 56t15
+35r22 K{29R9} 3|21b22 30r18 30r36 30r54 30r71 31r18 31r36 31r54 31r71
+35m31 Nonce{4|84M9} 3|21b31 24r49 25r49
+35m38 Block_ID{4|84M9} 3|21b38 22r49 23r49
+39U14 Quarter_Round 39=29 39=32 39=35 39=38 3|39s10 40s10 41s10 42s10 45s10
+. 46s10 47s10 48s10 58b14 64l8 64t21
+39m29 A{4|81M9} 3|58b29 60m7 60r12 60r30 62m7 62r12 62r30
+39m32 B{4|81M9} 3|58b32 60r16 61m19 61r24 61m33 61r51 62r16 63m19 63r24 63m33
+. 63r51
+39m35 C{4|81M9} 3|58b35 61m7 61r12 61r30 63m7 63r12 63r30
+39m38 D{4|81M9} 3|58b38 60m19 60r24 60m33 60r51 61r16 62m19 62r24 62m33 62r51
+. 63r16
+X 3 cryptography-chacha20.adb
+22m7 UB{4|84M9} 32r23
+23m7 LB{4|84M9} 32r41
+24m7 UN{4|84M9} 32r59
+25m7 LN{4|84M9} 32r77
+27a7 Initial_Block{2|28A9} 34r20 53r27
+34a7 B{2|28A9} 39m25 39r25 39m32 39r32 39m39 39r39 39m47 39r47 40m25 40r25
+. 40m32 40r32 40m39 40r39 40m47 40r47 41m25 41r25 41m32 41r32 41m39 41r39
+. 41m47 41r47 42m25 42r25 42m32 42r32 42m39 42r39 42m47 42r47 45m25 45r25
+. 45m32 45r32 45m39 45r39 45m47 45r47 46m25 46r25 46m32 46r32 46m39 46r39
+. 46m47 46r47 47m25 47r25 47m32 47r32 47m39 47r39 47m47 47r47 48m25 48r25
+. 48m32 48r32 48m39 48r39 48m47 48r47 52r16 53m10 53r19 55r14
+37i11 I{integer}
+52i11 I{integer} 53r13 53r22 53r42
+X 4 interfac.ads
+38K9*Interfaces 2|17w6 17r22 4|233e15
+81M9*Unsigned_32 2|28r37 30r40 31r40 39r49 3|32r10 32r28 32r46 32r64 58r49
+84M9*Unsigned_64 2|35r49 3|21r49 22r21 23r21 24r21 25r21
+156V13*Rotate_Left{81M9} 3|60s38 61s38 62s38 63s38
+171V13*Shift_Right{84M9} 3|22s36 23s36 24s36 25s36
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___cryptography__chacha20__gen_key 2 ada___cryptography__chacha20__quarter_round interfaces__shift_right__4
+GG EK_PROOF_DEPENDENCIES ada___cryptography__chacha20__gen_key 0
+GG EK_GLOBALS ada___cryptography__chacha20__gen_key local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___cryptography__chacha20 cryptography proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__chacha20__quarter_round 1 interfaces__rotate_left__3
+GG EK_PROOF_DEPENDENCIES ada___cryptography__chacha20__quarter_round 0
+GG EK_GLOBALS ada___cryptography__chacha20__quarter_round local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__chacha20 cryptography proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__chacha20 0
+GG EK_PROOF_DEPENDENCIES ada___cryptography__chacha20 0
+GG EK_GLOBALS ada___cryptography__chacha20 local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 cryptography proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20__gen_key FALSE FALSE FALSE FALSE TRUE ada___cryptography__chacha20 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20 TRUE FALSE FALSE FALSE FALSE cryptography
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20__quarter_round FALSE FALSE FALSE FALSE TRUE ada___cryptography__chacha20 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE cryptography TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

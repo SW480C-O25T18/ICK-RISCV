@@ -14,7 +14,7 @@ A -fno-stack-check
 A -fdata-sections
 A -ffunction-sections
 A -gnateDIroncladName="Ironclad"
-A -gnateDVersion="g2867970"
+A -gnateDVersion="g4411615"
 A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
 A -gnateDArchName="riscv64-limine"
 A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
@@ -47,7 +47,7 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U kernel_main%b		kernel_main.adb		cdc15f55 OO PK
+U kernel_main%b		kernel_main.adb		0872eabd OO PK
 W arch%s		arch.ads		arch.ali
 W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
 W arch.hooks%s		arch-hooks.adb		arch-hooks.ali
@@ -77,7 +77,7 @@ D arch-context.ads	20250222165738 7bffdd51 arch.context%s
 D arch-hooks.ads	20250222165738 2bd12b55 arch.hooks%s
 D arch-interrupts.ads	20250222165738 186adf79 arch.interrupts%s
 D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
-D config.ads		20250222165738 5d21f3bf config%s
+D config.ads		20250222165738 98924657 config%s
 D devices.ads		20250222165738 f45ecf09 devices%s
 D devices-termios.ads	20250222165738 06aea761 devices.termios%s
 D interfac.ads		20240507065137 9111f9c1 interfaces%s

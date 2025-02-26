@@ -1,0 +1,203 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.termios%s	devices-termios.ads	f2f06868 OO PK
+W devices%s		devices.adb		devices.ali
+
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D devices-termios.ads	20250222165738 06aea761 devices.termios%s
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 3 devices.ads
+22K9*Devices 279e12 4|17r9 81r5
+X 4 devices-termios.ads
+17K17*TermIOs 3|22k9 4|81l13 81e20
+19A9*Special_Characters(5|81M9)<integer> 49r23
+20R9*Local_Modes 31e15 32r8 48r23
+21b7*Echo_Input{boolean} 33r7
+22b7*Do_Erase{boolean} 34r7
+23b7*Do_Kill{boolean} 35r7
+24b7*Echo_Newline{boolean} 36r7
+25b7*Canonical_Mode{boolean} 37r7
+26b7*Do_Implementation{boolean} 38r7
+27b7*Generate_Signals{boolean} 39r7
+28b7*No_Flushing_Signal{boolean} 40r7
+29b7*Send_Stop{boolean} 41r7
+30b7*Print_As_Erased{boolean} 42r7
+44R9*Main_Data 52e15
+45m7*Input_Modes{5|81M9}
+46m7*Output_Modes{5|81M9}
+47m7*Control_Modes{5|81M9}
+48r7*Local_Mode{20R9}
+49a7*Special_Chars{19A9}
+50m7*Input_Baud{5|81M9}
+51m7*Output_Baud{5|81M9}
+54R9*Win_Size 59e14
+55m7*Rows{5|73M9}
+56m7*Columns{5|73M9}
+57m7*X_Pixels{5|73M9}
+58m7*Y_Pixels{5|73M9}
+62N4*TCIFLUSH
+63N4*TCOFLUSH
+64N4*TCIOFLUSH
+67N4*TCOOFF
+68N4*TCOON
+69N4*TCIOFF
+70N4*TCION
+73N4*TCGETS
+74N4*TCSETS
+75N4*TCSETSW
+76N4*TCSETSF
+77N4*TCXONC
+78N4*TCFLSH
+79N4*TIOCGWINSZ
+80N4*TIOCSWINSZ
+X 5 interfac.ads
+73M9*Unsigned_16 4|55r18 56r18 57r18 58r18
+81M9*Unsigned_32 4|19r50 45r23 46r23 47r23 50r23 51r23
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___devices__termios 0
+GG EK_PROOF_DEPENDENCIES ada___devices__termios 0
+GG EK_GLOBALS ada___devices__termios local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__termios TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_END_MARKER

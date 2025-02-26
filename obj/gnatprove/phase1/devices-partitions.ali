@@ -1,0 +1,438 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RV NO_ALLOCATORS
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RV NO_LOCAL_ALLOCATORS
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RR NO_TASKING
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U devices.partitions%b	devices-partitions.adb	b1f0e17e OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s  a-uncdea.ads	a-uncdea.ali
+W devices%s		devices.adb		devices.ali
+W system%s		system.ads		system.ali
+W system.address_to_access_conversions%s  s-atacco.ads  s-atacco.ali
+
+U devices.partitions%s	devices-partitions.ads	1cd28138 OO PK
+W devices%s		devices.adb		devices.ali
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-uncdea.ads		20240507065137 c3a8ac65 ada.unchecked_deallocation%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
+D devices.ads		20250222165738 f45ecf09 devices%s
+D devices-partitions.ads  20250222165738 e88c4e31 devices.partitions%s
+D devices-partitions.adb  20250222165738 c2bce090 devices.partitions%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D system.ads		20240507065137 14286b0f system%s
+D s-atacco.ads		20240507065137 5868e3ba system.address_to_access_conversions%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 ada.ads
+16K9*Ada 20e8 7|18r6 107r26
+X 2 a-uncdea.ads
+20u15*Unchecked_Deallocation 7|18w10 107r30
+X 5 devices.ads
+22K9*Devices 279e12 6|17r9 79r5 7|20r14 108r8 108r32 121r14 139r40 140r16
+. 141r14 155r7 177r10 232r40 233r16 234r14 242r7 333r7 369r7 381r14 395r14
+. 400r5
+29A9*Operation_Data(8|70M9)<integer> 6|60r26 68r22 7|108r16 141r22 234r22
+. 308r26 344r22
+30P9*Operation_Data_Acc(29A9) 7|108r40 140r24 233r24
+34A9*UUID(8|70M9)<integer> 6|55r21 7|63r33 89r26 283r21
+40m7*Data{12|67M9} 7|288m10
+41a7*ID{34A9} 7|290m10
+42b7*Is_Block{boolean} 7|289m10
+43i7*Block_Size{natural} 7|291m10
+44m7*Block_Count{8|84M9} 7|292m10
+46p7*Read 7|295m10
+53p7*Write 7|296m10
+60p7*Sync(boolean) 7|293m10
+61p7*Sync_Range(boolean) 7|294m10
+65p7*IO_Control(boolean) 7|297m10
+69p7*Mmap(boolean) 7|298m10
+75p7*Poll 7|299m10
+83I9*Device_Handle<integer> 6|26r15 33r27 38r27 44r22 7|117r15 135r27 228r27
+98U14*Register 7|287s7
+150V13*Is_Block_Device{boolean} 7|121s22
+154V13*Get_Block_Size{natural} 7|139s48 232s48
+179V13*Synchronize{boolean} 7|381s22 395s22
+193U14*Read 7|155s15 177s18 242s15 333s15
+210U14*Write 7|369s15
+X 6 devices-partitions.ads
+17K17*Partitions 5|22k9 6|79l13 79e23 7|20b22 400l13 400t23
+24V13*Parse_Partitions{boolean} 25>8 26>8 7|115b13 131l8 131t24
+25a8 Name{string} 7|116b8 125r29 129r29
+26i8 Dev{5|83I9} 7|117b8 121r39 125r35 129r35
+31U14 Parse_GPT_Partitions 32>8 33>8 34<8 35<8 7|125s7 133b14 224l8 224t28
+32a8 Name{string} 7|134b8 209r23
+33i8 Dev{5|83I9} 7|135b8 139r64 156r24 178r27 202r38
+34b8 Found_Partitions{boolean} 7|136b8 154m7 200m19
+35b8 Success{boolean} 7|137b8 153m7 160m24 161r14 162m10 168m10 182m27 183r17
+. 184m13 194m19 211m22
+36U14 Parse_MBR_Partitions 37>8 38>8 39<8 40<8 7|129s7 226b14 276l8 276t28
+37a8 Name{string} 7|227b8 267r30
+38i8 Dev{5|83I9} 7|228b8 232r64 243r24 263r33
+39b8 Found_Partitions{boolean} 7|229b8 241m7 261m13
+40b8 Success{boolean} 7|230b8 240m7 247m24 248r14 249m10 255m10 268m16
+43R9 Partition_Data 48e14 49r42 7|111r62 201r31 262r25
+44i7*Inner_Device{5|83I9} 7|202m22 263m17 334r29 370r29 382r26 396r26
+45i7*Block_Size{natural} 7|203m22 264m17 318r57 319r57 354r57 355r57 383r57
+. 384r57 397r58
+46m7*LBA_Offset{8|84M9} 7|204m22 265m17 318r26 354r26 383r26 397r27
+47m7*LBA_Length{8|84M9} 7|205m22 266m17 292r30 319r26 355r26 384r26
+49P9 Partition_Data_Acc(43R9) 54r21 7|144r16 237r17 282r21 314r14 317r21
+. 350r14 353r21 378r23 379r10 392r23 393r10
+50V13 Set_Part{boolean} 51>8 52>8 53>8 54>8 55>8 7|208s26 267s20 278b13 303l8
+. 303t16
+51a8 Name{string} 7|279b8 300r10
+52i8 Index{positive} 7|280b8 300r48
+53i8 Block_Size{natural} 7|281b8 291r25
+54p8 Part{49P9} 7|282b8 288r63 292r25
+55a8 ID{5|34A9} 7|283b8 290r25
+57U14 Read 58>8 59>8 60<8 61<8 62<8 63>8 7|295r25 305b14 339l8 339t12
+58m8 Key{12|67M9} 7|306b8 317r58
+59m8 Offset{8|84M9} 7|307b8 321r10 327r10 328r38 335r37
+60a8 Data{5|29A9} 7|308b8 327r19 330r25 337m20 337r20 337r26 337r40
+61i8 Ret_Count{natural} 7|309b8 322m10 336m24
+62b8 Success{boolean} 7|310b8 323m10 338m24
+63b8 Is_Blocking{boolean} 7|311b8 313r28
+65U14 Write 66>8 67>8 68>8 69<8 70<8 71>8 7|296r25 341b14 375l8 375t13
+66m8 Key{12|67M9} 7|342b8 353r58
+67m8 Offset{8|84M9} 7|343b8 357r10 363r10 364r38 371r37
+68a8 Data{5|29A9} 7|344b8 363r19 366r25 373r20 373r26 373r40
+69i8 Ret_Count{natural} 7|345b8 358m10 372m24
+70b8 Success{boolean} 7|346b8 359m10 374m24
+71b8 Is_Blocking{boolean} 7|347b8 349r28
+73V13 Sync{boolean} 73>19 7|293r25 377b13 385l8 385t12
+73m19 Key{12|67M9} 7|377b19 379r47
+75V13 Sync_Range{boolean} 76>8 77>8 78>8 7|294r25 387b13 399l8 399t18
+76m8 Key{12|67M9} 7|388b8 393r47
+77m8 Offset{8|84M9} 7|389b8 397r73
+78m8 Count{8|84M9} 7|390b8 398r21
+X 7 devices-partitions.adb
+22A9 MBR_Byte_Data(8|70M9)<integer> 25r26 27r26 41r24 43r24
+23R9 MBR_Entry 30e15 31r8 39r42
+24m7*Status{8|70M9} 32r7
+25a7*CHS_First_Sector{22A9} 33r7
+26m7*Entry_Type{8|70M9} 34r7
+27a7*CHS_Last_Sector{22A9} 35r7
+28m7*First_Sector{8|81M9} 36r7 265r62
+29m7*Sector_Count{8|81M9} 37r7 260r29 266r62
+39A9 MBR_Entries(23R9)<integer> 42r24
+40R9 MBR_Data 44e15 45r8 50r36 112r62
+41a7*Boot_Code{22A9} 46r7
+42a7*Entries{39A9} 47r7 259r20 260r17 265r50 266r50
+43a7*Boot_Signature{22A9} 48r7 254r14
+50P9 MBR_Data_Acc(40R9) 236r17 252r14
+53R9 GPT_Header 68e15 69r8 85r38 113r62
+54a7*Signature{string} 70r7 167r14
+55m7*Revision{8|81M9} 71r7
+56m7*Header_Size{8|81M9} 72r7
+57m7*CRC32{8|81M9} 73r7
+58m7*Reserved_0{8|81M9} 74r7
+59m7*Current_LBA{8|84M9} 75r7
+60m7*Backup_LBA{8|84M9} 76r7
+61m7*First_Usable_LBA{8|84M9} 77r7
+62m7*Last_Usable_LBA{8|84M9} 78r7
+63a7*GUID{5|34A9} 79r7
+64m7*Partition_Entry_LBA{8|84M9} 80r7
+65m7*Number_Of_Partitions{8|81M9} 81r7 172r40
+66m7*Partition_Entry_Size{8|81M9} 82r7 174r53
+67m7*Partition_Entries_CRC32{8|81M9} 83r7
+85P9 GPT_Header_Acc(53R9) 143r16 165r14
+86R9 GPT_Partition_Entry 94e15 95r8 104r52
+87m7*Type_GUID_High{8|84M9} 96r7 197r29
+88m7*Type_GUID_Low{8|84M9} 97r7 198r29
+89a7*GUID{5|34A9} 98r7 209r70
+90m7*Starting_LBA{8|84M9} 99r7 204r48 206r48
+91m7*Ending_LBA{8|84M9} 100r7 205r48
+92m7*Attributes{8|84M9} 101r7
+93a7*Partition_Name{wide_string} 102r7
+104A9 GPT_Entries(86R9)<integer> 189r25
+107U14 Free[2|20]
+107U14*Free[2|20] 223s7 275s7
+111K12 Con1[13|39] 288r25 288r42 317r41 353r41 379r30 393r30
+112K12 Con2[13|39] 252r28
+113K12 Con3[13|39] 165r30
+119b7 Success{boolean} 125m58 126r10 129m58 130r14
+119b16 Found_Partitions{boolean} 125m40 126r22 129m40
+139i7 Block_Size{natural} 141r43 157r37 161r41 173r27 174r27 183r44 203r38
+. 209r42 219r27
+140p7 Sector{5|30P9} 142r44 159r24 181r27 223m13 223r13
+142m7 S_Addr{12|67M9} 165r47 190r36
+143p7 GPT{85P9} 165m7 167r10 172r36 174r49
+144p7 Part{6|49P9} 201m19 209r54
+146i7 Parts_Per_Sector{natural} 174m7 189r43
+147i7 Part_Count{natural} 172m7 193r24
+148i7 Block{natural} 173m7 179r40 219m10 219r19
+149i7 I{natural} 193r19 216m16 216r21
+150i7 Added_Index{natural} 209r29 214m19 214r34
+151i7 Block_Return{natural} 158m24 161r25 180m27 183r28
+189a13 GPT_Parts{104A9} 192r30 197r19 198r19 204r38 205r38 206r38 209r60
+192r17 Partition=192:30{86R9}
+222L6 Return_End 163r15 169r15 185r18 195r24 212r27
+232i7 Block_Size{natural} 234r43 248r41 264r33 267r39
+233p7 Sector{5|30P9} 235r44 246r24 275m13 275r13
+235m7 S_Addr{12|67M9} 252r45
+236p7 MBR{50P9} 252m7 254r10 259r16 260r13 265r46 266r46
+237p7 Part{6|49P9} 262m13 267r51
+238i7 Block_Return{natural} 245m24 248r25
+259i11 I{integer} 260r26 265r59 266r59 267r36
+274L6 Return_End 250r15 256r15 269r21
+285b7 Success{boolean} 301m10 302r14
+314p7 Part{6|49P9} 317m7 318r21 318r52 319r21 319r52 334r24
+315m7 LBA_Offset{8|84M9} 318m7 321r19 327r33 335r24
+315m19 LBA_Length{8|84M9} 319m7 321r32 327r46 328r25
+315m31 Final_Count{8|84M9} 328m10 330m10 337r62
+350p7 Part{6|49P9} 353m7 354r21 354r52 355r21 355r52 370r24
+351m7 LBA_Offset{8|84M9} 354m7 357r19 363r33 371r24
+351m19 LBA_Length{8|84M9} 355m7 357r32 363r46 364r25
+351m31 Final_Count{8|84M9} 364m10 366m10 373r62
+378p7 Part{6|49P9} 382r21 383r21 383r52 384r21 384r52
+392p7 Part{6|49P9} 396r21 397r22 397r53
+37R9 Object{6|43R9} 43r7[111] 47r38[111] 43r7[112] 47r38[112] 43r7[113] 47r38[113]
+47P9*Object_Pointer(6|43R9) 288r47[111] 48r8[111] 50r31[111] 57r56[111] 59r33[111]
+. 48r8[112] 50r31[112] 57r56[112] 59r33[112] 48r8[113] 50r31[113] 57r56[113]
+. 59r33[113]
+57V13*To_Pointer{13|47P9[113]} 165s35[113] 252s33[112] 317s46[111] 353s46[111]
+. 379s35[111] 393s35[111] 62r30[111] 62r30[112] 62r30[113]
+59V13*To_Address{12|67M9} 288s30[111] 63r30[111] 63r30[112] 63r30[113]
+18P9*Name{5|30P9} 20r50[107]
+20p39 X{5|30P9} 21r15[107] 22r23[107] 23r11[107]
+X 8 interfac.ads
+70M9*Unsigned_8 7|22r54 24r26 26r26
+81M9*Unsigned_32 7|28r26 29r26 55r33 56r33 57r33 58r33 65r33 66r33 67r33
+84M9*Unsigned_64 6|46r22 47r22 59r22 67r22 77r17 78r17 7|59r33 60r33 61r33
+. 62r33 64r33 87r26 88r26 90r26 91r26 92r26 157r24 179r27 265r33 266r33 307r22
+. 315r45 318r39 319r39 343r22 351r45 354r39 355r39 383r39 384r39 389r17 390r17
+. 397r40
+X 12 system.ads
+37K9*System 6|58r22 66r22 73r25 76r17 7|17r6 111r24 112r24 113r24 142r25
+. 235r25 306r22 342r22 377r25 388r17 12|155e11
+67M9*Address 6|58r29 66r29 73r32 76r24 7|142r32 235r32 306r29 342r29 377r32
+. 388r24
+X 13 s-atacco.ads
+39k16*Address_To_Access_Conversions 7|17w13 111r31 112r31 113r31 13|65e41
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___devices__partitions__parse_partitions 3 ada___devices__partitions__parse_gpt_partitions ada___devices__partitions__parse_mbr_partitions devices__is_block_device
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__parse_partitions 0
+GG EK_GLOBALS ada___devices__partitions__parse_partitions local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 1 __HEAP proper_output 1 __HEAP refined_proof_in 0 refined_input 1 __HEAP refined_output 1 __HEAP calls_proof 0 calls 0 calls_conditional 4 devices__register devices__is_block_device devices__get_block_size devices__read TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__parse_gpt_partitions 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__parse_gpt_partitions 0
+GG EK_GLOBALS ada___devices__partitions__parse_gpt_partitions local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 1 __HEAP proper_output 1 __HEAP refined_proof_in 0 refined_input 1 __HEAP refined_output 1 __HEAP calls_proof 0 calls 0 calls_conditional 3 devices__register devices__get_block_size devices__read FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__parse_mbr_partitions 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__parse_mbr_partitions 0
+GG EK_GLOBALS ada___devices__partitions__parse_mbr_partitions local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 1 __HEAP proper_output 1 __HEAP refined_proof_in 0 refined_input 1 __HEAP refined_output 1 __HEAP calls_proof 0 calls 0 calls_conditional 3 devices__register devices__get_block_size devices__read FALSE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__set_part 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__set_part 0
+GG EK_GLOBALS ada___devices__partitions__set_part local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 1 __HEAP proper_output 0 refined_proof_in 0 refined_input 1 __HEAP refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__register TRUE FALSE FALSE TRUE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__read 2 devices__read ada___devices__partitions__con1__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__read 0
+GG EK_GLOBALS ada___devices__partitions__read local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__read FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__write 2 devices__write ada___devices__partitions__con1__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__write 0
+GG EK_GLOBALS ada___devices__partitions__write local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__write FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__sync 2 devices__synchronize__2 ada___devices__partitions__con1__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__sync 0
+GG EK_GLOBALS ada___devices__partitions__sync local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__synchronize__2 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__sync_range 2 devices__synchronize__2 ada___devices__partitions__con1__to_pointer
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__sync_range 0
+GG EK_GLOBALS ada___devices__partitions__sync_range local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 1 devices__synchronize__2 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__free 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__free 0
+GG EK_GLOBALS ada___devices__partitions__free local TRUE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con1__to_pointer 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con1__to_pointer 0
+GG EK_GLOBALS ada___devices__partitions__con1__to_pointer local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con1 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con1__to_address 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con1__to_address 0
+GG EK_GLOBALS ada___devices__partitions__con1__to_address local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con1 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con1 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con1 0
+GG EK_GLOBALS ada___devices__partitions__con1 local TRUE E_PACKAGE TRUE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con2__to_pointer 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con2__to_pointer 0
+GG EK_GLOBALS ada___devices__partitions__con2__to_pointer local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con2__to_address 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con2__to_address 0
+GG EK_GLOBALS ada___devices__partitions__con2__to_address local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con2 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con2 0
+GG EK_GLOBALS ada___devices__partitions__con2 local TRUE E_PACKAGE TRUE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con3__to_pointer 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con3__to_pointer 0
+GG EK_GLOBALS ada___devices__partitions__con3__to_pointer local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con3 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con3__to_address 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con3__to_address 0
+GG EK_GLOBALS ada___devices__partitions__con3__to_address local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___devices__partitions__con3 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions__con3 0
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions__con3 0
+GG EK_GLOBALS ada___devices__partitions__con3 local TRUE E_PACKAGE TRUE ORIGIN_FLOW 2 ada___devices__partitions devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___devices__partitions 3 ada___devices__partitions__con1 ada___devices__partitions__con2 ada___devices__partitions__con3
+GG EK_PROOF_DEPENDENCIES ada___devices__partitions 0
+GG EK_GLOBALS ada___devices__partitions local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 devices proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 3 ada___devices__partitions__con1 ada___devices__partitions__con2 ada___devices__partitions__con3 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__free FALSE FALSE FALSE TRUE ada___ada__unchecked_deallocation TRUE ada___devices__partitions__freeGP4473 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE devices__read FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__fork_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__destroy_table FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions TRUE FALSE FALSE FALSE FALSE devices
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__parse_partitions FALSE FALSE FALSE FALSE TRUE ada___devices__partitions VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__list FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__parse_gpt_partitions FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con2__to_pointer FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con2 VISIBLE_PART
+GG EK_FLOW_SCOPE devices__write FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__make_active FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__remap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__is_initialized FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___devices__partitions__freeGP4473 TRUE FALSE FALSE FALSE TRUE ada___devices__partitions BODY_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con2__to_address FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con2 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__to_integer FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__parse_mbr_partitions FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE devices__is_block_device FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__translate_address FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada__unchecked_deallocation FALSE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE devices__convert_le FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__convert_be FALSE FALSE FALSE FALSE TRUE devices PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_count FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__io_control FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con1 TRUE FALSE FALSE TRUE ada___system__address_to_access_conversions TRUE ada___devices__partitions BODY_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE devices__init FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_block_size FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__unmap_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__set_part FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__register FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__mmap FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con3 TRUE FALSE FALSE TRUE ada___system__address_to_access_conversions TRUE ada___devices__partitions BODY_PART
+GG EK_FLOW_SCOPE devices__is_read_only FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__read FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con1__to_pointer FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con1 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_user_mapped_size FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__get_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__address_to_access_conversions TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con1__to_address FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con1 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___devices__partitions__write FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE devices__poll FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__from_unique_id FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___devices__partitions__con3__to_pointer FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con3 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__sync FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE devices__fetch_uuid FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__get_statistics FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con3__to_address FALSE FALSE FALSE FALSE TRUE ada___devices__partitions__con3 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__sync_range FALSE FALSE FALSE FALSE TRUE ada___devices__partitions PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__mmu__map_allocated_range FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE devices__fetch__3 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE devices__synchronize__2 FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__mmu__init FALSE FALSE FALSE FALSE TRUE ada___arch__mmu VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___devices__partitions__con2 TRUE FALSE FALSE TRUE ada___system__address_to_access_conversions TRUE ada___devices__partitions BODY_PART
+GG EK_FLOW_SCOPE devices__fetch_name FALSE FALSE FALSE FALSE TRUE devices VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

@@ -1,0 +1,153 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U networking.ipv4%b	networking-ipv4.adb	cfb8055c OO PK
+W networking%s		networking.adb		networking.ali
+
+U networking.ipv4%s	networking-ipv4.ads	78fae0c7 OO PK
+W networking%s		networking.adb		networking.ali
+W system%s		system.ads		system.ali
+
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D networking.ads	20250222165738 70ea6e55 networking%s
+D networking-ipv4.ads	20250222165738 1c38e59d networking.ipv4%s
+D networking-ipv4.adb	20250222165738 d380e0c1 networking.ipv4%b
+D system.ads		20240507065137 14286b0f system%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 interfac.ads
+70M9*Unsigned_8 5|38r25 39r25 6|35r30
+73M9*Unsigned_16 5|34r25 35r25 40r25 66r28 6|24r23 31r43
+X 4 networking.ads
+20K9*Networking 55e15 5|19r9 67r5 6|17r14 41r5
+23A9*IPv4_Address(1|70M9)<integer> 5|41r25 42r25 63r30 6|21r30
+X 5 networking-ipv4.ads
+19K20*IPv4 4|20k9 5|67l16 67e20 6|17b25 41l16 41t20
+21M9*Unsigned_2 33r25
+22M9*Unsigned_3 36r25
+23M9*Unsigned_4 30r25 31r25
+24M9*Unsigned_6 32r25
+25M9*Unsigned_13 37r25
+29R9*IPv4_Packet_Header 43e15 45r8 64r46 66r48 6|22r46 24r38
+30m7*Version{23M9} 46r7 6|27m11
+31m7*IHL{23M9} 47r7 6|28m11
+32m7*DSCP{24M9} 48r7 6|29m11
+33m7*ECN{21M9} 49r7 6|30m11
+34m7*Total_Length{1|73M9} 50r7 6|31m11
+35m7*Identification{1|73M9} 51r7 6|32m11
+36m7*Flags{22M9} 52r7 6|33m11
+37m7*Fragment_Offset{25M9} 53r7 6|34m11
+38m7*Time_To_Live{1|70M9} 54r7 6|35m11
+39m7*Protocol{1|70M9} 55r7 6|36m11
+40m7*Header_Checksum{1|73M9} 56r7 6|37m11
+41a7*Source_IP{4|23A9} 57r7 6|38m11
+42a7*Destination_IP{4|23A9} 58r7 6|39m11
+62V13*Generate_Header{29R9} 63>8 63>19 64>8 6|20b13 40l8 40t23
+63a8 Source_IP{4|23A9} 6|21b8 38r30
+63a19 Desto_IP{4|23A9} 6|21b19 39r30
+64i8 Data_Length{natural} 65r19 6|22b8 31r56
+X 6 networking-ipv4.adb
+24m7 Size{1|73M9} 31r31
+X 7 system.ads
+37K9*System 5|17w6 43r46 44r31 7|155e11
+91n23*High_Order_First{91E9} 5|43r53 44r38
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___networking__ipv4__generate_header 0
+GG EK_PROOF_DEPENDENCIES ada___networking__ipv4__generate_header 0
+GG EK_GLOBALS ada___networking__ipv4__generate_header local FALSE E_FUNCTION FALSE ORIGIN_FLOW 2 ada___networking__ipv4 networking proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___networking__ipv4 0
+GG EK_PROOF_DEPENDENCIES ada___networking__ipv4 0
+GG EK_GLOBALS ada___networking__ipv4 local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 networking proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 0 TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___networking__ipv4 TRUE FALSE FALSE FALSE FALSE networking
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE networking__set_hostname FALSE FALSE FALSE FALSE TRUE networking VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___networking__ipv4__generate_header FALSE FALSE FALSE FALSE TRUE ada___networking__ipv4 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE networking__get_hostname FALSE FALSE FALSE FALSE TRUE networking VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE networking TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_END_MARKER

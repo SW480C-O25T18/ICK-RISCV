@@ -14,7 +14,7 @@ A -fno-stack-check
 A -fdata-sections
 A -ffunction-sections
 A -gnateDIroncladName="Ironclad"
-A -gnateDVersion="g2867970"
+A -gnateDVersion="g4411615"
 A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
 A -gnateDArchName="riscv64-limine"
 A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
@@ -44,7 +44,7 @@ RV NO_IMPLEMENTATION_RESTRICTIONS
 RR NO_ELABORATION_CODE
 RR NO_OBSOLESCENT_FEATURES
 
-U memory.physical%b	memory-physical.adb	1a585658 OO PK
+U memory.physical%b	memory-physical.adb	dfebe3b0 OO PK
 W arch%s		arch.ads		arch.ali
 W arch.mmu%s		arch-mmu.adb		arch-mmu.ali
 W config%s		config.ads		config.ali
@@ -73,7 +73,7 @@ D a-chlat1.ads		20240507065137 e0d72e76 ada.characters.latin_1%s
 D arch.ads		20250222165738 7fd82c9e arch%s
 D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
 D arch-mmu.ads		20250222165738 1ac94a0b arch.mmu%s
-D config.ads		20250222165738 5d21f3bf config%s
+D config.ads		20250222165738 98924657 config%s
 D interfac.ads		20240507065137 9111f9c1 interfaces%s
 D i-c.ads		20240507065137 aac316ce interfaces.c%s
 D lib.ads		20250222165738 8d95f6f9 lib%s

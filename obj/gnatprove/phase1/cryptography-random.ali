@@ -1,0 +1,324 @@
+V "GNAT Lib v14"
+A -x
+A ada
+A -gnatA
+A -g
+A -g
+A -O2
+A -pipe
+A -gnaty
+A -Wall
+A -Wextra
+A -fno-stack-protector
+A -fno-stack-check
+A -fdata-sections
+A -ffunction-sections
+A -gnateDIroncladName="Ironclad"
+A -gnateDVersion="g4411615"
+A -gnateDBugSite="https://ironclad.nongnu.org/usersupport.html"
+A -gnateDArchName="riscv64-limine"
+A -ffile-prefix-map=/home/sean/capstone/ICK-RISCV-Context=.
+A -gnateDALLOCONLY=False
+A -fno-pie
+A -fno-pic
+A -mno-relax
+A -march=rv64imac_zicsr_zifencei
+A -mabi=lp64
+A -gnatc
+P GP
+
+RN
+RR NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RR NO_DISPATCH
+RR NO_EXCEPTION_PROPAGATION
+RR NO_FINALIZATION
+RR NO_FLOATING_POINT
+RR NO_IMPLICIT_DYNAMIC_CODE
+RR NO_PROTECTED_TYPES
+RR NO_SECONDARY_STACK
+RR NO_TASKING
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+RR NO_OBSOLESCENT_FEATURES
+
+U cryptography.random%b	cryptography-random.adb	e0281b8a OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s  a-unccon.ads	a-unccon.ali
+W arch%s		arch.ads		arch.ali
+W arch.clocks%s		arch-clocks.adb		arch-clocks.ali
+W cryptography%s	cryptography.ads	cryptography.ali
+W cryptography.chacha20%s  cryptography-chacha20.adb  cryptography-chacha20.ali
+W cryptography.md5%s	cryptography-md5.adb	cryptography-md5.ali
+W lib%s			lib.adb			lib.ali
+W lib.synchronization%s	lib-synchronization.adb	lib-synchronization.ali
+W memory%s		memory.ads		memory.ali
+W memory.physical%s	memory-physical.adb	memory-physical.ali
+
+U cryptography.random%s	cryptography-random.ads	ef42219b OO PK
+W cryptography%s	cryptography.ads	cryptography.ali
+W interfaces%s		interfac.ads		interfac.ali
+N A35:4 gnatprove false_positive "postcondition might fail" "Counterexample works, could be a gnatprove bug?"
+
+D ada.ads		20240507065137 76789da1 ada%s
+D a-unccon.ads		20240507065137 0e9b276f ada.unchecked_conversion%s
+D arch.ads		20250222165738 7fd82c9e arch%s
+D arch-clocks.ads	20250222165738 f76b002b arch.clocks%s
+D cryptography.ads	20250222165738 8132c7fc cryptography%s
+D cryptography-chacha20.ads  20250222165738 a950b883 cryptography.chacha20%s
+D cryptography-md5.ads	20250222165738 c7dbe3c0 cryptography.md5%s
+D cryptography-random.ads  20250222165738 ff611fa6 cryptography.random%s
+D cryptography-random.adb  20250222165738 d5415301 cryptography.random%b
+D interfac.ads		20240507065137 9111f9c1 interfaces%s
+D i-c.ads		20240507065137 aac316ce interfaces.c%s
+D lib.ads		20250222165738 8d95f6f9 lib%s
+D lib-synchronization.ads  20250222165738 9c09bc37 lib.synchronization%s
+D memory.ads		20250222165738 335640bf memory%s
+D memory-physical.ads	20250222165738 f22cd7a2 memory.physical%s
+D system.ads		20240507065137 14286b0f system%s
+D s-parame.ads		20240507065137 3597fc11 system.parameters%s
+D s-stoele.ads		20240507065137 ccded4e8 system.storage_elements%s
+D /home/sean/capstone/ICK-RISCV-Context/source/pragmas.adc  20250222165738 00000000
+G a Z
+X 1 ada.ads
+16K9*Ada 20e8 9|17r6 42r31
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 9|17w10 42r35
+X 3 arch.ads
+20K9*Arch 52e9 9|19r6 57r7 119r7 120r7
+X 4 arch-clocks.ads
+19K14*Clocks 45e16 9|19w11 57r12 119r12 120r12
+31U14*Get_Monotonic_Time 9|57s19 120s19
+39U14*Get_Real_Time 9|119s19
+X 5 cryptography.ads
+17K9*Cryptography 18e17 8|19r9 40r5 9|21r6 22r6 25r14 143r5
+X 6 cryptography-chacha20.ads
+19K22*Chacha20 40e26 9|21w19 42r63 46r21 62r28
+28A9*Block(10|81M9)<integer> 9|46r30
+29R9*Key 32e15 9|42r72
+35V13*Gen_Key{28A9} 9|62s37
+X 7 cryptography-md5.ads
+19K22*MD5 36e21 9|22w19 34r26 38r25 56r25 116r25 116r41
+21A9*MD5_Hash(10|81M9)<integer> 9|38r29 116r29
+22A9*MD5_Block(10|81M9)<10|81M9>
+23A9*MD5_Blocks(22A9)<integer> 9|34r30
+27V13*Digest{21A9} 9|56s29 116s45
+X 8 cryptography-random.ads
+19K22*Random 5|17k9 8|40l18 40e24 9|25b27 143l18 143t24
+21A9*Crypto_Data(10|70M9)<integer> 22r36 9|36r36 94r14
+22U14*Fill_Data 22<25 9|36b14 84l8 84t17 96s7
+22a25 Data{21A9} 9|36b25 60r20 74m10
+25U14*Feed_Entropy 25>28 9|86b14 91l8 91t20
+25m28 Data{10|81M9} 9|86b28 89r70
+28U14*Get_Integer 28<27 9|93b14 105l8 105t19 109s7
+28m27 Result{10|84M9} 9|93b27 97m7
+32U14*Get_Integer 32>27 32>32 32<51 9|107b14 111l8 111t19
+32m27 Min{10|84M9} 33r27 34r20 9|107b27 110r40 110r48
+32m32 Max{10|84M9} 33r20 33r35 34r48 9|107b32 110r30
+32m51 Result{10|84M9} 34r27 34r38 9|107b51 109m20 110m7 110r18
+39U14 Entropy_Adjust 9|54s7 113b14 142l8 142t22
+X 9 cryptography-random.adb
+33r4 Accumulator_Mutex{13|22R9} 52m14 52r14 83m16 83r16 88m14 88r14 90m16
+. 90r16
+34a4 Entropy_Accumulator{7|23A9} 56r37 89m7 89r38 116r53 125m7
+37R12 Seed 41e18 42r57 44r21
+38a10 Entropy_Hash{7|21A9} 56m9
+39m10 Mono_Sec{10|84M9} 57m41
+40m10 Mono_NSec{10|84M9} 57m53 58r18
+42V16 To_Seed[2|20]{6|29R9}
+42V16 To_Seed[2|20]{6|29R9} 62s46
+44r7 S{37R12} 56m7 57m39 57r39 57m51 57r51 58r16 62r55
+45m7 Nonce{10|84M9} 58m7 62r59
+46a7 Cha_Block{6|28A9} 47r36 61r21 62m13 63r28 68r44 69r44 70r44 71r44
+47i7 Index{natural} 61r13 63m13 68r55 69r55 70r55 71r55 78m13 78r27
+48i7 Mini_Index{natural} 67r15 76m10 76r24 77r13 79m13
+49m7 Block_Index{10|84M9} 62r66 64m13 64r28
+50m7 Temp{10|81M9} 68m23 69m23 70m23 71m23 74r31
+60m11 Value=60:20{10|70M9}
+94a7 Data{8|21A9} 96m18 97r42 98r42 99r42 100r42 101r42 102r42 103r42 104r42
+114m7 RSec{10|84M9} 119m34 130r43 131r30
+114m13 RNSec{10|84M9} 119m40 132r43 133r30
+114m20 MSec{10|84M9} 120m39 126r43 127r30
+114m26 MNSec{10|84M9} 120m45 140r30
+114m33 Avail{10|84M9} 122m7 128r43 129r30
+114m40 Free{10|84M9} 123m7 138r43 139r30
+115r7 S{15|47R9} 118m23 122r29 123r29
+116a7 Hashed{7|21A9} 134r17 135r17 136r17 137r17
+17R9 Source{37R12} 20r40[42]
+18R9 Target{6|29R9} 20r55[42]
+X 10 interfac.ads
+38K9*Interfaces 8|17w6 17r22 10|233e15
+70M9*Unsigned_8 8|21r52 9|74r19
+81M9*Unsigned_32 8|25r35 9|50r21 86r35 126r17 127r17 128r17 129r17 130r17
+. 131r17 132r17 133r17 138r17 139r17 140r17
+84M9*Unsigned_64 8|28r40 32r38 32r64 33r42 9|39r25 40r25 45r21 49r21 93r40
+. 97r29 98r29 99r29 100r29 101r29 102r29 103r29 104r29 107r38 107r64 114r47
+. 122r16 123r16
+146V13*Shift_Right{81M9} 9|68s31 69s31 70s31 71s31
+166V13*Shift_Left{84M9} 9|97s17 98s17 99s17 100s17 101s17 102s17 103s17 104s17
+171V13*Shift_Right{84M9} 9|126s30 128s30 130s30 132s30 138s30
+X 12 lib.ads
+19K9*Lib 9|23r6 23r31 12|35e8
+X 13 lib-synchronization.ads
+20K13*Synchronization 9|23w10 23r35 13|66e24
+22R9*Binary_Semaphore 9|33r34 13|57e14
+23r4*Unlocked_Semaphore{22R9} 9|33r54
+27U14*Seize 9|52s7 88s7
+31U14*Release 9|83s7 90s7
+X 14 memory.ads
+19K9*Memory 9|18r6 18r27 20w6 20r18 115r16 14|36e11
+20M9*Size
+X 15 memory-physical.ads
+20K16*Physical 9|18w13 18r34 115r23 15|60e20
+47R9*Statistics 9|115r32 15|51e14
+49m7*Available{14|20M9} 9|122r31
+50m7*Free{14|20M9} 9|123r31
+55U14*Get_Statistics 9|118s7
+
+QQ SPARKVERSION 0.0w
+GG EK_DIRECT_CALLS ada___cryptography__random__fill_data__to_seed 0
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__fill_data__to_seed 0
+GG EK_GLOBALS ada___cryptography__random__fill_data__to_seed local TRUE E_FUNCTION FALSE ORIGIN_FLOW 3 ada___cryptography__random__fill_data ada___cryptography__random cryptography proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 TRUE FALSE TRUE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random__fill_data 7 ada___cryptography__random__entropy_adjust interfaces__shift_right__3 ada___arch__clocks__get_monotonic_time ada___cryptography__chacha20__gen_key ada___cryptography__md5__digest ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__fill_data 1 ada___cryptography__random__fill_data__to_seed
+GG EK_GLOBALS ada___cryptography__random__fill_data local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__random cryptography proper_proof_in 0 proper_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state proper_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_proof_in 0 refined_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state calls_proof 0 calls 3 ada___memory__physical__get_statistics ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 2 ada___cryptography__chacha20__gen_key ada___cryptography__md5__digest FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 3 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random__feed_entropy 2 ada___lib__synchronization__seize ada___lib__synchronization__release
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__feed_entropy 0
+GG EK_GLOBALS ada___cryptography__random__feed_entropy local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__random cryptography proper_proof_in 0 proper_input 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator proper_output 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator refined_proof_in 0 refined_input 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator refined_output 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator calls_proof 0 calls 2 ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 0 FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random__get_integer 2 ada___cryptography__random__fill_data interfaces__shift_left__4
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__get_integer 0
+GG EK_GLOBALS ada___cryptography__random__get_integer local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__random cryptography proper_proof_in 0 proper_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state proper_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_proof_in 0 refined_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state calls_proof 0 calls 3 ada___memory__physical__get_statistics ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 2 ada___cryptography__chacha20__gen_key ada___cryptography__md5__digest FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random__get_integer__2 1 ada___cryptography__random__get_integer
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__get_integer__2 0
+GG EK_GLOBALS ada___cryptography__random__get_integer__2 local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__random cryptography proper_proof_in 0 proper_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state proper_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_proof_in 0 refined_input 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_output 4 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state calls_proof 0 calls 3 ada___memory__physical__get_statistics ada___lib__synchronization__seize ada___lib__synchronization__release calls_conditional 2 ada___cryptography__chacha20__gen_key ada___cryptography__md5__digest FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random__entropy_adjust 5 interfaces__shift_right__4 ada___memory__physical__get_statistics ada___arch__clocks__get_monotonic_time ada___arch__clocks__get_real_time ada___cryptography__md5__digest
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random__entropy_adjust 0
+GG EK_GLOBALS ada___cryptography__random__entropy_adjust local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 2 ada___cryptography__random cryptography proper_proof_in 0 proper_input 3 ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state proper_output 3 ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_proof_in 0 refined_input 3 ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state refined_output 3 ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state calls_proof 0 calls 1 ada___memory__physical__get_statistics calls_conditional 1 ada___cryptography__md5__digest FALSE FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 3 ada___cryptography__random__entropy_accumulator ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state LOCKS 0
+GG EK_DIRECT_CALLS ada___cryptography__random 0
+GG EK_PROOF_DEPENDENCIES ada___cryptography__random 0
+GG EK_GLOBALS ada___cryptography__random local FALSE E_PACKAGE TRUE ORIGIN_FLOW 1 cryptography proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator refined_initializes 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator calls_proof 0 calls 0 calls_conditional 0 local_packages 0 local_var 2 ada___cryptography__random__accumulator_mutex ada___cryptography__random__entropy_accumulator TRUE FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE ada___cryptography__random TRUE FALSE FALSE FALSE FALSE cryptography
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__fill_data FALSE FALSE FALSE FALSE TRUE ada___cryptography__random VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release__2 FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_address FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__fill_data__to_seedGP1736 TRUE FALSE FALSE FALSE TRUE ada___cryptography__random__fill_data BODY_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks TRUE FALSE FALSE FALSE FALSE arch
+GG EK_FLOW_SCOPE ada___cryptography__random__feed_entropy FALSE FALSE FALSE FALSE TRUE ada___cryptography__random VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__7 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__get_integer FALSE FALSE FALSE FALSE TRUE ada___cryptography__random VISIBLE_PART
+GG EK_FLOW_SCOPE system__Olt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__initialize_sources FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__to_integer FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__get_integer__2 FALSE FALSE FALSE FALSE TRUE ada___cryptography__random VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20__gen_key FALSE FALSE FALSE FALSE TRUE ada___cryptography__chacha20 VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ole FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE lib TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__10 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE system__Ogt FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20__quarter_round FALSE FALSE FALSE FALSE TRUE ada___cryptography__chacha20 PRIVATE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__7 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE lib__c_string_length FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c TRUE FALSE FALSE FALSE FALSE interfaces
+GG EK_FLOW_SCOPE ada___system__parameters TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oge FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__poll_until_zero FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization PRIVATE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_monotonic_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE system__Oeq FALSE FALSE FALSE FALSE TRUE system VISIBLE_PART
+GG EK_FLOW_SCOPE lib__least_common_multiple FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__10 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__5 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE memory TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___system__parameters__default_stack_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__8 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time_resolution FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__6 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__parameters__minimum_stack_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements TRUE FALSE FALSE FALSE FALSE system
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__entropy_adjust FALSE FALSE FALSE FALSE TRUE ada___cryptography__random PRIVATE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__parameters__adjust_storage_size FALSE FALSE FALSE FALSE TRUE ada___system__parameters VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada__unchecked_conversion FALSE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE arch TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__11 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE lib__greatest_common_divisor FALSE FALSE FALSE FALSE TRUE lib VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__get_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE cryptography TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__9 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__is_nul_terminated__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___arch__clocks__set_real_time FALSE FALSE FALSE FALSE TRUE ada___arch__clocks VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_ada__12 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical TRUE FALSE FALSE FALSE FALSE memory
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__init_allocator FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__md5 TRUE FALSE FALSE FALSE FALSE cryptography
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE system TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___interfaces__c__c_length_ghost__4 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__alloc FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__md5__digest FALSE FALSE FALSE FALSE TRUE ada___cryptography__md5 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__free FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Oadd__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__md5__to_string FALSE FALSE FALSE FALSE TRUE ada___cryptography__md5 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__6 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__md5__bswap32 FALSE FALSE FALSE FALSE TRUE ada___cryptography__md5 PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__5 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__9 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Osubtract__2 FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__3 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__8 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__random__fill_data__to_seed FALSE FALSE FALSE TRUE ada___ada__unchecked_conversion TRUE ada___cryptography__random__fill_data__to_seedGP1736 VISIBLE_PART
+GG EK_FLOW_SCOPE ada___cryptography__chacha20 TRUE FALSE FALSE FALSE FALSE cryptography
+GG EK_FLOW_SCOPE ada___lib__synchronization TRUE FALSE FALSE FALSE FALSE lib
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___lib__synchronization__seize FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__2 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__get_statistics FALSE FALSE FALSE FALSE TRUE ada___memory__physical VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___system__storage_elements__Omod FALSE FALSE FALSE FALSE TRUE ada___system__storage_elements VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__12 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___lib__synchronization__release FALSE FALSE FALSE FALSE TRUE ada___lib__synchronization VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___interfaces__c__to_c__11 FALSE FALSE FALSE FALSE TRUE ada___interfaces__c VISIBLE_PART
+GG EK_FLOW_SCOPE ada___memory__physical__calculate_signature FALSE FALSE FALSE FALSE TRUE ada___memory__physical PRIVATE_PART
+GG EK_REMOTE_STATES 2 ada___arch__clocks__monotonic_clock_state ada___arch__clocks__rt_clock_state
+GG EK_END_MARKER
