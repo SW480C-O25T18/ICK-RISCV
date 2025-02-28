@@ -7,8 +7,10 @@ This is a copy of Ironclad, the original code is [here](https://ironclad.nongnu.
 ## Install Packages
 
 ```console
-sudo apt-get update && sudo apt-get install -y autoconf automake perl texinfo gnatprove highlight
+sudo apt-get update && sudo apt-get install -y autoconf automake perl texinfo gnatprove highlight locate
 ```
+### Gnatprove
+index disc with `sudo updatedb` 
 
 ## Building
 
@@ -16,8 +18,14 @@ sudo apt-get update && sudo apt-get install -y autoconf automake perl texinfo gn
 ```console
 ./bootstrap
 ```
-
+### x86_64 
 - Configure for target machine. Other option is `x86_64-limine-elf`:
+```bash
+./configure --target=x86_64-limine-elf
+```
+
+### arch64
+- Configure for target machine. Other option is `riscv64-limine-elf`:
 ```console
 ./configure --target=riscv64-limine-elf
 ```
