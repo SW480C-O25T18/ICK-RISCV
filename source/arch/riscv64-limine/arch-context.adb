@@ -26,7 +26,7 @@ with Arch.Interrupts;  use Arch.Interrupts;
 
 package body Arch.Context is
 
-   --Package Variables, Constants, and Types
+   --Start Package Body Specific Variables, Constants, and Types
    ------------------------------------------
    type GP_Context_Type is record
       SP      : Unsigned_64;
@@ -47,7 +47,13 @@ package body Arch.Context is
    FP_Save_Routine : FP_Save_Routine_Type;
    FP_Load_Routine : FP_Load_Routine_Type;
 
-   -- Public Sectiom
+   ------------------------------------------
+   --End Package Body Specific Variables, Constants, and Types
+
+   -- Start Public Sectiom
+   ------------------------------------------
+
+   -- Start General-Purpose Section
    ------------------------------------------
 
    -- Initialize the general-purpose context
@@ -88,6 +94,12 @@ package body Arch.Context is
       loop null; end loop;
    end Load_GP_Context;
 
+   ------------------------------------------
+   -- End General-Purpose Section
+
+   -- Start Core and Fork Section
+   ------------------------------------------
+
    -- Show that the forked process has returned successfully
    procedure Success_Fork_Result(Ctx : in out GP_Context) is
       Ctx_Impl : GP_Context_Type := To_GP_Context_Type(Ctx);
@@ -112,6 +124,12 @@ package body Arch.Context is
       pragma Assert(Ctx.Hart_ID = Current_Hart, "Saved core context must have the current hart ID");
       pragma Assert(Ctx.Number = Core_Index, "Saved core context must have the correct core number");
    end Save_Core_Context;
+
+   ------------------------------------------
+   -- End Core and Fork Section
+
+   -- Start Floating-Point Section
+   ------------------------------------------
 
    -- Initialize the floating-point context
    procedure Init_FP_Context(Ctx : out FP_Context) is
@@ -144,11 +162,17 @@ package body Arch.Context is
    end Destroy_FP_Context;
 
    ------------------------------------------
+   -- End Floating-Point Section
+
+   ------------------------------------------
    -- End Public Section
 
-   -- Internal Section
+   -- Start Internal Section
    ------------------------------------------
 
+   -- Start Conversion Section
+   ------------------------------------------
+   
    -- Convert a GP_Context_Type record to a GP_Context record
    function To_Frame(Ctx : GP_Context_Type) return GP_Context is
       pragma Inline;
@@ -177,6 +201,15 @@ package body Arch.Context is
       );
    end To_GP_Context_Type;
 
+   ------------------------------------------
+   -- End Conversion Section
+
+   -- Start Floating-Point Section
+   ------------------------------------------
+
+   -- No-op FP Section
+   ------------------------------------------
+
    -- No-op save and load routines for when the F, D, and Q extensions are not present
    procedure FP_Save_NoOp(Ctx : in out FP_Context) is
    begin
@@ -188,6 +221,9 @@ package body Arch.Context is
    begin
       null;
    end FP_Load_NoOp;
+
+   -- Single Precision FP Section
+   ------------------------------------------
 
    -- Save the single-precision floating-point registers of the context
    procedure Save_FP_Context_F(Ctx : in out FP_Context) is
@@ -216,6 +252,9 @@ package body Arch.Context is
       end loop;
    end Load_FP_Context_F;
 
+   -- Double Precision FP Section
+   ------------------------------------------
+
    -- Save the double-precision floating-point registers of the context
    procedure Save_FP_Context_D(Ctx : in out FP_Context) is
       FP_Ptr : System.Address := FP_Context'Address(Ctx);
@@ -243,6 +282,9 @@ package body Arch.Context is
       end loop;
    end Load_FP_Context_D;
 
+   -- FP Routine Selection Section
+   ------------------------------------------
+
    -- Set the FP save and load routines based on the MISA register
    procedure Setup_FP_Routines is
    begin
@@ -261,6 +303,9 @@ package body Arch.Context is
       pragma Assert(FP_Save_Routine /= null and FP_Load_Routine /= null,
                     "FP dispatch routines must be set");
    end Setup_FP_Routines;
+
+   ------------------------------------------
+   -- End Floating-Point Section
 
    ------------------------------------------
    -- End Internal Section
