@@ -1,5 +1,5 @@
 --  Import tests and suites to run
-with RV64_Test_Suite;
+with Context_Test_Suite;
 with AUnit.Tests;
 package body Arch_RV64_Test_Suite is
    use Test_Suites;
@@ -11,7 +11,7 @@ package body Arch_RV64_Test_Suite is
    function Suite return Access_Test_Suite is
       Result : Access_Test_Suite := AUnit.Test_Suites.New_Suite;
    begin
-      Result.Add_Test (RV64_Test_Suite.Suite);
+      Result.Add_Test (Context_Test_Suite.Suite);
       return Result;
    end Suite;
 end Arch_RV64_Test_Suite;
