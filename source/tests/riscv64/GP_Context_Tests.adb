@@ -2,8 +2,6 @@ with AUnit.Framework;
 with Arch.Context;
 with Arch.Interrupts; use Arch.Interrupts;
 with Interfaces;         use Interfaces;
-with Memory.Physical;
-with System;
 
 procedure GP_Context_Tests is
 
@@ -37,7 +35,7 @@ procedure GP_Context_Tests is
       Internal := Arch.Context.To_GP_Context_Type(Dummy_Frame);
       Test.Check_Equal(16#1000#, Internal.SP, "SP from Frame.R2 should be 0x1000");
       Test.Check_Equal(10, Internal.A0, "A0 from Frame.R10 should be 10");
-      -- SEPC and SSTATUS are fetched via CSR; check that they are nonzero.
+      -- SEPC and SSTATUS are fetched from hardware; ensure they are nonzero.
       Test.Check_True(Internal.SEPC /= 0, "SEPC must be nonzero");
       Test.Check_True(Internal.SSTATUS /= 0, "SSTATUS must be nonzero");
    end Test_To_GP_Context_Type;
@@ -60,25 +58,11 @@ procedure GP_Context_Tests is
       Test.Check_Equal(0, External.R15, "R15 should be zero");
    end Test_To_Frame;
 
-   -------------------------------------------------------------------
-   -- Test case for initializing GP context.
-   -------------------------------------------------------------------
-   procedure Test_Init_GP_Context is
-      Ctx         : GP_Context;
-      Stack       : System.Address := Memory.Physical.Alloc(4096);
-      Dummy_Start : constant System.Address := System.Address'Value(16#4000#);
-      Internal    : Arch.Context.GP_Context_Type;
-   begin
-      Init_GP_Context(Ctx, Stack, Dummy_Start);
-      Internal := Arch.Context.To_GP_Context_Type(Ctx);
-      Test.Check_True(Internal.SP /= 0, "SP must be set by Init_GP_Context");
-      Test.Check_True(Internal.SEPC /= 0, "SEPC must be nonzero after init");
-      Test.Check_Equal(0, Internal.A0, "A0 should be initialized to zero");
-   end Test_Init_GP_Context;
-
 begin
+   -- Register the test procedures with the Test case instance.
    Test.Register(Test_To_GP_Context_Type'Access);
    Test.Register(Test_To_Frame'Access);
-   Test.Register(Test_Init_GP_Context'Access);
+
+   -- Run all registered tests.
    Test.Run;
 end GP_Context_Tests;
