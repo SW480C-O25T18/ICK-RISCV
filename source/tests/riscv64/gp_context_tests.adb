@@ -65,7 +65,7 @@ package body GP_Context_Tests is
       Check_Equal(0, Internal.A0, "A0 should be initialized to zero");
    end Test_Init_GP_Context;
 
-   procedure Register_Tests (T : in out GP_Context_Test) is
+   overriding procedure Register_Tests (T : in out GP_Context_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_To_GP_Context_Type'Access, "Test_To_GP_Context_Type");
@@ -73,7 +73,7 @@ package body GP_Context_Tests is
       Register_Routine(T, Test_Init_GP_Context'Access, "Test_Init_GP_Context");
    end Register_Tests;
 
-   function Name (T : GP_Context_Test) return Message_String is
+   overriding function Name (T : GP_Context_Test) return Message_String is
    begin
       return "GP_Context_Tests";
    end Name;

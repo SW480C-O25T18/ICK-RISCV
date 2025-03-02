@@ -28,13 +28,13 @@ package body Success_Fork_Result_Tests is
                     "SEPC should be advanced by 4 bytes after fork");
    end Test_Success_Fork;
 
-   procedure Register_Tests (T : in out Success_Fork_Test) is
+   overriding procedure Register_Tests (T : in out Success_Fork_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_Success_Fork'Access, "Test_Success_Fork");
    end Register_Tests;
 
-   function Name (T : Success_Fork_Test) return Message_String is
+   overriding function Name (T : Success_Fork_Test) return Message_String is
    begin
       return "Success_Fork_Result_Tests";
    end Name;

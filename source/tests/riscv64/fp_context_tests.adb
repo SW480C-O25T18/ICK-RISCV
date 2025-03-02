@@ -37,7 +37,7 @@ package body FP_Context_Tests is
       Check_True(FP_Load_Routine /= null, "FP_Load_Routine must not be null");
    end Test_FP_Dispatch;
 
-   procedure Register_Tests (T : in out FP_Context_Test) is
+   overriding procedure Register_Tests (T : in out FP_Context_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_Init_FP_Context'Access, "Test_Init_FP_Context");
@@ -45,7 +45,7 @@ package body FP_Context_Tests is
       Register_Routine(T, Test_FP_Dispatch'Access, "Test_FP_Dispatch");
    end Register_Tests;
 
-   function Name (T : FP_Context_Test) return Message_String is
+   overriding function Name (T : FP_Context_Test) return Message_String is
    begin
       return "FP_Context_Tests";
    end Name;

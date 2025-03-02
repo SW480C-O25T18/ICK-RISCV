@@ -27,13 +27,13 @@ package body Core_Context_Tests is
          "Saved core context must have the correct core number");
    end Test_Save_Core_Context;
 
-   procedure Register_Tests (T : in out Core_Context_Test) is
+   overriding procedure Register_Tests (T : in out Core_Context_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_Save_Core_Context'Access, "Test_Save_Core_Context");
    end Register_Tests;
 
-   function Name (T : Core_Context_Test) return Message_String is
+   overriding function Name (T : Core_Context_Test) return Message_String is
    begin
       return "Core_Context_Tests";
    end Name;
