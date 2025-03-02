@@ -1,0 +1,3 @@
+test_harness.adb:3:06: error: file "arch_rv64_test_suite.ads" does not contain expected unit
+test_harness.adb:3:06: error: expected unit "Arch_Rv64_Test_Suite (spec)"
+test_harness.adb:3:06: error: found unit "Composite_Suite (spec)"
