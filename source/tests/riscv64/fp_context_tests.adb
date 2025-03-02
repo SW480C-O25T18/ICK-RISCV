@@ -1,54 +1,53 @@
-with AUnit.Test_Cases;
+with AUnit.Assertions; use AUnit.Assertions;
+with AUnit.Test_Cases.Registration; use AUnit.Test_Cases.Registration;
 with Arch.Context; use Arch.Context;
+with AUnit; use AUnit;
+with AUnit.Test_Cases; use AUnit.Test_Cases;
 with Interfaces; use Interfaces;
 
-procedure FP_Context_Tests is
+package body FP_Context_Tests is
 
-   package Test is new AUnit.Test_Cases.Test_Case("FP_Context_Tests");
-
-   -- Dummy FP context (assumed to be an array of Unsigned_8)
    Dummy_FP_Context : FP_Context;
 
-   -------------------------------------------------------------------
-   -- Test FP context initialization zeroes all elements.
-   -------------------------------------------------------------------
-   procedure Test_Init_FP_Context is
+   procedure Test_Init_FP_Context (T : in out Test_Case'Class) is
       I : Integer;
    begin
       Init_FP_Context(Dummy_FP_Context);
       for I in FP_Context'Range loop
-         Test.Check_Equal(0, Dummy_FP_Context(I),
+         Check_Equal(0, Dummy_FP_Context(I),
             "FP context element " & I'Image & " should be zero after initialization");
       end loop;
    end Test_Init_FP_Context;
 
-   -------------------------------------------------------------------
-   -- Test FP context destruction zeroes all elements.
-   -------------------------------------------------------------------
-   procedure Test_Destroy_FP_Context is
+   procedure Test_Destroy_FP_Context (T : in out Test_Case'Class) is
       I : Integer;
    begin
       Init_FP_Context(Dummy_FP_Context);
       Destroy_FP_Context(Dummy_FP_Context);
       for I in FP_Context'Range loop
-         Test.Check_Equal(0, Dummy_FP_Context(I),
+         Check_Equal(0, Dummy_FP_Context(I),
             "FP context element " & I'Image & " should be zero after destruction");
       end loop;
    end Test_Destroy_FP_Context;
 
-   -------------------------------------------------------------------
-   -- Test FP dispatch routines are set.
-   -------------------------------------------------------------------
-   procedure Test_FP_Dispatch is
+   procedure Test_FP_Dispatch (T : in out Test_Case'Class) is
    begin
       Setup_FP_Routines;
-      Test.Check_True(FP_Save_Routine /= null, "FP_Save_Routine must not be null");
-      Test.Check_True(FP_Load_Routine /= null, "FP_Load_Routine must not be null");
+      Check_True(FP_Save_Routine /= null, "FP_Save_Routine must not be null");
+      Check_True(FP_Load_Routine /= null, "FP_Load_Routine must not be null");
    end Test_FP_Dispatch;
 
-begin
-   Test.Register(Test_Init_FP_Context'Access);
-   Test.Register(Test_Destroy_FP_Context'Access);
-   Test.Register(Test_FP_Dispatch'Access);
-   Test.Run;
+   procedure Register_Tests (T : in out FP_Context_Test) is
+      use AUnit.Test_Cases.Registration;
+   begin
+      Register_Routine(T, Test_Init_FP_Context'Access, "Test_Init_FP_Context");
+      Register_Routine(T, Test_Destroy_FP_Context'Access, "Test_Destroy_FP_Context");
+      Register_Routine(T, Test_FP_Dispatch'Access, "Test_FP_Dispatch");
+   end Register_Tests;
+
+   function Name (T : FP_Context_Test) return Message_String is
+   begin
+      return "FP_Context_Tests";
+   end Name;
+
 end FP_Context_Tests;

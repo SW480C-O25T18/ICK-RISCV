@@ -1,42 +1,41 @@
-with AUnit.Test_Cases;
+with AUnit.Assertions; use AUnit.Assertions;
+with AUnit.Test_Cases.Registration; use AUnit.Test_Cases.Registration;
 with Arch.Context; use Arch.Context;
+with AUnit; use AUnit;
+with AUnit.Test_Cases; use AUnit.Test_Cases;
 
-procedure CSR_Extension_Tests is
+package body CSR_Extension_Tests is
 
-   package Test is new AUnit.Test_Cases.Test_Case("CSR_Extension_Tests");
-
-   -------------------------------------------------------------------
-   -- Test to verify that the cached MISA_Value is nonzero.
-   -------------------------------------------------------------------
-   procedure Test_MISA_Value is
+   procedure Test_MISA_Value (T : in out Test_Case'Class) is
    begin
-      Test.Check_True(MISA_Value /= 0, "Cached MISA_Value must be nonzero");
+      Check_True(MISA_Value /= 0, "Cached MISA_Value must be nonzero");
    end Test_MISA_Value;
 
-   -------------------------------------------------------------------
-   -- Test to verify FP extension bit detection based on MISA_Value.
-   -------------------------------------------------------------------
-   procedure Test_FP_Extension_Bits is
+   procedure Test_FP_Extension_Bits (T : in out Test_Case'Class) is
    begin
       if (MISA_Value and F_Extension_Bit) /= 0 then
-         Test.Check_True(Has_Extension(F_Extension_Bit),
-            "F extension should be detected");
+         Check_True(Has_Extension(F_Extension_Bit), "F extension should be detected");
       else
-         Test.Check_True(not Has_Extension(F_Extension_Bit),
-            "F extension should not be detected");
+         Check_True(not Has_Extension(F_Extension_Bit), "F extension should not be detected");
       end if;
       
       if (MISA_Value and D_Extension_Bit) /= 0 then
-         Test.Check_True(Has_Extension(D_Extension_Bit),
-            "D extension should be detected");
+         Check_True(Has_Extension(D_Extension_Bit), "D extension should be detected");
       else
-         Test.Check_True(not Has_Extension(D_Extension_Bit),
-            "D extension should not be detected");
+         Check_True(not Has_Extension(D_Extension_Bit), "D extension should not be detected");
       end if;
    end Test_FP_Extension_Bits;
 
-begin
-   Test.Register(Test_MISA_Value'Access);
-   Test.Register(Test_FP_Extension_Bits'Access);
-   Test.Run;
+   procedure Register_Tests (T : in out CSR_Extension_Test) is
+      use AUnit.Test_Cases.Registration;
+   begin
+      Register_Routine(T, Test_MISA_Value'Access, "Test_MISA_Value");
+      Register_Routine(T, Test_FP_Extension_Bits'Access, "Test_FP_Extension_Bits");
+   end Register_Tests;
+
+   function Name (T : CSR_Extension_Test) return Message_String is
+   begin
+      return "CSR_Extension_Tests";
+   end Name;
+
 end CSR_Extension_Tests;
