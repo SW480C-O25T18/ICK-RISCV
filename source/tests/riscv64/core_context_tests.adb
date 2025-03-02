@@ -1,10 +1,10 @@
-with AUnit.Framework;
+with AUnit.Test_Cases;
 with Arch.Context; use Arch.Context;
 with Arch.CPU;      use Arch.CPU;
 
 procedure Core_Context_Tests is
 
-   package Test is new AUnit.Framework.Test_Case("Core_Context_Tests");
+   package Test is new AUnit.Test_Cases.Test_Case("Core_Context_Tests");
 
    -------------------------------------------------------------------
    -- Test that Save_Core_Context saves the correct per-core state.

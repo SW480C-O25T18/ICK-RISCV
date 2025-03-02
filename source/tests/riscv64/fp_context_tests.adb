@@ -1,10 +1,10 @@
-with AUnit.Framework;
+with AUnit.Test_Cases;
 with Arch.Context; use Arch.Context;
 with Interfaces; use Interfaces;
 
 procedure FP_Context_Tests is
 
-   package Test is new AUnit.Framework.Test_Case("FP_Context_Tests");
+   package Test is new AUnit.Test_Cases.Test_Case("FP_Context_Tests");
 
    -- Dummy FP context (assumed to be an array of Unsigned_8)
    Dummy_FP_Context : FP_Context;

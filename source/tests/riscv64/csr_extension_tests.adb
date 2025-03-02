@@ -1,9 +1,9 @@
-with AUnit.Framework;
+with AUnit.Test_Cases;
 with Arch.Context; use Arch.Context;
 
 procedure CSR_Extension_Tests is
 
-   package Test is new AUnit.Framework.Test_Case("CSR_Extension_Tests");
+   package Test is new AUnit.Test_Cases.Test_Case("CSR_Extension_Tests");
 
    -------------------------------------------------------------------
    -- Test to verify that the cached MISA_Value is nonzero.

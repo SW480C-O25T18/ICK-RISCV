@@ -1,4 +1,4 @@
-with AUnit.Framework;
+with AUnit.Test_Cases;
 with Arch.Context; use Arch.Context;
 with Arch.Interrupts; use Arch.Interrupts;
 with Interfaces; use Interfaces;
@@ -6,7 +6,7 @@ with Memory.Physical;
 with System;
 
 procedure Success_Fork_Result_Tests is
-   package Test is new AUnit.Framework.Test_Case("Success_Fork_Result_Tests");
+   package Test is new AUnit.Test_Cases.Test_Case("Success_Fork_Result_Tests");
 
    -- Test_Success_Fork verifies that Success_Fork_Result properly sets A0 to 0
    -- and advances SEPC by 4 bytes.
