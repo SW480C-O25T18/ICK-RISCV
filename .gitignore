@@ -3,22 +3,7 @@
 .vscode/
 
 # Ignore directories we don't want to modify
-.github/
-autom3te.cache/
-build-aux/
-docs/
-biggnat-hack/
-obj/
-rtsdir/
-scripts/
-/source/cryptography/
-/source/devices/
-/source/lib/
-/source//memory/
-/source/networking/
-/source/rts/
-/source/userland/
-/source/vfs/
+
 
 # Ignore Build Files and Directories
 /source/tests/obj/
