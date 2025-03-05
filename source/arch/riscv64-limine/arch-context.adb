@@ -66,6 +66,7 @@ package body Arch.Context is
       Stack_Int    : Integer := To_Integer(Stack);
       Start_Int    : Integer := To_Integer(Start_Addr);
    begin
+      -- Verify that the stack and start addresses are valid.
       pragma Assume(Stack /= System.Null_Address and Start_Addr /= System.Null_Address);
       pragma Assert(Stack_Int mod 16 = 0, "Stack address must be 16-byte aligned");
       pragma Assert(Start_Int /= 0, "Start address must be nonzero");
@@ -79,6 +80,7 @@ package body Arch.Context is
       -- Convert internal context representation to external frame.
       Ctx := To_Frame(Ctx_Impl);
       
+      -- Validate that critical registers are properly set.
       pragma Assert(Ctx.R2 = Unsigned_32(Stack_Int and 16#FFFFFFFF#), "Stack pointer correctly set");
       pragma Assert(Ctx.R10 = 0, "Initial fork return value must be zero");
    end Init_GP_Context;
@@ -115,10 +117,12 @@ package body Arch.Context is
       Ctx_Impl : GP_Context_Type := To_GP_Context_Type(Ctx);
       Old_SEPC : Unsigned_64 := Ctx_Impl.SEPC;
    begin
+      -- Set the a0 return register and advance the SEPC for the forked process.
       Ctx_Impl.A0 := 0;
       Ctx_Impl.SEPC := Ctx_Impl.SEPC + 4;  -- Advance by one instruction.
       Ctx := To_Frame(Ctx_Impl);
       
+      -- Validate that the forked process has the correct return value and SEPC.
       pragma Assert(Ctx.R10 = 0, "Forked process must return zero");
       pragma Assert(Ctx_Impl.SEPC > Old_SEPC, "SEPC should have advanced");
    end Success_Fork_Result;
@@ -129,10 +133,12 @@ package body Arch.Context is
       -- Map current hart ID to a 1-based index in Core_Locals.
       Core_Index   : constant Positive := Positive(Integer(Current_Hart) + 1);
    begin
+      -- Validate that the core index is within bounds.
       pragma Assert(Core_Index <= Core_Count, "Core index out of bounds");
       -- Save the entire per-core state from Core_Locals.
       Ctx := Core_Locals(Core_Index);
       
+      -- Validate that the saved core context has saved the correct core.
       pragma Assert(Ctx.Hart_ID = Current_Hart, "Saved core context must have the current hart ID");
       pragma Assert(Ctx.Number = Core_Index, "Saved core context must have the correct core number");
    end Save_Core_Context;
@@ -147,10 +153,12 @@ package body Arch.Context is
    procedure Init_FP_Context(Ctx : out FP_Context) is
    begin
       Ctx := (others => 0);
+      -- Assert that the FP context is zeroed after initialization.
       pragma Assert(for all I in FP_Context'Range => Ctx(I) = 0,
                     "FP context must be zeroed at init");
       Setup_FP_Routines;
       FP_Save_Routine.all(Ctx);
+      -- Assert that the FP context is zeroed after the save routine.
       pragma Assert(for all I in FP_Context'Range => Ctx(I) = 0, 
                     "FP context should remain zero after Init_FP_Context");
    end Init_FP_Context;
@@ -171,6 +179,7 @@ package body Arch.Context is
    procedure Destroy_FP_Context(Ctx : in out FP_Context) is
    begin
       Ctx := (others => 0);
+      -- Assert that the FP context is zeroed after destruction.
       pragma Assert(for all I in FP_Context'Range => Ctx(I) = 0, "FP context successfully destroyed");
    end Destroy_FP_Context;
 
@@ -188,8 +197,10 @@ package body Arch.Context is
    
    -- Convert a GP_Context_Type record to a GP_Context record
    function To_Frame(Ctx : GP_Context_Type) return GP_Context is
+      -- Tell compiler to inline this function.
       pragma Inline;
    begin
+      -- Assert that the register values are within bounds.
       pragma Assert(Ctx.SP <= 16#FFFFFFFF#, "Internal SP exceeds 32 bits");
       pragma Assert(Ctx.A0 <= 16#FFFFFFFF#, "Internal A0 exceeds 32 bits");
       return (
@@ -201,8 +212,10 @@ package body Arch.Context is
 
    -- Convert a GP_Context record to a GP_Context_Type record
    function To_GP_Context_Type(Frame : GP_Context) return GP_Context_Type is
+      -- Tell compiler to inline this function.
       pragma Inline;
    begin
+      -- Assert that the register values are within bounds.
       pragma Assert(Frame.R2 <= 16#FFFFFFFF#, "Frame.R2 invalid");
       pragma Assert(Frame.R10 <= 16#FFFFFFFF#, "Frame.R10 invalid");
       return (
@@ -241,6 +254,7 @@ package body Arch.Context is
    procedure Save_FP_Context_F(Ctx : in out FP_Context) is
       FP_Ptr : System.Address := FP_Context'Address(Ctx);
    begin
+      -- Assert that the FP context pointer is not null.
       pragma Assert(FP_Ptr /= System.Null_Address, "FP context pointer must not be null");
       for Reg in 0 .. 31 loop
          -- Save each single-precision FP register.
@@ -258,6 +272,7 @@ package body Arch.Context is
    procedure Load_FP_Context_F(Ctx : FP_Context) is
       FP_Ptr : System.Address := FP_Context'Address(Ctx);
    begin
+      -- Assert that the FP context pointer is not null.
       pragma Assert(FP_Ptr /= System.Null_Address, "FP context pointer must not be null");
       for Reg in 0 .. 31 loop
          -- Load each single-precision FP register.
@@ -274,6 +289,7 @@ package body Arch.Context is
    procedure Save_FP_Context_D(Ctx : in out FP_Context) is
       FP_Ptr : System.Address := FP_Context'Address(Ctx);
    begin
+      -- Assert that the FP context pointer is not null.
       pragma Assert(FP_Ptr /= System.Null_Address, "FP context pointer must not be null");
       for Reg in 0 .. 31 loop
          -- Save each double-precision FP register.
@@ -290,6 +306,7 @@ package body Arch.Context is
    procedure Load_FP_Context_D(Ctx : FP_Context) is
       FP_Ptr : System.Address := FP_Context'Address(Ctx);
    begin
+      -- Assert that the FP context pointer is not null.
       pragma Assert(FP_Ptr /= System.Null_Address, "FP context pointer must not be null");
       for Reg in 0 .. 31 loop
          -- Load each double-precision FP register.
@@ -305,6 +322,7 @@ package body Arch.Context is
    -- Set the FP save and load routines based on the MISA register
    procedure Setup_FP_Routines is
    begin
+      -- Set the FP save and load routines based on the MISA register.
       if (MISA_Value and F_Extension_Bit) /= 0 then
          if (MISA_Value and D_Extension_Bit) /= 0 then
             FP_Save_Routine := FP_Save_Routine_Type'(Save_FP_Context_D'Access);
@@ -318,8 +336,7 @@ package body Arch.Context is
          FP_Load_Routine := FP_Load_Routine_Type'(FP_Load_NoOp'Access);
       end if;
       -- Assert FP routines are properly set.
-      pragma Assert(FP_Save_Routine /= null and FP_Load_Routine /= null,
-                    "FP dispatch routines must be set");
+      pragma Assert(FP_Save_Routine /= null and FP_Load_Routine /= null, "FP dispatch routines must be set");
    end Setup_FP_Routines;
 
    ------------------------------------------
