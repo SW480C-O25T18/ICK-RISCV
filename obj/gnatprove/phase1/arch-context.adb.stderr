@@ -1,8 +1,0 @@
-
-[01m[Karch-context.adb:213:22: [m[K[01;31m[Kerror: [m[Kquantified expression must be parenthesized
-  213 |      pragma Assert ([01;31m[Kfor all I in FP_Context'Range => Ctx(I) = 0[m[K,
-      |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-
-[01m[Karch-context.adb:234:22: [m[K[01;31m[Kerror: [m[Kquantified expression must be parenthesized
-  234 |      pragma Assert ([01;31m[Kfor all I in FP_Context'Range => Ctx(I) = 0[m[K,
-      |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
