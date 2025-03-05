@@ -3,7 +3,7 @@ with AUnit.Test_Cases.Registration; use AUnit.Test_Cases.Registration;
 with Arch.Context; use Arch.Context;
 with AUnit; use AUnit;
 with AUnit.Test_Cases; use AUnit.Test_Cases;
-
+with Test.Stubs; use Test.Stubs;  -- Using our stub for Has_Extension
 package body CSR_Extension_Tests is
 
    procedure Test_MISA_Value (T : in out Test_Case'Class) is

@@ -65,12 +65,30 @@ package body GP_Context_Tests is
       Check_Equal(0, Internal.A0, "A0 should be initialized to zero");
    end Test_Init_GP_Context;
 
+   -- Test verifying fork success behavior.
+   procedure Test_Success_Fork_Result (T : in out Test_Case'Class) is
+      Ctx         : Arch.Context.GP_Context;
+      Stack       : System.Address := Memory.Physical.Alloc(4096);
+      Dummy_Start : constant System.Address := System.Address'Value(16#5000#);
+      Internal    : Arch.Context.GP_Context_Type;
+      Old_SEPC    : Unsigned_64;
+   begin
+      Arch.Context.Init_GP_Context(Ctx, Stack, Dummy_Start);
+      Internal := Arch.Context.To_GP_Context_Type(Ctx);
+      Old_SEPC := Internal.SEPC;
+      Arch.Context.Success_Fork_Result(Ctx);
+      Internal := Arch.Context.To_GP_Context_Type(Ctx);
+      Check_Equal(0, Internal.A0, "A0 should be set to 0 by Success_Fork_Result");
+      Check_True(Internal.SEPC > Old_SEPC, "SEPC should be advanced after Success_Fork_Result");
+   end Test_Success_Fork_Result;
+
    overriding procedure Register_Tests (T : in out GP_Context_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_To_GP_Context_Type'Access, "Test_To_GP_Context_Type");
       Register_Routine(T, Test_To_Frame'Access, "Test_To_Frame");
       Register_Routine(T, Test_Init_GP_Context'Access, "Test_Init_GP_Context");
+      Register_Routine(T, Test_Success_Fork_Result'Access, "Test_Success_Fork_Result");
    end Register_Tests;
 
    overriding function Name (T : GP_Context_Test) return Message_String is
