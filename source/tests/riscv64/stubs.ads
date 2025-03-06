@@ -16,4 +16,4 @@ package Stubs is
 
    -- Stub for FP extension detection.
    function Has_Extension(Bit : Interfaces.Unsigned_64) return Boolean;
-end Test.Stubs;
+end Stubs;

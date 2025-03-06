@@ -20,4 +20,4 @@ package body Stubs is
          return False;
       end if;
    end Has_Extension;
-end Test.Stubs;
+end Stubs;
