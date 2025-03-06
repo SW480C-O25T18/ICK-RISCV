@@ -1,0 +1,9 @@
+with AUnit; use AUnit;
+with AUnit.Test_Cases; use AUnit.Test_Cases;
+
+package CSR_Extension_Tests is
+   type CSR_Extension_Test is new Test_Cases.Test_Case with null record;
+   overriding function Name (T : CSR_Extension_Test) return Test_String;
+   procedure Register_Tests (T : in out CSR_Extension_Test);
+   Test_Case : constant access CSR_Extension_Test := new CSR_Extension_Test'(Name => "CSR_Extension_Tests");
+end CSR_Extension_Tests;
