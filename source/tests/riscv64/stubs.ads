@@ -1,6 +1,6 @@
 with Interfaces;
 with System;
-package Test.Stubs is
+package Stubs is
    type Core_Context_Record is record
       User_Stack : System.Address;
       Hart_ID    : Interfaces.Unsigned_64;

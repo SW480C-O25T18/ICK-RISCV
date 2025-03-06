@@ -1,6 +1,6 @@
 with Interfaces;
 with System;
-package body Test.Stubs is
+package body Stubs is
 
    procedure Initialize_Core_Locals is
    begin
