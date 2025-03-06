@@ -3,7 +3,7 @@ with AUnit.Test_Cases.Registration; use AUnit.Test_Cases.Registration;
 with Arch.Context; use Arch.Context;
 with AUnit; use AUnit;
 with AUnit.Test_Cases; use AUnit.Test_Cases;
-with Test.Stubs; use Test.Stubs;  -- Using our stub for Has_Extension
+with Test.Stubs; use Test.Stubs;
 package body CSR_Extension_Tests is
 
    procedure Test_MISA_Value (T : in out Test_Case'Class) is
@@ -26,7 +26,7 @@ package body CSR_Extension_Tests is
       end if;
    end Test_FP_Extension_Bits;
 
-   overriding procedure Register_Tests (T : in out CSR_Extension_Test) is
+   procedure Register_Tests (T : in out CSR_Extension_Test) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine(T, Test_MISA_Value'Access, "Test_MISA_Value");

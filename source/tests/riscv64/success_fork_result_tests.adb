@@ -30,7 +30,7 @@ package body Success_Fork_Result_Tests is
       Register_Routine(T, Test_Success_Fork_Result'Access, "Test_Success_Fork_Result");
    end Register_Tests;
 
-   overriding function Name (T : Success_Fork_Result_Test) return Message_String is
+   overriding function Name (T : Success_Fork_Result_Test) return Test_String is
    begin
       return "Success_Fork_Result_Tests";
    end Name;
