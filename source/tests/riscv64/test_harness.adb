@@ -2,7 +2,7 @@ with AUnit.Reporter.Text;
 with AUnit.Run;
 with Arch_RV64_Test_Suite;
 with Ada.Text_IO;
-with Test.Stubs; use Test.Stubs;
+with Stubs; use Stubs;
 
 procedure Test_Harness is
    -- Instantiate the test runner for the RISC-V context switch test suite.
