@@ -30,7 +30,7 @@ is
       Synchronization.Seize (Panic_Mutex);
 
       --  Tell the rest of the cores to go take a nap, forever.
-      Arch.Hooks.Panic_SMP_Hook;
+      Arch.Hooks.Panic_SMP_Hook; -- Make sure that riscv64 arch-hooks is complete.
 
       --  Print the error and lights out.
       Messages.Put_Line (HP & "                   --:::-+*.            " & RC);
@@ -43,6 +43,6 @@ is
       Messages.Put_Line (HP & "+++++++=----====-=%    -:            .- " & RC);
       Messages.Put_Line (HP & "++++++++=---=+++++%     +               " & RC);
       Messages.Put_Line (Panic_Header & Message & RC);
-      Arch.Snippets.HCF;
+      Arch.Snippets.HCF;   -- Make sure that riscv64 arch-snippets HCF procudure is complete.
    end Hard_Panic;
 end Lib.Panic;
